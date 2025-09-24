@@ -1,0 +1,287 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact Us",
+    "loyal": "Loyal Program",
+    "partner": "Partner Program"
+  },
+  "hero": {
+    "title": "Your Partner in IT Innovation",
+    "subtitle": "StackHubs delivers cutting-edge IT services, from network and security to IoT and automation, empowering your business for the future.",
+    "cta": "Explore Our Services"
+  },
+  "hubs": {
+    "ai": "AI Hub",
+    "network": "Network Hub",
+    "infosec": "InfoSec Hub",
+    "wifi": "WiFi Hub",
+    "cloud": "Cloud Hub",
+    "iot": "IoT Hub",
+    "automation": "Automation Hub",
+    "sap": "SAP ERP Hub",
+    "training": "Training Hub"
+  },
+  "services": {
+    "aiHub": {
+      "title": "AI Hub",
+      "subtitle": "Intelligent solutions powered by machine learning and LLMs",
+      "services": {
+        "chatbots": "AI Chatbots",
+        "rag": "RAG Systems",
+        "visionNlp": "Vision / NLP",
+        "automation": "Automation"
+      },
+      "descriptions": {
+        "chatbots": "Custom assistants integrated with your data",
+        "rag": "Search-augmented generation over your knowledge base",
+        "visionNlp": "Image and text intelligence for apps and workflows",
+        "automation": "Agentic flows to automate repetitive tasks"
+      }
+    },
+    "title": "Our Service Hubs",
+    "subtitle": "Comprehensive IT solutions designed to meet your business needs across multiple technology domains",
+    "networkHub": {
+      "title": "Network Hub",
+      "subtitle": "Building robust network infrastructure for your business",
+      "services": {
+        "consultation": "Consultation",
+        "managed": "Managed Service",
+        "implementation": "Implementation",
+        "auditing": "Auditing",
+        "modernization": "Modernization"
+      },
+      "descriptions": {
+        "consultation": "Expert network architecture planning and strategy development",
+        "managed": "24/7 network monitoring, maintenance, and optimization",
+        "implementation": "Professional network deployment and configuration",
+        "auditing": "Performance analysis, security audit, and compliance checks",
+        "modernization": "Legacy system upgrades and infrastructure transformation"
+      }
+    },
+    "infosecHub": {
+      "title": "InfoSec Hub",
+      "subtitle": "Comprehensive cybersecurity solutions to protect your assets",
+      "services": {
+        "vulnerability": "Vulnerability Testing",
+        "incident": "Incident Response",
+        "compliance": "Compliance",
+        "monitoring": "Security Monitoring"
+      },
+      "descriptions": {
+        "vulnerability": "Security risk assessment and compliance strategy development",
+        "incident": "Continuous security monitoring and threat response",
+        "compliance": "Security solution deployment and integration",
+        "monitoring": "24/7 security monitoring and threat detection"
+      }
+    },
+    "iotHub": {
+      "title": "IoT Hub",
+      "subtitle": "Smart IoT solutions for connected business operations",
+      "services": {
+        "deviceManagement": "Device Management",
+        "edgeComputing": "Edge Computing",
+        "iotSecurity": "IoT Security",
+        "predictiveMaintenance": "Predictive Maintenance"
+      },
+      "descriptions": {
+        "deviceManagement": "Smart device connectivity and management solutions",
+        "edgeComputing": "Process data closer to IoT devices for faster response times",
+        "iotSecurity": "Comprehensive security for IoT ecosystems",
+        "predictiveMaintenance": "AI-powered predictive maintenance for IoT devices"
+      }
+    },
+    "automationHub": {
+      "title": "Automation Hub",
+      "subtitle": "Intelligent automation solutions for operational efficiency",
+      "services": {
+        "processAutomation": "Process Automation",
+        "workflowOptimization": "Workflow Optimization",
+        "aiIntegration": "AI Integration"
+      },
+      "descriptions": {
+        "processAutomation": "Automate repetitive tasks",
+        "workflowOptimization": "Optimize business processes",
+        "aiIntegration": "Integrate AI into your workflows"
+      }
+    },
+    "sapHub": {
+      "title": "SAP ERP Hub",
+      "subtitle": "Complete SAP ERP solutions and services",
+      "services": {
+        "implementation": "Implementation",
+        "consultation": "Consultation",
+        "support": "Support",
+        "migration": "Data Migration",
+        "security": "Security",
+        "optimization": "Optimization"
+      },
+      "descriptions": {
+        "implementation": "Implement SAP ERP solutions",
+        "consultation": "Consult with our experts",
+        "support": "Get ongoing support",
+        "migration": "Migrate your data to SAP ERP",
+        "security": "Ensure data integrity and security",
+        "optimization": "Optimize your SAP ERP system"
+      }
+    },
+    "trainingHub": {
+      "title": "Training Hub",
+      "subtitle": "Specialized IT training programs for your team",
+      "services": {
+        "technicalTraining": "Technical Training",
+        "certificationPrep": "Certification Preparation",
+        "customWorkshops": "Custom Workshops"
+      },
+      "descriptions": {
+        "technicalTraining": "Train your team on SAP ERP",
+        "certificationPrep": "Prepare for SAP ERP certifications",
+        "customWorkshops": "Custom workshops for your team"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our experts",
+    "info": {
+      "email": "info@stackhubs.com",
+      "phone": "+201149958181",
+      "address": "123 Business District, Tech City, TC 12345"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Address",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "required": "is required!",
+      "requiredFields": "Please fill in all required fields!",
+      "success": "Your message has been sent successfully!"
+    }
+  },
+  "loyal": {
+    "subtitle": "Join our loyalty program and unlock exclusive benefits designed to accelerate your IT success.",
+    "benefits": {
+      "priority": {
+        "title": "Priority Support",
+        "description": "Get priority access to our technical support team"
+      },
+      "discounts": {
+        "title": "Exclusive Discounts",
+        "description": "Special pricing on all our services and solutions"
+      },
+      "accountManager": {
+        "title": "Dedicated Account Manager",
+        "description": "Personal relationship manager for your business needs"
+      },
+      "earlyAccess": {
+        "title": "Early Access",
+        "description": "First access to new services and technologies"
+      }
+    },
+    "tiers": {
+      "title": "Program Tiers",
+      "member": "{{tier}} Member",
+      "features": {
+        "standardSupport": "Standard Support",
+        "prioritySupport": "Priority Support",
+        "support247": "24/7 Dedicated Support"
+      },
+      "bronze": { "name": "Bronze", "description": "Entry level benefits" },
+      "silver": {
+        "name": "Silver",
+        "description": "Enhanced benefits and priority"
+      },
+      "gold": {
+        "name": "Gold",
+        "description": "Premium benefits and VIP treatment"
+      }
+    }
+  },
+  "partner": {
+    "title": "Partner Program",
+    "subtitle": "Join our partner ecosystem and grow your business with StackHubs. Together we deliver exceptional IT solutions.",
+    "benefits": {
+      "strategicPartnerships": {
+        "title": "Strategic Partnerships",
+        "description": "Build long-term strategic relationships with mutual benefits"
+      },
+      "marketExpansion": {
+        "title": "Market Expansion",
+        "description": "Access new markets and customer segments through our network"
+      },
+      "revenueGrowth": {
+        "title": "Revenue Growth",
+        "description": "Increase revenue through joint solutions and referral programs"
+      },
+      "certificationTraining": {
+        "title": "Certification & Training",
+        "description": "Access exclusive training programs and certifications"
+      }
+    },
+    "types": {
+      "technologyPartners": {
+        "title": "Technology Partners",
+        "description": "Integrate your solutions with our platform and services",
+        "benefits": [
+          "Technical integration support",
+          "Joint development strategies",
+          "Co-marketing opportunities"
+        ]
+      },
+      "solutionPartners": {
+        "title": "Solution Partners",
+        "description": "Deliver integrated solutions to our mutual clients",
+        "benefits": [
+          "Referral programs",
+          "Joint solution development",
+          "Collaboration for success"
+        ]
+      },
+      "channelPartners": {
+        "title": "Channel Partners",
+        "description": "Sell and distribute our services in your market",
+        "benefits": [
+          "Competitive pricing",
+          "Sales training and support",
+          "Marketing funds"
+        ]
+      },
+      "partnerRankBenefits": {
+        "title": "Partner Rank Benefits",
+        "description": "Advance through our partner ranks and unlock increasing benefits and commission rates"
+      }
+    },
+    "ctaTitle": "Ready to Partner with StackHubs?",
+    "ctaDescription": "Take the next step in growing your business. Contact us to discuss partnership opportunities.",
+    "ctaButton": "Become a Partner"
+  },
+  "footer": {
+    "company": "Company",
+    "about": "About",
+    "team": "Team",
+    "careers": "Careers",
+    "partners": "Partners",
+    "home": "Home",
+    "services": "Services",
+    "loyal": "Loyal Program",
+    "partner": "Partner Program",
+    "contact": "Contact Us",
+    "followUs": "Follow Us",
+    "copyright": "© 2025 StackHubs. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "success": "Success!"
+  },
+  "chatbot": {
+    "title": "StackHubs Assistant",
+    "online": "Online",
+    "placeholder": "Type your message...",
+    "welcome": "Hello! I'm StackHubs AI Assistant. How can I help you today?"
+  }
+}
