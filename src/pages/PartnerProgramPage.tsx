@@ -12,8 +12,6 @@ import { Button } from "@/components/ui/button";
 import { Handshake, Target, TrendingUp, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-
-
 const PartnerProgramPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -50,21 +48,21 @@ const PartnerProgramPage: React.FC = () => {
       description: t("partner.types.technologyPartners.description"),
       benefits: t("partner.types.technologyPartners.benefits", {
         returnObjects: true,
-      }),
+      }) as string[],
     },
     {
       title: t("partner.types.solutionPartners.title"),
       description: t("partner.types.solutionPartners.description"),
       benefits: t("partner.types.solutionPartners.benefits", {
         returnObjects: true,
-      }),
+      }) as string[],
     },
     {
       title: t("partner.types.channelPartners.title"),
       description: t("partner.types.channelPartners.description"),
       benefits: t("partner.types.channelPartners.benefits", {
         returnObjects: true,
-      }),
+      }) as string[],
     },
   ];
 
