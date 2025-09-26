@@ -4,7 +4,9 @@
     "services": "Services",
     "contact": "Contact Us",
     "loyal": "Loyal Program",
-    "partner": "Partner Program"
+    "partner": "Partner Program",
+    "store": "Store",
+    "order": "My Orders"
   },
   "hero": {
     "title": "Your Partner in IT Innovation",
@@ -276,6 +278,7 @@
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
+    "currency": "EGP",
     "success": "Success!"
   },
   "chatbot": {
@@ -283,5 +286,27 @@
     "online": "Online",
     "placeholder": "Type your message...",
     "welcome": "Hello! I'm StackHubs AI Assistant. How can I help you today?"
+  },
+  "cart": {
+    "add": "Add to Cart"
+  },
+  "checkout": {
+    "title": "Shopping Cart",
+    "products": "Products",
+    "empty": "Cart is empty",
+    "perUnit": "per unit",
+    "remove": "Remove",
+    "total": "Total",
+    "continueShopping": "Continue Shopping",
+    "submit": "Submit Order",
+    "success": "Order sent successfully!",
+    "clearCart": "Clear Cart",
+    "emptyCartAlert": "Your cart is empty. Please add items to proceed.",
+    "clearCartConfirmation": "Are you sure you want to clear the cart?"
+  },
+  "orders": {
+    "empty": "No orders yet.",
+    "orderNumber": "Order number",
+    "date": "Date"
   }
 }

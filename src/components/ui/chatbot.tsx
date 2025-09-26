@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Input } from "../ui/input";
+import { ScrollArea } from "../ui/scroll-area";
+import { Badge } from "../ui/badge";
 import {
   MessageCircle,
   X,
@@ -14,6 +14,11 @@ import {
   User,
   Minimize2,
   Maximize2,
+  Sparkles,
+  Code,
+  Database,
+  Zap,
+  Globe,
 } from "lucide-react";
 
 interface Message {
@@ -21,6 +26,8 @@ interface Message {
   text: string;
   sender: "user" | "bot";
   timestamp: Date;
+  type?: "text" | "code" | "info";
+  category?: string;
 }
 
 interface ChatbotProps {
@@ -28,15 +35,13 @@ interface ChatbotProps {
 }
 
 const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
-  const {i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [projectIndex, setProjectIndex] = useState<
-    Array<{ path: string; content: string }>
-  >([]);
+  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -54,209 +59,343 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
     }
   }, [isOpen, isMinimized]);
 
+  // Enhanced project knowledge base
+  const projectKnowledge = {
+    ar: {
+      structure: {
+        keywords: [
+          "هيكل",
+          "بنية",
+          "مجلدات",
+          "ملفات",
+          "تنظيم",
+          "structure",
+          "folder",
+        ],
+        response: `🏗️ **هيكل المشروع:**
+        
+**المجلدات الرئيسية:**
+• src/ - الكود المصدري
+• components/ - المكونات القابلة لإعادة الاستخدام
+• pages/ - صفحات التطبيق  
+• contexts/ - إدارة الحالة العامة
+• i18n/ - ملفات الترجمة
+• utils/ - الوظائف المساعدة
+
+**الملفات المهمة:**
+• App.tsx - الملف الرئيسي للتطبيق
+• main.tsx - نقطة دخول التطبيق
+• index.css - الأنماط العامة`,
+      },
+
+      technologies: {
+        keywords: [
+          "تقنيات",
+          "تكنولوجي",
+          "tools",
+          "tech",
+          "libraries",
+          "مكتبات",
+        ],
+        response: `⚡ **التقنيات المستخدمة:**
+        
+**الأساسية:**
+• React 18 + TypeScript
+• Vite (أداة البناء)
+• Tailwind CSS (التصميم)
+
+**المكتبات:**
+• Framer Motion (الحركات والانتقالات)
+• Lucide React (الأيقونات)
+• React i18next (الترجمة)
+
+**الميزات:**
+• دعم كامل للغة العربية والإنجليزية
+• تصميم متجاوب
+• حركات سلسة ومتطورة`,
+      },
+
+      services: {
+        keywords: [
+          "خدمات",
+          "خدمة",
+          "services",
+          "ماذا تقدمون",
+          "what do you offer",
+        ],
+        response: `🚀 **خدمات StackHubs:**
+
+**المراكز الأساسية:**
+• 🌐 مركز الشبكات - بناء وإدارة الشبكات
+• 🛡️ مركز أمن المعلومات - الحماية السيبرانية  
+• 🔗 مركز إنترنت الأشياء - حلول IoT
+• 🤖 مركز الأتمتة - أتمتة العمليات
+• 💼 مركز SAP ERP - حلول الأعمال
+• 🎓 مركز التدريب - التطوير المهني
+
+**خدمات إضافية:**
+• الاستشارات التقنية
+• التطوير والبرمجة
+• الصيانة والدعم`,
+      },
+
+      development: {
+        keywords: [
+          "تطوير",
+          "برمجة",
+          "development",
+          "programming",
+          "code",
+          "كود",
+        ],
+        response: `💻 **معلومات التطوير:**
+
+**بيئة التطوير:**
+• Node.js + npm
+• VS Code (محرر مُوصى به)
+• Git للتحكم في الإصدار
+
+**أوامر مهمة:**
+• npm run dev - تشغيل الخادم المحلي
+• npm run build - بناء المشروع
+• npm run preview - معاينة البناء
+
+**نصائح التطوير:**
+• استخدم TypeScript للأمان
+• اتبع معايير Tailwind CSS
+• اختبر على شاشات مختلفة`,
+      },
+
+      features: {
+        keywords: ["ميزات", "خصائص", "features", "وظائف", "functions"],
+        response: `✨ **ميزات التطبيق:**
+
+**الواجهة:**
+• تصميم حديث وجذاب
+• دعم الوضع المظلم والفاتح
+• تجربة مستخدم متطورة
+
+**التفاعل:**
+• حركات سلسة
+• استجابة فورية
+• شات بوت ذكي
+
+**التقنية:**
+• أداء عالي مع Vite
+• كود منظم ونظيف
+• سهولة الصيانة والتطوير`,
+      },
+    },
+
+    en: {
+      structure: {
+        keywords: [
+          "structure",
+          "folder",
+          "files",
+          "organization",
+          "architecture",
+        ],
+        response: `🏗️ **Project Structure:**
+        
+**Main Directories:**
+• src/ - Source code
+• components/ - Reusable components
+• pages/ - Application pages
+• contexts/ - Global state management
+• i18n/ - Translation files
+• utils/ - Helper functions
+
+**Important Files:**
+• App.tsx - Main application file
+• main.tsx - Application entry point
+• index.css - Global styles`,
+      },
+
+      technologies: {
+        keywords: ["technologies", "tech", "tools", "libraries", "stack"],
+        response: `⚡ **Technologies Used:**
+        
+**Core:**
+• React 18 + TypeScript
+• Vite (Build tool)
+• Tailwind CSS (Styling)
+
+**Libraries:**
+• Framer Motion (Animations)
+• Lucide React (Icons)
+• React i18next (Translation)
+
+**Features:**
+• Full Arabic & English support
+• Responsive design
+• Smooth animations`,
+      },
+
+      services: {
+        keywords: ["services", "what do you offer", "business", "solutions"],
+        response: `🚀 **StackHubs Services:**
+
+**Core Hubs:**
+• 🌐 Network Hub - Network infrastructure
+• 🛡️ InfoSec Hub - Cybersecurity solutions
+• 🔗 IoT Hub - Internet of Things
+• 🤖 Automation Hub - Process automation
+• 💼 SAP ERP Hub - Business solutions
+• 🎓 Training Hub - Professional development
+
+**Additional Services:**
+• Technical consulting
+• Development & programming
+• Maintenance & support`,
+      },
+
+      development: {
+        keywords: ["development", "programming", "coding", "dev", "build"],
+        response: `💻 **Development Info:**
+
+**Development Environment:**
+• Node.js + npm
+• VS Code (recommended)
+• Git version control
+
+**Important Commands:**
+• npm run dev - Start dev server
+• npm run build - Build project
+• npm run preview - Preview build
+
+**Development Tips:**
+• Use TypeScript for safety
+• Follow Tailwind CSS standards
+• Test on different screens`,
+      },
+
+      features: {
+        keywords: ["features", "capabilities", "functions", "what can it do"],
+        response: `✨ **Application Features:**
+
+**Interface:**
+• Modern and attractive design
+• Dark/Light mode support
+• Advanced user experience
+
+**Interaction:**
+• Smooth animations
+• Instant response
+• Smart chatbot
+
+**Technical:**
+• High performance with Vite
+• Clean, organized code
+• Easy maintenance & development`,
+      },
+    },
+  };
+
   // Initialize with welcome message
   useEffect(() => {
     if (messages.length === 0) {
       const welcomeMessage: Message = {
-        id: "1",
+        id: "welcome",
         text:
           i18n.language === "ar"
-            ? "مرحباً! أنا مساعد StackHubs الذكي. كيف يمكنني مساعدتك اليوم؟"
-            : "Hello! I'm StackHubs AI Assistant. How can I help you today?",
+            ? "مرحباً! 🎉 أنا مساعد StackHubs الذكي. يمكنني مساعدتك في:\n\n• معلومات عن خدماتنا\n• تفاصيل تقنية عن المشروع\n• أسئلة حول التطوير\n• أي استفسار آخر!\n\nما الذي تود معرفته؟"
+            : "Hello! 🎉 I'm StackHubs AI Assistant. I can help you with:\n\n• Information about our services\n• Technical details about the project\n• Development questions\n• Any other inquiries!\n\nWhat would you like to know?",
         sender: "bot",
         timestamp: new Date(),
+        type: "info",
       };
       setMessages([welcomeMessage]);
     }
   }, [i18n.language]);
 
-  // Build a lightweight in-browser index of project files (text only)
-  useEffect(() => {
-    const loadFiles = async () => {
-      try {
-        const modules = import.meta.glob("/src/**/*.{ts,tsx,css,md,json}", {
-          as: "raw",
-        });
-        const entries = Object.entries(modules);
-        const loaded: Array<{ path: string; content: string }> = [];
-        // Limit to avoid huge payloads
-        const MAX_BYTES = 20000;
-        for (const [path, loader] of entries) {
-          // Skip big generated files or node_modules defensively
-          if (path.includes("node_modules") || path.endsWith(".d.ts")) continue;
-          const content: string = await (loader as () => Promise<string>)();
-          loaded.push({ path, content: content.slice(0, MAX_BYTES) });
-        }
-        setProjectIndex(loaded);
-      } catch (e) {
-        // fail silently; chatbot will fallback to canned answers
-      }
-    };
-    loadFiles();
-  }, []);
-
-  const projectQnA = (question: string): string | null => {
-    const q = question.toLowerCase();
-    // Simple in-memory FAQ about project structure and features
-    if (q.includes("router") || q.includes("route") || q.includes("navigate")) {
-      return i18n.language === "ar"
-        ? "التنقل شغال بـ react-router-dom: الملف main.tsx ملفوف داخل BrowserRouter، والراوتس متعرفة في App.tsx داخل Layout."
-        : "Routing uses react-router-dom: main.tsx wraps with BrowserRouter, and routes are defined in App.tsx inside Layout.";
-    }
-    if (q.includes("theme") || q.includes("dark") || q.includes("light")) {
-      return i18n.language === "ar"
-        ? "نظام الثيم موجود في contexts/ThemeContext.tsx، والنافبار يبدّل الثيم باستخدام useTheme()."
-        : "Theme system lives in contexts/ThemeContext.tsx, Navbar toggles theme via useTheme().";
-    }
-    if (
-      q.includes("language") ||
-      q.includes("i18n") ||
-      q.includes("translate")
-    ) {
-      return i18n.language === "ar"
-        ? "الترجمة باستخدام i18next في src/i18n/i18n.ts مع ملفات locales en.json و ar.json."
-        : "Translations use i18next in src/i18n/i18n.ts with locales en.json and ar.json.";
-    }
-    if (q.includes("chatbot") || q.includes("bot")) {
-      return i18n.language === "ar"
-        ? "مكون الشات بوت في components/ui/chatbot.tsx، فيه رسائل، كتابة، وحالة تصغير. نقدر نطوره كمان."
-        : "Chatbot component is at components/ui/chatbot.tsx with messages, typing, and minimize state. We can extend it.";
-    }
-    if (q.includes("services") || q.includes("ai")) {
-      return i18n.language === "ar"
-        ? "صفحة الخدمات في pages/ServicesPage.tsx، وتم إضافة AI Hub بأيقونة Brain وخدمات RAG/Chatbots."
-        : "Services are in pages/ServicesPage.tsx; AI Hub added with Brain icon and RAG/Chatbots.";
-    }
-    return null;
-  };
-
-  const generateBotResponse = (userMessage: string): string => {
+  const generateSmartResponse = (userMessage: string): Message => {
     const lowerMessage = userMessage.toLowerCase();
+    const currentLang = i18n.language as "ar" | "en";
+    const knowledge = projectKnowledge[currentLang];
 
-    // Simple project Q&A: try to find matching files and return short snippets
-    if (projectIndex.length > 0) {
-      const terms = lowerMessage.split(/\s+/).filter(Boolean);
-      const scored = projectIndex
-        .map(({ path, content }) => {
-          const score = terms.reduce(
-            (acc, term) => acc + (content.toLowerCase().includes(term) ? 1 : 0),
-            0
-          );
-          return { path, content, score };
-        })
-        .filter((r) => r.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 3);
-      if (scored.length > 0) {
-        const snippets = scored.map((r) => {
-          // Take first matching line as a snippet
-          const idx = r.content
-            .toLowerCase()
-            .indexOf(
-              terms.find((t) => r.content.toLowerCase().includes(t)) || ""
-            );
-          const start = Math.max(0, idx - 120);
-          const end = Math.min(r.content.length, idx + 240);
-          const preview = r.content
-            .slice(start, end)
-            .replace(/\s+/g, " ")
-            .trim();
-          return `- ${r.path}: ${preview}`;
-        });
-        if (i18n.language === "ar") {
-          return `وجدت معلومات ذات صلة في هذه الملفات:\n${snippets.join(
-            "\n"
-          )}\n\nهل ترغب أن أفتح لك الملف المناسب؟`;
-        } else {
-          return `I found relevant info in these files:\n${snippets.join(
-            "\n"
-          )}\n\nWould you like me to point you to a specific file?`;
-        }
+    // جملة تعريفية للرد
+    const prefix =
+      currentLang === "ar" ? "🟦 إجابة المساعد:\n" : "🟦 Assistant Answer:\n";
+
+    // البحث في قاعدة المعرفة حسب الكلمات المفتاحية
+    for (const [category, data] of Object.entries(knowledge)) {
+      if (data.keywords.some((keyword) => lowerMessage.includes(keyword))) {
+        setCurrentCategory(category);
+        return {
+          id: `bot-${Date.now()}`,
+          text: prefix + data.response,
+          sender: "bot",
+          timestamp: new Date(),
+          type: "info",
+          category: category,
+        };
       }
     }
-    const projectAnswer = projectQnA(lowerMessage);
-    if (projectAnswer) return projectAnswer;
 
-    if (i18n.language === "ar") {
-      if (lowerMessage.includes("خدمات") || lowerMessage.includes("خدمة")) {
-        return "نحن نقدم خدمات تقنية شاملة تشمل: مركز الشبكات، مركز أمن المعلومات، مركز إنترنت الأشياء، مركز الأتمتة، مركز SAP ERP، ومركز التدريب. أي خدمة تهمك أكثر؟";
+    // ردود سياقية حسب التصنيف الحالي
+    if (currentCategory) {
+      const contextualResponses = {
+        ar: {
+          structure: prefix + "هل تريد معرفة المزيد عن أي مجلد أو ملف محدد؟",
+          technologies: prefix + "أي من هذه التقنيات تريد معرفة المزيد عنها؟",
+          services: prefix + "أي خدمة تهمك أكثر وتريد تفاصيل إضافية عنها؟",
+          development:
+            prefix + "هل تحتاج مساعدة في إعداد البيئة أو تشغيل المشروع؟",
+          features: prefix + "هل تريد معرفة كيفية استخدام أي من هذه الميزات؟",
+        },
+        en: {
+          structure:
+            prefix +
+            "Would you like to know more about any specific folder or file?",
+          technologies:
+            prefix +
+            "Which of these technologies would you like to learn more about?",
+          services:
+            prefix +
+            "Which service interests you most and you'd like additional details?",
+          development:
+            prefix +
+            "Do you need help setting up the environment or running the project?",
+          features:
+            prefix + "Would you like to know how to use any of these features?",
+        },
+      };
+
+      const contextResponse =
+        contextualResponses[currentLang][
+          currentCategory as keyof (typeof contextualResponses)[typeof currentLang]
+        ];
+      if (contextResponse) {
+        return {
+          id: `bot-${Date.now()}`,
+          text: contextResponse,
+          sender: "bot",
+          timestamp: new Date(),
+          type: "text",
+        };
       }
-      if (lowerMessage.includes("شبكات") || lowerMessage.includes("network")) {
-        return "مركز الشبكات لدينا يقدم: الاستشارة، الخدمة المُدارة، التنفيذ، المراجعة، والتحديث. نحن نبني بنية شبكات قوية لعملك.";
-      }
-      if (
-        lowerMessage.includes("أمن") ||
-        lowerMessage.includes("أمان") ||
-        lowerMessage.includes("security")
-      ) {
-        return "مركز أمن المعلومات يوفر حلول أمن سيبراني شاملة تشمل: اختبار الثغرات، الاستجابة للحوادث، الامتثال، ومراقبة الأمان على مدار الساعة.";
-      }
-      if (
-        lowerMessage.includes("تواصل") ||
-        lowerMessage.includes("اتصال") ||
-        lowerMessage.includes("contact")
-      ) {
-        return "يمكنك التواصل معنا عبر: البريد الإلكتروني info@stackhubs.com أو الهاتف +1 (555) 123-4567. نحن هنا لمساعدتك!";
-      }
-      if (
-        lowerMessage.includes("سعر") ||
-        lowerMessage.includes("تكلفة") ||
-        lowerMessage.includes("price")
-      ) {
-        return "أسعارنا تختلف حسب نوع الخدمة ومتطلبات مشروعك. يرجى التواصل معنا للحصول على عرض سعر مخصص يناسب احتياجاتك.";
-      }
-      return "شكراً لسؤالك! يمكنني مساعدتك في معرفة المزيد عن خدماتنا التقنية. هل تريد معرفة المزيد عن خدمة معينة؟";
-    } else {
-      if (
-        lowerMessage.includes("service") ||
-        lowerMessage.includes("what do you do")
-      ) {
-        return "We offer comprehensive IT services including: Network Hub, InfoSec Hub, IoT Hub, Automation Hub, SAP ERP Hub, and Training Hub. Which service interests you most?";
-      }
-      if (
-        lowerMessage.includes("network") ||
-        lowerMessage.includes("networking")
-      ) {
-        return "Our Network Hub provides: Consultation, Managed Service, Implementation, Auditing, and Modernization. We build robust network infrastructure for your business.";
-      }
-      if (
-        lowerMessage.includes("security") ||
-        lowerMessage.includes("cybersecurity")
-      ) {
-        return "Our InfoSec Hub offers comprehensive cybersecurity solutions including: Vulnerability Testing, Incident Response, Compliance, and 24/7 Security Monitoring.";
-      }
-      if (
-        lowerMessage.includes("contact") ||
-        lowerMessage.includes("reach") ||
-        lowerMessage.includes("get in touch")
-      ) {
-        return "You can reach us at: Email info@stackhubs.com or Phone +1 (555) 123-4567. We're here to help!";
-      }
-      if (
-        lowerMessage.includes("price") ||
-        lowerMessage.includes("cost") ||
-        lowerMessage.includes("pricing")
-      ) {
-        return "Our pricing varies based on the service type and your project requirements. Please contact us for a customized quote that fits your needs.";
-      }
-      if (
-        lowerMessage.includes("iot") ||
-        lowerMessage.includes("internet of things")
-      ) {
-        return "Our IoT Hub provides smart IoT solutions including Device Management, Edge Computing, IoT Security, and Predictive Maintenance for connected business operations.";
-      }
-      if (lowerMessage.includes("sap") || lowerMessage.includes("erp")) {
-        return "Our SAP ERP Hub offers complete SAP solutions: Implementation, Consultation, Support, Data Migration, Security, and Optimization services.";
-      }
-      return "Thank you for your question! I can help you learn more about our IT services. Would you like to know more about a specific service?";
     }
+
+    // رد افتراضي واضح إذا لم يجد إجابة
+    return {
+      id: `bot-${Date.now()}`,
+      text:
+        prefix +
+        (currentLang === "ar"
+          ? "لم أجد إجابة مباشرة، لكن يمكنك سؤالي عن أي جزء من المشروع أو الكود أو الخدمات وسأساعدك قدر الإمكان."
+          : "I couldn't find a direct answer, but you can ask me about any part of the project, code, or services and I'll do my best to help."),
+      sender: "bot",
+      timestamp: new Date(),
+      type: "text",
+    };
   };
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: `user-${Date.now()}`,
       text: inputValue,
       sender: "user",
       timestamp: new Date(),
@@ -266,18 +405,12 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate typing delay
+    // Simulate thinking delay
     setTimeout(() => {
-      const botResponse: Message = {
-        id: (Date.now() + 1).toString(),
-        text: generateBotResponse(inputValue),
-        sender: "bot",
-        timestamp: new Date(),
-      };
-
+      const botResponse = generateSmartResponse(inputValue);
       setMessages((prev) => [...prev, botResponse]);
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
+    }, 1200 + Math.random() * 800);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -296,6 +429,23 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
     setIsMinimized(!isMinimized);
   };
 
+  const getCategoryIcon = (category?: string) => {
+    switch (category) {
+      case "structure":
+        return <Code className="w-4 h-4" />;
+      case "technologies":
+        return <Zap className="w-4 h-4" />;
+      case "services":
+        return <Globe className="w-4 h-4" />;
+      case "development":
+        return <Database className="w-4 h-4" />;
+      case "features":
+        return <Sparkles className="w-4 h-4" />;
+      default:
+        return <Bot className="w-4 h-4" />;
+    }
+  };
+
   return (
     <div className={`fixed bottom-4 right-4 z-50 ${className}`}>
       <AnimatePresence>
@@ -304,27 +454,33 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="mb-4"
           >
             <Card
-              className={`w-80 h-96 shadow-2xl ${
-                isMinimized ? "h-14" : "h-96"
-              } transition-all duration-300`}
+              className={`w-96 ${isMinimized ? "h-16" : "h-[500px]"} 
+                shadow-2xl border-0 bg-gradient-to-br from-white to-gray-50 
+                dark:from-gray-900 dark:to-gray-800 
+                transition-all duration-300 ease-in-out overflow-hidden`}
             >
-              <CardHeader className="flex flex-row items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-lg">
+              <CardHeader className="flex flex-row items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-t-lg">
                 <div className="flex items-center space-x-2">
-                  <Bot className="w-5 h-5" />
-                  <CardTitle className="text-sm font-medium">
-                    {i18n.language === "ar"
-                      ? "مساعد StackHubs"
-                      : "StackHubs Assistant"}
-                  </CardTitle>
-                  <Badge
-                    variant="secondary"
-                    className="text-xs bg-green-500 text-white"
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   >
-                    {i18n.language === "ar" ? "متصل" : "Online"}
+                    <Sparkles className="w-5 h-5" />
+                  </motion.div>
+                  <CardTitle className="text-sm font-semibold">
+                    {t("assistant")}
+                  </CardTitle>
+                  <Badge className="text-xs bg-green-500 border-green-400 text-white">
+                    <div className="w-2 h-2 bg-green-300 rounded-full mr-1 animate-pulse" />
+                    {t("online")}
                   </Badge>
                 </div>
                 <div className="flex items-center space-x-1">
@@ -332,32 +488,45 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
                     variant="ghost"
                     size="sm"
                     onClick={toggleMinimize}
-                    className="w-6 h-6 p-0 text-primary-foreground hover:bg-primary-foreground/20"
+                    className="w-8 h-8 p-0 text-white hover:bg-white/20 rounded-full transition-all duration-200"
                   >
-                    {isMinimized ? (
-                      <Maximize2 className="w-3 h-3" />
-                    ) : (
-                      <Minimize2 className="w-3 h-3" />
-                    )}
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      {isMinimized ? (
+                        <Maximize2 className="w-4 h-4" />
+                      ) : (
+                        <Minimize2 className="w-4 h-4" />
+                      )}
+                    </motion.div>
                   </Button>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={toggleChatbot}
-                    className="w-6 h-6 p-0 text-primary-foreground hover:bg-primary-foreground/20"
+                    className="w-8 h-8 p-0 text-white hover:bg-white/20 rounded-full transition-all duration-200"
                   >
-                    <X className="w-3 h-3" />
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <X className="w-4 h-4" />
+                    </motion.div>
                   </Button>
                 </div>
               </CardHeader>
 
               {!isMinimized && (
-                <CardContent className="p-0 flex flex-col h-80">
+                <CardContent className="p-0 flex flex-col h-[436px]">
                   <ScrollArea className="flex-1 p-4">
                     <div className="space-y-4">
                       {messages.map((message) => (
-                        <div
+                        <motion.div
                           key={message.id}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3 }}
                           className={`flex ${
                             message.sender === "user"
                               ? "justify-end"
@@ -365,87 +534,118 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
                           }`}
                         >
                           <div
-                            className={`flex items-start space-x-2 max-w-[80%] ${
+                            className={`flex items-start space-x-2 max-w-[85%] ${
                               message.sender === "user"
                                 ? "flex-row-reverse space-x-reverse"
                                 : ""
                             }`}
                           >
-                            <div
-                              className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-xs ${
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-xs shadow-lg ${
                                 message.sender === "user"
-                                  ? "bg-primary"
-                                  : "bg-muted-foreground"
+                                  ? "bg-gradient-to-r from-blue-500 to-blue-600"
+                                  : "bg-gradient-to-r from-purple-500 to-purple-600"
                               }`}
                             >
                               {message.sender === "user" ? (
-                                <User className="w-3 h-3" />
+                                <User className="w-4 h-4" />
                               ) : (
-                                <Bot className="w-3 h-3" />
+                                getCategoryIcon(message.category)
                               )}
-                            </div>
-                            <div
-                              className={`px-3 py-2 rounded-lg text-sm ${
+                            </motion.div>
+                            <motion.div
+                              initial={{ scale: 0.9 }}
+                              animate={{ scale: 1 }}
+                              className={`px-4 py-3 rounded-2xl text-sm shadow-lg ${
                                 message.sender === "user"
-                                  ? "bg-primary text-primary-foreground"
-                                  : "bg-muted text-muted-foreground"
+                                  ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-md"
+                                  : message.type === "info"
+                                  ? "bg-gradient-to-r from-gray-50 to-white text-gray-800 border-l-4 border-purple-400 rounded-bl-md"
+                                  : "bg-white text-gray-800 border border-gray-200 rounded-bl-md"
                               }`}
+                              style={{
+                                direction:
+                                  i18n.language === "ar" ? "rtl" : "ltr",
+                                textAlign:
+                                  i18n.language === "ar" ? "right" : "left",
+                                whiteSpace: "pre-line",
+                                lineHeight: "1.6",
+                              }}
                             >
                               {message.text}
-                            </div>
+                            </motion.div>
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
 
                       {isTyping && (
-                        <div className="flex justify-start">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className="flex justify-start"
+                        >
                           <div className="flex items-start space-x-2">
-                            <div className="w-6 h-6 rounded-full bg-muted-foreground flex items-center justify-center text-white text-xs">
-                              <Bot className="w-3 h-3" />
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white text-xs">
+                              <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{
+                                  duration: 1,
+                                  repeat: Infinity,
+                                  ease: "linear",
+                                }}
+                              >
+                                <Bot className="w-4 h-4" />
+                              </motion.div>
                             </div>
-                            <div className="px-3 py-2 rounded-lg bg-muted text-muted-foreground text-sm">
+                            <div className="px-4 py-3 rounded-2xl bg-gray-100 border rounded-bl-md">
                               <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-current rounded-full animate-bounce"></div>
-                                <div
-                                  className="w-2 h-2 bg-current rounded-full animate-bounce"
-                                  style={{ animationDelay: "0.1s" }}
-                                ></div>
-                                <div
-                                  className="w-2 h-2 bg-current rounded-full animate-bounce"
-                                  style={{ animationDelay: "0.2s" }}
-                                ></div>
+                                {[0, 1, 2].map((i) => (
+                                  <motion.div
+                                    key={i}
+                                    className="w-2 h-2 bg-purple-500 rounded-full"
+                                    animate={{ y: [-2, 2, -2] }}
+                                    transition={{
+                                      duration: 0.6,
+                                      repeat: Infinity,
+                                      delay: i * 0.1,
+                                    }}
+                                  />
+                                ))}
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       )}
                       <div ref={messagesEndRef} />
                     </div>
                   </ScrollArea>
 
-                  <div className="p-4 border-t border-border">
+                  <div className="p-4 border-t border-gray-100 bg-gray-50/50">
                     <div className="flex space-x-2">
                       <Input
                         ref={inputRef}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        placeholder={
-                          i18n.language === "ar"
-                            ? "اكتب رسالتك..."
-                            : "Type your message..."
-                        }
-                        className="flex-1 text-sm"
+                        placeholder={t("type_message")}
+                        className="flex-1 text-sm border-gray-200 rounded-full px-4 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         disabled={isTyping}
+                        dir={i18n.language === "ar" ? "rtl" : "ltr"}
                       />
-                      <Button
-                        size="sm"
-                        onClick={handleSendMessage}
-                        disabled={!inputValue.trim() || isTyping}
-                        className="px-3"
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        <Send className="w-4 h-4" />
-                      </Button>
+                        <Button
+                          size="sm"
+                          onClick={handleSendMessage}
+                          disabled={!inputValue.trim() || isTyping}
+                          className="px-4 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-lg"
+                        >
+                          <Send className="w-4 h-4" />
+                        </Button>
+                      </motion.div>
                     </div>
                   </div>
                 </CardContent>
@@ -455,33 +655,51 @@ const Chatbot: React.FC<ChatbotProps> = ({ className = "" }) => {
         )}
       </AnimatePresence>
 
-      {/* Chat Button */}
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      {/* Enhanced Chat Button */}
+      <motion.div
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileTap={{ scale: 0.9 }}
+        className="relative"
+      >
         <Button
           onClick={toggleChatbot}
-          className="w-14 h-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="w-16 h-16 rounded-full shadow-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white border-4 border-white relative overflow-hidden"
           size="sm"
         >
+          {/* Animated background */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0"
+            animate={{ opacity: isOpen ? 0.3 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
                 key="close"
-                initial={{ rotate: -90, opacity: 0 }}
+                initial={{ rotate: -180, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                exit={{ rotate: 180, opacity: 0 }}
+                transition={{ duration: 0.3 }}
               >
                 <X className="w-6 h-6" />
               </motion.div>
             ) : (
               <motion.div
                 key="chat"
-                initial={{ rotate: 90, opacity: 0 }}
+                initial={{ rotate: 180, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                exit={{ rotate: -180, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
               >
                 <MessageCircle className="w-6 h-6" />
+                {/* Notification dot */}
+                <motion.div
+                  className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </motion.div>
             )}
           </AnimatePresence>

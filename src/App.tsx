@@ -11,6 +11,9 @@ import LoyalProgramPage from "@/pages/LoyalProgramPage";
 import PartnerProgramPage from "@/pages/PartnerProgramPage";
 import { Toaster } from "@/components/ui/sonner";
 import Chatbot from "@/components/ui/chatbot";
+import StorePage from "./pages/StorePage";
+import CheckoutPage from "@/pages/CheckoutPage";
+import OrdersPage from "./pages/OrdersPage";
 import "./i18n/i18n";
 
 function AppRoutes() {
@@ -40,6 +43,9 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
+        <Route path="/store" element={<StorePage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
       </Route>
     </Routes>
   );

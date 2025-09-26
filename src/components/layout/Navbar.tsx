@@ -5,6 +5,7 @@ import { Menu, X, Sun, Moon, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../../assets/Stack Hubs Logo.png";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +20,7 @@ const Navbar: React.FC = () => {
     { key: "contact", label: t("nav.contact") },
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
+    { key: "store", label: t("nav.store") },
   ];
 
   const toggleLanguage = () => {
@@ -33,6 +35,7 @@ const Navbar: React.FC = () => {
       contact: "/contact",
       loyal: "/loyal",
       partner: "/partner",
+      store: "/store",
     };
     navigate(pathMap[page] || "/");
     setIsMenuOpen(false);
@@ -51,12 +54,12 @@ const Navbar: React.FC = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNavigation("home")}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SH</span>
-            </div>
-            <span className="text-xl font-bold text-blue-600 dark:text-white">
-              StackHubs
-            </span>
+            <img
+              src={logo}
+              alt="StackHubs Logo"
+              className="h-10 w-auto"
+              style={{ maxWidth: "160px" }}
+            />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -82,10 +85,10 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-2">
             {/* Theme Toggle */}
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               onClick={toggleTheme}
-              className="w-9 h-9 p-0 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 whitespace-nowrap"
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4" />
@@ -96,10 +99,10 @@ const Navbar: React.FC = () => {
 
             {/* Language Toggle */}
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="w-9 h-9 p-0 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 whitespace-nowrap"
             >
               <Globe className="h-4 w-4" />
             </Button>
