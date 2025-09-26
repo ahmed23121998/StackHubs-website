@@ -5,7 +5,7 @@ import { Menu, X, Sun, Moon, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "../../assets/Stack Hubs Logo.png";
+import logo from "../../assets/stack-hubs-logo.png";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
