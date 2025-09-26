@@ -18,7 +18,7 @@ type Order = {
 const OrdersPage: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   useEffect(() => {
     const savedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
     setOrders(savedOrders);
