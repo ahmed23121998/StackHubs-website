@@ -13,6 +13,15 @@ import {
   GraduationCap,
   Brain,
 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import hero from "../assets/hero.jpg";
+import hero1 from "../assets/hero1.jpg";
+import hero2 from "../assets/hero2.jpg";
+import hero3 from "../assets/hero3.jpg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -32,50 +41,105 @@ const HomePage: React.FC = () => {
     { icon: GraduationCap, name: t("hubs.training"), color: "#F97316" },
   ];
 
+  const slides = [
+    {
+      image: hero,
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      cta: t("hero.cta"),
+      link: "/services",
+    },
+    {
+      image: hero1,
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      cta: t("hero.cta"),
+      link: "/services",
+    },
+    {
+      image: hero2,
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      cta: t("hero.cta"),
+      link: "/services",
+    },
+    {
+      image: hero3,
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      cta: t("hero.cta"),
+      link: "/services",
+    },
+  ];
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-500 text-white py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl font-bold mb-6"
-            >
-              {t("hero.title")}
-            </motion.h1>
+    <div className="min-h-screen dark:bg-gray-900 dark:text-gray-100">
+      {/* Hero Section - Slider */}
+      <section>
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          slidesPerView={1}
+          loop
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          navigation
+          className="h-full"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div>
+                {/* صورة الخلفية */}
+                <img
+                  src={slide.image}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-[400px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                />
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed"
-            >
-              {t("hero.subtitle")}
-            </motion.p>
+                {/* الـ Overlay الخاص بالـ Slide */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white text-center px-4">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-4xl md:text-6xl font-bold mb-6"
+                  >
+                    {t(slide.title)}
+                  </motion.h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <Button
-                size="lg"
-                variant="secondary"
-                className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100"
-                onClick={() => navigate("/services")}
-              >
-                {t("hero.cta")}
-              </Button>
-            </motion.div>
-          </div>
-        </div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
+                  >
+                    {t(slide.subtitle)}
+                  </motion.p>
+
+                  {slide.cta && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      <Button
+                        size="lg"
+                        variant="secondary"
+                        className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 m-8"
+                        onClick={() => navigate(slide.link)}
+                      >
+                        {t(slide.cta)}
+                      </Button>
+                    </motion.div>
+                  )}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
       {/* Service Hubs Icons Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-2 dark:bg-gray-900 dark:text-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {hubs.map((hub, index) => {
@@ -98,7 +162,7 @@ const HomePage: React.FC = () => {
                     <Icon className="w-8 h-8" />
                   </div>
                   <span className="text-sm font-medium text-foreground text-center">
-                    {hub.name}
+                    {t(hub.name)}
                   </span>
                 </motion.div>
               );
@@ -108,7 +172,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Our Service Hubs Section */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-10 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.h2

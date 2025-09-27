@@ -25,11 +25,13 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
 ## 📱 Pages & Features
 
 ### Home Page
+
 - Hero section with company slogan and CTA
 - Service hubs icon grid (8 different hubs)
 - "Our Service Hubs" section with detailed descriptions
 
 ### Services Page
+
 - Detailed service cards for each hub:
   - **Network Hub**: Consultation, Managed Service, Implementation, Auditing, Modernization
   - **InfoSec Hub**: Vulnerability Testing, Incident Response, Compliance, Monitoring
@@ -39,15 +41,18 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
   - **Training Hub**: Technical training and certification programs
 
 ### Contact Page
+
 - Professional contact form
 - Contact information cards (email, phone, address)
 - Responsive layout with contact info sidebar
 
 ### Loyalty Program Page
+
 - Program benefits and tiers (Bronze, Silver, Gold)
 - Exclusive member benefits display
 
 ### Partner Program Page
+
 - Partnership types and benefits
 - Strategic partnership opportunities
 - Call-to-action for potential partners
@@ -55,10 +60,12 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
 ## 🌍 Internationalization
 
 ### Supported Languages
+
 - **English** (default)
 - **Arabic** with full RTL support
 
 ### Features
+
 - Dynamic language switching
 - RTL layout for Arabic
 - Persistent language preference
@@ -67,6 +74,7 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
 ## 🎨 Design System
 
 ### Brand Colors
+
 - **Primary Blue**: #3B82F6
 - **Success Green**: #10B981
 - **Warning Orange**: #F59E0B
@@ -75,6 +83,7 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
 - **Cyan**: #06B6D4
 
 ### Typography
+
 - **English**: Clean sans-serif fonts
 - **Arabic**: DIN Next LT Arabic support
 - Responsive font scaling
@@ -83,23 +92,27 @@ A modern, responsive, and bilingual (English/Arabic) IT services website built w
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd stackhubs-website
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -152,15 +165,19 @@ src/
 ## 🔧 Configuration
 
 ### Theme Configuration
+
 The theme system supports both light and dark modes with persistent storage. Theme preferences are automatically saved to localStorage.
 
 ### Language Configuration
+
 Language detection follows this priority:
+
 1. localStorage preference
 2. Browser language
 3. Default to English
 
 ### Styling Configuration
+
 - Tailwind CSS with custom design system
 - shadcn/ui components with consistent theming
 - 8px spacing system
@@ -168,7 +185,7 @@ Language detection follows this priority:
 
 ## 📞 Contact Information
 
-- **Email**: info@stackhubs.com
+- **email**: info@stackhubs.com
 - **Phone**: +1 (555) 123-4567
 - **Address**: 123 Business District, Tech City, TC 12345
 

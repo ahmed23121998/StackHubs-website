@@ -33,7 +33,7 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen py-12 dark:bg-gray-900 dark:text-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -89,7 +89,7 @@ const ContactPage: React.FC = () => {
                       <Card
                         className="cursor-pointer hover:shadow-lg hover:bg-muted/50 transition-all"
                         onClick={() => {
-                          if (info.key === "Email") {
+                          if (info.key === "email") {
                             window.location.href = `mailto:${info.value}`;
                           }
                           if (info.key === "Phone") {

@@ -4,13 +4,16 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
-import { ShoppingCart, Box } from "lucide-react";
+import { useFavorites } from "../contexts/FavoritesContext";
+import { ShoppingCart, Box, Heart } from "lucide-react";
 import { fetchProducts, Product } from "../mockProductsApi";
 import { useTranslation } from "react-i18next";
 
 const StorePage: React.FC = () => {
   const navigate = useNavigate();
   const { cart, addToCart, increaseQuantity, decreaseQuantity } = useCart();
+  const { favorites, addToFavorites, removeFromFavorites, isFavorite } =
+    useFavorites();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,6 +26,14 @@ const StorePage: React.FC = () => {
   }, []);
 
   const handleAddToCart = (product: Product) => addToCart(product);
+
+  const handleToggleFavorite = (product: Product) => {
+    if (isFavorite(product.id)) {
+      removeFromFavorites(product.id);
+    } else {
+      addToFavorites(product);
+    }
+  };
   const goToCheckout = () => {
     const totalPrice = cart.reduce(
       (sum, item) => sum + item.price * item.quantity,
@@ -38,14 +49,24 @@ const StorePage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* شريط الأزرار */}
         <div className="flex justify-between items-center mb-6 -mt-2">
-          <Button
-            variant="outline"
-            className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 flex items-center gap-2"
-            onClick={() => navigate("/orders")}
-          >
-            <Box className="w-5 h-5" />
-            {t("nav.order")}
-          </Button>
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 flex items-center gap-2"
+              onClick={() => navigate("/orders")}
+            >
+              <Box className="w-5 h-5" />
+              {t("nav.order")}
+            </Button>
+            <Button
+              variant="outline"
+              className="text-red-600 border-red-600 hover:bg-red-50 dark:text-red-300 dark:border-red-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 flex items-center gap-2"
+              onClick={() => navigate("/favorites")}
+            >
+              <Heart className="w-5 h-5" />
+              {t("store.favorites")} ({favorites.length})
+            </Button>
+          </div>
           <Button
             onClick={goToCheckout}
             className="relative flex items-center rounded-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-800"
@@ -69,11 +90,29 @@ const StorePage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="rounded-lg shadow-md overflow-hidden bg-white dark:bg-gray-800"
               >
-                <Card className="h-full flex flex-col bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-800 shadow-xl border-0 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl">
+                <Card className="h-full flex flex-col bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-800 shadow-xl border-0 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative">
                   <CardHeader className="pb-0">
-                    <CardTitle className="text-xl font-bold text-blue-900 dark:text-blue-300">
-                      {product.name}
-                    </CardTitle>
+                    <div className="flex justify-between items-start">
+                      <CardTitle className="text-xl font-bold text-blue-900 dark:text-blue-300 flex-1">
+                        {product.name}
+                      </CardTitle>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleToggleFavorite(product)}
+                        className={`p-2 rounded-full transition-all duration-200 ${
+                          isFavorite(product.id)
+                            ? "text-red-500 hover:text-red-600 hover:bg-red-50"
+                            : "text-gray-400 hover:text-red-500 hover:bg-red-50"
+                        }`}
+                      >
+                        <Heart
+                          className={`h-5 w-5 ${
+                            isFavorite(product.id) ? "fill-current" : ""
+                          }`}
+                        />
+                      </Button>
+                    </div>
                   </CardHeader>
                   <CardContent className="flex flex-col items-center pt-2">
                     <img

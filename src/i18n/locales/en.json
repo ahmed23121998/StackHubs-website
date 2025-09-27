@@ -152,7 +152,7 @@
     },
     "form": {
       "name": "Full Name",
-      "email": "Email Address",
+      "email": "email Address",
       "phone": "Phone Number",
       "address": "Address",
       "company": "Company",
@@ -288,7 +288,21 @@
     "welcome": "Hello! I'm StackHubs AI Assistant. How can I help you today?"
   },
   "cart": {
-    "add": "Add to Cart"
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "add": "Add to Cart",
+    "remove": "Remove from Cart",
+    "clearAll": "Clear All",
+    "productCount": "Number of products",
+    "total": "Total",
+    "checkout": "Checkout",
+    "continueShopping": "Continue Shopping",
+    "addedSuccess": "{{product}} has been added to your cart ✅",
+    "removedSuccess": "{{product}} has been removed from your cart 🗑️",
+    "clearedSuccess": "Your cart has been cleared 🛒",
+    "quantityIncreased": "Quantity increased ⬆️",
+    "quantityDecreased": "Quantity decreased ⬇️",
+    "loginRequired": "You must be logged in to add products to your cart"
   },
   "checkout": {
     "title": "Shopping Cart",
@@ -308,5 +322,81 @@
     "empty": "No orders yet.",
     "orderNumber": "Order number",
     "date": "Date"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "name": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "enterName": "Enter your name",
+    "enterEmail": "Enter your email",
+    "welcome": "Welcome",
+    "createAccount": "Create Account",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "creatingAccount": "Creating Account...",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "createOne": "Create one",
+    "signInLink": "Sign in",
+    "mustRegisterFirst": "You must register first before you can login.",
+    "loginFailed": "Login failed. Please register first or check your credentials.",
+    "registrationFailed": "Registration failed. Email already exists or please try again.",
+    "loginSuccess": "Login successful!",
+    "registrationSuccess": "Registration successful!",
+    "accountType": "Account Type",
+    "individual": "Individual",
+    "organization": "Organization",
+    "company": "Company",
+    "companyName": "Company Name",
+    "taxId": "Tax ID",
+    "enterCompanyName": "Enter company name",
+    "enterTaxId": "Enter tax ID"
+  },
+  "errors": {
+    "nameMin": "Name must be at least 2 characters",
+    "invalidEmail": "Invalid email",
+    "passwordMin": "Password must be at least 6 characters",
+    "passwordMismatch": "Passwords don't match",
+    "accountTypeRequired": "Please select an account type",
+    "companyNameRequired": "Company name is required for organization",
+    "taxIdRequired": "Tax ID is required for organization"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No products in favorites",
+    "startShopping": "Start Shopping",
+    "addToCart": "Add to Cart",
+    "removeFromFavorites": "Remove from Favorites",
+    "clearAll": "Clear All",
+    "productCount": "Number of products",
+    "continueShopping": "Continue Shopping",
+    "addedSuccess": "{{product}} has been added to favorites ❤️",
+    "removedSuccess": "{{product}} has been removed from favorites 🗑️",
+    "loginRequired": "You must be logged in to add products to favorites"
+  },
+  "store": {
+    "favorites": "Favorites",
+    "orders": "Orders",
+    "cartItems": "Cart Items",
+    "loading": "Loading products...",
+    "price": "Price",
+    "addToCart": "Add to Cart",
+    "quantity": "Quantity"
+  },
+  "navbar": {
+    "cart": "Cart",
+    "favorites": "Favorites",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "language": {
+      "arabic": "العربية",
+      "english": "English"
+    }
   }
 }

@@ -10,10 +10,13 @@ import ContactPage from "@/pages/ContactPage";
 import LoyalProgramPage from "@/pages/LoyalProgramPage";
 import PartnerProgramPage from "@/pages/PartnerProgramPage";
 import { Toaster } from "@/components/ui/sonner";
-import Chatbot from "@/components/ui/chatbot";
+// import Chatbot from "@/components/ui/chatbot";
 import StorePage from "./pages/StorePage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import OrdersPage from "./pages/OrdersPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import "./i18n/i18n";
 
 function AppRoutes() {
@@ -28,6 +31,9 @@ function AppRoutes() {
       "/contact": "Contact Us - StackHubs",
       "/loyal": "Loyal Program - StackHubs",
       "/partner": "Partner Program - StackHubs",
+      "/login": "Login - StackHubs",
+      "/register": "Register - StackHubs",
+      "/favorites": "Favorites - StackHubs",
     };
     document.title = titleByPath[path] || "StackHubs";
 
@@ -46,6 +52,9 @@ function AppRoutes() {
         <Route path="/store" element={<StorePage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Route>
     </Routes>
   );
@@ -57,11 +66,11 @@ function App() {
       <div className="min-h-screen bg-background text-foreground">
         <ScrollToTop />
         <AppRoutes />
-        <Chatbot />
+        {/* <Chatbot /> */}
         <Toaster
           position="top-center"
           toastOptions={{
-            className: "text-2xl px-6 py-6"
+            className: "text-2xl px-6 py-6",
           }}
         />
       </div>

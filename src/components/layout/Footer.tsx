@@ -10,6 +10,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import logo from "../../assets/stack-hubs-logo.png";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-muted/50 border-t border-border">
+    <footer className="bg-blue-50 border-t border-border dark:bg-gray-900 dark:text-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
@@ -68,22 +69,20 @@ const Footer: React.FC = () => {
               className="flex items-center space-x-2 mb-4 cursor-pointer"
               onClick={() => handleNavigate("/")}
             >
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">
-                  SH
-                </span>
-              </div>
-              <span className="text-xl font-bold text-foreground">
-                StackHubs
-              </span>
+              <img
+                src={logo}
+                alt="StackHubs Logo"
+                className="h-10 w-auto"
+                style={{ maxWidth: "160px" }}
+              />
             </motion.div>
-            <p className="text-base text-gray-400 leading-relaxed mb-6 max-w-sm">
+            <p className="text-sm text-gray-400 leading-relaxed mb-6 max-w-sm">
               {t("hero.subtitle")}
             </p>
           </div>
 
           {/* Company Links */}
-          <div className="px-6">
+          <div className="col-span-1">
             <h3 className="font-semibold text-foreground mb-4">
               {t("footer.company")}
             </h3>
@@ -106,12 +105,12 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="col-span-1">
             <h3 className="font-semibold text-foreground mb-4">
               {t("contact.title")}
             </h3>
             <div className="space-y-4">
-              {/* Email */}
+              {/* email */}
               <a
                 href="mailto:info@stackhubs.com"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-blue-600"
@@ -131,7 +130,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Media */}
-          <div>
+          <div className="col-span-1">
             <h3 className="font-semibold text-foreground mb-4">
               {t("footer.followUs")}
             </h3>
