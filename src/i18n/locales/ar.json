@@ -6,7 +6,8 @@
     "loyal": "برنامج المميزات",
     "partner": "برنامج الشركاء",
     "store": "متجر",
-    "order": "طلباتي"
+    "order": "طلباتي",
+    "dashboard": "لوحة التحكم"
   },
   "hero": {
     "title": "شريكك في الابتكار التقني",
@@ -278,7 +279,11 @@
     "loading": "جاري التحميل...",
     "error": "حدث خطأ ما",
     "currency": "جنيه",
-    "success": "تم بنجاح!"
+    "success": "تم بنجاح!",
+    "back": "رجوع",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف"
   },
   "chatbot": {
     "title": "مساعد StackHubs",
@@ -397,5 +402,33 @@
       "arabic": "العربية",
       "english": "English"
     }
+  },
+  "settings": {
+    "title": "إعدادات الحساب",
+    "editProfile": "تعديل الملف الشخصي",
+    "save": "حفظ التغييرات",
+    "updateSuccess": "تم تحديث الملف الشخصي بنجاح!",
+    "updateError": "فشل في تحديث الملف الشخصي. يرجى المحاولة مرة أخرى."
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "addProduct": "إضافة منتج",
+    "editProduct": "تعديل منتج",
+    "products": "المنتجات",
+    "refresh": "تحديث",
+    "noProducts": "لا توجد منتجات",
+    "create": "إنشاء",
+    "update": "تحديث",
+    "saving": "جارٍ الحفظ...",
+    "confirmDelete": "هل تريد حذف هذا المنتج؟",
+    "fields": {
+      "name": "الاسم",
+      "description": "الوصف",
+      "price": "السعر"
+    }
+  },
+  "password": {
+    "show": "إظهار كلمة المرور",
+    "hide": "إخفاء كلمة المرور"
   }
 }

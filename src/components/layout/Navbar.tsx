@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon, Globe} from "lucide-react";
+import { Menu, X, Sun, Moon, Globe, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -11,7 +11,7 @@ import logo from "../../assets/stack-hubs-logo.png";
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,11 +44,6 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,14 +54,13 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer min-w-0"
             onClick={() => handleNavigation("/")}
           >
             <img
               src={logo}
               alt="StackHubs Logo"
-              className="h-10 w-auto"
-              style={{ maxWidth: "160px" }}
+              className="h-8 w-auto sm:h-10 max-w-[120px] sm:max-w-[160px]"
             />
           </motion.div>
 
@@ -90,20 +84,17 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Theme & Language Controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Auth Buttons */}
             {isAuthenticated ? (
               <div className="flex items-center gap-2">
-                {/* <span className="text-sm text-muted-foreground">
-                  {t("auth.welcome")}, {user?.name}
-                </span> */}
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={handleLogout}
-                  className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full "
+                  onClick={() => navigate("/settings")}
+                  className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
                 >
-                  {t("auth.logout")}
+                  <Settings className="h-4 w-4" />
                 </Button>
               </div>
             ) : (
@@ -132,7 +123,7 @@ const Navbar: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={toggleTheme}
-              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4" />
@@ -146,7 +137,7 @@ const Navbar: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
             >
               <Globe className="h-4 w-4" />
             </Button>
@@ -273,10 +264,13 @@ const Navbar: React.FC = () => {
                       {t("auth.welcome")}, {user?.name}
                     </div>
                     <button
-                      onClick={handleLogout}
-                      className="block w-full text-left px-4 py-2 text-sm font-medium text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
+                      onClick={() => {
+                        navigate("/settings");
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                     >
-                      {t("auth.logout")}
+                      {t("settings.title")}
                     </button>
                   </div>
                 ) : (

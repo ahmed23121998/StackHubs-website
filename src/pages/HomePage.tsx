@@ -83,11 +83,11 @@ const HomePage: React.FC = () => {
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           navigation
-          className="h-full"
+          className="h-full hero-swiper"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div>
+              <div className="relative">
                 {/* صورة الخلفية */}
                 <img
                   src={slide.image}
@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
                 />
 
                 {/* الـ Overlay الخاص بالـ Slide */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white text-center px-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white text-center px-6 sm:px-10 md:px-16">
                   <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

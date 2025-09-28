@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import { useAuth } from "@/contexts/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import HomePage from "@/pages/HomePage";
 import ServicesPage from "@/pages/ServicesPage";
@@ -17,11 +18,13 @@ import OrdersPage from "./pages/OrdersPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import FavoritesPage from "./pages/FavoritesPage";
+import SettingsPage from "./pages/SettingsPage";
 import "./i18n/i18n";
 
 function AppRoutes() {
   const { i18n } = useTranslation();
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const path = location.pathname;
@@ -55,6 +58,10 @@ function AppRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route
+          path="/settings"
+          element={isAuthenticated ? <SettingsPage /> : <LoginPage />}
+        />
       </Route>
     </Routes>
   );

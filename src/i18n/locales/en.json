@@ -6,7 +6,8 @@
     "loyal": "Loyal Program",
     "partner": "Partner Program",
     "store": "Store",
-    "order": "My Orders"
+    "order": "My Orders",
+    "dashboard": "Dashboard"
   },
   "hero": {
     "title": "Your Partner in IT Innovation",
@@ -279,7 +280,11 @@
     "loading": "Loading...",
     "error": "Something went wrong",
     "currency": "EGP",
-    "success": "Success!"
+    "success": "Success!",
+    "back": "Back",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "chatbot": {
     "title": "StackHubs Assistant",
@@ -398,5 +403,33 @@
       "arabic": "العربية",
       "english": "English"
     }
+  },
+  "settings": {
+    "title": "Account Settings",
+    "editProfile": "Edit Profile",
+    "save": "Save Changes",
+    "updateSuccess": "Profile updated successfully!",
+    "updateError": "Failed to update profile. Please try again."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "addProduct": "Add Product",
+    "editProduct": "Edit Product",
+    "products": "Products",
+    "refresh": "Refresh",
+    "noProducts": "No products found.",
+    "create": "Create",
+    "update": "Update",
+    "saving": "Saving...",
+    "confirmDelete": "Delete this product?",
+    "fields": {
+      "name": "Name",
+      "description": "Description",
+      "price": "Price"
+    }
+  },
+  "password": {
+    "show": "Show password",
+    "hide": "Hide password"
   }
 }

@@ -16,8 +16,10 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eye, EyeOff } from "lucide-react";
+import React from "react";
 export default function RegisterPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const registerSchema = z
     .object({
       name: z.string().min(2, { message: t("errors.nameMin") }),
@@ -72,6 +74,9 @@ export default function RegisterPage() {
 
   const { register, loading } = useAuth();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    React.useState<boolean>(false);
 
   async function onSubmit(values: RegisterFormValues) {
     const success = await register(
@@ -149,12 +154,36 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>{t("auth.password")}</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="••••••••"
-                        type="password"
-                        className="h-11"
-                        {...field}
-                      />
+                      <div className="relative">
+                        <Input
+                          placeholder="••••••••"
+                          type={showPassword ? "text" : "password"}
+                          className={`h-11 ${
+                            i18n.dir() === "rtl" ? "pl-10" : "pr-10"
+                          }`}
+                          {...field}
+                        />
+                        <button
+                          type="button"
+                          aria-label={
+                            showPassword
+                              ? t("password.hide")
+                              : t("password.show")
+                          }
+                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
+                            i18n.dir() === "rtl"
+                              ? "left-0 pl-3"
+                              : "right-0 pr-3"
+                          }`}
+                          onClick={() => setShowPassword((v) => !v)}
+                        >
+                          {showPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
+                        </button>
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -169,12 +198,36 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>{t("auth.confirmPassword")}</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="••••••••"
-                        type="password"
-                        className="h-11"
-                        {...field}
-                      />
+                      <div className="relative">
+                        <Input
+                          placeholder="••••••••"
+                          type={showConfirmPassword ? "text" : "password"}
+                          className={`h-11 ${
+                            i18n.dir() === "rtl" ? "pl-10" : "pr-10"
+                          }`}
+                          {...field}
+                        />
+                        <button
+                          type="button"
+                          aria-label={
+                            showConfirmPassword
+                              ? t("password.hide")
+                              : t("password.show")
+                          }
+                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
+                            i18n.dir() === "rtl"
+                              ? "left-0 pl-3"
+                              : "right-0 pr-3"
+                          }`}
+                          onClick={() => setShowConfirmPassword((v) => !v)}
+                        >
+                          {showConfirmPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
+                        </button>
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

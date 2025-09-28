@@ -16,10 +16,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Eye, EyeOff } from "lucide-react";
+import React from "react";
 import logo from "../assets/stack logo.png";
 
 export default function LoginPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const loginSchema = z.object({
     email: z.string().email({ message: t("errors.invalidEmail") }),
     password: z.string().min(6, { message: t("errors.passwordMin") }),
@@ -32,6 +34,7 @@ export default function LoginPage() {
   });
   const { login, loading } = useAuth();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   async function onSubmit(values: LoginFormValues) {
     const success = await login(values.email, values.password);
@@ -88,12 +91,36 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>{t("auth.password")}</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="••••••••"
-                        type="password"
-                        className="h-11"
-                        {...field}
-                      />
+                      <div className="relative">
+                        <Input
+                          placeholder="••••••••"
+                          type={showPassword ? "text" : "password"}
+                          className={`h-11 ${
+                            i18n.dir() === "rtl" ? "pl-10" : "pr-10"
+                          }`}
+                          {...field}
+                        />
+                        <button
+                          type="button"
+                          aria-label={
+                            showPassword
+                              ? t("password.hide")
+                              : t("password.show")
+                          }
+                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
+                            i18n.dir() === "rtl"
+                              ? "left-0 pl-3"
+                              : "right-0 pr-3"
+                          }`}
+                          onClick={() => setShowPassword((v) => !v)}
+                        >
+                          {showPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
+                        </button>
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
