@@ -45,15 +45,11 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50 dark:bg-gray-900">
+    <nav className="bg-white shadow-lg sticky top-0 w-full z-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 gap-2">
+        <div className="flex items-center justify-between h-16 gap-2">
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2 cursor-pointer min-w-0"
             onClick={() => handleNavigation("/")}
           >
@@ -84,7 +80,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Theme & Language Controls */}
-          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0 rtl:flex-row-reverse">
             {/* Auth Buttons */}
             {isAuthenticated ? (
               <div className="flex items-center gap-2">
@@ -107,14 +103,6 @@ const Navbar: React.FC = () => {
                 >
                   {t("auth.login")}
                 </Button>
-                {/* <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => navigate("/register")}
-                  className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full px-4 py-2 whitespace-nowrap"
-                >
-                  {t("auth.register")}
-                </Button> */}
               </div>
             )}
 
@@ -142,36 +130,6 @@ const Navbar: React.FC = () => {
               <Globe className="h-4 w-4" />
             </Button>
 
-            {/* Mobile Cart & Favorites - Visible on small screens */}
-            {/* <div className="md:hidden flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => navigate("/store")}
-                className="p-2 text-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:hover:bg-gray-800"
-              >
-                <ShoppingCart className="h-4 w-4" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
-                    {cart.length}
-                  </span>
-                )}
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => navigate("/favorites")}
-                className="p-2 text-red-600 hover:bg-red-50 dark:text-red-300 dark:hover:bg-gray-800"
-              >
-                <Heart className="h-4 w-4" />
-                {favorites.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
-                    {favorites.length}
-                  </span>
-                )}
-              </Button>
-            </div> */}
-
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
@@ -191,10 +149,15 @@ const Navbar: React.FC = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
+            initial={{
+              opacity: 0,
+              x: i18n.language === "ar" ? "-100%" : "100%",
+            }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            className="fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-900 shadow-lg z-50 p-4 overflow-y-auto"
+            exit={{ opacity: 0, x: i18n.language === "ar" ? "-100%" : "100%" }}
+            className={`fixed top-0 ${
+              i18n.language === "ar" ? "left-0" : "right-0"
+            } w-64 h-full bg-white dark:bg-gray-900 shadow-lg z-50 p-4 overflow-y-auto`}
           >
             {/* Close button inside drawer */}
             <div className="flex justify-end mb-4">

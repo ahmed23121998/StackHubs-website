@@ -75,9 +75,9 @@ function App() {
         <AppRoutes />
         {/* <Chatbot /> */}
         <Toaster
-          position="top-center"
+          position="top-right"
           toastOptions={{
-            className: "text-2xl px-6 py-6",
+            className: "text-xl px-6 py-6",
           }}
         />
       </div>

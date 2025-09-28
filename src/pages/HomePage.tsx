@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -26,57 +26,66 @@ import hero3 from "../assets/hero3.jpg";
 import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
-  const hubs = [
-    { icon: Brain, name: t("hubs.ai"), color: "#0EA5E9" },
-    { icon: Network, name: t("hubs.network"), color: "#3B82F6" },
-    { icon: Shield, name: t("hubs.infosec"), color: "#10B981" },
-    { icon: Wifi, name: t("hubs.wifi"), color: "#8B5CF6" },
-    { icon: Cloud, name: t("hubs.cloud"), color: "#06B6D4" },
-    { icon: Cpu, name: t("hubs.iot"), color: "#F59E0B" },
-    { icon: Settings, name: t("hubs.automation"), color: "#EF4444" },
-    { icon: Database, name: t("hubs.sap"), color: "#84CC16" },
-    { icon: GraduationCap, name: t("hubs.training"), color: "#F97316" },
-  ];
+  // ✅ hubs يتحدث مع تغيير اللغة
+  const hubs = useMemo(
+    () => [
+      { icon: Brain, name: t("hubs.ai"), color: "#0EA5E9" },
+      { icon: Network, name: t("hubs.network"), color: "#3B82F6" },
+      { icon: Shield, name: t("hubs.infosec"), color: "#10B981" },
+      { icon: Wifi, name: t("hubs.wifi"), color: "#8B5CF6" },
+      { icon: Cloud, name: t("hubs.cloud"), color: "#06B6D4" },
+      { icon: Cpu, name: t("hubs.iot"), color: "#F59E0B" },
+      { icon: Settings, name: t("hubs.automation"), color: "#EF4444" },
+      { icon: Database, name: t("hubs.sap"), color: "#84CC16" },
+      { icon: GraduationCap, name: t("hubs.training"), color: "#F97316" },
+    ],
+    [i18n.language, t]
+  );
 
-  const slides = [
-    {
-      image: hero,
-      title: t("hero.title"),
-      subtitle: t("hero.subtitle"),
-      cta: t("hero.cta"),
-      link: "/services",
-    },
-    {
-      image: hero1,
-      title: t("hero.title"),
-      subtitle: t("hero.subtitle"),
-      cta: t("hero.cta"),
-      link: "/services",
-    },
-    {
-      image: hero2,
-      title: t("hero.title"),
-      subtitle: t("hero.subtitle"),
-      cta: t("hero.cta"),
-      link: "/services",
-    },
-    {
-      image: hero3,
-      title: t("hero.title"),
-      subtitle: t("hero.subtitle"),
-      cta: t("hero.cta"),
-      link: "/services",
-    },
-  ];
+  // ✅ slides يتحدث مع تغيير اللغة
+  const slides = useMemo(
+    () => [
+      {
+        image: hero,
+        title: t("hero.title"),
+        subtitle: t("hero.subtitle"),
+        cta: t("hero.cta"),
+        link: "/services",
+      },
+      {
+        image: hero1,
+        title: t("hero.title"),
+        subtitle: t("hero.subtitle"),
+        cta: t("hero.cta"),
+        link: "/services",
+      },
+      {
+        image: hero2,
+        title: t("hero.title"),
+        subtitle: t("hero.subtitle"),
+        cta: t("hero.cta"),
+        link: "/services",
+      },
+      {
+        image: hero3,
+        title: t("hero.title"),
+        subtitle: t("hero.subtitle"),
+        cta: t("hero.cta"),
+        link: "/services",
+      },
+    ],
+    [i18n.language, t]
+  );
 
   return (
     <div className="min-h-screen dark:bg-gray-900 dark:text-gray-100">
       {/* Hero Section - Slider */}
       <section>
         <Swiper
+          key={i18n.language} // 👈 يجبر Swiper يعمل إعادة بناء مع تغيير اللغة
           modules={[Autoplay, Pagination, Navigation]}
           slidesPerView={1}
           loop
@@ -95,7 +104,7 @@ const HomePage: React.FC = () => {
                   className="w-full h-[400px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
 
-                {/* الـ Overlay الخاص بالـ Slide */}
+                {/* Overlay */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white text-center px-6 sm:px-10 md:px-16">
                   <motion.h1
                     initial={{ opacity: 0, y: 30 }}
@@ -103,7 +112,7 @@ const HomePage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl md:text-6xl font-bold mb-6"
                   >
-                    {t(slide.title)}
+                    {slide.title}
                   </motion.h1>
 
                   <motion.p
@@ -112,7 +121,7 @@ const HomePage: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
                   >
-                    {t(slide.subtitle)}
+                    {slide.subtitle}
                   </motion.p>
 
                   {slide.cta && (
@@ -127,7 +136,7 @@ const HomePage: React.FC = () => {
                         className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 m-8"
                         onClick={() => navigate(slide.link)}
                       >
-                        {t(slide.cta)}
+                        {slide.cta}
                       </Button>
                     </motion.div>
                   )}
@@ -162,7 +171,7 @@ const HomePage: React.FC = () => {
                     <Icon className="w-8 h-8" />
                   </div>
                   <span className="text-sm font-medium text-foreground text-center">
-                    {t(hub.name)}
+                    {hub.name}
                   </span>
                 </motion.div>
               );

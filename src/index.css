@@ -6,14 +6,14 @@
 @media (max-width: 640px) {
   .hero-swiper .swiper-button-prev,
   .hero-swiper .swiper-button-next {
-    top: 50% !important; /* move below the heading/subtitle */
+    top: 47% !important; 
   }
-  .hero-swiper .swiper-button-prev {
-    left: -10px !important;
+  /* .hero-swiper .swiper-button-prev {
+    left: 8px !important;
   }
   .hero-swiper .swiper-button-next {
-    right: -10px !important;
-  }
+    right: 8px !important;
+  } */
 }
 
 :root {
@@ -146,4 +146,7 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+}
+main {
+  padding-top: 0 !important;
 }
