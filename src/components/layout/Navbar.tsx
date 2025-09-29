@@ -151,13 +151,18 @@ const Navbar: React.FC = () => {
           <motion.div
             initial={{
               opacity: 0,
-              x: i18n.language === "ar" ? "-100%" : "100%",
+              x: i18n.language === "ar" ? 100 : -100, 
             }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: i18n.language === "ar" ? "-100%" : "100%" }}
+            exit={{
+              opacity: 0,
+              x: i18n.language === "ar" ? 100 : -100,
+            }}
+            transition={{ duration: 0.3 }}
             className={`fixed top-0 ${
-              i18n.language === "ar" ? "left-0" : "right-0"
-            } w-64 h-full bg-white dark:bg-gray-900 shadow-lg z-50 p-4 overflow-y-auto`}
+              i18n.language === "ar" ? "right-0" : "left-0"
+            } w-64 max-w-[80%] h-full bg-white dark:bg-gray-900 shadow-lg z-50 p-4 overflow-y-auto`}
+            dir={i18n.language === "ar" ? "rtl" : "ltr"}
           >
             {/* Close button inside drawer */}
             <div className="flex justify-end mb-4">

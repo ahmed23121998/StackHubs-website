@@ -11,21 +11,22 @@
   },
   "hero": {
     "title": "Your Partner in IT Innovation",
-    "subtitle": "StackHubs delivers cutting-edge IT services, from network and security to IoT and automation, empowering your business for the future.",
+    "subtitle": "Explore the hubs below and discover solutions tailored to your business needs.",
     "cta": "Explore Our Services"
   },
   "hubs": {
     "ai": "AI Hub",
     "network": "Network Hub",
     "infosec": "InfoSec Hub",
-    "wifi": "WiFi Hub",
-    "cloud": "Cloud Hub",
     "iot": "IoT Hub",
     "automation": "Automation Hub",
     "sap": "SAP ERP Hub",
     "training": "Training Hub"
   },
   "services": {
+    "title": "Our Service Hubs",
+    "subtitle": "Comprehensive IT solutions designed to meet your business needs across multiple technology domains",
+
     "aiHub": {
       "title": "AI Hub",
       "subtitle": "Intelligent solutions powered by machine learning and LLMs",
@@ -42,8 +43,7 @@
         "automation": "Agentic flows to automate repetitive tasks"
       }
     },
-    "title": "Our Service Hubs",
-    "subtitle": "Comprehensive IT solutions designed to meet your business needs across multiple technology domains",
+
     "networkHub": {
       "title": "Network Hub",
       "subtitle": "Building robust network infrastructure for your business",
@@ -62,6 +62,7 @@
         "modernization": "Legacy system upgrades and infrastructure transformation"
       }
     },
+
     "infosecHub": {
       "title": "InfoSec Hub",
       "subtitle": "Comprehensive cybersecurity solutions to protect your assets",
@@ -78,6 +79,7 @@
         "monitoring": "24/7 security monitoring and threat detection"
       }
     },
+
     "iotHub": {
       "title": "IoT Hub",
       "subtitle": "Smart IoT solutions for connected business operations",
@@ -94,6 +96,7 @@
         "predictiveMaintenance": "AI-powered predictive maintenance for IoT devices"
       }
     },
+
     "automationHub": {
       "title": "Automation Hub",
       "subtitle": "Intelligent automation solutions for operational efficiency",
@@ -108,6 +111,7 @@
         "aiIntegration": "Integrate AI into your workflows"
       }
     },
+
     "sapHub": {
       "title": "SAP ERP Hub",
       "subtitle": "Complete SAP ERP solutions and services",
@@ -128,6 +132,7 @@
         "optimization": "Optimize your SAP ERP system"
       }
     },
+
     "trainingHub": {
       "title": "Training Hub",
       "subtitle": "Specialized IT training programs for your team",
@@ -143,6 +148,10 @@
       }
     }
   },
+  "hubDetails": {
+    "notFound": "Hub not found",
+    "backToServices": "Back to Services"
+  },
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our experts",
@@ -153,7 +162,7 @@
     },
     "form": {
       "name": "Full Name",
-      "email": "email Address",
+      "email": "Email Address",
       "phone": "Phone Number",
       "address": "Address",
       "company": "Company",
@@ -167,100 +176,14 @@
   },
   "loyal": {
     "subtitle": "Join our loyalty program and unlock exclusive benefits designed to accelerate your IT success.",
-    "benefits": {
-      "priority": {
-        "title": "Priority Support",
-        "description": "Get priority access to our technical support team"
-      },
-      "discounts": {
-        "title": "Exclusive Discounts",
-        "description": "Special pricing on all our services and solutions"
-      },
-      "accountManager": {
-        "title": "Dedicated Account Manager",
-        "description": "Personal relationship manager for your business needs"
-      },
-      "earlyAccess": {
-        "title": "Early Access",
-        "description": "First access to new services and technologies"
-      }
-    },
     "tiers": {
       "title": "Program Tiers",
-      "member": "{{tier}} Member",
-      "features": {
-        "standardSupport": "Standard Support",
-        "prioritySupport": "Priority Support",
-        "support247": "24/7 Dedicated Support"
-      },
-      "bronze": { "name": "Bronze", "description": "Entry level benefits" },
-      "silver": {
-        "name": "Silver",
-        "description": "Enhanced benefits and priority"
-      },
-      "gold": {
-        "name": "Gold",
-        "description": "Premium benefits and VIP treatment"
-      }
+      "member": "{{tier}} Member"
     }
   },
   "partner": {
     "title": "Partner Program",
-    "subtitle": "Join our partner ecosystem and grow your business with StackHubs. Together we deliver exceptional IT solutions.",
-    "benefits": {
-      "strategicPartnerships": {
-        "title": "Strategic Partnerships",
-        "description": "Build long-term strategic relationships with mutual benefits"
-      },
-      "marketExpansion": {
-        "title": "Market Expansion",
-        "description": "Access new markets and customer segments through our network"
-      },
-      "revenueGrowth": {
-        "title": "Revenue Growth",
-        "description": "Increase revenue through joint solutions and referral programs"
-      },
-      "certificationTraining": {
-        "title": "Certification & Training",
-        "description": "Access exclusive training programs and certifications"
-      }
-    },
-    "types": {
-      "technologyPartners": {
-        "title": "Technology Partners",
-        "description": "Integrate your solutions with our platform and services",
-        "benefits": [
-          "Technical integration support",
-          "Joint development strategies",
-          "Co-marketing opportunities"
-        ]
-      },
-      "solutionPartners": {
-        "title": "Solution Partners",
-        "description": "Deliver integrated solutions to our mutual clients",
-        "benefits": [
-          "Referral programs",
-          "Joint solution development",
-          "Collaboration for success"
-        ]
-      },
-      "channelPartners": {
-        "title": "Channel Partners",
-        "description": "Sell and distribute our services in your market",
-        "benefits": [
-          "Competitive pricing",
-          "Sales training and support",
-          "Marketing funds"
-        ]
-      },
-      "partnerRankBenefits": {
-        "title": "Partner Rank Benefits",
-        "description": "Advance through our partner ranks and unlock increasing benefits and commission rates"
-      }
-    },
-    "ctaTitle": "Ready to Partner with StackHubs?",
-    "ctaDescription": "Take the next step in growing your business. Contact us to discuss partnership opportunities.",
-    "ctaButton": "Become a Partner"
+    "subtitle": "Join our partner ecosystem and grow your business with StackHubs."
   },
   "footer": {
     "company": "Company",
@@ -276,160 +199,27 @@
     "followUs": "Follow Us",
     "copyright": "© 2025 StackHubs. All rights reserved."
   },
-  "common": {
-    "loading": "Loading...",
-    "error": "Something went wrong",
-    "currency": "EGP",
-    "success": "Success!",
-    "back": "Back",
-    "cancel": "Cancel",
-    "edit": "Edit",
-    "delete": "Delete"
-  },
-  "chatbot": {
-    "title": "StackHubs Assistant",
-    "online": "Online",
-    "placeholder": "Type your message...",
-    "welcome": "Hello! I'm StackHubs AI Assistant. How can I help you today?"
-  },
-  "cart": {
-    "title": "Shopping Cart",
-    "empty": "Your cart is empty",
-    "add": "Add to Cart",
-    "remove": "Remove from Cart",
-    "clearAll": "Clear All",
-    "productCount": "Number of products",
-    "total": "Total",
-    "checkout": "Checkout",
-    "continueShopping": "Continue Shopping",
-    "addedSuccess": "{{product}} has been added to your cart ✅",
-    "removedSuccess": "{{product}} has been removed from your cart 🗑️",
-    "clearedSuccess": "Your cart has been cleared 🛒",
-    "quantityIncreased": "Quantity increased ⬆️",
-    "quantityDecreased": "Quantity decreased ⬇️",
-    "loginRequired": "You must be logged in to add products to your cart"
-  },
-  "checkout": {
-    "title": "Shopping Cart",
-    "products": "Products",
-    "empty": "Cart is empty",
-    "perUnit": "per unit",
-    "remove": "Remove",
-    "total": "Total",
-    "continueShopping": "Continue Shopping",
-    "submit": "Submit Order",
-    "success": "Order sent successfully!",
-    "clearCart": "Clear Cart",
-    "emptyCartAlert": "Your cart is empty. Please add items to proceed.",
-    "clearCartConfirmation": "Are you sure you want to clear the cart?"
-  },
-  "orders": {
-    "empty": "No orders yet.",
-    "orderNumber": "Order number",
-    "date": "Date"
+  "navbar": {
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode"
+    },
+    "language": {
+      "english": "English",
+      "arabic": "العربية"
+    }
   },
   "auth": {
     "login": "Login",
     "register": "Register",
-    "logout": "Logout",
-    "name": "Full Name",
-    "email": "Email",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
-    "enterName": "Enter your name",
-    "enterEmail": "Enter your email",
-    "welcome": "Welcome",
-    "createAccount": "Create Account",
-    "signIn": "Sign in",
-    "signingIn": "Signing in...",
-    "creatingAccount": "Creating Account...",
-    "dontHaveAccount": "Don't have an account?",
-    "alreadyHaveAccount": "Already have an account?",
-    "createOne": "Create one",
-    "signInLink": "Sign in",
-    "mustRegisterFirst": "You must register first before you can login.",
-    "loginFailed": "Login failed. Please register first or check your credentials.",
-    "registrationFailed": "Registration failed. Email already exists or please try again.",
-    "loginSuccess": "Login successful!",
-    "registrationSuccess": "Registration successful!",
-    "accountType": "Account Type",
-    "individual": "Individual",
-    "organization": "Organization",
-    "company": "Company",
-    "companyName": "Company Name",
-    "taxId": "Tax ID",
-    "enterCompanyName": "Enter company name",
-    "enterTaxId": "Enter tax ID"
-  },
-  "errors": {
-    "nameMin": "Name must be at least 2 characters",
-    "invalidEmail": "Invalid email",
-    "passwordMin": "Password must be at least 6 characters",
-    "passwordMismatch": "Passwords don't match",
-    "accountTypeRequired": "Please select an account type",
-    "companyNameRequired": "Company name is required for organization",
-    "taxIdRequired": "Tax ID is required for organization"
-  },
-  "favorites": {
-    "title": "Favorites",
-    "empty": "No products in favorites",
-    "startShopping": "Start Shopping",
-    "addToCart": "Add to Cart",
-    "removeFromFavorites": "Remove from Favorites",
-    "clearAll": "Clear All",
-    "productCount": "Number of products",
-    "continueShopping": "Continue Shopping",
-    "addedSuccess": "{{product}} has been added to favorites ❤️",
-    "removedSuccess": "{{product}} has been removed from favorites 🗑️",
-    "loginRequired": "You must be logged in to add products to favorites"
-  },
-  "store": {
-    "favorites": "Favorites",
-    "orders": "Orders",
-    "cartItems": "Cart Items",
-    "loading": "Loading products...",
-    "price": "Price",
-    "addToCart": "Add to Cart",
-    "quantity": "Quantity"
-  },
-  "navbar": {
-    "cart": "Cart",
-    "favorites": "Favorites",
-    "theme": {
-      "light": "Light",
-      "dark": "Dark"
-    },
-    "language": {
-      "arabic": "العربية",
-      "english": "English"
-    }
+    "welcome": "Welcome"
   },
   "settings": {
-    "title": "Account Settings",
-    "editProfile": "Edit Profile",
-    "save": "Save Changes",
-    "updateSuccess": "Profile updated successfully!",
-    "updateError": "Failed to update profile. Please try again."
+    "title": "Settings"
   },
-  "dashboard": {
-    "title": "Dashboard",
-    "addProduct": "Add Product",
-    "editProduct": "Edit Product",
-    "products": "Products",
-    "refresh": "Refresh",
-    "noProducts": "No products found.",
-    "create": "Create",
-    "update": "Update",
-    "saving": "Saving...",
-    "confirmDelete": "Delete this product?",
-    "fields": {
-      "name": "Name",
-      "description": "Description",
-      "price": "Price"
-    }
-  },
-  "password": {
-    "show": "Show password",
-    "hide": "Hide password"
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back"
   }
 }

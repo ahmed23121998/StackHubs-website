@@ -1,105 +1,44 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  Network,
-  Shield,
-  Wifi,
-  Cloud,
-  Cpu,
-  Settings,
-  Database,
-  GraduationCap,
-  Brain,
-} from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import hero from "../assets/hero.jpg";
-import hero1 from "../assets/hero1.jpg";
-import hero2 from "../assets/hero2.jpg";
-import hero3 from "../assets/hero3.jpg";
-
+import { serviceHubs } from "@/data/serviceHubs";
 import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-
-  // ✅ hubs يتحدث مع تغيير اللغة
-  const hubs = useMemo(
-    () => [
-      { icon: Brain, name: t("hubs.ai"), color: "#0EA5E9" },
-      { icon: Network, name: t("hubs.network"), color: "#3B82F6" },
-      { icon: Shield, name: t("hubs.infosec"), color: "#10B981" },
-      { icon: Wifi, name: t("hubs.wifi"), color: "#8B5CF6" },
-      { icon: Cloud, name: t("hubs.cloud"), color: "#06B6D4" },
-      { icon: Cpu, name: t("hubs.iot"), color: "#F59E0B" },
-      { icon: Settings, name: t("hubs.automation"), color: "#EF4444" },
-      { icon: Database, name: t("hubs.sap"), color: "#84CC16" },
-      { icon: GraduationCap, name: t("hubs.training"), color: "#F97316" },
-    ],
-    [i18n.language, t]
-  );
-
-  // ✅ slides يتحدث مع تغيير اللغة
-  const slides = useMemo(
-    () => [
-      {
-        image: hero,
-        title: t("hero.title"),
-        subtitle: t("hero.subtitle"),
-        cta: t("hero.cta"),
-        link: "/services",
-      },
-      {
-        image: hero1,
-        title: t("hero.title"),
-        subtitle: t("hero.subtitle"),
-        cta: t("hero.cta"),
-        link: "/services",
-      },
-      {
-        image: hero2,
-        title: t("hero.title"),
-        subtitle: t("hero.subtitle"),
-        cta: t("hero.cta"),
-        link: "/services",
-      },
-      {
-        image: hero3,
-        title: t("hero.title"),
-        subtitle: t("hero.subtitle"),
-        cta: t("hero.cta"),
-        link: "/services",
-      },
-    ],
-    [i18n.language, t]
-  );
+  const swiperRef = useRef<any>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const hubs = useMemo(() => serviceHubs(t), [i18n.language, t]);
 
   return (
     <div className="min-h-screen dark:bg-gray-900 dark:text-gray-100">
       {/* Hero Section - Slider */}
       <section>
         <Swiper
-          key={i18n.language} // 👈 يجبر Swiper يعمل إعادة بناء مع تغيير اللغة
+          key={i18n.language}
           modules={[Autoplay, Pagination, Navigation]}
           slidesPerView={1}
           loop
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           navigation
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className="h-full hero-swiper"
         >
-          {slides.map((slide, index) => (
+          {hubs.map((hub, index) => (
             <SwiperSlide key={index}>
               <div className="relative">
                 {/* صورة الخلفية */}
                 <img
-                  src={slide.image}
+                  src={hub.image}
                   alt={`Slide ${index + 1}`}
                   className="w-full h-[400px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
@@ -112,7 +51,7 @@ const HomePage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl md:text-6xl font-bold mb-6"
                   >
-                    {slide.title}
+                    {hub.title}
                   </motion.h1>
 
                   <motion.p
@@ -121,10 +60,11 @@ const HomePage: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
                   >
-                    {slide.subtitle}
+                    {hub.subtitle}
                   </motion.p>
 
-                  {slide.cta && (
+                  {/* CTA Button - يفتح صفحة تفاصيل الـ hub */}
+                  {t("hero.cta") && (
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -134,9 +74,9 @@ const HomePage: React.FC = () => {
                         size="lg"
                         variant="secondary"
                         className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 m-8"
-                        onClick={() => navigate(slide.link)}
+                        onClick={() => navigate(`/services/${hub.id}`)}
                       >
-                        {slide.cta}
+                        {t("hero.cta")}
                       </Button>
                     </motion.div>
                   )}
@@ -148,9 +88,9 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Service Hubs Icons Grid */}
-      <section className="py-2 dark:bg-gray-900 dark:text-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+      <section className="pt-2 pb-12 dark:bg-gray-900 dark:text-gray-100">
+        <div className="max-w-8xl mx-auto sm:px-6 lg:px-8 px-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
             {hubs.map((hub, index) => {
               const Icon = hub.icon;
               return (
@@ -161,8 +101,16 @@ const HomePage: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center text-center p-4 rounded-lg hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => navigate("/services")}
+                  className={`flex flex-col items-center text-center p-4 rounded-lg cursor-pointer transition-all duration-300 
+                    ${
+                      activeIndex === index
+                        ? "ring-2 ring-blue-500 shadow-lg"
+                        : "hover:shadow-md"
+                    }`}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    swiperRef.current?.slideToLoop(index);
+                  }}
                 >
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center mb-3 text-white"
@@ -171,7 +119,7 @@ const HomePage: React.FC = () => {
                     <Icon className="w-8 h-8" />
                   </div>
                   <span className="text-sm font-medium text-foreground text-center">
-                    {hub.name}
+                    {hub.title}
                   </span>
                 </motion.div>
               );
