@@ -107,10 +107,7 @@ const HomePage: React.FC = () => {
                         ? "ring-2 ring-blue-500 shadow-lg"
                         : "hover:shadow-md"
                     }`}
-                  onClick={() => {
-                    setActiveIndex(index);
-                    swiperRef.current?.slideToLoop(index);
-                  }}
+                  onClick={() => navigate(`/services/${hub.id}`)}
                 >
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center mb-3 text-white"

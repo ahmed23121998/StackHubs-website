@@ -14,6 +14,7 @@ interface User {
   accountType: "individual" | "organization";
   companyName?: string; 
   taxId?: string; 
+  profileImage?: string;
 }
 
 interface AuthContextType {

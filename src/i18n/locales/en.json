@@ -5,6 +5,7 @@
     "contact": "Contact Us",
     "loyal": "Loyal Program",
     "partner": "Partner Program",
+    "about": "About",
     "store": "Store",
     "order": "My Orders",
     "dashboard": "Dashboard"
@@ -183,7 +184,65 @@
   },
   "partner": {
     "title": "Partner Program",
-    "subtitle": "Join our partner ecosystem and grow your business with StackHubs."
+    "subtitle": "Join our partner ecosystem and grow your business with StackHubs.",
+
+    "benefits": {
+      "strategicPartnerships": {
+        "title": "Strategic Partnerships",
+        "description": "Collaborate with us to unlock new opportunities and expand your reach."
+      },
+      "marketExpansion": {
+        "title": "Market Expansion",
+        "description": "Access new markets and customers with our global partner network."
+      },
+      "revenueGrowth": {
+        "title": "Revenue Growth",
+        "description": "Boost your revenue with tailored partnership opportunities."
+      },
+      "certificationTraining": {
+        "title": "Certification & Training",
+        "description": "Get certified and trained to maximize your impact."
+      }
+    },
+
+    "types": {
+      "partnerRankBenefits": {
+        "title": "Partner Types & Benefits",
+        "description": "Choose the partner type that best fits your goals."
+      },
+
+      "technologyPartners": {
+        "title": "Technology Partners",
+        "description": "Provide cutting-edge technology solutions that integrate with StackHubs.",
+        "benefits": [
+          "Access to developer resources",
+          "Joint product development",
+          "Priority technical support"
+        ]
+      },
+      "solutionPartners": {
+        "title": "Solution Partners",
+        "description": "Deliver end-to-end solutions and services with our platform.",
+        "benefits": [
+          "Co-marketing opportunities",
+          "Lead sharing",
+          "Dedicated solution architect support"
+        ]
+      },
+      "channelPartners": {
+        "title": "Channel Partners",
+        "description": "Resell and distribute StackHubs solutions in your market.",
+        "benefits": [
+          "Exclusive discounts",
+          "Sales incentives",
+          "Marketing funds and training"
+        ]
+      }
+    },
+
+    "ctaTitle": "Ready to become a partner?",
+    "ctaDescription": "Join our global ecosystem of technology, solution, and channel partners. Grow with us.",
+    "ctaButton": "Apply Now"
   },
   "footer": {
     "company": "Company",
@@ -209,17 +268,80 @@
       "arabic": "العربية"
     }
   },
+  "about": {
+    "heroTitle": "Building Secure, Scalable Networks for the Digital Age",
+    "heroSubtitle": "At Stackhubs, we design, deploy, and defend robust technology stacks that empower businesses to innovate fearlessly.",
+    "whatWeDeliver": {
+      "title": "What We Deliver",
+      "items": [
+        {
+          "title": "End-to-End Network Architecture",
+          "desc": "From cloud infrastructure to on-premise solutions, we build agile networks that scale with your ambitions."
+        },
+        {
+          "title": "Cybersecurity Fortification",
+          "desc": "Proactive threat detection, zero-trust frameworks, and compliance-driven strategies to safeguard your digital assets."
+        },
+        {
+          "title": "Digital Evolution",
+          "desc": "Seamless migration, IoT integration, and workflow automation to future-proof your business."
+        },
+        {
+          "title": "Ekahau WiFi",
+          "desc": "Comprehensive WiFi design, deployment, management, and migration solutions to support business growth."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Partner With Us",
+      "items": [
+        {
+          "title": "Security-First Mindset",
+          "desc": "Every layer we stack is built with resilience at its core."
+        },
+        {
+          "title": "Innovation Without Compromise",
+          "desc": "We merge cutting-edge technology with battle-tested practices."
+        },
+        {
+          "title": "Your Success, Our Blueprint",
+          "desc": "Tailored solutions for startups, enterprises, and everything in between."
+        }
+      ]
+    },
+    "join": {
+      "title": "Join Our Mission",
+      "subtitle": "Whether you want to upgrade your infrastructure, protect critical systems, or redefine your digital strategy, Stackhubs is your hub for secure, smarter growth.",
+      "cta": "Visit Our Website"
+    }
+  },
   "auth": {
-    "login": "Login",
-    "register": "Register",
-    "welcome": "Welcome"
+    "name": "Name",
+    "enterName": "Enter your name",
+    "email": "Email",
+    "enterEmail": "Enter your email",
+    "accountType": "Account Type",
+    "companyName": "Company Name",
+    "enterCompanyName": "Enter your company name",
+    "taxId": "Tax ID",
+    "enterTaxId": "Enter your tax ID",
+    "logout": "Log out"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "editProfile": "Edit Profile",
+    "updateSuccess": "Profile updated successfully",
+    "updateError": "Failed to update profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "profileImage": "Profile Image"
   },
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
-    "back": "Back"
+    "back": "Back",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete"
   }
 }

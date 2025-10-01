@@ -10,8 +10,9 @@ import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
 import LoyalProgramPage from "@/pages/LoyalProgramPage";
 import PartnerProgramPage from "@/pages/PartnerProgramPage";
+import AboutPage from "@/pages/AboutPage";
 import { Toaster } from "@/components/ui/sonner";
-import StorePage from "./pages/StorePage";
+// import StorePage from "./pages/StorePage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import OrdersPage from "./pages/OrdersPage";
 import LoginPage from "./pages/LoginPage";
@@ -49,6 +50,7 @@ function AppRoutes() {
         "/contact": "Contact Us - StackHubs",
         "/loyal": "Loyal Program - StackHubs",
         "/partner": "Partner Program - StackHubs",
+        "/about": "About Us - StackHubs",
         "/login": "Login - StackHubs",
         "/register": "Register - StackHubs",
         "/favorites": "Favorites - StackHubs",
@@ -73,7 +75,8 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
-        <Route path="/store" element={<StorePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="/store" element={<StorePage />} /> */}
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/login" element={<LoginPage />} />
