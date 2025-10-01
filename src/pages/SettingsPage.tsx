@@ -85,7 +85,7 @@ const SettingsPage: React.FC = () => {
       "&background=random&color=fff";
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <Card>
         <CardHeader>
           <div className="flex justify-between items-center">
@@ -169,7 +169,9 @@ const SettingsPage: React.FC = () => {
                       placeholder={t("auth.enterEmail")}
                     />
                   ) : (
-                    <div className="font-medium">{user.email}</div>
+                    <div className="font-medium break-all max-w-full">
+                      {user.email}
+                    </div>
                   )}
                 </div>
 
