@@ -18,11 +18,11 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { key: "home", label: t("nav.home") },
+    { key: "about", label: t("nav.about") },
     { key: "services", label: t("nav.services") },
-    { key: "contact", label: t("nav.contact") },
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
-    { key: "about", label: t("nav.about") },
+    { key: "contact", label: t("nav.contact") },
     // { key: "store", label: t("nav.store") },
   ];
 
@@ -34,11 +34,11 @@ const Navbar: React.FC = () => {
   const handleNavigation = (page: string) => {
     const pathMap: Record<string, string> = {
       home: "/",
+      about: "/about",
       services: "/services",
-      contact: "/contact",
       loyal: "/loyal",
       partner: "/partner",
-      about: "/about",
+      contact: "/contact",
       // store: "/store",
     };
     navigate(pathMap[page] || "/");
