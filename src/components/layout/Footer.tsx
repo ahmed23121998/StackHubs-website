@@ -23,10 +23,11 @@ const Footer: React.FC = () => {
 
   const companyLinks = [
     { label: t("footer.home"), href: "/" },
+    {label: t("footer.about"), href: "/about"},
     { label: t("footer.services"), href: "/services" },
-    { label: t("footer.contact"), href: "/contact" },
     { label: t("footer.loyal"), href: "/loyal" },
     { label: t("footer.partner"), href: "/partner" },
+    { label: t("footer.contact"), href: "/contact" },
   ];
 
   const socialLinks = [
