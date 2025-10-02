@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "../../assets/stack-hubs-logo.png";
+import logo from "../../assets/images/stack-hubs-logo.png";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();

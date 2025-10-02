@@ -8,10 +8,10 @@ import {
   Brain,
 } from "lucide-react";
 
-import hero from "@/assets/hero.jpg";
-import hero1 from "@/assets/hero1.jpg";
-import hero2 from "@/assets/hero2.jpg";
-import hero3 from "@/assets/hero3.jpg";
+import hero from "@/assets/images/hero.jpg";
+import hero1 from "@/assets/images/hero1.jpg";
+import hero2 from "@/assets/images/hero2.jpg";
+import hero3 from "@/assets/images/hero3.jpg";
 
 // ✅ كل Hub فيه:
 // id = slug (لاستخدامه في الـ URL)

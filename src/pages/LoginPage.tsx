@@ -18,7 +18,7 @@ import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff } from "lucide-react";
 import React from "react";
-import logo from "../assets/stack logo.png";
+import logo from "../assets/images/stack logo.png";
 
 export default function LoginPage() {
   const { t, i18n } = useTranslation();

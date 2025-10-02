@@ -10,7 +10,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-import logo from "../../assets/stack-hubs-logo.png";
+import logo from "../../assets/images/stack-hubs-logo.png";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
