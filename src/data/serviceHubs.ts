@@ -1,32 +1,19 @@
-import {
-  Network,
-  Shield,
-  Cpu,
-  Settings,
-  Database,
-  GraduationCap,
-  Brain,
-} from "lucide-react";
-
 import hero from "@/assets/images/hero.jpg";
 import hero1 from "@/assets/images/hero1.jpg";
 import hero2 from "@/assets/images/hero2.jpg";
 import hero3 from "@/assets/images/hero3.jpg";
-
-// ✅ كل Hub فيه:
-// id = slug (لاستخدامه في الـ URL)
-// icon = أيقونة
-// image = صورة للسلايدر
-// color = لون الأيقونة
-// title/subtitle = نصوص من i18n
-// services = الخدمات بتاعت الهب
+import icon_ai from "@/assets/images/icon_ai.jpg";
+import icon_connectivity from "@/assets/images/icon_connectivity.png";
+import icon_security from "@/assets/images/icon_security.png";
+import icon_wireless from "@/assets/images/icon_wireless.png";
+import icon_automation from "@/assets/images/icon_automation.png";
 
 export const serviceHubs = (t: any) => [
   {
     id: "ai",
-    icon: Brain,
+    icon: icon_ai,
     image: hero,
-    color: "#0EA5E9",
+    color: "#155F82",
     title: t("services.aiHub.title"),
     subtitle: t("services.aiHub.subtitle"),
     services: [
@@ -50,9 +37,9 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "network",
-    icon: Network,
+    icon: icon_connectivity,
     image: hero1,
-    color: "#3B82F6",
+    color: "#155F82",
     title: t("services.networkHub.title"),
     subtitle: t("services.networkHub.subtitle"),
     services: [
@@ -80,9 +67,9 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "infosec",
-    icon: Shield,
+    icon: icon_security,
     image: hero2,
-    color: "#10B981",
+    color: "#155F82",
     title: t("services.infosecHub.title"),
     subtitle: t("services.infosecHub.subtitle"),
     services: [
@@ -106,9 +93,9 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "iot",
-    icon: Cpu,
+    icon: icon_wireless,
     image: hero1,
-    color: "#F59E0B",
+    color: "#155F82",
     title: t("services.iotHub.title"),
     subtitle: t("services.iotHub.subtitle"),
     services: [
@@ -132,9 +119,9 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "automation",
-    icon: Settings,
+    icon: icon_automation,
     image: hero2,
-    color: "#EF4444",
+    color: "#155F82",
     title: t("services.automationHub.title"),
     subtitle: t("services.automationHub.subtitle"),
     services: [
@@ -156,9 +143,9 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "sap",
-    icon: Database,
+    icon: icon_connectivity,
     image: hero3,
-    color: "#84CC16",
+    color: "#155F82",
     title: t("services.sapHub.title"),
     subtitle: t("services.sapHub.subtitle"),
     services: [
@@ -190,9 +177,31 @@ export const serviceHubs = (t: any) => [
   },
   {
     id: "training",
-    icon: GraduationCap,
+    icon: icon_security,
     image: hero,
-    color: "#F97316",
+    color: "#155F82",
+    title: t("services.trainingHub.title"),
+    subtitle: t("services.trainingHub.subtitle"),
+    services: [
+      {
+        name: t("services.trainingHub.services.technicalTraining"),
+        description: t("services.trainingHub.descriptions.technicalTraining"),
+      },
+      {
+        name: t("services.trainingHub.services.certificationPrep"),
+        description: t("services.trainingHub.descriptions.certificationPrep"),
+      },
+      {
+        name: t("services.trainingHub.services.customWorkshops"),
+        description: t("services.trainingHub.descriptions.customWorkshops"),
+      },
+    ],
+  },
+  {
+    id: "training",
+    icon: icon_security,
+    image: hero,
+    color: "#155F82",
     title: t("services.trainingHub.title"),
     subtitle: t("services.trainingHub.subtitle"),
     services: [

@@ -11,7 +11,7 @@ import logo from "../../assets/images/stack-hubs-logo.png";
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const { user, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
     { key: "services", label: t("nav.services") },
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
+    { key: "projects", label: t("nav.projects") },
     { key: "contact", label: t("nav.contact") },
     // { key: "store", label: t("nav.store") },
   ];
@@ -38,6 +39,7 @@ const Navbar: React.FC = () => {
       services: "/services",
       loyal: "/loyal",
       partner: "/partner",
+      projects: "/projects",
       contact: "/contact",
       // store: "/store",
     };
@@ -48,7 +50,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 w-full z-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
         <div className="flex items-center justify-between h-16 gap-2">
           {/* Logo */}
           <motion.div
@@ -64,21 +66,31 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-            {navItems.map((item) => (
-              <div
-                key={item.key}
-                onClick={() => handleNavigation(item.key)}
-                className={`text-sm font-medium transition-all duration-300 cursor-pointer
-                  ${
-                    (location.pathname === "/" && item.key === "home") ||
-                    location.pathname === `/${item.key}`
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:scale-105"
-                  }`}
-              >
-                {item.label}
-              </div>
-            ))}
+            {navItems.map((item) =>
+              item.key === "contact" ? (
+                <Button
+                  key={item.key}
+                  onClick={() => handleNavigation(item.key)}
+                  className="px-5 py-2 bg-[#DF1783] text-white rounded-full hover:bg-pink-500 transition-all"
+                >
+                  {item.label}
+                </Button>
+              ) : (
+                <div
+                  key={item.key}
+                  onClick={() => handleNavigation(item.key)}
+                  className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand
+          ${
+            (location.pathname === "/" && item.key === "home") ||
+            location.pathname === `/${item.key}`
+              ? "text-blue-600 dark:text-brand"
+              : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
+          }`}
+                >
+                  {item.label}
+                </div>
+              )
+            )}
           </div>
 
           {/* Theme & Language Controls */}
@@ -90,7 +102,7 @@ const Navbar: React.FC = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/settings")}
-                  className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+                  className="bg-primary text-white border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
                 >
                   <Settings className="h-4 w-4" />
                 </Button>
@@ -101,7 +113,7 @@ const Navbar: React.FC = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/login")}
-                  className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full"
+                  className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full"
                 >
                   {t("auth.login")}
                 </Button>
@@ -113,7 +125,7 @@ const Navbar: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={toggleTheme}
-              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+              className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4" />
@@ -127,23 +139,19 @@ const Navbar: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+              className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
             >
               <Globe className="h-4 w-4" />
             </Button>
 
             {/* Mobile Menu Button */}
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
-              className="lg:hidden w-9 h-9 p-0 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+              onClick={() => setIsMenuOpen(true)}
             >
-              {isMenuOpen ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <Menu className="h-4 w-4" />
-              )}
+              <Menu className="h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -153,7 +161,7 @@ const Navbar: React.FC = () => {
           <motion.div
             initial={{
               opacity: 0,
-              x: i18n.language === "ar" ? 100 : -100, 
+              x: i18n.language === "ar" ? 100 : -100,
             }}
             animate={{ opacity: 1, x: 0 }}
             exit={{
@@ -163,109 +171,46 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.3 }}
             className={`fixed top-0 ${
               i18n.language === "ar" ? "right-0" : "left-0"
-            } w-64 max-w-[80%] h-full bg-white dark:bg-gray-900 shadow-lg z-50 p-4 overflow-y-auto`}
+            } w-64 max-w-[80%] h-full bg-white dark:bg-gray-700 dark:text-white dark:border-primary  shadow-lg z-50 p-4 overflow-y-auto`}
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
           >
             {/* Close button inside drawer */}
             <div className="flex justify-end mb-4">
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400"
+                className="p-2 text-white bg-primary hover:text-primary transition-colors"
               >
                 <X className="h-5 w-5" />
               </Button>
             </div>
             <div className="space-y-2">
-              {navItems.map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => handleNavigation(item.key)}
-                  className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400
-            ${
-              (location.pathname === "/" && item.key === "home") ||
-              location.pathname === `/${item.key}`
-                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                : "text-muted-foreground"
-            }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-
-              {/* Mobile Theme & Language Controls */}
-              <div className="border-t border-border pt-4 mt-4">
-                <div className="flex gap-2 px-4">
+              {navItems.map((item) =>
+                item.key === "contact" ? (
                   <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={toggleTheme}
-                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800"
+                    key={item.key}
+                    onClick={() => handleNavigation(item.key)}
+                    className="w-full px-4 py-2 bg-[#DF1783] text-white rounded-full hover:bg-pink-500 transition-all"
                   >
-                    {theme === "light" ? (
-                      <Moon className="h-4 w-4 mr-2" />
-                    ) : (
-                      <Sun className="h-4 w-4 mr-2" />
-                    )}
-                    {theme === "light"
-                      ? t("navbar.theme.dark")
-                      : t("navbar.theme.light")}
+                    {item.label}
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={toggleLanguage}
-                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:border-blue-300 dark:hover:bg-gray-800"
-                  >
-                    <Globe className="h-4 w-4 mr-2" />
-                    {i18n.language === "en"
-                      ? t("navbar.language.arabic")
-                      : t("navbar.language.english")}
-                  </Button>
-                </div>
-              </div>
-
-              {/* Mobile Auth Buttons */}
-              <div className="border-t border-border pt-4 mt-4">
-                {isAuthenticated ? (
-                  <div className="space-y-2">
-                    <div className="px-4 py-2 text-sm text-muted-foreground">
-                      {t("auth.welcome")}, {user?.name}
-                    </div>
-                    <button
-                      onClick={() => {
-                        navigate("/settings");
-                        setIsMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                    >
-                      {t("settings.title")}
-                    </button>
-                  </div>
                 ) : (
-                  <div className="space-y-2">
-                    <button
-                      onClick={() => {
-                        navigate("/login");
-                        setIsMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                    >
-                      {t("auth.login")}
-                    </button>
-                    {/* <button
-                      onClick={() => {
-                        navigate("/register");
-                        setIsMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                    >
-                      {t("auth.register")}
-                    </button> */}
-                  </div>
-                )}
-              </div>
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.key)}
+                    className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary text-brand
+          ${
+            (location.pathname === "/" && item.key === "home") ||
+            location.pathname === `/${item.key}`
+              ? "text-blue-600 dark:text-brand "
+              : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
+          }`}
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
             </div>
           </motion.div>
         )}

@@ -27,6 +27,7 @@ const Footer: React.FC = () => {
     { label: t("footer.services"), href: "/services" },
     { label: t("footer.loyal"), href: "/loyal" },
     { label: t("footer.partner"), href: "/partner" },
+    { label: t("footer.projects"), href: "/projects" },
     { label: t("footer.contact"), href: "/contact" },
   ];
 

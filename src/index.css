@@ -6,7 +6,7 @@
 @media (max-width: 640px) {
   .hero-swiper .swiper-button-prev,
   .hero-swiper .swiper-button-next {
-    top: 47% !important; 
+    top: 47% !important;
   }
   /* .hero-swiper .swiper-button-prev {
     left: 8px !important;
@@ -149,4 +149,79 @@ button:focus-visible {
 }
 main {
   padding-top: 0 !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* تحسين شكل نقاط الـ Swiper Pagination */
+.hero-swiper .swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.hero-swiper .swiper-pagination-bullet:hover {
+  background: #44b3e1; /* لون hover = brand */
+  transform: scale(1.2);
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: #df1783; /* اللون الأساسي وقت التفعيل */
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 10px #df1783;
+  transform: scale(1);
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background: white !important;
+  opacity: 0.6 !important;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #3ba7d3, #4fc3f7) !important;
+  width: 28px !important;
+  border-radius: 10px !important;
+  opacity: 1 !important;
+}
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 0px rgba(68, 179, 225, 0.4);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 25px rgba(21, 95, 130, 0.7);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 0px rgba(68, 179, 225, 0.4);
+  }
+}
+
+.animate-gradient-pulse {
+  animation: gradientPulse 4s ease-in-out infinite;
+}
+@keyframes softPulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(68, 179, 225, 0.3));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(68, 179, 225, 0.6));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(68, 179, 225, 0.3));
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3.5s ease-in-out infinite;
 }

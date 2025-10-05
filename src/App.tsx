@@ -22,6 +22,8 @@ import SettingsPage from "./pages/SettingsPage";
 import "./i18n/i18n";
 import HubDetails from "./pages/HubDetails";
 import { serviceHubs } from "@/data/serviceHubs";
+import Projects from "./pages/Projects";
+import ProjectDetails from "./pages/ProjectDetails";
 
 function AppRoutes() {
   const { i18n, t } = useTranslation();
@@ -75,6 +77,8 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
         <Route path="/about" element={<AboutPage />} />
         {/* <Route path="/store" element={<StorePage />} /> */}
         <Route path="/checkout" element={<CheckoutPage />} />

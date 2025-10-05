@@ -24,7 +24,6 @@ const HubDetails: React.FC = () => {
     );
   }
 
-  const Icon = hub.icon;
 
   return (
     <div className="min-h-screen py-12 dark:bg-gray-900 dark:text-gray-100">
@@ -41,7 +40,7 @@ const HubDetails: React.FC = () => {
             className="w-20 h-20 rounded-full flex items-center justify-center text-white shadow-lg flex-shrink-0"
             style={{ backgroundColor: hub.color }}
           >
-            <Icon className="w-10 h-10" />
+            <img src={hub.icon} alt={hub.title} className="w-10 h-10" />
           </div>
 
           {/* النصوص */}
