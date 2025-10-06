@@ -10,7 +10,12 @@
     "about": "About",
     "store": "Store",
     "order": "My Orders",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "menu": "Menu",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
   },
 
   "hero": {
@@ -37,7 +42,7 @@
 
     "aiHub": {
       "title": "AI Hub",
-      "subtitle": "Intelligent solutions powered by machine learning and LLMs",
+      "subtitle": "Unlock the power of artificial intelligence with intelligent automation, analytics, and decision-making solutions that truly return value to your business.",
       "services": {
         "chatbots": "AI Chatbots",
         "rag": "RAG Systems",
@@ -54,7 +59,7 @@
 
     "networkHub": {
       "title": "Network Hub",
-      "subtitle": "Building robust network infrastructure for your business",
+      "subtitle": "Connect, design, and optimize enterprise-grade networks. From data centers to multi-cloud architectures, with speed, reliability, and scalability in mind.",
       "services": {
         "consultation": "Consultation",
         "managed": "Managed Service",
@@ -73,7 +78,7 @@
 
     "infosecHub": {
       "title": "InfoSec Hub",
-      "subtitle": "Comprehensive cybersecurity solutions to protect your assets",
+      "subtitle": "Protect your digital assets through advanced cybersecurity strategies, compliance frameworks, and proactive threat intelligence.",
       "services": {
         "vulnerability": "Vulnerability Testing",
         "incident": "Incident Response",
@@ -90,7 +95,7 @@
 
     "iotHub": {
       "title": "IoT Hub",
-      "subtitle": "Smart IoT solutions for connected business operations",
+      "subtitle": "Bridge the physical and digital worlds through smart sensors, smart devices, seamless connectivity, and real-time data platforms that drive innovation.",
       "services": {
         "deviceManagement": "Device Management",
         "edgeComputing": "Edge Computing",
@@ -107,7 +112,7 @@
 
     "automationHub": {
       "title": "Automation Hub",
-      "subtitle": "Intelligent automation solutions for operational efficiency",
+      "subtitle": "Automate IT and network operations with intelligent workflows that enhance efficiency, consistency, and scalability across your entire infrastructure.",
       "services": {
         "processAutomation": "Process Automation",
         "workflowOptimization": "Workflow Optimization",
@@ -121,8 +126,8 @@
     },
 
     "sapHub": {
-      "title": "SAP ERP Hub",
-      "subtitle": "Complete SAP ERP solutions and services",
+      "title": "ERP Hub",
+      "subtitle": "Unify business processes with tailored ERP solutions that enhance visibility, control, and performance from finance to operations.",
       "services": {
         "implementation": "Implementation",
         "consultation": "Consultation",
@@ -143,7 +148,7 @@
 
     "trainingHub": {
       "title": "Training Hub",
-      "subtitle": "Specialized IT training programs for your team",
+      "subtitle": "Empower your teams with hands-on, expert-led IT courses designed to upskill, certify, and future-proof your workforce",
       "services": {
         "technicalTraining": "Technical Training",
         "certificationPrep": "Certification Preparation",

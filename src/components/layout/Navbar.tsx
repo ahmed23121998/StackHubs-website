@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import CustomTooltip from "../ui/CustomTooltip";
 import logo from "../../assets/images/stack-hubs-logo.png";
+import login from "../../assets/images/login.jpg";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -51,7 +53,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-lg sticky top-0 w-full z-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
-        <div className="flex items-center justify-between h-16 gap-2">
+        <div className="flex items-center  h-16 justify-between">
           {/* Logo */}
           <motion.div
             className="flex items-center gap-2 cursor-pointer min-w-0"
@@ -94,65 +96,88 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Theme & Language Controls */}
-          <div className="flex items-center gap-1 sm:gap-2 shrink-0 rtl:flex-row-reverse">
-            {/* Auth Buttons */}
+          <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0 rtl:flex-row-reverse">
+            {/* Auth Button */}
             {isAuthenticated ? (
-              <div className="flex items-center gap-2">
+              <CustomTooltip label={t("nav.settings")} side="bottom">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/settings")}
-                  className="bg-primary text-white border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+                  className="bg-primary text-white border-primary hover:bg-primary/70 
+                  dark:text-white dark:border-primary dark:hover:bg-gray-800 
+                  rounded-full w-9 h-9 p-0 flex items-center justify-center"
                 >
                   <Settings className="h-4 w-4" />
                 </Button>
-              </div>
+              </CustomTooltip>
             ) : (
-              <div className="flex items-center gap-2">
+              <CustomTooltip label={t("auth.login")} side="bottom">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/login")}
-                  className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full"
+                  className="text-white bg-primary border-primary hover:bg-primary/70 
+                  dark:text-white dark:border-primary dark:hover:bg-gray-800 
+                  rounded-full w-9 h-9 p-0 flex items-center justify-center"
                 >
-                  {t("auth.login")}
+                  <img
+                    src={login}
+                    alt="Login"
+                    className="h-5 w-5 rounded-full object-cover"
+                  />
                 </Button>
-              </div>
+              </CustomTooltip>
             )}
 
             {/* Theme Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleTheme}
-              className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
+            <CustomTooltip
+              label={theme === "light" ? t("nav.lightMode") : t("nav.darkMode")}
+              side="bottom"
             >
-              {theme === "light" ? (
-                <Moon className="h-4 w-4" />
-              ) : (
-                <Sun className="h-4 w-4" />
-              )}
-            </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleTheme}
+                className="text-white bg-primary border-primary hover:bg-primary/70 
+                dark:text-white dark:border-primary dark:hover:bg-gray-800 
+                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+              >
+                {theme === "light" ? (
+                  <Moon className="h-4 w-4" />
+                ) : (
+                  <Sun className="h-4 w-4" />
+                )}
+              </Button>
+            </CustomTooltip>
 
             {/* Language Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleLanguage}
-              className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
-            >
-              <Globe className="h-4 w-4" />
-            </Button>
+            <CustomTooltip label={t("nav.language")} side="bottom">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleLanguage}
+                className="text-white bg-primary border-primary hover:bg-primary/70 
+                dark:text-white dark:border-primary dark:hover:bg-gray-800 
+                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+              >
+                <Globe className="h-4 w-4" />
+              </Button>
+            </CustomTooltip>
 
             {/* Mobile Menu Button */}
-            <Button
-              variant="outline"
-              size="sm"
-              className="lg:hidden text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Menu className="h-4 w-4" />
-            </Button>
+            <CustomTooltip label={t("nav.menu")} side="bottom">
+              <Button
+                variant="outline"
+                size="sm"
+                className="lg:hidden text-white bg-primary border-primary hover:bg-primary/70 
+                dark:text-white dark:border-primary dark:hover:bg-gray-800 
+                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                onClick={() => setIsMenuOpen(true)}
+              >
+                <Menu className="h-4 w-4" />
+              </Button>
+            </CustomTooltip>
           </div>
         </div>
 
@@ -171,7 +196,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.3 }}
             className={`fixed top-0 ${
               i18n.language === "ar" ? "right-0" : "left-0"
-            } w-64 max-w-[80%] h-full bg-white dark:bg-gray-700 dark:text-white dark:border-primary  shadow-lg z-50 p-4 overflow-y-auto`}
+            } w-64 max-w-[80%] h-full bg-gray-700 text-white border-primary dark:bg-gray-700 dark:text-white dark:border-primary  shadow-lg z-50 p-4 overflow-y-auto`}
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
           >
             {/* Close button inside drawer */}

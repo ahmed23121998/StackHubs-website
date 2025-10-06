@@ -409,7 +409,7 @@ const HomePage: React.FC = () => {
               alt="About 3"
               className="rounded-xl object-cover h-60 w-full col-span-2"
             />
-            <div className="absolute -bottom-6 -left-6 bg-primary text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3">
+            <div className="absolute -bottom-6 -left-2 bg-primary text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3">
               <span className="text-4xl font-extrabold leading-none text-white">
                 {t("aboutUs.numofyears")}
               </span>
@@ -544,21 +544,24 @@ const HomePage: React.FC = () => {
                   src: project_7_1,
                   tagKey: "projects.dataAnalytics.tag",
                   titleKey: "projects.dataAnalytics.title",
+                  id: "data-analytics",
                 },
                 {
                   src: project_7_2,
                   tagKey: "projects.itSolution.tag",
                   titleKey: "projects.itSolution.title",
+                  id: "it-solution",
                 },
                 {
                   src: project_7_3,
                   tagKey: "projects.cloudSecurity.tag",
                   titleKey: "projects.cloudSecurity.title",
+                  id: "cloud-security",
                 },
               ])
               .flat()
               .map((project, i) => (
-                <SwiperSlide key={i}>
+                <SwiperSlide key={`${project.id}-${i}`}>
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
