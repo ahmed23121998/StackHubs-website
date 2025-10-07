@@ -34,13 +34,13 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: Facebook,
-      href: "https://www.facebook.com/",
+      href: "https://www.facebook.com/share/19tBphabKN/?mibextid=wwXIfr",
       label: "Facebook",
       hover: "hover:bg-blue-600",
     },
     {
       icon: Twitter,
-      href: "https://x.com/",
+      href: "https://x.com/Stackhubs_Globa",
       label: "Twitter",
       hover: "hover:bg-sky-500",
     },
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/",
+      href: "https://www.linkedin.com/company/stackhubs-global/?viewAsMember=true",
       label: "LinkedIn",
       hover: "hover:bg-blue-700",
     },
