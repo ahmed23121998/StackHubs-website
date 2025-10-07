@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
 
   const companyLinks = [
     { label: t("footer.home"), href: "/" },
-    {label: t("footer.about"), href: "/about"},
+    { label: t("footer.about"), href: "/about" },
     { label: t("footer.services"), href: "/services" },
     { label: t("footer.loyal"), href: "/loyal" },
     { label: t("footer.partner"), href: "/partner" },
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: Facebook,
-      href: "https://www.facebook.com/share/19tBphabKN/?mibextid=wwXIfr",
+      href: "https://www.facebook.com/share/14HeWajLPGG/?mibextid=wwXIfr",
       label: "Facebook",
       hover: "hover:bg-blue-600",
     },
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: Instagram,
-      href: "https://www.instagram.com/",
+      href: "https://www.instagram.com/stackhubs_global?igsh=MXE3MG16cTVtYTMyeA==&utm_source=ig_contact_invite",
       label: "Instagram",
       hover: "hover:bg-pink-600",
     },
