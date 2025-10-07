@@ -363,13 +363,47 @@
   },
 
   "loyal": {
-    "subtitle": "Join our loyalty program and unlock exclusive benefits designed to accelerate your IT success.",
+    "subtitle": "Join the loyalty program and unlock exclusive benefits designed to accelerate your technical success.",
+    "benefits": {
+      "priority": {
+        "title": "Priority Support",
+        "description": "Priority access to the technical support team"
+      },
+      "discounts": {
+        "title": "Exclusive Discounts",
+        "description": "Special pricing on all our services and solutions"
+      },
+      "accountManager": {
+        "title": "Dedicated Account Manager",
+        "description": "A dedicated relationship manager for your business needs"
+      },
+      "earlyAccess": {
+        "title": "Early Access",
+        "description": "Priority access to new services and technologies"
+      }
+    },
     "tiers": {
       "title": "Program Tiers",
-      "member": "{{tier}} Member"
+      "member": "{{tier}} Membership",
+      "features": {
+        "standardSupport": "Standard Support",
+        "prioritySupport": "Priority Support",
+        "support247": "24/7 Dedicated Support"
+      },
+      "bronze": {
+        "name": "Bronze",
+        "description": "Basic benefits for beginners"
+      },
+      "silver": {
+        "name": "Silver",
+        "description": "Enhanced benefits with higher priority"
+      },
+      "gold": {
+        "name": "Gold",
+        "description": "Premium benefits and VIP treatment"
+      }
     }
   },
-
   "partner": {
     "title": "Partner Program",
     "subtitle": "Join our partner ecosystem and grow your business with StackHubs.",
