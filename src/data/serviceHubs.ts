@@ -1,8 +1,15 @@
-import hero from "@/assets/images/hero.jpg";
-import hero1 from "@/assets/images/hero1.jpg";
-import hero2 from "@/assets/images/hero2.jpg";
-import hero3 from "@/assets/images/hero3.jpg";
-
+// import hero from "@/assets/images/hero.jpg";
+// import hero1 from "@/assets/images/hero1.jpg";
+// import hero2 from "@/assets/images/hero2.jpg";
+// import hero3 from "@/assets/images/hero3.jpg";
+import Ai_image from "@/assets/images/AI Hub.png";
+import Automation_image from "@/assets/images/Automation Hub.png";
+import ERP_image from "@/assets/images/ERP Hub.png";
+import Infosec_image from "@/assets/images/InfoSec Hub 1.png";
+import IoT_image from "@/assets/images/IoT Hub.png";
+import Network_image from "@/assets/images/Network Hub 1.png";
+import Training_image from "@/assets/images/ُTraining Hub.png";
+import Wireless_image from "@/assets/images/Wireless Hub.png";
 import icon_wireless from "@/assets/images/icon_wireless.png";
 import AI from "@/assets/images/AI.png";
 import Automation from "@/assets/images/automation.png";
@@ -13,10 +20,11 @@ import network from "@/assets/images/network.png";
 import training from "@/assets/images/Training.png";
 
 export const serviceHubs = (t: any) => [
+
   {
     id: "network",
     icon: network,
-    image: hero1,
+    image: Network_image,
     color: "#155F82",
     title: t("services.networkHub.title"),
     subtitle: t("services.networkHub.subtitle"),
@@ -47,7 +55,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "infosec",
     icon: Info,
-    image: hero2,
+    image: Infosec_image,
     color: "#155F82",
     title: t("services.infosecHub.title"),
     subtitle: t("services.infosecHub.subtitle"),
@@ -74,7 +82,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "wireless",
     icon: icon_wireless,
-    image: hero,
+    image: Wireless_image,
     color: "#155F82",
     title: t("services.wirelessHub.title"),
     subtitle: t("services.wirelessHub.subtitle"),
@@ -99,7 +107,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "ai",
     icon: AI,
-    image: hero,
+    image: Ai_image,
     color: "#155F82",
     title: t("services.aiHub.title"),
     subtitle: t("services.aiHub.subtitle"),
@@ -126,7 +134,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "iot",
     icon: iot,
-    image: hero1,
+    image: IoT_image,
     color: "#155F82",
     title: t("services.iotHub.title"),
     subtitle: t("services.iotHub.subtitle"),
@@ -153,7 +161,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "automation",
     icon: Automation,
-    image: hero2,
+    image: Automation_image,
     color: "#155F82",
     title: t("services.automationHub.title"),
     subtitle: t("services.automationHub.subtitle"),
@@ -178,7 +186,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "sap",
     icon: ERP1,
-    image: hero3,
+    image: ERP_image,
     color: "#155F82",
     title: t("services.sapHub.title"),
     subtitle: t("services.sapHub.subtitle"),
@@ -213,7 +221,7 @@ export const serviceHubs = (t: any) => [
   {
     id: "training",
     icon: training,
-    image: hero,
+    image: Training_image,
     color: "#155F82",
     title: t("services.trainingHub.title"),
     subtitle: t("services.trainingHub.subtitle"),
