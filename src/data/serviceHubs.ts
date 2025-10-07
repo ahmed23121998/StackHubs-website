@@ -2,48 +2,20 @@ import hero from "@/assets/images/hero.jpg";
 import hero1 from "@/assets/images/hero1.jpg";
 import hero2 from "@/assets/images/hero2.jpg";
 import hero3 from "@/assets/images/hero3.jpg";
-// import icon_connectivity from "@/assets/images/icon_connectivity.png";
-// import icon_security from "@/assets/images/icon_security.png";
-// import icon_wireless from "@/assets/images/icon_wireless.png";
-// import icon_automation from "@/assets/images/icon_automation.png";
+
+import icon_wireless from "@/assets/images/icon_wireless.png";
 import AI from "@/assets/images/AI.png";
 import Automation from "@/assets/images/automation.png";
 import ERP1 from "@/assets/images/ERP1.webp";
-import ERP2 from "@/assets/images/ERP2.png";
-import ERP3 from "@/assets/images/ERP3.png";
 import Info from "@/assets/images/infosec.png";
 import iot from "@/assets/images/iot.png";
+import network from "@/assets/images/network.png";
+import training from "@/assets/images/Training.png";
 
 export const serviceHubs = (t: any) => [
   {
-    id: "ai",
-    icon: AI,
-    image: hero,
-    color: "#155F82",
-    title: t("services.aiHub.title"),
-    subtitle: t("services.aiHub.subtitle"),
-    services: [
-      {
-        name: t("services.aiHub.services.chatbots"),
-        description: t("services.aiHub.descriptions.chatbots"),
-      },
-      {
-        name: t("services.aiHub.services.rag"),
-        description: t("services.aiHub.descriptions.rag"),
-      },
-      {
-        name: t("services.aiHub.services.visionNlp"),
-        description: t("services.aiHub.descriptions.visionNlp"),
-      },
-      {
-        name: t("services.aiHub.services.automation"),
-        description: t("services.aiHub.descriptions.automation"),
-      },
-    ],
-  },
-  {
     id: "network",
-    icon: ERP3,
+    icon: network,
     image: hero1,
     color: "#155F82",
     title: t("services.networkHub.title"),
@@ -71,6 +43,7 @@ export const serviceHubs = (t: any) => [
       },
     ],
   },
+
   {
     id: "infosec",
     icon: Info,
@@ -97,6 +70,59 @@ export const serviceHubs = (t: any) => [
       },
     ],
   },
+
+  {
+    id: "wireless",
+    icon: icon_wireless,
+    image: hero,
+    color: "#155F82",
+    title: t("services.wirelessHub.title"),
+    subtitle: t("services.wirelessHub.subtitle"),
+    services: [
+      {
+        name: t("services.wirelessHub.services.wirelessNetworking"),
+        description: t("services.wirelessHub.descriptions.wirelessNetworking"),
+      },
+      {
+        name: t("services.wirelessHub.services.wirelessSecurity"),
+        description: t("services.wirelessHub.descriptions.wirelessSecurity"),
+      },
+      {
+        name: t("services.wirelessHub.services.wirelessOptimization"),
+        description: t(
+          "services.wirelessHub.descriptions.wirelessOptimization"
+        ),
+      },
+    ],
+  },
+
+  {
+    id: "ai",
+    icon: AI,
+    image: hero,
+    color: "#155F82",
+    title: t("services.aiHub.title"),
+    subtitle: t("services.aiHub.subtitle"),
+    services: [
+      {
+        name: t("services.aiHub.services.chatbots"),
+        description: t("services.aiHub.descriptions.chatbots"),
+      },
+      {
+        name: t("services.aiHub.services.rag"),
+        description: t("services.aiHub.descriptions.rag"),
+      },
+      {
+        name: t("services.aiHub.services.visionNlp"),
+        description: t("services.aiHub.descriptions.visionNlp"),
+      },
+      {
+        name: t("services.aiHub.services.automation"),
+        description: t("services.aiHub.descriptions.automation"),
+      },
+    ],
+  },
+
   {
     id: "iot",
     icon: iot,
@@ -123,6 +149,7 @@ export const serviceHubs = (t: any) => [
       },
     ],
   },
+
   {
     id: "automation",
     icon: Automation,
@@ -147,6 +174,7 @@ export const serviceHubs = (t: any) => [
       },
     ],
   },
+
   {
     id: "sap",
     icon: ERP1,
@@ -181,31 +209,10 @@ export const serviceHubs = (t: any) => [
       },
     ],
   },
+
   {
     id: "training",
-    icon: ERP2,
-    image: hero,
-    color: "#155F82",
-    title: t("services.trainingHub.title"),
-    subtitle: t("services.trainingHub.subtitle"),
-    services: [
-      {
-        name: t("services.trainingHub.services.technicalTraining"),
-        description: t("services.trainingHub.descriptions.technicalTraining"),
-      },
-      {
-        name: t("services.trainingHub.services.certificationPrep"),
-        description: t("services.trainingHub.descriptions.certificationPrep"),
-      },
-      {
-        name: t("services.trainingHub.services.customWorkshops"),
-        description: t("services.trainingHub.descriptions.customWorkshops"),
-      },
-    ],
-  },
-  {
-    id: "training",
-    icon: ERP3,
+    icon: training,
     image: hero,
     color: "#155F82",
     title: t("services.trainingHub.title"),

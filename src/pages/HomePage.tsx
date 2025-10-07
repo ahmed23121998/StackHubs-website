@@ -340,7 +340,6 @@ const HomePage: React.FC = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               {t("aboutUs.description")}
             </p>
-
             {/* ✅ نقاط العناوين والأوصاف */}
             <ul className="space-y-5 mb-10">
               {(

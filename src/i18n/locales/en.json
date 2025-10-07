@@ -146,6 +146,21 @@
       }
     },
 
+    "wirelessHub": {
+      "title": "Wireless Hub",
+      "subtitle": "With a wireless-led approach, we build seamless, high-performance, and cost-effective wireless solutions that empower mobility, IoT, and next-generation connectivity anywhere.",
+      "services": {
+        "wirelessNetworking": "Wireless Networking",
+        "wirelessSecurity": "Wireless Security",
+        "wirelessOptimization": "Wireless Optimization"
+      },
+      "descriptions": {
+        "wirelessNetworking": "Design and deploy wireless networks",
+        "wirelessSecurity": "Implement wireless security measures",
+        "wirelessOptimization": "Optimize wireless performance"
+      }
+    },
+
     "trainingHub": {
       "title": "Training Hub",
       "subtitle": "Empower your teams with hands-on, expert-led IT courses designed to upskill, certify, and future-proof your workforce",
