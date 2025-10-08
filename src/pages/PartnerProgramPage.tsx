@@ -184,7 +184,7 @@ const PartnerProgramPage: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl p-12"
+          className="text-center bg-primary text-white rounded-2xl p-8"
         >
           <h3 className="text-2xl font-bold mb-4">{t("partner.ctaTitle")}</h3>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
@@ -193,7 +193,7 @@ const PartnerProgramPage: React.FC = () => {
           <Button
             size="lg"
             variant="secondary"
-            className="bg-white text-blue-600 hover:bg-gray-100"
+            className="text-lg bg-gradient-to-r from-primary to-brand text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             onClick={() => navigate("/contact")}
           >
             {t("partner.ctaButton")}

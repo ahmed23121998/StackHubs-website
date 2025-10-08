@@ -9,7 +9,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
+      <section className="relative bg-gradient-to-r from-primary to-brand text-white py-20">
         <div className="max-w-5xl mx-auto py-12 px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

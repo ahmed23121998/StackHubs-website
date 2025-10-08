@@ -383,12 +383,14 @@ const HomePage: React.FC = () => {
               ))}
             </ul>
 
-            <button
-              className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/70 transition"
+            <Button
+              size="lg"
+              variant="secondary"
+              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               onClick={() => navigate("/about")}
             >
               {t("aboutUs.cta")} →
-            </button>
+            </Button>
           </div>
 
           {/* الصور */}
@@ -596,7 +598,9 @@ const HomePage: React.FC = () => {
             className="text-center"
           >
             <Button
-              className="bg-primary text-white hover:bg-primary/70 rounded-full px-8 py-3 transition"
+              size="lg"
+              variant="secondary"
+              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               onClick={() => navigate("/projects")}
             >
               {t("caseStudies.button")}

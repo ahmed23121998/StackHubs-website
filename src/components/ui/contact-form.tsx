@@ -110,7 +110,11 @@ const ContactForm: React.FC = () => {
               <Textarea id="message" name="message" rows={5} required />
             </div>
 
-            <Button type="submit" className="w-full mt-4" disabled={isLoading}>
+            <Button
+              type="submit"
+              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full mt-4"
+              disabled={isLoading}
+            >
               {isLoading ? "جاري الإرسال..." : t("contact.form.submit")}
             </Button>
           </form>

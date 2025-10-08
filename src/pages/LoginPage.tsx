@@ -107,10 +107,8 @@ export default function LoginPage() {
                               ? t("password.hide")
                               : t("password.show")
                           }
-                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
-                            i18n.dir() === "rtl"
-                              ? "left-0 pl-3"
-                              : "right-0 pr-3"
+                          className={`absolute inset-y-0 flex items-center justify-center p-3  bg-gradient-to-r from-primary to-brand text-white  shadow-md hover:shadow-lg hover:scale-105  transition-all duration-300 ${
+                            i18n.dir() === "rtl" ? "left-0" : "right-0"
                           }`}
                           onClick={() => setShowPassword((v) => !v)}
                         >
@@ -129,7 +127,7 @@ export default function LoginPage() {
 
               <Button
                 type="submit"
-                className="w-full h-11 text-base font-semibold"
+                className="text-lg w-full px-10 py-5 bg-gradient-to-r from-primary to-brand text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
                 disabled={loading}
               >
                 {loading ? t("auth.signingIn") : t("auth.signIn")}
