@@ -590,7 +590,8 @@
     "back": "Back",
     "cancel": "Cancel",
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "currency": "EGP"
   },
   "projects": {
     "title": "Our Projects",
@@ -610,5 +611,78 @@
       "tag": "Networking",
       "desc": "Detailed description about Cloud Security Service project."
     }
+  },
+  "store": {
+    "title": "Tech Store",
+    "subtitle": "Browse the latest IT and digital solutions.",
+    "favorites": "Favorites",
+    "addToCart": "Add to Cart",
+    "viewCart": "View Cart",
+    "checkout": "Checkout",
+    "empty": "Your cart is empty.",
+    "inCart": "In Cart",
+    "added": "Added to Cart!",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total"
+  },
+  "cart": {
+    "title": "🛒 Shopping Cart",
+    "empty": "Your cart is currently empty",
+    "backToStore": "⬅️ Back to Store",
+    "price": "Price",
+    "total": "Total",
+    "add": "Add to Cart",
+    "quantity": "Quantity",
+    "delete": "Delete",
+    "checkout": "✅ Checkout",
+    "success": "✅ Order sent successfully",
+    "customerName": "Customer Name",
+    "phone": "Phone",
+    "address": "Address",
+    "loginRequired": "You must be logged in to add products to the cart.",
+    "addedSuccess": "✅ {{product}} added to cart successfully!",
+    "removedSuccess": "🗑️ {{product}} removed from cart.",
+    "clearedSuccess": "🧹 All products removed from the cart.",
+    "quantityIncreased": "🔼 Quantity increased.",
+    "quantityDecreased": "🔽 Quantity decreased."
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No products in favorites",
+    "startShopping": "Start Shopping",
+    "addToCart": "Add to Cart",
+    "removeFromFavorites": "Remove from Favorites",
+    "clearAll": "🧹 All products removed from the favorites.",
+    "productCount": "Number of Products",
+    "continueShopping": "Continue Shopping",
+    "addedSuccess": "{{product}} has been added to favorites ❤️",
+    "removedSuccess": "{{product}} has been removed from favorites 🗑️",
+    "loginRequired": "You must log in first to add products to favorites"
+  },
+  "checkout": {
+    "title": "Shopping Cart",
+    "products": "Products",
+    "empty": "Your cart is empty",
+    "perUnit": "per unit",
+    "remove": "Remove",
+    "total": "Total",
+    "continueShopping": "Continue Shopping",
+    "submit": "Checkout",
+    "success": "Your order has been sent successfully!",
+    "clearCart": "Clear Cart",
+    "emptyCartAlert": "Your cart is empty! Please add products to proceed.",
+    "clearCartConfirmation": "Are you sure you want to clear the entire cart?"
+  },
+  "orders": {
+    "title": "Orders",
+    "empty": "No orders yet 🕓",
+    "startShopping": "Start Shopping",
+    "orderNumber": "Order Number:",
+    "date": "Date",
+    "customerInfo": "Customer Info",
+    "items": "Items",
+    "total": "Total",
+    "backToStore": "Back to Store"
   }
 }

@@ -56,7 +56,7 @@ function AppRoutes() {
         "/login": "Login - StackHubs",
         "/register": "Register - StackHubs",
         "/favorites": "Favorites - StackHubs",
-        "/store": "Store - StackHubs",
+        // "/store": "Store - StackHubs",
         "/checkout": "Checkout - StackHubs",
         "/orders": "Orders - StackHubs",
         "/settings": "Settings - StackHubs",
@@ -104,8 +104,16 @@ function App() {
         <AppRoutes />
         <Toaster
           position="top-right"
+          expand={true}
+          // closeButton
           toastOptions={{
-            className: "text-xl px-6 py-6",
+            className:
+              "text-black sm:text-lg rounded-2xl shadow-lg border dark:border-gray-700 bg-brand dark:bg-gray-900 text-gray-800 dark:text-gray-100",
+            duration: 3000,
+            style: {
+              fontFamily: "inherit",
+              direction: "rtl",
+            },
           }}
         />
       </div>

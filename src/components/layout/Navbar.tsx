@@ -25,8 +25,8 @@ const Navbar: React.FC = () => {
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
     { key: "projects", label: t("nav.projects") },
-    { key: "contact", label: t("nav.contact") },
     // { key: "store", label: t("nav.store") },
+    { key: "contact", label: t("nav.contact") },
   ];
 
   const toggleLanguage = () => {
@@ -42,8 +42,8 @@ const Navbar: React.FC = () => {
       loyal: "/loyal",
       partner: "/partner",
       projects: "/projects",
-      contact: "/contact",
       // store: "/store",
+      contact: "/contact",
     };
     navigate(pathMap[page] || "/");
     window.scrollTo({ top: 0, behavior: "smooth" });
