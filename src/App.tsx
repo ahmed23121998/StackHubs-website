@@ -33,6 +33,7 @@ import WirelessHub from "@/pages/services/WirelessHub";
 import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 
+
 function AppRoutes() {
   const { i18n, t } = useTranslation();
   const location = useLocation();
