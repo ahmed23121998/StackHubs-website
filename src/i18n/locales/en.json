@@ -36,39 +36,40 @@
   "networkHubPage": {
     "title": "Network Hub",
     "intro": "Empowering organizations to build agile, intelligent, and future-ready networks that connect people, data, and applications — with unmatched performance and reliability.",
+    "introParagraph": "The Network Hub empowers organizations to design, build, and operate high performance infrastructures that connect people, applications, and data with speed and reliability. We deliver enterprise-grade LAN, WAN, and data center architectures that integrate automation, visibility, and cloud-ready scalability at every layer. By leveraging the latest Software-Defined Networking (SDN) frameworks, we enable centralized control, faster provisioning, and consistent policy across physical and virtual domains. Our engineers blend modern SDN fabrics with proven routing and switching design to create networks that are adaptive, secure, and future-proof. From enterprise campuses to global hybrid clouds, Stackhubs networks are built to perform intelligently, efficiently, and without compromise. ",
+    "introTitle": "Intro Paragraph",
     "cta": "Connect With Us",
     "whatWeDeliverTitle": "What We Deliver",
     "sections": [
       {
         "title": "Enterprise Networks & Smart Campus Solutions",
-        "desc": "We design and deploy enterprise network infrastructures that combine wired, wireless, and identity-driven access into a unified fabric."
+        "desc": "We design and deploy enterprise network infrastructures that combine wired, wireless, and identity-driven access into a unified fabric. Our solutions deliver high availability, scalable segmentation, and deep visibility across all user and device types. We implement Cisco Software-Defined Access (SDA) to bring automation and policy consistency to campus environments, and extend it through multisite capabilities for unified management across distributed locations. The result is a secure, intelligent enterprise network that provides seamless mobility, zero-touch provisioning, and centralized operations across every site. "
       },
       {
         "title": "Data Center & Cloud Fabric",
-        "desc": "We design spine-leaf fabrics with EVPN/VXLAN overlays, delivering scalability, multi-tenant segmentation, and low-latency performance."
+        "desc": "Modern workloads demand agility, security, and automation and our data center networking delivers all three. We design spine-leaf fabrics with EVPN/VXLAN overlays, delivering scalability, multi-tenant segmentation, and low-latency performance. Our data center framework integrates Cisco Application Centric Infrastructure (ACI) for policy-based automation, including Multipod and Multisite designs managed through NDO and analyzed with NDI for end-to-end visibility. We connect on-premises data centers with hybrid and multi-cloud environments seamlessly, ensuring consistent policy enforcement and optimized traffic flow wherever your workloads run. "
       },
       {
         "title": "SD-WAN & Multi-Site Connectivity",
-        "desc": "We modernize WAN architectures with intelligent, application-aware routing and centralized management."
+        "desc": "We modernize WAN architectures with intelligent, application-aware routing and simplified management. Our SD-WAN solutions enhance cloud performance, security, and cost efficiency across multiple carriers and geographies. We deliver Cisco SD-WAN for enterprise-scale control and segmentation, Meraki SD-WAN for agile, cloud-managed simplicity, and integrate VMware VeloCloud and Fortinet SD-WAN where edge flexibility or unified security is key. Every deployment is engineered for high availability, optimized user experience, and centralized visibility through advanced analytics and orchestration. "
       },
       {
         "title": "Network Automation & Orchestration",
-        "desc": "We build automation frameworks that standardize configuration, accelerate rollout, and ensure compliance using APIs and templates."
+        "desc": "Automation drives speed, accuracy, and operational excellence. We build automation frameworks that standardize configuration, accelerate rollout, and ensure compliance using model-driven templates, APIs, and orchestration tools. Our SDN-ready automation workflows cover provisioning, policy management, performance assurance, and lifecycle operations reducing human error and improving reliability. With Stackhubs automation, your network becomes truly intent-based: responsive, self-optimizing, and easy to scale. "
       },
       {
         "title": "Security Integration & Zero-Trust Alignment",
-        "desc": "Our architectures integrate with InfoSec frameworks to deliver segmentation, identity enforcement, and zero-trust security."
+        "desc": "Every Stackhubs network is designed with built-in security. Our architectures integrate seamlessly with the InfoSec Hub, aligning advanced network segmentation, identity enforcement, and zero-trust principles from edge to core. We combine real-time visibility, encrypted traffic analytics, and automated response mechanisms to ensure continuous protection without performance trade-offs. The result: a unified ecosystem where networking and security operate as one. "
       },
       {
         "title": "Performance & Observability",
-        "desc": "We embed telemetry and AI-driven monitoring tools that track performance and ensure reliability."
+        "desc": "Visibility is the foundation of reliability. We embed telemetry, flow analytics, and AI-driven monitoring tools that track every packet and path in real time. Through continuous analysis and predictive insights, we identify bottlenecks, optimize routing, and fine-tune QoS policies to guarantee a consistent user experience. Our observability platforms integrate directly with your SDN controllers and performance systems keeping the network healthy, fast, and always aligned with business priorities."
       }
     ],
     "ctaTitle": "Ready to Modernize Your Network?",
     "ctaSubtitle": "Discover how StackHubs can help you build a smarter, faster, and more secure digital foundation.",
-    "ctaButton": "Talk to an Expert"
+    "ctaButton": "Talk to one of our experts"
   },
-
   "services": {
     "title": "Our Service Hubs",
     "subtitle": "Comprehensive IT solutions designed to meet your business needs across multiple technology domains",
