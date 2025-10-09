@@ -21,7 +21,15 @@ import FavoritesPage from "./pages/FavoritesPage";
 import SettingsPage from "./pages/SettingsPage";
 import "./i18n/i18n";
 import HubDetails from "./pages/HubDetails";
-import { serviceHubs } from "@/data/serviceHubs";
+// import { serviceHubs } from "@/data/serviceHubs";
+import AIHub from "@/pages/services/AIHub";
+import NetworkHub from "@/pages/services/NetworkHub";
+import InfoSecHub from "@/pages/services/InfoSecHub";
+import IoTHub from "@/pages/services/IoTHub";
+import AutomationHub from "@/pages/services/AutomationHub";
+import ERPHub from "@/pages/services/ERPHub";
+import TrainingHub from "@/pages/services/TrainingHub";
+import WirelessHub from "@/pages/services/WirelessHub";
 import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 
@@ -33,21 +41,23 @@ function AppRoutes() {
   useEffect(() => {
     const path = location.pathname;
 
-    // لو صفحة hub details
-    if (path.startsWith("/services/") && path.split("/").length === 3) {
-      const hubId = path.split("/")[2]; // ai, network, infosec ...
-      const hubs = serviceHubs(t);
-      const hub = hubs.find((h) => h.id.endsWith(hubId));
-
-      if (hub) {
-        document.title = `${hub.title} - StackHubs`;
-      } else {
-        document.title = "Service Hub - StackHubs";
-      }
-    } else {
+    if (path === "/services/ai") document.title = "AI Hub - StackHubs";
+    else if (path === "/services/network")
+      document.title = "Network Hub - StackHubs";
+    else if (path === "/services/infosec")
+      document.title = "InfoSec Hub - StackHubs";
+    else if (path === "/services/iot") document.title = "IoT Hub - StackHubs";
+    else if (path === "/services/automation")
+      document.title = "Automation Hub - StackHubs";
+    else if (path === "/services/erp") document.title = "ERP Hub - StackHubs";
+    else if (path === "/services/training")
+      document.title = "Training Hub - StackHubs";
+    else if (path === "/services/wireless")
+      document.title = "Wireless Hub - StackHubs";
+    else {
       // باقي الصفحات
       const titleByPath: Record<string, string> = {
-        "/": "StackHubs - Your Partner in IT Innovation",
+        "/": "Home - StackHubs",
         "/services": "Services - StackHubs",
         "/contact": "Contact Us - StackHubs",
         "/loyal": "Loyal Program - StackHubs",
@@ -74,6 +84,15 @@ function AppRoutes() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/ai" element={<AIHub />} />
+        <Route path="/services/network" element={<NetworkHub />} />
+        <Route path="/services/infosec" element={<InfoSecHub />} />
+        <Route path="/services/iot" element={<IoTHub />} />
+        <Route path="/services/automation" element={<AutomationHub />} />
+        <Route path="/services/erp" element={<ERPHub />} />
+        <Route path="/services/training" element={<TrainingHub />} />
+        <Route path="/services/wireless" element={<WirelessHub />} />
+        <Route path="/services/:hubId" element={<HubDetails />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
@@ -86,7 +105,6 @@ function AppRoutes() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/services/:hubId" element={<HubDetails />} />
         <Route
           path="/settings"
           element={isAuthenticated ? <SettingsPage /> : <LoginPage />}

@@ -33,6 +33,41 @@
     "sap": "SAP ERP Hub",
     "training": "Training Hub"
   },
+  "networkHubPage": {
+    "title": "Network Hub",
+    "intro": "Empowering organizations to build agile, intelligent, and future-ready networks that connect people, data, and applications — with unmatched performance and reliability.",
+    "cta": "Connect With Us",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "Enterprise Networks & Smart Campus Solutions",
+        "desc": "We design and deploy enterprise network infrastructures that combine wired, wireless, and identity-driven access into a unified fabric."
+      },
+      {
+        "title": "Data Center & Cloud Fabric",
+        "desc": "We design spine-leaf fabrics with EVPN/VXLAN overlays, delivering scalability, multi-tenant segmentation, and low-latency performance."
+      },
+      {
+        "title": "SD-WAN & Multi-Site Connectivity",
+        "desc": "We modernize WAN architectures with intelligent, application-aware routing and centralized management."
+      },
+      {
+        "title": "Network Automation & Orchestration",
+        "desc": "We build automation frameworks that standardize configuration, accelerate rollout, and ensure compliance using APIs and templates."
+      },
+      {
+        "title": "Security Integration & Zero-Trust Alignment",
+        "desc": "Our architectures integrate with InfoSec frameworks to deliver segmentation, identity enforcement, and zero-trust security."
+      },
+      {
+        "title": "Performance & Observability",
+        "desc": "We embed telemetry and AI-driven monitoring tools that track performance and ensure reliability."
+      }
+    ],
+    "ctaTitle": "Ready to Modernize Your Network?",
+    "ctaSubtitle": "Discover how StackHubs can help you build a smarter, faster, and more secure digital foundation.",
+    "ctaButton": "Talk to an Expert"
+  },
 
   "services": {
     "title": "Our Service Hubs",

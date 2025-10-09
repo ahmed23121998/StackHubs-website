@@ -38,6 +38,7 @@ const ServicesPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {hubs.map((hub, index) => (
             <ServiceCard
+              id={hub.id}
               key={hub.id}
               icon={hub.icon}
               title={hub.title}

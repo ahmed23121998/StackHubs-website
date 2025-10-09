@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 interface ServiceCardProps {
+  id: string;
   icon?: string | React.ElementType;
   image?: string;
   title: string;
@@ -13,6 +14,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
+  id,
   icon,
   image,
   title,
@@ -29,7 +31,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      onClick={() => navigate(`/services/${title.replace(/\s+/g, "-")}`)}
+      onClick={() => navigate(`/services/${id}`)}
       className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700"
     >
       {/* صورة الهب */}
