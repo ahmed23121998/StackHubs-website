@@ -28,12 +28,12 @@ const NetworkHubPage: React.FC = () => {
   const data = t("networkHubPage", { returnObjects: true }) as any;
   const navigate = useNavigate();
   const images = [
-    datacenter,
     enterprise,
-    networ_automation,
-    performance,
+    datacenter,
     sdwan,
+    networ_automation,
     security_integration,
+    performance,
   ];
 
   return (
@@ -61,7 +61,7 @@ const NetworkHubPage: React.FC = () => {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="relative z-10 px-6 sm:px-10 max-w-5xl flex flex-col items-center mt-12"
+          className="relative z-10 px-6 sm:px-10 max-w-5xl flex flex-col items-center"
         >
           {/* العنوان والنص الرئيسي */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl leading-tight">
@@ -120,14 +120,13 @@ const NetworkHubPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600"
                 >
-                  {/* 🖼️ الصورة في الأعلى */}
-                  <div className="relative h-90 overflow-hidden w-90">
+                  {/* 🖼️ الصورة في الأعلى - تأخذ المساحة كاملة */}
+                  <div className="relative h-[400px] overflow-hidden">
                     <img
                       src={images[i]}
                       alt={section.title}
-                      className="max-w-full max-h-full w-auto h-auto transition-transform duration-500 group-hover:scale-110"
+                      className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
 
                   {/* 💬 المحتوى تحتها */}
@@ -141,7 +140,7 @@ const NetworkHubPage: React.FC = () => {
                     </div>
 
                     {/* الوصف */}
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
                       {section.desc}
                     </p>
                   </div>
