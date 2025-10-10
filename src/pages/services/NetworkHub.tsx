@@ -1,4 +1,3 @@
-// src/pages/NetworkHubPage.tsx
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -43,17 +42,18 @@ const NetworkHubPage: React.FC = () => {
       }`}
     >
       {/* 🌐 HERO + INTRO SECTION */}
-      <section className="relative flex flex-col items-center justify-center min-h-[90vh] text-center overflow-hidden pb-12">
+      <section className="relative flex flex-col items-center justify-center min-h-[90vh] text-center overflow-hidden px-6 py-20 sm:px-10">
         {/* الخلفية */}
         <div className="absolute inset-0">
           <img
             src={networkHero}
             alt="Network Hub"
-            className="w-full h-full object-cover brightness-[1]"
+            className="w-full h-full object-cover object-center brightness-90 md:brightness-100 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-brand/80"></div>
-          {/* تدرج اللون بين النهار والليل */}
-          <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-brand dark:from-gray-900/90 to-transparent transition-colors duration-500"></div>
+          {/* تدرج لوني لتوضيح النص */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-transparent"></div>
+          {/* تدرج إضافي من اليمين إلى اليسار */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-80"></div>
         </div>
 
         {/* المحتوى */}
@@ -61,24 +61,22 @@ const NetworkHubPage: React.FC = () => {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="relative z-10 px-6 sm:px-10 max-w-5xl flex flex-col items-center"
+          className="relative z-10 max-w-5xl flex flex-col items-center space-y-6"
         >
-          {/* العنوان والنص الرئيسي */}
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl leading-tight">
+          {/* العنوان */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-2xl leading-tight">
             {data.title}
           </h1>
-          <p className="text-lg md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-3xl">
+
+          {/* المقدمة */}
+          <p
+            className={`text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium max-w-3xl ${
+              isArabic ? "text-right" : "text-left"
+            }`}
+            style={{ direction: isArabic ? "rtl" : "ltr" }}
+          >
             {data.intro}
           </p>
-
-          {/* زر CTA */}
-          <Button
-            size="lg"
-            onClick={() => navigate("/contact")}
-            className="bg-gradient-to-r from-primary to-brand text-white text-lg font-semibold px-10 py-5 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 mb-12"
-          >
-            {data.cta}
-          </Button>
 
           {/* الفقرة التوضيحية */}
           <motion.p
@@ -86,13 +84,22 @@ const NetworkHubPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className={`text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium tracking-wide max-w-4xl ${
+            className={`text-base sm:text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium tracking-wide max-w-3xl ${
               isArabic ? "text-right" : "text-left"
             }`}
             style={{ direction: isArabic ? "rtl" : "ltr" }}
           >
             {data.introParagraph}
           </motion.p>
+
+          {/* زر CTA */}
+          <Button
+            size="lg"
+            onClick={() => navigate("/contact")}
+            className="bg-gradient-to-r from-primary to-brand text-white text-lg font-semibold px-10 py-5 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 mt-4"
+          >
+            {data.cta}
+          </Button>
         </motion.div>
       </section>
 
@@ -108,8 +115,7 @@ const NetworkHubPage: React.FC = () => {
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.sections.map(
               (section: { title: string; desc: string }, i: number) => (
                 <motion.div
@@ -117,32 +123,29 @@ const NetworkHubPage: React.FC = () => {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600"
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                  className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600 flex flex-col"
                 >
-                  {/* 🖼️ الصورة في الأعلى - تأخذ المساحة كاملة */}
-                  <div className="relative h-[400px] overflow-hidden">
+                  <div className="relative w-full h-[220px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
                     <img
                       src={images[i]}
                       alt={section.title}
-                      className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
 
-                  {/* 💬 المحتوى تحتها */}
-                  <div className="p-6">
-                    {/* الأيقونة والعنوان */}
-                    <div className="flex items-center gap-3 mb-3">
+                  <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
+                    <div className="flex items-start gap-3 h-[64px]">
                       <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
                         {section.title}
                       </h3>
                     </div>
-
-                    {/* الوصف */}
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                      {section.desc}
-                    </p>
+                    <div className="flex-1 overflow-auto">
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+                        {section.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )
