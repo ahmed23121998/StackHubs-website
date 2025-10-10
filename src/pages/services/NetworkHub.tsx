@@ -61,7 +61,7 @@ const NetworkHubPage: React.FC = () => {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="relative z-10 px-6 sm:px-10 max-w-5xl flex flex-col items-center"
+          className="relative z-10 px-6 sm:px-10 max-w-5xl flex flex-col items-center mt-12"
         >
           {/* العنوان والنص الرئيسي */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl leading-tight">
@@ -97,7 +97,7 @@ const NetworkHubPage: React.FC = () => {
       </section>
 
       {/* 🚀 WHAT WE DELIVER */}
-      <section className="relative py-10 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <section className="relative py-20 bg-white dark:bg-gray-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             variants={fadeUp}
@@ -109,7 +109,7 @@ const NetworkHubPage: React.FC = () => {
             {data.whatWeDeliverTitle}
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
             {data.sections.map(
               (section: { title: string; desc: string }, i: number) => (
                 <motion.div
@@ -118,44 +118,33 @@ const NetworkHubPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative flex flex-col items-center justify-center p-8 rounded-3xl shadow-lg overflow-hidden group h-full sm:h-full transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
+                  className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600"
                 >
-                  {/* 🖼️ خلفية الصورة */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${images[i]})` }}
-                  />
+                  {/* 🖼️ الصورة في الأعلى */}
+                  <div className="relative h-90 overflow-hidden w-90">
+                    <img
+                      src={images[i]}
+                      alt={section.title}
+                      className="max-w-full max-h-full w-auto h-auto transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  </div>
 
-                  {/* 🎨 غشاء تدرجي داكن يحسّن وضوح النص */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/80 to-black/60"></div>
-
-                  {/* ✨ تأثير التوهج عند hover */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-700"
-                    style={{
-                      background:
-                        "radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%)",
-                    }}
-                  ></div>
-
-                  {/* 💬 المحتوى */}
-                  <div className="relative z-10 text-white drop-shadow-xl">
-                    {/* الأيقونة والعنوان في نفس السطر */}
-                    <div className="flex gap-3 mb-3">
-                      <CheckCircle className="w-7 h-7 text-brand drop-shadow-md transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
-                      <p className="text-lg font-semibold tracking-wide text-white">
+                  {/* 💬 المحتوى تحتها */}
+                  <div className="p-6">
+                    {/* الأيقونة والعنوان */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {section.title}
-                      </p>
+                      </h3>
                     </div>
 
                     {/* الوصف */}
-                    <p className="text-sm text-gray-200/90 max-w-full mx-auto leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                       {section.desc}
                     </p>
                   </div>
-
-                  {/* تأثير خفيف عند hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-700"></div>
                 </motion.div>
               )
             )}
