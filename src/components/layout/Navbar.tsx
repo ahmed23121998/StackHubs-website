@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import CustomTooltip from "../ui/CustomTooltip";
+import { serviceHubs } from "@/data/serviceHubs";
 import logo from "../../assets/images/stack-hubs-logo.png";
 import login from "../../assets/images/login.jpg";
 
@@ -28,7 +29,6 @@ const Navbar: React.FC = () => {
     // { key: "store", label: t("nav.store") },
     { key: "contact", label: t("nav.contact") },
   ];
-
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLang);
@@ -53,11 +53,11 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-lg sticky top-0 w-full z-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
-        <div className="flex items-center  h-16 justify-between">
+        <div className="flex items-center h-16 justify-between">
           {/* Logo */}
           <motion.div
             className="flex items-center gap-2 cursor-pointer min-w-0"
-            onClick={() => handleNavigation("/")}
+            onClick={() => handleNavigation("home")}
           >
             <img
               src={logo}
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
             />
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* 🖥️ Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) =>
               item.key === "contact" ? (
@@ -77,17 +77,45 @@ const Navbar: React.FC = () => {
                 >
                   {item.label}
                 </Button>
+              ) : item.key === "services" ? (
+                // 🌐 Dropdown for Services
+                <div key={item.key} className="relative group">
+                  <div
+                    className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand ${
+                      location.pathname.includes("/services/")
+                        ? "text-blue-600 dark:text-brand"
+                        : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
+                    }`}
+                  >
+                    {item.label}
+                  </div>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    {serviceHubs(t).map((hub) => (
+                      <div
+                        key={hub.id}
+                        onClick={() => {
+                          navigate(`/services/${hub.id}`);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-all"
+                      >
+                        {hub.title}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ) : (
                 <div
                   key={item.key}
                   onClick={() => handleNavigation(item.key)}
-                  className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand
-          ${
-            (location.pathname === "/" && item.key === "home") ||
-            location.pathname === `/${item.key}`
-              ? "text-blue-600 dark:text-brand"
-              : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
-          }`}
+                  className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand ${
+                    (location.pathname === "/" && item.key === "home") ||
+                    location.pathname === `/${item.key}`
+                      ? "text-blue-600 dark:text-brand"
+                      : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
+                  }`}
                 >
                   {item.label}
                 </div>
@@ -95,7 +123,7 @@ const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* Theme & Language Controls */}
+          {/* 🌗 Theme & Language Controls */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0 rtl:flex-row-reverse">
             {/* Auth Button */}
             {isAuthenticated ? (
@@ -104,9 +132,7 @@ const Navbar: React.FC = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/settings")}
-                  className="bg-primary text-white border-primary hover:bg-primary/70 
-                  dark:text-white dark:border-primary dark:hover:bg-gray-800 
-                  rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                  className="bg-primary text-white border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0 flex items-center justify-center"
                 >
                   <Settings className="h-4 w-4" />
                 </Button>
@@ -117,9 +143,7 @@ const Navbar: React.FC = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => navigate("/login")}
-                  className="text-white bg-primary border-primary hover:bg-primary/70 
-                  dark:text-white dark:border-primary dark:hover:bg-gray-800 
-                  rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                  className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0 flex items-center justify-center"
                 >
                   <img
                     src={login}
@@ -139,9 +163,7 @@ const Navbar: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleTheme}
-                className="text-white bg-primary border-primary hover:bg-primary/70 
-                dark:text-white dark:border-primary dark:hover:bg-gray-800 
-                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0 flex items-center justify-center"
               >
                 {theme === "light" ? (
                   <Moon className="h-4 w-4" />
@@ -157,9 +179,7 @@ const Navbar: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="text-white bg-primary border-primary hover:bg-primary/70 
-                dark:text-white dark:border-primary dark:hover:bg-gray-800 
-                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                className="text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0 flex items-center justify-center"
               >
                 <Globe className="h-4 w-4" />
               </Button>
@@ -170,9 +190,7 @@ const Navbar: React.FC = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="lg:hidden text-white bg-primary border-primary hover:bg-primary/70 
-                dark:text-white dark:border-primary dark:hover:bg-gray-800 
-                rounded-full w-9 h-9 p-0 flex items-center justify-center"
+                className="lg:hidden text-white bg-primary border-primary hover:bg-primary/70 dark:text-white dark:border-primary dark:hover:bg-gray-800 rounded-full w-9 h-9 p-0 flex items-center justify-center"
                 onClick={() => setIsMenuOpen(true)}
               >
                 <Menu className="h-4 w-4" />
@@ -181,7 +199,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* 📱 Mobile Navigation */}
         {isMenuOpen && (
           <motion.div
             initial={{
@@ -196,7 +214,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.3 }}
             className={`fixed top-0 ${
               i18n.language === "ar" ? "right-0" : "left-0"
-            } w-64 max-w-[80%] h-full bg-gray-700 text-white border-primary dark:bg-gray-700 dark:text-white dark:border-primary  shadow-lg z-50 p-4 overflow-y-auto`}
+            } w-64 max-w-[80%] h-full bg-gray-700 text-white border-primary dark:bg-gray-700 dark:text-white dark:border-primary shadow-lg z-50 p-4 overflow-y-auto`}
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
           >
             {/* Close button inside drawer */}
@@ -210,9 +228,29 @@ const Navbar: React.FC = () => {
                 <X className="h-5 w-5" />
               </Button>
             </div>
+
             <div className="space-y-2">
               {navItems.map((item) =>
-                item.key === "contact" ? (
+                item.key === "services" ? (
+                  <div key={item.key} className="space-y-1">
+                    <button className="block w-full text-left px-4 py-2 text-sm font-semibold text-brand">
+                      {item.label}
+                    </button>
+                    {serviceHubs(t).map((hub) => (
+                      <button
+                        key={hub.id}
+                        onClick={() => {
+                          navigate(`/services/${hub.id}`);
+                          setIsMenuOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className="block w-full text-left px-6 py-1 text-sm text-gray-300 hover:text-primary"
+                      >
+                        • {hub.title}
+                      </button>
+                    ))}
+                  </div>
+                ) : item.key === "contact" ? (
                   <Button
                     key={item.key}
                     onClick={() => handleNavigation(item.key)}
@@ -224,13 +262,12 @@ const Navbar: React.FC = () => {
                   <button
                     key={item.key}
                     onClick={() => handleNavigation(item.key)}
-                    className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary text-brand
-          ${
-            (location.pathname === "/" && item.key === "home") ||
-            location.pathname === `/${item.key}`
-              ? "text-blue-600 dark:text-brand "
-              : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
-          }`}
+                    className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary text-brand ${
+                      (location.pathname === "/" && item.key === "home") ||
+                      location.pathname === `/${item.key}`
+                        ? "text-blue-600 dark:text-brand"
+                        : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
+                    }`}
                   >
                     {item.label}
                   </button>
