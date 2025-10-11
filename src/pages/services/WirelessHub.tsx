@@ -111,7 +111,7 @@ const WirelessHubPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent drop-shadow-lg"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 text-purple-600"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
