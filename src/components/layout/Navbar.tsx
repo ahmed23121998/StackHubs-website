@@ -107,19 +107,28 @@ const Navbar: React.FC = () => {
                       className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg transition-all duration-300 z-50"
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
-                      {serviceHubs(t).map((hub) => (
-                        <div
-                          key={hub.id}
-                          onClick={() => {
-                            navigate(`/services/${hub.id}`);
-                            setIsServicesOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                          className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-all"
-                        >
-                          {hub.title}
-                        </div>
-                      ))}
+                      {serviceHubs(t).map((hub) => {
+                        const isActive =
+                          location.pathname === `/services/${hub.id}`;
+                        return (
+                          <div
+                            key={hub.id}
+                            onClick={() => {
+                              navigate(`/services/${hub.id}`);
+                              setIsServicesOpen(false);
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                            }}
+                            className={`px-4 py-2 text-sm cursor-pointer transition-all rounded-sm 
+        ${
+          isActive
+            ? "bg-gradient-to-r from-primary to-brand text-white font-semibold shadow-md"
+            : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+        }`}
+                          >
+                            {hub.title}
+                          </div>
+                        );
+                      })}
                     </motion.div>
                   )}
                 </div>
