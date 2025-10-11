@@ -184,36 +184,36 @@ export const serviceHubs = (t: any) => [
   },
 
   {
-    id: "sap",
+    id: "erp",
     icon: ERP1,
     image: ERP_image,
     color: "#155F82",
-    title: t("services.sapHub.title"),
-    subtitle: t("services.sapHub.subtitle"),
+    title: t("services.erpHub.title"),
+    subtitle: t("services.erpHub.subtitle"),
     services: [
       {
-        name: t("services.sapHub.services.implementation"),
-        description: t("services.sapHub.descriptions.implementation"),
+        name: t("services.erpHub.services.implementation"),
+        description: t("services.erpHub.descriptions.implementation"),
       },
       {
-        name: t("services.sapHub.services.consultation"),
-        description: t("services.sapHub.descriptions.consultation"),
+        name: t("services.erpHub.services.consultation"),
+        description: t("services.erpHub.descriptions.consultation"),
       },
       {
-        name: t("services.sapHub.services.support"),
-        description: t("services.sapHub.descriptions.support"),
+        name: t("services.erpHub.services.support"),
+        description: t("services.erpHub.descriptions.support"),
       },
       {
-        name: t("services.sapHub.services.migration"),
-        description: t("services.sapHub.descriptions.migration"),
+        name: t("services.erpHub.services.migration"),
+        description: t("services.erpHub.descriptions.migration"),
       },
       {
-        name: t("services.sapHub.services.security"),
-        description: t("services.sapHub.descriptions.security"),
+        name: t("services.erpHub.services.security"),
+        description: t("services.erpHub.descriptions.security"),
       },
       {
-        name: t("services.sapHub.services.optimization"),
-        description: t("services.sapHub.descriptions.optimization"),
+        name: t("services.erpHub.services.optimization"),
+        description: t("services.erpHub.descriptions.optimization"),
       },
     ],
   },

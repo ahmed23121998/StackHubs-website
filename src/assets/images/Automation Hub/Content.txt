@@ -1,0 +1,22 @@
+Automation Hub
+===============
+Intro
+------
+The Automation Hub transforms designs, deployments, and day-2 operations into governed, software-driven workflows. We standardize configuration and policy across network, security, and cloud estates using APIs, templates, and CI/CD so outcomes are consistent, auditable, and fast to deliver. Every change passes through intent validation, pre-checks, and drift detection to prevent configuration debt and unplanned downtime. Guardrails, RBAC, and maintenance windows ensure safe execution, while telemetry and automated rollbacks keep risk controlled. Self-service portals expose approved actions to operators and business teams without bypassing governance. The result is accelerated delivery, reduced MTTR, and operations that scale predictably with the business.
+
+1) Network, Security & Cloud Automation
+---------------------------------------
+We implement end-to-end automation for campus, data center, WAN/SD-WAN, firewalls, NAC/identity, and cloud networking. Our toolchain includes Ansible/AWX, Python (Netmiko, NAPALM, pyATS/pytest), gNMI/NETCONF/YANG, REST/GraphQL APIs, and Terraform for network and cloud resources (AWS VPC, Azure VNet, GCP VPC). Controllers and platforms—Cisco ACI, DCNM, NX-OS, DNA Center/SDA, vManage, Meraki APIs, NSX-T, ISE/NAC, and leading firewall vendors—are integrated through code, not manual clicks. We also build Django/FastAPI portals for governed self-service (site turn-up, segmentation, firewall rules, cloud routing) with pre-change testing and policy checks. CI/CD pipelines (GitHub/GitLab/Jenkins) execute plan → test → apply → verify, generate diffs, enforce compliance, and roll back on failure. Day-2 operations include scheduled backups, golden-state enforcement, certificate rotation, drift remediation, and topology-aware rollouts across on-premises and cloud as a single fabric.
+
+2) ITSM & Workflow Orchestration
+--------------------------------
+Requests are converted into governed workflows that auto-fulfill common services with embedded approvals, SLAs, and evidence. CMDB updates, ticket transitions, and change records are driven by APIs rather than manual re-entry, delivering a complete audit trail from initiation to closure. Standardized playbooks reduce hand-offs and error rates while improving time-to-deliver for stakeholders. Exceptions and emergency changes remain controlled and traceable through pre-defined paths. Performance dashboards expose throughput, backlog, and success rates to enable continuous process improvement and accountable service delivery.
+
+3) Business Process & RPA Automation
+------------------------------------
+Back-office processes—such as invoice processing, onboarding/offboarding, access attestations, and compliance reporting—are streamlined using a combination of RPA and system integrations. Document intelligence (OCR and validation rules) ensures data quality before transactions reach ERP/HRIS/ITSM systems, while human-in-the-loop steps manage exceptions without slowing throughput. Automations are designed for scale with clear segregation of duties, versioned runbooks, and operational metrics. Processing cycles compress from days to minutes, rework declines, and teams regain capacity for higher-value tasks. The business gains a lower cost per transaction and real-time visibility into work queues and outcomes.
+
+4) Observability, AIOps & Auto-Remediation
+------------------------------------------
+Logs, metrics, traces, and flow data are unified and correlated with topology and service maps to detect symptoms early and alert on SLO breaches rather than noise. Synthetic tests, canaries, and health checks surface degradations before users are affected, while RCA hints identify the responsible component or policy. Automated runbooks execute safe remediations—rerouting traffic, restarting services, scaling capacity, or rolling back changes—and verify recovery with post-checks. Incident documentation and evidence are generated automatically and fed back into tests to prevent recurrence. Over time, this feedback loop lowers MTTR, increases uptime, and delivers measurable reliability improvements without linear headcount growth.
+

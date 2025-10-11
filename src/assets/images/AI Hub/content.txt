@@ -1,0 +1,64 @@
+AI Hub
+======
+
+
+Intro
+------
+AI at StackHubs is built to deliver measurable outcomes — not experiments.
+We design end-to-end pipelines from data acquisition to production MLOps with governance, observability, and security by default.
+Models run where they create the most value: on edge gateways for real-time control, or in cloud for scale and analytics.
+Every solution is integrated with your existing systems (ERP/CRM, SIEM, VMS, data lake) and instrumented for audit and ROI.
+We support multilingual use cases including Arabic/RTL, with human-in-the-loop review where accuracy and compliance matter.
+Lifecycle management covers drift detection, retraining, and safe rollback so AI stays reliable in production.
+The result is an AI capability that’s practical, maintainable, and aligned with business KPIs.
+
+
+What We Deliver
+--------------
+
+1) Computer Vision
+-------------------
+Real-time analytics on cameras for counting, intrusion, direction, heatmaps, and access control across sites.
+Edge inference on gateways/NVRs with GPU acceleration; cloud aggregation for fleet analytics and model updates.
+Pre/post-processing for occlusion, lighting, and privacy masks with configurable retention policies.
+Integrations to VMS/ACS/SIEM trigger alerts, door actions, or tickets in ITSM automatically.
+Multi-camera tracking and re-ID link events across entrances, corridors, and zones for full journey context.
+MLOps pipelines handle dataset curation, accuracy benchmarks, A/B deployments, and continuous improvement.
+
+2) Document Intelligence (OCR + Forms + RPA)
+---------------------------------------------
+Layout-aware OCR extracts structured data from invoices, IDs, POs, delivery notes, and contracts with field validation.
+Entity capture (names, dates, totals, line items) with confidence scores and exception queues for human-in-the-loop.
+Arabic and bilingual documents supported (RTL, stamps, seals, and handwriting variants where feasible).
+Business rules and anti-fraud checks (duplicates, vendor mismatches, tax/IBAN validation) before posting.
+RPA workflows post directly into ERP/CRM, attach evidence, and update approval status automatically.
+Dashboards track STP rate, turnaround time, and accuracy to keep processes auditable and scalable.
+
+3) Anomaly Detection & Predictive Maintenance
+------------------------------------------------
+
+Time-series and streaming analytics learn each asset/site’s normal to catch outliers early.
+Applies to networks, IoT fleets, machines, and fraud signals with unsupervised and hybrid models.
+Root-cause hints correlate sensors, logs, and events to cut MTTD/MTTR and prevent repeat failures.
+Health scores and remaining-useful-life (RUL) estimates drive proactive work orders in CMMS/ERP.
+Edge agents buffer during outages and sync summaries to the cloud for global insight and governance.
+Drift monitoring, retraining windows, and blue/green rollouts keep models accurate in production.
+
+4) Speech & Conversational AI
+------------------------------
+Live transcription, summaries, and sentiment for calls and meetings in Arabic and English.
+Voicebots/chatbots handle routine requests with guardrails, handoff to agents, and full conversation history.
+RAG-based assistants connect to your knowledge bases and ticketing to answer with cited sources.
+Acoustic enhancements reduce noise/overlap; diarization separates speakers for clean analytics.
+Supervision tools review accuracy, bias, and leakage risks with redaction and retention controls.
+Contact-center KPIs (AHT, FCR, CSAT) improve through intent routing, coaching cues, and after-call summaries.
+
+5) Forecasting & Decision Optimization
+--------------------------------------
+
+Statistical and ML forecasting for demand, inventory, staffing, capacity, and energy consumption.
+Scenario planning simulates shocks, seasonality, and promotions with confidence intervals and alerts.
+Optimization engines schedule workforce, routes, or production under real-world constraints and SLAs.
+What-if tools expose trade-offs (service vs. cost vs. risk) with executive-level dashboards.
+Tight integration with ERP/MES/SCM ensures recommended actions flow into operations automatically.
+Continuous backtesting and champion–challenger deployment keep models honest and improving.

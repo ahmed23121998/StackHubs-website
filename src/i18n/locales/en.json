@@ -106,6 +106,186 @@
     "ctaSubtitle": "Partner with Stackhubs InfoSec Hub to build resilient, compliant, and trusted infrastructures.",
     "ctaButton": "Talk to our experts"
   },
+  "wirelessHubPage": {
+    "title": "Wireless Hub",
+    "intro": "Wireless is no longer an add-on; it’s the primary access layer for users, devices, and IoT.",
+    "cta": "Talk to our experts",
+    "introParagraph": "Wireless is no longer an add-on; it’s the primary access layer for users, devices, and IoT. Our Wireless Hub delivers end-to-end Wi-Fi architectures that combine RF design, security, and automation to achieve a consistent optimum experience at scale. We design for single strength, coverage, capacity, and engineering high-density environments with Wi-Fi 6/6E and ready for 7 using OFDMA and optimized channel plans in 2.4/5/6 GHz. Assurance is built in: active & predictive surveys, spectrum analysis, heatmaps, and continuous KPIs for latency, throughput, and roaming. Access is identity-driven with WPA3-Enterprise, 802.1X/EAP-TLS, NAC/Zero-Trust policy, and clean separation of production vs. guest traffic. We integrate wireless with the wider campus fabric (wired/SD-Access), deliver cloud-managed or controller-based operations, and support indoor, outdoor, and industrial sites. The outcome: fast, reliable, and cost-effective wireless that empowers mobility, VoIP/real-time apps, and large-scale IoT—anywhere.",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "RF Strategy, Predictive Design & On-Site Validation",
+        "desc": "We capture use-cases, device mix, concurrency, and SLAs, then translate them into an RF model (materials, AP placement, antenna patterns, channel widths, Tx power, data-rate thresholds). We use world-class tools like Ekahau to do our predictive design, produce heatmaps for coverage (RSSI/SNR), capacity, CCI/ACI, and 6-GHz viability, so deployment starts from a known-good baseline. We verify in the field with active/passive surveys, measuring real throughput, loss, jitter, roaming times, DHCP/DNS success, and retry rates. Spectrum analysis identifies non-Wi-Fi interferers (BLE, microwave, cameras, IoT), and we prescribe mitigations: clean channels, directional antennas, shielding, or relocation. Turn-up tuning covers cell size, power/channel plans, client steering, and sticky-client handling to hit target KPIs. Deliverables include updated heatmaps, survey files, spectrum captures, and an acceptance report mapped to your SLAs. "
+      },
+      {
+        "title": "High-Density Performance Engineering (Wi-Fi 6/6E/7-ready)",
+        "desc": "We design for crowded venues with OFDMA scheduling, MU-MIMO, BSS coloring, and precise cell sizing to maximize airtime efficiency. Client-steering and band-balancing policies keep the load even across 2.4/5/6 GHz while honoring device capabilities. End-to-end QoS ensures that voice, video, and real-time applications receive deterministic latency and jitter. Roaming is optimized using 802.11r/k/v, fast BSS transition, and minimized re-authentication penalties. We harden DHCP/DNS paths, prune broadcast/multicast traffic, and tune retry/CTS thresholds for enhanced reliability. Performance baselines and stress tests validate throughput per client profile under peak concurrency. "
+      },
+      {
+        "title": "Secure Access & Segmentation (Prod / Guest)",
+        "desc": "Identity-driven access with WPA3-Enterprise, 802.1X/EAP-TLS, and granular NAC policies enforces least-privilege by user/device posture. We implement per-user VLANs or group tags for micro-segmentation without SSID sprawl. Guest and contractor flows are isolated end-to-end with rate limits, time bounds, and audit trails. Certificate lifecycle (enrollment/renewal/revocation) integrates with MDM/Intune/JAMF for zero-touch onboarding. Rogue AP/WIPS policies detect and contain unauthorized radios safely. The wireless team also engages with the network team to ensure Network Policy sets are mirrored into the wired campus fabric for consistent enforcement. "
+      },
+      {
+        "title": "IoT & Location Services",
+        "desc": "Our wireless team integrates with the IoT hub team to build IoT profiles for scanners, sensors, cameras, AGVs—right power, rates, and security for low-power and high-density fleets. Onboarding options include DPSK, certificates, or MAC-based exceptions with tight network scopes. We deploy BLE/ULP grids and calibrate RTLS to accuracy targets for wayfinding and asset tracking. Northbound APIs stream location/events to CMMS/ERP/EMS platforms. IoT traffic is isolated with rate limits and anomaly alerts to protect business apps. Operational runbooks define lifecycle tasks: adds/moves, firmware, and security rotation. "
+      },
+      {
+        "title": "Controllers, Cloud-Managed Ops & Automation",
+        "desc": "Choose controller-based or cloud-managed WLAN; both deliver RRM, policy, and zero-touch provisioning. We standardize configs with templates and expose change workflows via APIs/GitOps for auditability. Automations cover adds/moves/changes, bulk firmware, and config drift detection with guardrails. Health telemetry streams to your NOC/SOC for correlation with wired, DHCP/DNS, and app layers. Role-based access and approval flows keep operations safe and fast. Scheduled maintenance windows use staged rollouts and rollback plans to minimize impact. "
+      },
+      {
+        "title": "Assurance, KPIs & Continuous Optimization",
+        "desc": "We operate to explicit targets: ≥95% coverage, ≥98% roaming success, <30 ms latency for critical apps, and throughput per persona. Dashboards track SNR, retries, MCS distribution, roaming times, DHCP/DNS success, and client experience. Synthetic tests validate paths to key apps and detect degradations before users do. Quarterly reviews compare trends, incidents, and changes against KPIs and propose tuning actions. Event correlation ties RF changes to ticket volumes and user satisfaction. Reports are executive-friendly with technical appendices for engineering follow-up. "
+      },
+      {
+        "title": "Guest Access & Captive Portal Experience",
+        "desc": "Branded portals with voucher/SMS/social/SSO and granular T&Cs. Walled-garden and bandwidth caps protect core services while keeping UX smooth. Full segmentation from production, with logging and abuse controls. Short-lived credentials, device limits, and sponsored guest workflows. Marketing/analytics hooks (optional) for visit patterns and dwell time. Operational playbooks define sponsor approval and exception handling. "
+      },
+      {
+        "title": "Documentation, Handover & Support Models",
+        "desc": "You receive as-built diagrams, RF plans, finals of heatmaps/surveys, inventory, and runbooks. Admin training covers troubleshooting flows, KPIs, and safe-change practices. We provide warranty/firmware matrices and lifecycle roadmaps. Support tiers: design-assist, escalation-only, or fully managed Wi-Fi with SLAs. Proactive reviews keep configs aligned with device trends and regulations. A single contact window coordinates vendors, carriers, and campus integrations."
+      }
+    ],
+    "ctaTitle": "Ready to Empower Mobility?",
+    "ctaSubtitle": "Partner with Stackhubs Wireless Hub to build next-gen wireless infrastructures.",
+    "ctaButton": "Talk to our experts"
+  },
+  "aiHubPage": {
+    "title": "AI Hub",
+    "intro": "AI at StackHubs transforms data into real business impact — from automation to prediction, designed with governance, security, and observability at its core.",
+    "cta": "Talk to our experts",
+    "introParagraph": "AI at StackHubs is built to deliver measurable outcomes — not experiments. We design end-to-end pipelines from data acquisition to production MLOps with governance, observability, and security by default. Models run where they create the most value: on edge gateways for real-time control, or in cloud for scale and analytics. Every solution is integrated with your existing systems (ERP/CRM, SIEM, VMS, data lake) and instrumented for audit and ROI. We support multilingual use cases including Arabic/RTL, with human-in-the-loop review where accuracy and compliance matter. Lifecycle management covers drift detection, retraining, and safe rollback so AI stays reliable in production. The result is an AI capability that’s practical, maintainable, and aligned with business KPIs. ",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "Computer Vision",
+        "desc": "Real-time analytics on cameras for counting, intrusion, direction, heatmaps, and access control across sites. Edge inference on gateways/NVRs with GPU acceleration; cloud aggregation for fleet analytics and model updates. Pre/post-processing for occlusion, lighting, and privacy masks with configurable retention policies. Integrations to VMS/ACS/SIEM trigger alerts, door actions, or tickets in ITSM automatically. Multi-camera tracking and re-ID link events across entrances, corridors, and zones for full journey context. MLOps pipelines handle dataset curation, accuracy benchmarks, A/B deployments, and continuous improvement. "
+      },
+      {
+        "title": "Document Intelligence (OCR + Forms + RPA)",
+        "desc": "Layout-aware OCR extracts structured data from invoices, IDs, POs, delivery notes, and contracts with field validation. Entity capture (names, dates, totals, line items) with confidence scores and exception queues for human-in-the-loop. Arabic and bilingual documents supported (RTL, stamps, seals, and handwriting variants where feasible). Business rules and anti-fraud checks (duplicates, vendor mismatches, tax/IBAN validation) before posting. RPA workflows post directly into ERP/CRM, attach evidence, and update approval status automatically. Dashboards track STP rate, turnaround time, and accuracy to keep processes auditable and scalable. "
+      },
+      {
+        "title": "Anomaly Detection & Predictive Maintenance",
+        "desc": "Time-series and streaming analytics learn each asset/site’s normal to catch outliers early. Applies to networks, IoT fleets, machines, and fraud signals with unsupervised and hybrid models. Root-cause hints correlate sensors, logs, and events to cut MTTD/MTTR and prevent repeat failures. Health scores and remaining-useful-life (RUL) estimates drive proactive work orders in CMMS/ERP. Edge agents buffer during outages and sync summaries to the cloud for global insight and governance. Drift monitoring, retraining windows, and blue/green rollouts keep models accurate in production. "
+      },
+      {
+        "title": "Speech & Conversational AI",
+        "desc": "Live transcription, summaries, and sentiment for calls and meetings in Arabic and English. Voicebots/chatbots handle routine requests with guardrails, handoff to agents, and full conversation history. RAG-based assistants connect to your knowledge bases and ticketing to answer with cited sources. Acoustic enhancements reduce noise/overlap; diarization separates speakers for clean analytics. Supervision tools review accuracy, bias, and leakage risks with redaction and retention controls. Contact-center KPIs (AHT, FCR, CSAT) improve through intent routing, coaching cues, and after-call summaries. "
+      },
+      {
+        "title": "Forecasting & Decision Optimization",
+        "desc": "Statistical and ML forecasting for demand, inventory, staffing, capacity, and energy consumption. Scenario planning simulates shocks, seasonality, and promotions with confidence intervals and alerts. Optimization engines schedule workforce, routes, or production under real-world constraints and SLAs. What-if tools expose trade-offs (service vs. cost vs. risk) with executive-level dashboards. Tight integration with ERP/MES/SCM ensures recommended actions flow into operations automatically. Continuous backtesting and champion–challenger deployment keep models honest and improving."
+      }
+    ],
+    "ctaTitle": "Ready to Accelerate with AI?",
+    "ctaSubtitle": "Partner with StackHubs AI Hub to bring intelligence and automation into every layer of your business.",
+    "ctaButton": "Talk to our experts"
+  },
+  "iotHubPage": {
+    "title": "IoT Hub",
+    "intro": "The IoT Hub connects assets, environments, and people through secure devices, resilient connectivity, and real-time data pipelines.",
+    "introParagraph": "We design end-to-end architectures—from sensor selection and edge gateways to cloud platforms and integrations with ERP/CMMS/SCADA. Connectivity is engineered for each use case: Wi-Fi/6E for campus, BLE for tagging, LPWAN for low-power fleets, and 4G/5G/private-LTE for mobility and remote sites. Security is built in with device identity, least-privilege network access, encrypted transport, and continuous posture monitoring. Data moves through streaming and digital-twin models so operations, maintenance, and business apps can act in seconds, not hours. The result is an industrial-grade IoT foundation that scales safely, reduces downtime, and unlocks new automation and visibility across your sites.",
+    "cta": "Talk to our experts",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "Industrial IoT & Smart Facilities",
+        "desc": "We instrument production lines, utilities, and buildings with sensors for condition, energy, safety, and environment. Edge gateways normalize field protocols (Modbus, BACnet, OPC-UA, CAN) and bridge to IT networks securely. We integrate with PLC/SCADA/BMS to stream alarms and KPIs while respecting control-system boundaries. Device identity, certificates, and secure boot protect endpoints from spoofing and tampering. Digital-twin models mirror assets to track state, utilization, and maintenance history. Outcomes: fewer site visits, faster fault isolation, and a single operational view across facilities. "
+      },
+      {
+        "title": "Connectivity & Device Management",
+        "desc": "Right-sized connectivity per fleet: Wi-Fi/6E, BLE/RTLS, LoRa/LPWAN, 4G/5G/private-LTE, and secure backhaul. We implement onboarding at scale (DPSK/certificates), profile policies, and micro-segmentation for IoT traffic. Automated lifecycle: enrollment, provisioning, firmware/OTA, key rotation, and decommissioning with audit trails. Health telemetry and anomaly rules detect chatty or misbehaving devices before they impact apps. Gateway high-availability and offline buffering keep data flowing during WAN outages. Unified consoles show inventory, status, compliance, and performance by site and device type. "
+      },
+      {
+        "title": "Data Platform & Integration",
+        "desc": "Streaming pipelines ingest time-series, events, and video into a governed lakehouse with role-based access. We build APIs and connectors to ERP/CMMS/EMS and analytics tools so insights drive work orders and actions. Schema, retention, and PII policies keep data useful and compliant across teams. Dashboards surface live KPIs—OEE/energy/condition—plus drill-downs to device level. Rules engines trigger alerts, ticketing, and workflows with throttling and deduplication. Optional document intelligence and computer vision modules enrich events with OCR or camera analytics. "
+      },
+      {
+        "title": "Analytics, Alerts & Predictive Maintenance",
+        "desc": "Models learn each asset/site’s “normal” and flag drift or failure precursors early.  We correlate sensors, logs, and usage to produce root-cause hints and reduce MTTD/MTTR.  RUL (remaining-useful-life) and risk scoring prioritize maintenance and spare-parts planning.  What-if simulators estimate impact on throughput, energy, and SLAs before changes go live.   Closed-loop automation can adjust setpoints or create work orders automatically.  Governed MLOps handles retraining, versioning, and rollback for safe, stable accuracy."
+      }
+    ],
+    "ctaTitle": "Ready to build your IoT foundation?",
+    "ctaSubtitle": "Let’s connect your devices, data, and operations securely with StackHubs IoT expertise.",
+    "ctaButton": "Talk to our experts"
+  },
+  "automationHubPage": {
+    "title": "Automation Hub",
+    "intro": "The Automation Hub enables organizations to deliver consistent, secure, and automated operations across network, cloud, and business workflows — all through code and governance.",
+    "introParagraph": "The Automation Hub transforms designs, deployments, and day-2 operations into governed, software-driven workflows. We standardize configuration and policy across network, security, and cloud estates using APIs, templates, and CI/CD so outcomes are consistent, auditable, and fast to deliver. Every change passes through intent validation, pre-checks, and drift detection to prevent configuration debt and unplanned downtime. Guardrails, RBAC, and maintenance windows ensure safe execution, while telemetry and automated rollbacks keep risk controlled. Self-service portals expose approved actions to operators and business teams without bypassing governance. The result is accelerated delivery, reduced MTTR, and operations that scale predictably with the business.",
+    "cta": "Talk to our experts",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "Network, Security & Cloud Automation",
+        "desc": "We implement end-to-end automation for campus, data center, WAN/SD-WAN, firewalls, NAC/identity, and cloud networking. Our toolchain includes Ansible/AWX, Python (Netmiko, NAPALM, pyATS/pytest), gNMI/NETCONF/YANG, REST/GraphQL APIs, and Terraform for network and cloud resources (AWS VPC, Azure VNet, GCP VPC). Controllers and platforms—Cisco ACI, DCNM, NX-OS, DNA Center/SDA, vManage, Meraki APIs, NSX-T, ISE/NAC, and leading firewall vendors—are integrated through code, not manual clicks. We also build Django/FastAPI portals for governed self-service (site turn-up, segmentation, firewall rules, cloud routing) with pre-change testing and policy checks. CI/CD pipelines (GitHub/GitLab/Jenkins) execute plan → test → apply → verify, generate diffs, enforce compliance, and roll back on failure. Day-2 operations include scheduled backups, golden-state enforcement, certificate rotation, drift remediation, and topology-aware rollouts across on-premises and cloud as a single fabric."
+      },
+      {
+        "title": "ITSM & Workflow Orchestration",
+        "desc": "Requests are converted into governed workflows that auto-fulfill common services with embedded approvals, SLAs, and evidence. CMDB updates, ticket transitions, and change records are driven by APIs rather than manual re-entry, delivering a complete audit trail from initiation to closure. Standardized playbooks reduce hand-offs and error rates while improving time-to-deliver for stakeholders. Exceptions and emergency changes remain controlled and traceable through pre-defined paths. Performance dashboards expose throughput, backlog, and success rates to enable continuous process improvement and accountable service delivery."
+      },
+      {
+        "title": "Business Process & RPA Automation",
+        "desc": "Back-office processes—such as invoice processing, onboarding/offboarding, access attestations, and compliance reporting—are streamlined using a combination of RPA and system integrations. Document intelligence (OCR and validation rules) ensures data quality before transactions reach ERP/HRIS/ITSM systems, while human-in-the-loop steps manage exceptions without slowing throughput. Automations are designed for scale with clear segregation of duties, versioned runbooks, and operational metrics. Processing cycles compress from days to minutes, rework declines, and teams regain capacity for higher-value tasks. The business gains a lower cost per transaction and real-time visibility into work queues and outcomes."
+      },
+      {
+        "title": "Observability, AIOps & Auto-Remediation",
+        "desc": "Logs, metrics, traces, and flow data are unified and correlated with topology and service maps to detect symptoms early and alert on SLO breaches rather than noise. Synthetic tests, canaries, and health checks surface degradations before users are affected, while RCA hints identify the responsible component or policy. Automated runbooks execute safe remediations—rerouting traffic, restarting services, scaling capacity, or rolling back changes—and verify recovery with post-checks. Incident documentation and evidence are generated automatically and fed back into tests to prevent recurrence. Over time, this feedback loop lowers MTTR, increases uptime, and delivers measurable reliability improvements without linear headcount growth."
+      }
+    ],
+    "ctaTitle": "Ready to Modernize with Automation?",
+    "ctaSubtitle": "Let StackHubs Automation Hub bring intelligence, governance, and speed to your IT and business operations.",
+    "ctaButton": "Talk to our experts"
+  },
+  "erpHubPage": {
+    "title": "ERP Hub",
+    "intro": "ERP Hub streamlines finance, operations, and projects on a unified, auditable platform.",
+    "introParagraph": "The ERP Hub unifies finance, supply chain, sales, projects, and operations on a governed data model with clear roles, approvals, and auditability. Every engagement starts with a Gap Analysis & Process Discovery phase: we map current processes, controls, and data quality, then define a target operating model with measurable KPIs. Implementation follows a fit-for-purpose approach—minimal customization, strong master-data standards, and integration patterns that keep the core clean. We connect ERP with CRM, ecommerce, WMS/TMS, IoT/SCADA, and analytics platforms so decisions are driven by real-time data. As part of your digital transformation journey, we align technology, organization, and change management to deliver adoption, not just go-live. Cutover is rehearsed with playbooks and automated tests; after go-live, support models (hypercare, enhancement packs, managed services) keep the platform stable and evolving with the business.",
+    "cta": "Talk to our experts",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "SAP (S/4HANA & Ecosystem)",
+        "desc": "We implement S/4HANA using a fit-to-standard method across Finance (FI/CO), Procure-to-Pay (MM/Ariba), Order-to-Cash (SD), Production (PP), EWM, and project accounting.The program begins with Gap Analysis to baseline processes, controls, and reporting, then moves through blueprinting, data governance, and phased releases.User experience is modernized with Fiori; extensions run on BTP, so custom logic is API-driven and upgrade-safe.Data migration is industrialized—cleansing, reconciliation, and rehearsal runs—so balances, open items, and stock land correctly.Controls and SoD are embedded in roles and workflows; MENA compliance (e-invoicing/tax packs) is supported.Post go-live, our Run & Evolve services cover release management, regression testing, automation/RPA for closing and matching, and value dashboards tied to business KPIs—backed by tiered support models (hypercare to managed application services)."
+      },
+      {
+        "title": "Odoo (Community, Online, and Odoo.sh)",
+        "desc": "We deliver Odoo across all editions—Community, Odoo Online, and Odoo.sh—selecting the model that fits governance, cost, and extensibility.A formal Gap Analysis precedes configuration: senior Odoo functional consultants, implementation leads, and Odoo developers map core processes (Accounting, Sales, Purchase, Inventory/WMS, MRP, Projects, HR/Payroll, Field Service) and define a clean target design.We prioritize configuration with Studio, server-side rules, and approvals to avoid unnecessary custom code; when extensions add value, we build them as modular Python apps with disciplined versioning and CI/CD (especially on Odoo.sh with staging and automated tests).Integrations connect Odoo to e-commerce, payments, shipping, POS, external BI, and legacy ERP via secure APIs/webhooks; data migration uses validated templates and automated reconciliation to reduce rework.Leadership gains real-time insight into cash, margin, inventory turns, aging, and fulfillment through curated dashboards and alerts that drive action.After go-live, we provide support models—hypercare, enhancement sprints, and managed Odoo services—so the platform scales smoothly as teams and volumes grow, fully aligned with your digital transformation roadmap."
+      }
+    ],
+    "ctaTitle": "Ready to Transform Your Enterprise?",
+    "ctaSubtitle": "Partner with StackHubs ERP Hub to unify operations, data, and insights across your organization.",
+    "ctaButton": "Talk to our experts"
+  },
+  "trainingHubPage": {
+    "title": "Training Hub",
+    "intro": "Training Hub equips teams with practical, role-based learning that drives real business impact.",
+    "introParagraph": "The Training Hub equips teams with hands-on, expert-led programs that translate directly into performance on the job.We design curricula around roles and outcomes—from network engineers and security analysts to project leaders and service teams—so learning time maps to business impact.Delivery is flexible (remote, onsite, or blended) with live instructors, guided labs, and practical assignments that simulate real environments.Every course is measurable: pre-assessment, practice labs, checkpoints, and post-training action plans aligned to your KPIs.Where certifications matter, we structure official exam prep and coach learners through the path; where customization is needed, we build modules around your stack and processes.The result is a workforce that is skilled, certified, and future-ready—with knowledge that sticks because it is practiced, not just presented.",
+    "cta": "Talk to our experts",
+    "whatWeDeliverTitle": "What We Deliver",
+    "sections": [
+      {
+        "title": "Program Portfolio: IT & Soft-Skills",
+        "desc": "Our catalogue spans core IT disciplines (Networking, Security, Cloud, Automation/DevOps, Data/AI, ERP, and many more) and soft-skills (Leadership, Communication, Stakeholder Management, Agile/PM, and many more).Tracks are role-based—Engineer, Admin, Analyst, Architect, Manager—so each learner sees relevant scenarios and tools.Vendor-aligned content (e.g., Cisco, Palo Alto, Microsoft/Azure, AWS, Fortinet, VMware, Odoo, SAP) is available alongside vendor-neutral foundations.Soft-skills modules are integrated with technical labs through case studies and simulations that mirror real projects.Outcome: teams improve both technical depth and the human skills needed to deliver change effectively."
+      },
+      {
+        "title": "Delivery Models: Remote, Onsite & Blended",
+        "desc": "Choose live remote classes for distributed teams, onsite bootcamps for accelerated outcomes, or blended programs that mix both.Cohorts follow a clear cadence (kickoff → live sessions → labs → review) with recordings and materials for later reference.Time-zoned schedules and micro-sessions reduce disruption to operations while maintaining momentum.Manager briefs and progress reports keep stakeholders informed and enable coaching between sessions.Outcome: minimal downtime, maximum retention, and a format that fits how your teams work."
+      },
+      {
+        "title": "Hands-On Labs & Skill Verification",
+        "desc": "Whenever available/required, courses include guided labs, sandboxes, and virtual racks that replicate production scenarios.Learners practice configurations, troubleshooting, and change workflows safely—then validate skills with challenges and graded tasks.Lab access can extend beyond class hours; proctored quizzes and capstone exercises measure capability, not just attendance.Where appropriate, we integrate scenario-based assessments tied to your environment and tooling.Outcome: skills are demonstrated and verifiable, not theoretical."
+      },
+      {
+        "title": "Product Tracks & Custom Curriculum",
+        "desc": "We run product/solution-specific tracks (e.g., Cisco SDA/SD-WAN, ACI, Palo Alto NGFW, Microsoft 365, AWS, Azure, VMware, Odoo, SAP) with official exam mapping.For unique requirements, we build custom modules: your network, security policies, cloud patterns, and operational runbooks—all anonymized and safe.Programs can include readiness checks, labs on your configs, and post-training coaching clinics to embed new practices.We document learning paths per role and provide certification roadmaps with milestones and practice tests.Outcome: training that aligns with your stack, controls, and KPIs, accelerating time-to-competence and certification success."
+      }
+    ],
+    "ctaTitle": "Ready to Upskill Your Teams?",
+    "ctaSubtitle": "Partner with StackHubs Training Hub to build expertise, certification, and practical skills across your organization.",
+    "ctaButton": "Talk to our experts"
+  },
   "services": {
     "title": "Our Service Hubs",
     "subtitle": "Comprehensive IT solutions designed to meet your business needs across multiple technology domains",
@@ -197,7 +377,7 @@
       }
     },
 
-    "sapHub": {
+    "erpHub": {
       "title": "ERP Hub",
       "subtitle": "Unify business processes with tailored ERP solutions that enhance visibility, control, and performance from finance to operations.",
       "services": {

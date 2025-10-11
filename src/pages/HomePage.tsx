@@ -9,8 +9,10 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { serviceHubs } from "@/data/serviceHubs";
 import { useNavigate } from "react-router-dom";
-import about_11_1 from "@/assets/images/about_11_1.jpg";
-import about_11_2 from "@/assets/images/about_11_2.jpg";
+import video1 from "@/assets/video/who we are.mp4";
+import video2 from "@/assets/video/who we are 2.mp4";
+// import about_11_1 from "@/assets/images/about_11_1.jpg";
+// import about_11_2 from "@/assets/images/about_11_2.jpg";
 import about_11_3 from "@/assets/images/about_11_3.jpg";
 import regional_footprint from "@/assets/images/regional_footprint.png";
 import happy_customers from "@/assets/images/happy_customers.jpg";
@@ -27,6 +29,7 @@ import project_7_2 from "@/assets/images/project_7_2.jpg";
 import project_7_3 from "@/assets/images/project_7_3.jpg";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
+import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
 
 const HomePage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -99,7 +102,7 @@ const HomePage: React.FC = () => {
                 />
 
                 {/* 🎬 تدرج ناعم من أسفل */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" /> */}
 
                 {/* ✨ المحتوى */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 sm:px-10 md:px-16">
@@ -393,22 +396,13 @@ const HomePage: React.FC = () => {
             </Button>
           </div>
 
-          {/* الصور */}
           <div className="grid grid-cols-2 gap-4 relative">
-            <img
-              src={about_11_1}
-              alt="About 1"
-              className="rounded-xl object-cover h-60 w-full"
-            />
-            <img
-              src={about_11_2}
-              alt="About 2"
-              className="rounded-xl object-cover h-60 w-full"
-            />
+            <AutoPlayVideo src={video1} />
+            <AutoPlayVideo src={video2} />
             <img
               src={about_11_3}
               alt="About 3"
-              className="rounded-xl object-cover h-60 w-full col-span-2"
+              className="rounded-xl object-cover w-full h-60 col-span-2 mt-4"
             />
             <div className="absolute -bottom-6 -left-2 bg-primary text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3">
               <span className="text-4xl font-extrabold leading-none text-white">
