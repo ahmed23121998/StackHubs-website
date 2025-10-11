@@ -53,7 +53,7 @@ const NetworkHubPage: React.FC = () => {
           {/* تدرج لوني لتوضيح النص */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-transparent"></div>
           {/* تدرج إضافي من اليمين إلى اليسار */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-50"></div>
         </div>
 
         {/* المحتوى */}
@@ -78,6 +78,14 @@ const NetworkHubPage: React.FC = () => {
             {data.intro}
           </p>
 
+          {/* زر CTA */}
+          <Button
+            size="lg"
+            onClick={() => navigate("/contact")}
+            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
+          >
+            {data.cta}
+          </Button>
           {/* الفقرة التوضيحية */}
           <motion.p
             variants={fadeUp}
@@ -92,14 +100,6 @@ const NetworkHubPage: React.FC = () => {
             {data.introParagraph}
           </motion.p>
 
-          {/* زر CTA */}
-          <Button
-            size="lg"
-            onClick={() => navigate("/contact")}
-            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
-          >
-            {data.cta}
-          </Button>
         </motion.div>
       </section>
 

@@ -10,7 +10,7 @@ import Access_Management from "@/assets/images/InfoSec Hub/Identity & Access Man
 import Cloud from "@/assets/images/InfoSec Hub/Network & Cloud Security.jpg";
 import Penetration from "@/assets/images/InfoSec Hub/Penetration Testing & Assessment Services.jpg";
 import Threat_Detection from "@/assets/images/InfoSec Hub/Threat Detection & Incident Response (SOC _ SOAR).jpg";
-import infosec from "@/assets/images/InfoSec Hub 2.png";
+import infosec from "@/assets/images/InfoSec Hub 1.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -53,7 +53,7 @@ const InfoSecHubPage: React.FC = () => {
           />
           {/* تدرجات لونية لزيادة وضوح النص */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-50"></div>
         </div>
 
         {/* المحتوى */}
@@ -76,6 +76,13 @@ const InfoSecHubPage: React.FC = () => {
             {data.intro}
           </p>
 
+          <Button
+            size="lg"
+            onClick={() => navigate("/contact")}
+            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
+          >
+            {data.cta}
+          </Button>
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -89,13 +96,6 @@ const InfoSecHubPage: React.FC = () => {
             {data.introParagraph}
           </motion.p>
 
-          <Button
-            size="lg"
-            onClick={() => navigate("/contact")}
-            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
-          >
-            {data.cta}
-          </Button>
         </motion.div>
       </section>
 
