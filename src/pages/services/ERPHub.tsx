@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import erpHero from "@/assets/images/ERP Hub.jpg"; 
-import sapImage from "@/assets/images/ERP Hub/SAP.jpg"; 
-import odooImage from "@/assets/images/ERP Hub/ODOO.jpg"; 
+import erpHero from "@/assets/images/ERP Hub.jpg";
+import sapImage from "@/assets/images/ERP Hub/SAP.jpg";
+import odooImage from "@/assets/images/ERP Hub/ODOO.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -93,7 +93,9 @@ const ERPHubPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 
+bg-gradient-to-r from-[#DF1783] via-[#9C27B0] to-[#007BFF] 
+bg-clip-text text-transparent"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>

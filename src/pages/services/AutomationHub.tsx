@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
-import automationHero from "@/assets/images/Automation Hub.jpg"; 
+import automationHero from "@/assets/images/Automation Hub.jpg";
 import { useNavigate } from "react-router-dom";
 import network from "@/assets/images/Automation Hub/1- Network, Security & Cloud Automation.jpg";
 import itsm from "@/assets/images/Automation Hub/2- ITSM & Workflow Orchestration.jpg";
@@ -95,12 +95,12 @@ const AutomationHub: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-orange-900 via-orange-500 to-black bg-clip-text text-transparent drop-shadow-lg"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {data.sections.map(
               (section: { title: string; desc: string }, i: number) => (
                 <motion.div
@@ -111,7 +111,7 @@ const AutomationHub: React.FC = () => {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600 flex flex-col"
                 >
-                  <div className="relative w-full h-[220px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
+                  <div className="relative w-full h-[250px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
                     <img
                       src={images[i]}
                       alt={section.title}

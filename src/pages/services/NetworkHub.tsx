@@ -99,7 +99,6 @@ const NetworkHubPage: React.FC = () => {
           >
             {data.introParagraph}
           </motion.p>
-
         </motion.div>
       </section>
 
@@ -111,10 +110,13 @@ const NetworkHubPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 
+  bg-gradient-to-r from-[#003F5C] via-[#007B8A] to-[#00C1D4] 
+  bg-clip-text text-transparent"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.sections.map(
               (section: { title: string; desc: string }, i: number) => (

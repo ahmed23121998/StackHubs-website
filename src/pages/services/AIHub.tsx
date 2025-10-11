@@ -99,14 +99,16 @@ const AIHub: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent drop-shadow-lg"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {data.sections.map(
-              (section: { title: string; desc: string }, i: number) => (
+          {/* ✅ صف أول فيه 3 كروت */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {data.sections
+              .slice(0, 3)
+              .map((section: { title: string; desc: string }, i: number) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 40 }}
@@ -115,11 +117,11 @@ const AIHub: React.FC = () => {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600 flex flex-col"
                 >
-                  <div className="relative w-full h-[220px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 overflow-hidden">
+                  <div className="relative w-full h-[220px] overflow-hidden">
                     <img
                       src={images[i] || aiHero}
                       alt={section.title}
-                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
 
@@ -137,8 +139,45 @@ const AIHub: React.FC = () => {
                     </div>
                   </div>
                 </motion.div>
-              )
-            )}
+              ))}
+          </div>
+
+          {/* ✅ صف ثاني فيه 2 كروت في النص */}
+          <div className="flex justify-center gap-8 flex-wrap">
+            {data.sections
+              .slice(3, 5)
+              .map((section: { title: string; desc: string }, i: number) => (
+                <motion.div
+                  key={i + 3}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                  className="w-full sm:w-[calc(50%-1rem)] md:w-[350px] bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600 flex flex-col"
+                >
+                  <div className="relative w-full h-[220px] overflow-hidden">
+                    <img
+                      src={images[i + 3] || aiHero}
+                      alt={section.title}
+                      className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
+                    <div className="flex items-start gap-3 h-[64px]">
+                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
+                        {section.title}
+                      </h3>
+                    </div>
+                    <div className="flex-1 overflow-auto">
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+                        {section.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
           </div>
         </div>
       </section>

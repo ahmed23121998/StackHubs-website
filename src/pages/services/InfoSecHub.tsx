@@ -95,7 +95,6 @@ const InfoSecHubPage: React.FC = () => {
           >
             {data.introParagraph}
           </motion.p>
-
         </motion.div>
       </section>
 
@@ -107,7 +106,7 @@ const InfoSecHubPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-primary to-brand bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-orange-900 via-orange-500 to-black bg-clip-text text-transparent drop-shadow-lg"
           >
             {data.whatWeDeliverTitle}
           </motion.h2>

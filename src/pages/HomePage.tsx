@@ -11,9 +11,10 @@ import { serviceHubs } from "@/data/serviceHubs";
 import { useNavigate } from "react-router-dom";
 import video1 from "@/assets/video/who we are.mp4";
 import video2 from "@/assets/video/who we are 2.mp4";
+import video3 from "@/assets/video/who we are 3.mp4";
 // import about_11_1 from "@/assets/images/about_11_1.jpg";
 // import about_11_2 from "@/assets/images/about_11_2.jpg";
-import about_11_3 from "@/assets/images/about_11_3.jpg";
+// import about_11_3 from "@/assets/images/about_11_3.jpg";
 import regional_footprint from "@/assets/images/regional_footprint.png";
 import happy_customers from "@/assets/images/happy_customers.jpg";
 import partners from "@/assets/images/partners.jpg";
@@ -331,87 +332,91 @@ const HomePage: React.FC = () => {
 
       {/* About Us Section */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* النصوص والنقاط */}
-          <div>
-            <p className="text-brand font-semibold uppercase tracking-wide mb-2">
-              {t("aboutUs.whoWeAre")}
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t("aboutUs.title")}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {t("aboutUs.description")}
-            </p>
-            {/* ✅ نقاط العناوين والأوصاف */}
-            <ul className="space-y-5 mb-10">
-              {(
-                t("aboutUs.points", { returnObjects: true }) as {
-                  title: string;
-                  desc: string;
-                }[]
-              ).map((point, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-start gap-4 p-3 rounded-xl bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300"
-                >
-                  {/* ✅ دائرة بتدرّج لوني من الأزرق الداكن للفاتح */}
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-primary to-brand text-white flex-shrink-0 shadow-md">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="w-4 h-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
-                    </svg>
-                  </span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* الشبكة (النص + الفيديوهات) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* النصوص والنقاط */}
+            <div>
+              <p className="text-brand font-semibold uppercase tracking-wide mb-2">
+                {t("aboutUs.whoWeAre")}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                {t("aboutUs.title")}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                {t("aboutUs.description")}
+              </p>
 
-                  {/* ✅ النصوص */}
-                  <div>
-                    <h4 className="font-semibold text-primary dark:text-brand mb-1">
-                      {point.title}
-                    </h4>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      {point.desc}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+              {/* ✅ نقاط العناوين والأوصاف */}
+              <ul className="space-y-5 mb-10">
+                {(
+                  t("aboutUs.points", { returnObjects: true }) as {
+                    title: string;
+                    desc: string;
+                  }[]
+                ).map((point, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-4 p-3 rounded-xl bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300"
+                  >
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-primary to-brand text-white flex-shrink-0 shadow-md">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
 
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              onClick={() => navigate("/about")}
-            >
-              {t("aboutUs.cta")} →
-            </Button>
+                    <div>
+                      <h4 className="font-semibold text-primary dark:text-brand mb-1">
+                        {point.title}
+                      </h4>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                        {point.desc}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* ✅ الفيديوهات */}
+            <div className="grid grid-cols-2 gap-4 relative">
+              <AutoPlayVideo src={video1} />
+              <AutoPlayVideo src={video2} />
+              <div className="col-span-2">
+                <AutoPlayVideo src={video3} />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 relative">
-            <AutoPlayVideo src={video1} />
-            <AutoPlayVideo src={video2} />
-            <img
-              src={about_11_3}
-              alt="About 3"
-              className="rounded-xl object-cover w-full h-60 col-span-2 mt-4"
-            />
-            <div className="absolute -bottom-6 -left-2 bg-primary text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-3">
-              <span className="text-4xl font-extrabold leading-none text-white">
-                {t("aboutUs.numofyears")}
+          {/* ✅ الزرار المتحرك في المنتصف تحت العمودين */}
+          <div className="flex justify-center">
+            <motion.button
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              onClick={() => navigate("/about")}
+              className="group relative inline-flex items-center gap-2 px-10 py-4 rounded-full text-lg font-semibold text-white 
+                   bg-gradient-to-r from-primary via-brand to-primary 
+                   bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
+                   transition-all duration-500 animate-gradient-pulse"
+            >
+              {t("aboutUs.cta")}
+              <span className="transform transition-transform group-hover:translate-x-1">
+                →
               </span>
-              <span className="text-sm md:text-base font-medium leading-snug text-white">
-                {t("aboutUs.experience")}
-              </span>
-            </div>
+            </motion.button>
           </div>
         </div>
       </section>
@@ -594,7 +599,10 @@ const HomePage: React.FC = () => {
             <Button
               size="lg"
               variant="secondary"
-              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="group relative inline-flex items-center gap-2 px-10 py-6 rounded-full text-lg font-semibold text-white 
+                   bg-gradient-to-r from-primary via-brand to-primary 
+                   bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
+                   transition-all duration-500 animate-gradient-pulse"
               onClick={() => navigate("/projects")}
             >
               {t("caseStudies.button")}
