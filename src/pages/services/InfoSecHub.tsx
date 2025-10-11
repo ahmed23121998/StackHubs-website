@@ -92,7 +92,7 @@ const InfoSecHubPage: React.FC = () => {
           <Button
             size="lg"
             onClick={() => navigate("/contact")}
-            className="bg-gradient-to-r from-primary to-brand text-white text-lg font-semibold px-10 py-5 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 mt-4"
+            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
           >
             {data.cta}
           </Button>
@@ -170,7 +170,7 @@ const InfoSecHubPage: React.FC = () => {
           <Button
             size="lg"
             onClick={() => navigate("/contact")}
-            className="bg-gradient-to-r from-primary to-brand text-white text-lg font-semibold px-10 py-5 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
           >
             {data.ctaButton}
           </Button>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon, Globe, Settings } from "lucide-react";
+import { Menu, X, Sun, Moon, Globe, Settings, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { isAuthenticated } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,9 +27,9 @@ const Navbar: React.FC = () => {
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
     { key: "projects", label: t("nav.projects") },
-    // { key: "store", label: t("nav.store") },
     { key: "contact", label: t("nav.contact") },
   ];
+
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLang);
@@ -42,19 +43,19 @@ const Navbar: React.FC = () => {
       loyal: "/loyal",
       partner: "/partner",
       projects: "/projects",
-      // store: "/store",
       contact: "/contact",
     };
     navigate(pathMap[page] || "/");
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
   };
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 w-full z-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
         <div className="flex items-center h-16 justify-between">
-          {/* Logo */}
+          {/* 🧭 Logo */}
           <motion.div
             className="flex items-center gap-2 cursor-pointer min-w-0"
             onClick={() => handleNavigation("home")}
@@ -78,39 +79,55 @@ const Navbar: React.FC = () => {
                   {item.label}
                 </Button>
               ) : item.key === "services" ? (
-                // 🌐 Dropdown for Services
-                <div key={item.key} className="relative group">
+                // 🌐 Services Dropdown with arrow indicator
+                <div key={item.key} className="relative">
                   <div
-                    className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand ${
+                    onClick={() => setIsServicesOpen((prev) => !prev)}
+                    className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 cursor-pointer ${
                       location.pathname.includes("/services/")
                         ? "text-blue-600 dark:text-brand"
                         : "text-muted-foreground hover:text-primary dark:hover:text-primary hover:scale-105"
                     }`}
                   >
                     {item.label}
+                    <motion.span
+                      animate={{ rotate: isServicesOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="h-4 w-4 mt-[1px]" />
+                    </motion.span>
                   </div>
 
-                  {/* Dropdown Menu */}
-                  <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                    {serviceHubs(t).map((hub) => (
-                      <div
-                        key={hub.id}
-                        onClick={() => {
-                          navigate(`/services/${hub.id}`);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                        className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-all"
-                      >
-                        {hub.title}
-                      </div>
-                    ))}
-                  </div>
+                  {isServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg transition-all duration-300 z-50"
+                      onMouseLeave={() => setIsServicesOpen(false)}
+                    >
+                      {serviceHubs(t).map((hub) => (
+                        <div
+                          key={hub.id}
+                          onClick={() => {
+                            navigate(`/services/${hub.id}`);
+                            setIsServicesOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-all"
+                        >
+                          {hub.title}
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
                 </div>
               ) : (
                 <div
                   key={item.key}
                   onClick={() => handleNavigation(item.key)}
-                  className={`text-sm font-medium transition-all duration-300 cursor-pointer text-brand ${
+                  className={`text-sm font-medium transition-all duration-300 cursor-pointer ${
                     (location.pathname === "/" && item.key === "home") ||
                     location.pathname === `/${item.key}`
                       ? "text-blue-600 dark:text-brand"
@@ -123,7 +140,7 @@ const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* 🌗 Theme & Language Controls */}
+          {/* 🌗 Theme, Language & Auth Buttons */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0 rtl:flex-row-reverse">
             {/* Auth Button */}
             {isAuthenticated ? (
@@ -207,17 +224,12 @@ const Navbar: React.FC = () => {
               x: i18n.language === "ar" ? 100 : -100,
             }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{
-              opacity: 0,
-              x: i18n.language === "ar" ? 100 : -100,
-            }}
             transition={{ duration: 0.3 }}
             className={`fixed top-0 ${
               i18n.language === "ar" ? "right-0" : "left-0"
             } w-64 max-w-[80%] h-full bg-gray-700 text-white border-primary dark:bg-gray-700 dark:text-white dark:border-primary shadow-lg z-50 p-4 overflow-y-auto`}
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
           >
-            {/* Close button inside drawer */}
             <div className="flex justify-end mb-4">
               <Button
                 variant="outline"
@@ -262,7 +274,7 @@ const Navbar: React.FC = () => {
                   <button
                     key={item.key}
                     onClick={() => handleNavigation(item.key)}
-                    className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-primary dark:hover:text-primary text-brand ${
+                    className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
                       (location.pathname === "/" && item.key === "home") ||
                       location.pathname === `/${item.key}`
                         ? "text-blue-600 dark:text-brand"

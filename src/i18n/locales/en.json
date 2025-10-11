@@ -38,7 +38,7 @@
     "intro": "Empowering organizations to build agile, intelligent, and future-ready networks that connect people, data, and applications — with unmatched performance and reliability.",
     "introParagraph": "The Network Hub empowers organizations to design, build, and operate high performance infrastructures that connect people, applications, and data with speed and reliability. We deliver enterprise-grade LAN, WAN, and data center architectures that integrate automation, visibility, and cloud-ready scalability at every layer. By leveraging the latest Software-Defined Networking (SDN) frameworks, we enable centralized control, faster provisioning, and consistent policy across physical and virtual domains. Our engineers blend modern SDN fabrics with proven routing and switching design to create networks that are adaptive, secure, and future-proof. From enterprise campuses to global hybrid clouds, Stackhubs networks are built to perform intelligently, efficiently, and without compromise. ",
     "introTitle": "Intro Paragraph",
-    "cta": "Connect With Us",
+    "cta": "Talk to our experts",
     "whatWeDeliverTitle": "What We Deliver",
     "sections": [
       {
@@ -68,43 +68,43 @@
     ],
     "ctaTitle": "Ready to Modernize Your Network?",
     "ctaSubtitle": "Discover how StackHubs can help you build a smarter, faster, and more secure digital foundation.",
-    "ctaButton": "Talk to one of our experts"
+    "ctaButton": "Talk to our experts"
   },
   "infoSecHubPage": {
     "title": "InfoSec Hub",
     "intro": "Building secure, resilient digital ecosystems across the MENA region.",
-    "cta": "Get in Touch",
+    "cta": "Talk to our experts",
     "introParagraph": "In an era of constant digital expansion, cybersecurity is no longer a reactive function — it is a core component of business continuity and trust. The InfoSec Hub at Stackhubs delivers end-to-end security architecture, operations, and assurance services that protect critical assets across infrastructure, applications, and cloud environments. We help organizations establish governance frameworks, implement defense-in-depth strategies, and maintain operational resilience through continuous monitoring and proactive threat response. Our security practice integrates seamlessly with all other hubs, ensuring protection is embedded at every layer — from connectivity and access to data and workloads. Through industry best practices, automation, and regional compliance alignment, we help clients in the MENA region achieve robust, auditable, and adaptive security postures built for today’s evolving threat landscape.",
     "whatWeDeliverTitle": "What We Deliver",
     "sections": [
       {
         "title": "Cybersecurity Architecture & Governance",
-        "desc": "We develop holistic security architectures aligned with business goals and regulatory frameworks, based on Zero Trust, NIST, and ISO 27001 principles."
+        "desc": "We develop holistic security architectures that align with your business goals and regulatory requirements. Our experts map every control layer — network, cloud, application, and identity — into a unified policy framework built on Zero Trust, NIST, and ISO 27001 principles. We design governance models that clearly define responsibilities, escalation paths, and compliance metrics, ensuring your operations stay auditable and secure. Through this architecture, organizations gain clarity, consistency, and confidence across all security domains."
       },
       {
         "title": "Threat Detection & Incident Response (SOC / SOAR)",
-        "desc": "Our SOC operations combine AI analytics and automation to detect, correlate, and contain threats in real time — shifting from reactive to proactive defense."
+        "desc": "Stackhubs builds and operates Security Operations Centers (SOC) that combine human expertise with AI-driven analytics. We deploy and fine-tune SIEM and SOAR platforms to detect anomalies, correlate logs, and automate containment or remediation within seconds. Our incident response playbooks integrate directly with network, cloud, and endpoint systems, ensuring coordinated action across all layers. This enables your teams to transition from reactive defense to proactive threat hunting — minimizing impact and accelerating recovery. "
       },
       {
         "title": "Identity & Access Management (IAM / PAM)",
-        "desc": "We secure digital identities through IGA, SSO, MFA, and PAM implementations that enforce least-privilege and just-in-time access models."
+        "desc": "We help organizations secure digital identities through centralized authentication, authorization, and privilege control. Our implementations include Identity Governance (IGA), Single Sign-On (SSO), Multi-Factor Authentication (MFA), and Privileged Access Management (PAM) solutions. We integrate with existing directory services and cloud identity providers to maintain seamless access for users while enforcing strict least-privilege and just-in-time access models. The result is a consistent, traceable, and secure identity ecosystem across every platform and application."
       },
       {
         "title": "Network & Cloud Security",
-        "desc": "Unified protection across on-premises and cloud with NGFW, WAF, CSPM, and CWPP to ensure visibility and control from data center to cloud."
+        "desc": "We deliver unified security across on-premises, hybrid, and cloud environments to ensure consistent visibility and control. Our engineers design layered protection using Next-Generation Firewalls (NGFW), Intrusion Prevention Systems (IPS), and Web Application Firewalls (WAF) integrated with Cloud Security Posture Management (CSPM) and Workload Protection Platforms (CWPP). We secure cloud-native workloads, containers, and APIs while enforcing segmentation and encrypted traffic analytics across the network. Through tight integration with the Network Hub, we ensure that every connection, workload, and user operates within a protected, policy-driven framework. This holistic approach provides unified threat visibility and control from the data center to the public cloud. "
       },
       {
         "title": "Governance, Risk & Compliance (GRC)",
-        "desc": "We help organizations across MENA achieve and maintain regulatory compliance — aligning ISO 27001, NCA ECC, DESC, and NTRA frameworks with NIST and CIS."
+        "desc": "Our GRC practice ensures that cybersecurity is embedded within organizational governance, not treated as a separate function. We help enterprises in the Middle East and North Africa achieve regulatory alignment and maintain continuous compliance across national and sector-specific frameworks. Our consultants implement structured governance models, clear risk ownership, and measurable control maturity programs tailored to each client’s environment. We align with ISO 27001, NCA ECC (Saudi Arabia), DESC / ADQCC (UAE), and NTRA Cyber Framework (Egypt) while mapping them to global standards such as NIST and CIS. The team conducts risk assessments, control gap analyses, and policy audits, ensuring accountability from board level to technical operations. Through awareness programs and executive reporting, we build a culture of compliance that strengthens resilience and decision-making. The outcome is a transparent, auditable, and trusted cybersecurity posture that satisfies regulators and enhances business confidence."
       },
       {
         "title": "Penetration Testing & Assessment Services",
-        "desc": "Our red-team specialists conduct realistic penetration testing and vulnerability assessments to identify and remediate risks before attackers do."
+        "desc": "Our StackHubs red-team specialists conduct comprehensive penetration testing to identify vulnerabilities before attackers can exploit them. We perform network, web application, wireless, and social engineering assessments, simulating real-world attacks to validate your defenses. In addition, our vulnerability management programs prioritize and remediate risks based on exploitability and business impact. Each engagement concludes with a detailed technical and executive report outlining findings, remediation paths, and long-term hardening recommendations. These services provide both assurance and actionable insights to maintain a continuously improving defense posture."
       }
     ],
     "ctaTitle": "Ready to Secure Your Digital Future?",
     "ctaSubtitle": "Partner with Stackhubs InfoSec Hub to build resilient, compliant, and trusted infrastructures.",
-    "ctaButton": "Contact Us"
+    "ctaButton": "Talk to our experts"
   },
   "services": {
     "title": "Our Service Hubs",
