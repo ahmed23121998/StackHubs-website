@@ -106,7 +106,7 @@ const IoTHub: React.FC = () => {
             {data.whatWeDeliverTitle}
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {data.sections.map(
               (section: { title: string; desc: string }, i: number) => (
                 <motion.div
@@ -117,7 +117,7 @@ const IoTHub: React.FC = () => {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200 dark:border-gray-600 flex flex-col"
                 >
-                  <div className="relative w-full h-[220px] overflow-hidden">
+                  <div className="relative w-full h-[250px] overflow-hidden">
                     <img
                       src={images[i]}
                       alt={section.title}
