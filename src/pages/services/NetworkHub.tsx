@@ -1,8 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import networkHero from "@/assets/images/Network Hub 2.png";
 import { useNavigate } from "react-router-dom";
 import datacenter from "@/assets/images/Datacenter.jpg";
@@ -20,7 +22,6 @@ const fadeUp = {
     transition: { duration: 0.8, delay },
   }),
 };
-
 const NetworkHubPage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
@@ -34,6 +35,11 @@ const NetworkHubPage: React.FC = () => {
     security_integration,
     performance,
   ];
+  const [showAll, setShowAll] = useState(false);
+  const introPoints: string[] = data.introParagraph
+    .split(".")
+    .filter((point: string) => point.trim().length > 0);
+  const visiblePoints = showAll ? introPoints : introPoints.slice(0, 3);
 
   return (
     <div
@@ -50,9 +56,7 @@ const NetworkHubPage: React.FC = () => {
             alt="Network Hub"
             className="w-full h-full object-cover object-center brightness-90 md:brightness-100 scale-105"
           />
-          {/* تدرج لوني لتوضيح النص */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-transparent"></div>
-          {/* تدرج إضافي من اليمين إلى اليسار */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-brand/60 opacity-50"></div>
         </div>
 
@@ -86,22 +90,76 @@ const NetworkHubPage: React.FC = () => {
           >
             {data.cta}
           </Button>
-          {/* الفقرة التوضيحية */}
-          <motion.p
+
+          {/* الفقرة التوضيحية بشكل نقاط مع أيقونة ✅ */}
+
+          <motion.ul
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className={`text-base sm:text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium tracking-wide max-w-3xl ${
+            className={`text-base sm:text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium tracking-wide max-w-3xl space-y-4 ${
               isArabic ? "text-right" : "text-left"
             }`}
             style={{ direction: isArabic ? "rtl" : "ltr" }}
           >
-            {data.introParagraph}
-          </motion.p>
+            {visiblePoints.map((point: string, index: number) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex items-start gap-3"
+              >
+                <CheckCircle
+                  className={`w-6 h-6 text-blue-400 flex-shrink-0 mt-1 ${
+                    isArabic ? "ml-2" : "mr-2"
+                  }`}
+                />
+                <span>{point.trim()}.</span>
+              </motion.li>
+            ))}
+
+            {/* عرض المزيد / أقل مع سهم متغير الاتجاه */}
+            {introPoints.length > 3 && (
+              <li className="flex justify-center mt-2">
+                <div
+                  onClick={() => setShowAll(!showAll)}
+                  className={`flex items-center gap-2 cursor-pointer select-none text-pink-500 hover:text-pink-600 text-base font-semibold transition-all duration-300 underline-offset-4 hover:underline`}
+                >
+                  {/* لو اللغة عربية السهم في اليمين */}
+                  {isArabic && (
+                    <ArrowRight
+                      className={`w-4 h-4 text-pink-500 transform transition-transform duration-300 ${
+                        showAll ? "-rotate-90" : "rotate-90"
+                      }`}
+                    />
+                  )}
+
+                  <span>
+                    {showAll
+                      ? isArabic
+                        ? "عرض أقل"
+                        : "Show less"
+                      : isArabic
+                      ? "عرض المزيد"
+                      : "Read more"}
+                  </span>
+
+                  {/* لو اللغة إنجليزية السهم في اليسار */}
+                  {!isArabic && (
+                    <ArrowRight
+                      className={`w-4 h-4 text-pink-500 transform transition-transform duration-300 ${
+                        showAll ? "-rotate-90" : "rotate-90"
+                      }`}
+                    />
+                  )}
+                </div>
+              </li>
+            )}
+          </motion.ul>
         </motion.div>
       </section>
-
       {/* 🚀 WHAT WE DELIVER */}
       <section className="relative py-20 bg-white dark:bg-gray-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,15 +196,36 @@ const NetworkHubPage: React.FC = () => {
 
                   <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
                     <div className="flex items-start gap-3 h-[64px]">
-                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="w-6 h-6 text-blue-400 flex-shrink-0" />
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
                         {section.title}
                       </h3>
                     </div>
                     <div className="flex-1 overflow-auto">
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                        {section.desc}
-                      </p>
+                      <ul
+                        className={`text-gray-700 dark:text-gray-300 leading-relaxed text-sm list-none space-y-2 ${
+                          isArabic ? "text-right" : "text-left"
+                        }`}
+                        style={{ direction: isArabic ? "rtl" : "ltr" }}
+                      >
+                        {section.desc
+                          .split(".")
+                          .filter((point: string) => point.trim().length > 0)
+                          .map((point: string, index: number) => (
+                            <li
+                              key={index}
+                              className={"flex items-start gap-2"}
+                              style={{ direction: isArabic ? "rtl" : "ltr" }}
+                            >
+                              <ArrowRight
+                                className={`w-4 h-4 text-brand mt-1 flex-shrink-0 transform ${
+                                  isArabic ? "rotate-180 ml-2" : "mr-2"
+                                }`}
+                              />
+                              <span>{point.trim()}.</span>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </motion.div>
@@ -155,7 +234,6 @@ const NetworkHubPage: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* 🌟 CTA SECTION */}
       <section className="relative py-24 bg-gradient-to-r from-primary to-brand text-white text-center overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,white_0%,transparent_70%)]"></div>
