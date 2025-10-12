@@ -37,7 +37,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   async function onSubmit(values: LoginFormValues) {
-    const success = await login(values.email, values.password);
+    const success = await login(values);
     if (success) {
       toast.success(t("auth.loginSuccess"));
       navigate("/");

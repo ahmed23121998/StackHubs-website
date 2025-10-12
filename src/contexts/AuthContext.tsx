@@ -1,3 +1,4 @@
+import { apiClient } from "@/Utils/api";
 import React, {
   createContext,
   useContext,
@@ -21,14 +22,7 @@ interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<boolean>;
-  register: (
-    name: string,
-    email: string,
-    password: string,
-    accountType: "individual" | "organization",
-    companyName?: string,
-    taxId?: string
-  ) => Promise<boolean>;
+ 
   logout: () => void;
   loading: boolean;
 }
@@ -59,27 +53,26 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = async (email: string): Promise<boolean> => {
+  const login = async (email: any): Promise<boolean> => {
     try {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      const existingUsers = JSON.parse(
-        localStorage.getItem("registeredUsers") || "[]"
-      );
-      const userExists = existingUsers.find(
-        (user: any) => user.email === email
-      );
-      if (!userExists) return false;
+     
+      await apiClient.LoginUser(email);
+      const userdata = await apiClient.userProfile();
+      console.log(userdata);
+      
+      
+      
+      
 
       const mockUser: User = {
-        id: userExists.id,
-        name: userExists.name,
-        email: userExists.email,
-        password: userExists.password,
-        accountType: userExists.accountType,
-        companyName: userExists.companyName,
-        taxId: userExists.taxId,
+        id: userdata.id,
+        name: userdata.name,
+        email: userdata.email,
+        password: userdata.password,
+        accountType: userdata.accountType,
+        companyName: userdata.companyName,
+        taxId: userdata.taxId,
       };
 
       setUser(mockUser);
@@ -93,61 +86,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const register = async (
-    name: string,
-    email: string,
-    password: string,
-    accountType: "individual" | "organization",
-    companyName?: string,
-    taxId?: string
-  ): Promise<boolean> => {
-    try {
-      setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      const existingUsers = JSON.parse(
-        localStorage.getItem("registeredUsers") || "[]"
-      );
-      const userExists = existingUsers.find(
-        (user: any) => user.email === email
-      );
-      if (userExists) return false;
-
-      const newUser = {
-        id: Date.now().toString(),
-        name: name.trim(),
-        email,
-        password, // لاحقًا يفضل تشفيره
-        accountType,
-        companyName: accountType === "organization" ? companyName : undefined,
-        taxId: accountType === "organization" ? taxId : undefined,
-        createdAt: new Date().toISOString(),
-      };
-
-      const updatedUsers = [...existingUsers, newUser];
-      localStorage.setItem("registeredUsers", JSON.stringify(updatedUsers));
-
-      const mockUser: User = {
-        id: newUser.id,
-        name: newUser.name,
-        email: newUser.email,
-        password: newUser.password, 
-        accountType: newUser.accountType,
-        companyName: newUser.companyName,
-        taxId: newUser.taxId,
-      };
-
-      setUser(mockUser);
-      localStorage.setItem("user", JSON.stringify(mockUser));
-      return true;
-    } catch (error) {
-      console.error("Registration failed:", error);
-      return false;
-    } finally {
-      setLoading(false);
-    }
-  };
-
+ 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
@@ -157,7 +96,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     user,
     isAuthenticated: !!user,
     login,
-    register,
+    
     logout,
     loading,
   };

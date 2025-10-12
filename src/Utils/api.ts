@@ -1,5 +1,6 @@
+
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://192.168.1.6:8000/api";
+  import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
 // HTTP helpers below cover common verbs
 
@@ -10,6 +11,7 @@ class ApiClient {
     this.baseURL = baseURL;
   }
 
+  
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -26,26 +28,35 @@ class ApiClient {
       ...options,
     };
 
-    const response = await fetch(url, config);
+    try {
+      const response = await fetch(url, config);
 
-    if (response.status === 401) {
-      throw new Error("Authentication failed");
-    }
+      // Handle authentication errors
+      if (response.status === 401) {
+        localStorage.removeItem("authToken");
+        // window.location.href = "/";
+        throw new Error("Authentication failed");
+      }
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(
-        errorData.error ||
-          errorData.message ||
-          `HTTP error! status: ${response.status}`
-      );
-    }
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.error ||
+            errorData.message ||
+            `HTTP error! status: ${response.status}`
+        );
+      }
 
-    const contentType = response.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-      return (await response.json()) as T;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return await response.json();
+      }
+
+      return response as unknown as T;
+    } catch (error) {
+      console.error("API request failed:", error);
+      throw error;
     }
-    return response as unknown as T;
   }
 
   private jsonBody(body?: unknown) {
@@ -76,7 +87,11 @@ class ApiClient {
 
   // Auth
   async RegisterUser(data: any) {
+    console.log(data);
+    
     const response = await this.post<any>("/v1/auth/register/", data);
+    console.log(response);
+    
     localStorage.setItem("authToken", response.access);
     localStorage.setItem("refreshToken", response.refresf);
     return response;
@@ -84,10 +99,14 @@ class ApiClient {
   async LoginUser(data: any) {
     const response = await this.post<any>("/v1/auth/login/", data);
     localStorage.setItem("authToken", response.access);
-    localStorage.setItem("refreshToken", response.refresf);
+    localStorage.setItem("refreshToken", response.refresh);
     return response;
   }
-
+  async userProfile() {
+    console.log("Fetching user profile");
+    
+    return this.get<any>("/v1/users/profile");
+  }
   // Products
   async getProducts() {
     return this.get("/v1/products/");

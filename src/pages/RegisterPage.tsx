@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff } from "lucide-react";
 import React from "react";
+import { apiClient } from "@/Utils/api";
 export default function RegisterPage() {
   const { t, i18n } = useTranslation();
   const registerSchema = z
@@ -79,18 +80,16 @@ export default function RegisterPage() {
     React.useState<boolean>(false);
 
   async function onSubmit(values: RegisterFormValues) {
-    const success = await register(
-      values.name,
-      values.email,
-      values.password,
-      values.accountType,
-      values.companyName,
-      values.taxId
+    try{
+      const password_confirm	= values.confirmPassword;
+      values = {...values, password_confirm	};
+
+    const success = await apiClient.RegisterUser(values
     );
-    if (success) {
+  
       toast.success(t("auth.registrationSuccess"));
-      navigate("/");
-    } else {
+      navigate("/login");
+    } catch (error) {
       toast.error(t("auth.registrationFailed"));
     }
   }
