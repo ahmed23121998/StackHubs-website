@@ -75,7 +75,6 @@ const WirelessHubPage: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-2xl leading-tight">
             {data.title}
           </h1>
-
           <p
             className={`text-lg md:text-xl text-gray-100 dark:text-gray-200 leading-relaxed font-medium max-w-4xl ${
               isArabic ? "text-right" : "text-left"
@@ -84,7 +83,6 @@ const WirelessHubPage: React.FC = () => {
           >
             {data.intro}
           </p>
-
           <Button
             size="lg"
             onClick={() => navigate("/contact")}
@@ -92,7 +90,6 @@ const WirelessHubPage: React.FC = () => {
           >
             {data.cta}
           </Button>
-
           <motion.ul
             variants={fadeUp}
             initial="hidden"
@@ -119,7 +116,6 @@ const WirelessHubPage: React.FC = () => {
                 <span>{point.trim()}.</span>
               </motion.li>
             ))}
-
             {/* عرض المزيد / أقل مع سهم متغير الاتجاه */}
             {introPoints.length > 3 && (
               <li className="flex justify-center mt-2">
@@ -135,7 +131,6 @@ const WirelessHubPage: React.FC = () => {
                       }`}
                     />
                   )}
-
                   <span>
                     {showAll
                       ? isArabic
@@ -145,7 +140,6 @@ const WirelessHubPage: React.FC = () => {
                       ? "عرض المزيد"
                       : "Read more"}
                   </span>
-
                   {/* لو اللغة إنجليزية السهم في اليسار */}
                   {!isArabic && (
                     <ArrowRight
@@ -160,7 +154,6 @@ const WirelessHubPage: React.FC = () => {
           </motion.ul>
         </motion.div>
       </section>
-
       {/* 🚀 WHAT WE DELIVER */}
       <section className="relative py-20 bg-white dark:bg-gray-800 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,7 +166,6 @@ const WirelessHubPage: React.FC = () => {
           >
             {data.whatWeDeliverTitle}
           </motion.h2>
-
           {/* ✅ صف أول فيه 3 كروت */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {data.sections
@@ -194,7 +186,6 @@ const WirelessHubPage: React.FC = () => {
                       className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-
                   <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
                     <div className="flex items-start gap-3 h-[64px]">
                       <CheckCircle className="w-6 h-6 text-blue-400 flex-shrink-0" />
@@ -232,7 +223,6 @@ const WirelessHubPage: React.FC = () => {
                 </motion.div>
               ))}
           </div>
-
           {/* ✅ صف ثاني فيه 3 كروت */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {data.sections
@@ -253,24 +243,43 @@ const WirelessHubPage: React.FC = () => {
                       className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-
                   <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
                     <div className="flex items-start gap-3 h-[64px]">
-                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="w-6 h-6 text-blue-400 flex-shrink-0" />
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
                         {section.title}
                       </h3>
                     </div>
                     <div className="flex-1 overflow-auto">
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                        {section.desc}
-                      </p>
+                      <ul
+                        className={`text-gray-700 dark:text-gray-300 leading-relaxed text-sm list-none space-y-2 ${
+                          isArabic ? "text-right" : "text-left"
+                        }`}
+                        style={{ direction: isArabic ? "rtl" : "ltr" }}
+                      >
+                        {section.desc
+                          .split(".")
+                          .filter((point: string) => point.trim().length > 0)
+                          .map((point: string, index: number) => (
+                            <li
+                              key={index}
+                              className={"flex items-start gap-2"}
+                              style={{ direction: isArabic ? "rtl" : "ltr" }}
+                            >
+                              <ArrowRight
+                                className={`w-4 h-4 text-brand mt-1 flex-shrink-0 transform ${
+                                  isArabic ? "rotate-180 ml-2" : "mr-2"
+                                }`}
+                              />
+                              <span>{point.trim()}.</span>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </motion.div>
               ))}
           </div>
-
           {/* ✅ صف أخير فيه 2 كروت في النص */}
           <div className="flex justify-center gap-8 flex-wrap">
             {data.sections
@@ -291,18 +300,38 @@ const WirelessHubPage: React.FC = () => {
                       className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-
                   <div className="flex flex-col px-6 pt-5 pb-6 flex-1">
                     <div className="flex items-start gap-3 h-[64px]">
-                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="w-6 h-6 text-blue-400 flex-shrink-0" />
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
                         {section.title}
                       </h3>
                     </div>
                     <div className="flex-1 overflow-auto">
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                        {section.desc}
-                      </p>
+                      <ul
+                        className={`text-gray-700 dark:text-gray-300 leading-relaxed text-sm list-none space-y-2 ${
+                          isArabic ? "text-right" : "text-left"
+                        }`}
+                        style={{ direction: isArabic ? "rtl" : "ltr" }}
+                      >
+                        {section.desc
+                          .split(".")
+                          .filter((point: string) => point.trim().length > 0)
+                          .map((point: string, index: number) => (
+                            <li
+                              key={index}
+                              className={"flex items-start gap-2"}
+                              style={{ direction: isArabic ? "rtl" : "ltr" }}
+                            >
+                              <ArrowRight
+                                className={`w-4 h-4 text-brand mt-1 flex-shrink-0 transform ${
+                                  isArabic ? "rotate-180 ml-2" : "mr-2"
+                                }`}
+                              />
+                              <span>{point.trim()}.</span>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </motion.div>
@@ -310,7 +339,6 @@ const WirelessHubPage: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* 🌟 CTA SECTION */}
       <section className="relative py-24 bg-gradient-to-r from-primary to-brand text-white text-center overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,white_0%,transparent_70%)]"></div>

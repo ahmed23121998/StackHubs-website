@@ -108,7 +108,7 @@
   },
   "wirelessHubPage": {
     "title": "Wireless Hub",
-    "intro": "Wireless is no longer an add-on; it’s the primary access layer for users, devices, and IoT.",
+    "intro": "Delivering the next generation of wireless connectivity for seamless mobility and performance.",
     "cta": "Talk to our experts",
     "introParagraph": "Wireless is no longer an add-on; it’s the primary access layer for users, devices, and IoT. Our Wireless Hub delivers end-to-end Wi-Fi architectures that combine RF design, security, and automation to achieve a consistent optimum experience at scale. We design for single strength, coverage, capacity, and engineering high-density environments with Wi-Fi 6/6E and ready for 7 using OFDMA and optimized channel plans in 2.4/5/6 GHz. Assurance is built in: active & predictive surveys, spectrum analysis, heatmaps, and continuous KPIs for latency, throughput, and roaming. Access is identity-driven with WPA3-Enterprise, 802.1X/EAP-TLS, NAC/Zero-Trust policy, and clean separation of production vs. guest traffic. We integrate wireless with the wider campus fabric (wired/SD-Access), deliver cloud-managed or controller-based operations, and support indoor, outdoor, and industrial sites. The outcome: fast, reliable, and cost-effective wireless that empowers mobility, VoIP/real-time apps, and large-scale IoT—anywhere.",
     "whatWeDeliverTitle": "What We Deliver",
