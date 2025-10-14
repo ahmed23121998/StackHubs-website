@@ -862,7 +862,89 @@
       "title": "Cloud Security Service",
       "tag": "Networking",
       "desc": "Detailed description about Cloud Security Service project."
+    },
+    "elEzabyProject": {
+      "title": "Nationwide SD-WAN for El Ezaby Pharmacies",
+      "tag": "Networking",
+      "desc": "El Ezaby – Egypt’s #1 pharmacy network – partnered with Stackhubs to modernize connectivity across 450+ branches nationwide."
     }
+  },
+  "projectDetails": {
+    "dataAnalytics": {
+      "title": "Data Analytics System",
+      "summary": "Enabling smarter insights through advanced analytics solutions.",
+      "hero": "Empowering data-driven decisions with cutting-edge analytics.",
+      "challenge": "The client needed real-time visibility and predictive insights...",
+      "approach": "Stackhubs implemented a scalable data analytics architecture...",
+      "outcome": "Achieved faster decision-making, better forecasting, and optimized resources.",
+      "highlights": {
+        "industry": "Finance / Retail / Operations",
+        "scope": "Enterprise-wide analytics platform",
+        "technology": "Power BI, Azure Data Factory, SQL Server",
+        "timeline": "2 months",
+        "service": "Continuous DataOps & Support"
+      },
+      "testimonial": "Stackhubs transformed our data into strategic insight."
+    },
+    "itSolution": {
+      "title": "IT Solution & Consultancy",
+      "summary": "Delivering tailored IT strategies that enhance agility and efficiency.",
+      "hero": "Transforming IT infrastructure with scalable and secure solutions.",
+      "challenge": "Legacy systems caused operational delays and integration issues...",
+      "approach": "Stackhubs conducted a full IT assessment and migrated workloads...",
+      "outcome": "Improved performance, security, and business continuity.",
+      "highlights": {
+        "industry": "Corporate / SMB",
+        "scope": "Full infrastructure modernization",
+        "technology": "VMware, Microsoft 365, Azure",
+        "timeline": "3 months",
+        "service": "Managed IT Services"
+      },
+      "testimonial": "Their consulting approach turned our IT from reactive to proactive."
+    },
+    "cloudSecurity": {
+      "title": "Cloud Security Service",
+      "summary": "Ensuring robust protection across cloud workloads.",
+      "hero": "Secure, compliant, and resilient cloud infrastructure.",
+      "challenge": "Customer needed unified visibility and compliance management...",
+      "approach": "Stackhubs deployed cloud-native security and zero-trust access...",
+      "outcome": "Achieved continuous compliance and real-time threat detection.",
+      "highlights": {
+        "industry": "Cloud / Cybersecurity",
+        "scope": "Multi-cloud environments",
+        "technology": "Azure Defender, Prisma Cloud",
+        "timeline": "6 weeks",
+        "service": "Security Monitoring & Incident Response"
+      },
+      "testimonial": "We now have confidence in every layer of our cloud stack."
+    },
+    "elEzabyProject": {
+      "title": "Nationwide SD-WAN for El Ezaby Pharmacies",
+      "summary": "El Ezaby - Egypt’s #1 pharmacy network - partnered with Stackhubs to modernize connectivity across 450+ branches in all governorates. We designed and delivered a nationwide SD-WAN (VMware VeloCloud) with high availability at the Data Center and HQ, then rolled out one edge per branch with tiered Internet redundancy (Platinum/Gold/Silver). The entire deployment was completed in 3 months, and Stackhubs now operates the platform as a 3-year managed service, ensuring performance, security, and 24/7 support.",
+      "hero": "Modernizing pharmacy connectivity across Egypt with VMware SD-WAN.",
+      "challenge": "El Ezaby needed a resilient, secure, and centrally managed network to support critical healthcare and retail applications (ERP, e-prescriptions, POS, inventory sync, and digital services) across hundreds of locations. The legacy model made branch turn-ups slow, visibility limited, and uptime dependent on single links in many sites.",
+      "approach": "Stackhubs designed an SD-WAN architecture using VMware VeloCloud, delivering HA at the core (DC & HQ) and a standardized single-box footprint per branch. We introduced a tiered connectivity model(Platinum/Gold/Silver) so high-traffic or mission-critical locations receive more ISP diversity. Rollout followed a factory-style playbook: zero-touch provisioning, parallel site waves, and nightly cutovers — allowing the entire program to complete in three months.",
+      "outcome": "The network gained intelligent path selection, application-aware QoS, and centralized policy control. Branches now enjoy higher uptime and consistent app performance; the operations team gained real-time visibility and faster troubleshooting. Stackhubs continues to run the solution as a managed service with proactive monitoring, SLAs, and continuous optimization.",
+      "highlights": {
+        "industry": "Retail Pharmacy / Healthcare",
+        "scope": "DC + HQ + 450 branches (all Egyptian governorates)",
+        "technology": "VMware VeloCloud SD-WAN",
+        "availability": "DC (2 devices), HQ (2 devices), 1 edge per branch",
+        "connectivity": "Platinum / Gold / Silver (2–3 ISPs per site)",
+        "timeline": "3 months (nationwide rollout)",
+        "service": "36-month Managed Service by Stackhubs"
+      },
+      "testimonial": "Stackhubs delivered the entire SD-WAN across our branches in record time and now keep it running smoothly. Our stores stay online, and our teams can focus on patients and customers."
+    }
+  },
+  "projectHighlights": {
+    "industry": "Industry",
+    "scope": "Scope",
+    "technology": "Technology",
+    "availability": "Availability",
+    "connectivity": "Connectivity",
+    "timeline": "Timeline",
+    "service": "Service"
   },
   "store": {
     "title": "Tech Store",

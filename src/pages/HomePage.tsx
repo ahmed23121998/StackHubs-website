@@ -28,6 +28,7 @@ import solution from "@/assets/images/solution.jpg";
 import project_7_1 from "@/assets/images/project_7_1.jpg";
 import project_7_2 from "@/assets/images/project_7_2.jpg";
 import project_7_3 from "@/assets/images/project_7_3.jpg";
+import elazaby from "@/assets/images/elazaby.jpg";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
@@ -558,6 +559,12 @@ const HomePage: React.FC = () => {
                   titleKey: "projects.cloudSecurity.title",
                   id: "cloud-security",
                 },
+                {
+                  src: elazaby,
+                  tagKey: "projects.elEzabyProject.tag",
+                  titleKey: "projects.elEzabyProject.title",
+                  id: "elazaby",
+                },
               ])
               .flat()
               .map((project, i) => (
@@ -568,7 +575,7 @@ const HomePage: React.FC = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6, delay: (i % 3) * 0.2 }}
                     className="transition transform cursor-pointer"
-                    onClick={() => navigate(`/projects/${(i % 3) + 1}`)}
+                    onClick={() => navigate(`/projects/${project.id}`)}
                   >
                     <img
                       src={project.src}
