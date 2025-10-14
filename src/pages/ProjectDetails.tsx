@@ -53,7 +53,7 @@ const ReadMoreSection = ({
   const points = content.split(".").filter((point) => point.trim().length > 0);
   const visiblePoints = showAll ? points : points.slice(0, 1);
   const hasMore = points.length > 1;
-
+  const { t } = useTranslation();
   const colorClasses = {
     orange: {
       bg: "from-orange-500 to-orange-600",
@@ -113,15 +113,7 @@ const ReadMoreSection = ({
               isArabic ? "flex-row-reverse" : ""
             }`}
           >
-            <span>
-              {showAll
-                ? isArabic
-                  ? "عرض أقل"
-                  : "Show less"
-                : isArabic
-                ? "عرض المزيد"
-                : "Read more"}
-            </span>
+            <span>{showAll ? t("common.showLess") : t("common.readMore")}</span>
             <ArrowRight
               className={`w-4 h-4 transform transition-transform duration-300 ${
                 showAll ? "-rotate-90" : "rotate-90"
@@ -154,12 +146,10 @@ export default function ProjectDetails() {
             404
           </h1>
           <p className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-            {isArabic ? "عذرًا، المشروع غير موجود" : "Oops! Project Not Found"}
+            {t("common.projectNotFound")}
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mx-auto mb-6">
-            {isArabic
-              ? "يبدو أنك حاولت الوصول إلى مشروع غير موجود أو تم حذفه."
-              : "It seems you tried to access a project that doesn't exist or has been removed."}
+            {t("common.projectNotFoundDesc")}
           </p>
 
           <Button
@@ -167,7 +157,7 @@ export default function ProjectDetails() {
             className="bg-gradient-to-r from-primary to-brand text-white rounded-full px-8 py-4 hover:scale-105 hover:shadow-2xl transition-all duration-300"
             onClick={() => navigate("/projects")}
           >
-            {isArabic ? "العودة إلى المشاريع" : "Back to Projects"}
+            {t("common.backToProjects")}
           </Button>
         </motion.div>
       </section>
@@ -287,12 +277,8 @@ export default function ProjectDetails() {
 
                       <span>
                         {showAllSummary
-                          ? isArabic
-                            ? "عرض أقل"
-                            : "Show less"
-                          : isArabic
-                          ? "عرض المزيد"
-                          : "Read more"}
+                          ? t("common.showLess")
+                          : t("common.readMore")}
                       </span>
 
                       {!isArabic && (
@@ -313,7 +299,7 @@ export default function ProjectDetails() {
         {/* Highlights Section */}
         <div className="text-center pb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">
-            {isArabic ? "نظرة سريعة على المشروع" : "Project at a Glance"}
+            {t("projectHighlights.title")}
           </h2>
 
           {/* تقسيم العناصر إلى صفين */}
@@ -343,14 +329,18 @@ export default function ProjectDetails() {
                       viewport={{ once: true }}
                       className="relative group"
                     >
-                      {/* Circle card - حجم أكبر جداً */}
+                      {/* Circle card */}
                       <div
-                        className={`relative flex flex-col justify-center items-center w-44 h-44 sm:w-30 sm:h-30 md:w-30 md:h-30 rounded-full bg-gradient-to-br ${gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 text-center px-6`}
+                        className={`relative flex flex-col justify-center items-center w-44 h-44 rounded-full bg-gradient-to-br ${gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 text-center px-6`}
                       >
                         {/* الأيقونة والاسم في نفس السطر */}
-                        <div className="flex items-center justify-center gap-3 mb-3">
-                          <Icon className="w-8 h-8 md:w-9 md:h-9 flex-shrink-0" />
-                          <p className="text-sm sm:text-base font-bold tracking-wide leading-tight">
+                        <div
+                          className={`flex items-center justify-center gap-3 mb-3 ${
+                            isArabic ? "flex-row-reverse" : ""
+                          }`}
+                        >
+                          <Icon className="w-8 h-8 flex-shrink-0" />
+                          <p className="text-sm font-bold tracking-wide leading-tight">
                             {t(`projectHighlights.${k}`)}
                           </p>
                         </div>
@@ -384,7 +374,7 @@ export default function ProjectDetails() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
           >
-            {isArabic ? "القصة وراء المشروع" : "The Story Behind"}
+            {t("projectStory.title")}
           </motion.h2>
 
           <div className="flex flex-col lg:flex-row gap-8 justify-center items-stretch">
@@ -414,7 +404,7 @@ export default function ProjectDetails() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold">
-                    {isArabic ? "التحدي" : "Challenge"}
+                    {t("projectStory.challenge")}
                   </h3>
                 </div>
 
@@ -453,7 +443,7 @@ export default function ProjectDetails() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold">
-                    {isArabic ? "النهج" : "Approach"}
+                    {t("projectStory.approach")}
                   </h3>
                 </div>
 
@@ -492,7 +482,7 @@ export default function ProjectDetails() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold">
-                    {isArabic ? "النتيجة" : "Outcome"}
+                    {t("projectStory.outcome")}
                   </h3>
                 </div>
 
@@ -516,9 +506,7 @@ export default function ProjectDetails() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10"
           >
-            {isArabic
-              ? "النظرة التقنية (البنية والمزايا)"
-              : "Technical View (Architecture & Features)"}
+            {t("technicalView.title")}
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -526,27 +514,27 @@ export default function ProjectDetails() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                  {isArabic ? "البنية الأساسية" : "Core Design"}
+                  {t("technicalView.coreDesign")}
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                  <li>VeloCloud Edges (HA) at Data Center and HQ</li>
-                  <li>One Edge per branch (~450 sites)</li>
-                  <li>Tiered access with Platinum/Gold/Silver models</li>
-                  <li>Centralized Orchestrator for zero-touch provisioning</li>
-                  <li>Cloud Gateways for optimized SaaS access</li>
+                  <li>{t("technicalView.coreDesignPoints.point1")}</li>
+                  <li>{t("technicalView.coreDesignPoints.point2")}</li>
+                  <li>{t("technicalView.coreDesignPoints.point3")}</li>
+                  <li>{t("technicalView.coreDesignPoints.point4")}</li>
+                  <li>{t("technicalView.coreDesignPoints.point5")}</li>
                 </ul>
               </div>
 
               <div>
                 <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                  {isArabic ? "الخصائص الأساسية" : "Key Capabilities"}
+                  {t("technicalView.keyCapabilities")}
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                  <li>High Availability with dual devices and auto failover</li>
-                  <li>Dynamic Multi-Path Optimization (DMPO)</li>
-                  <li>Application-aware routing & QoS</li>
-                  <li>Segmentation for PCI/PHI compliance</li>
-                  <li>Integrated security and real-time telemetry</li>
+                  <li>{t("technicalView.keyCapabilitiesPoints.point1")}</li>
+                  <li>{t("technicalView.keyCapabilitiesPoints.point2")}</li>
+                  <li>{t("technicalView.keyCapabilitiesPoints.point3")}</li>
+                  <li>{t("technicalView.keyCapabilitiesPoints.point4")}</li>
+                  <li>{t("technicalView.keyCapabilitiesPoints.point5")}</li>
                 </ul>
               </div>
             </div>
@@ -555,7 +543,7 @@ export default function ProjectDetails() {
             <div className="flex justify-center">
               <img
                 src={elezaby}
-                alt="Network Architecture"
+                alt={t("technicalView.architectureAlt")}
                 className="rounded-2xl shadow-xl border border-white/10 max-h-[500px] object-fill"
               />
             </div>
@@ -565,18 +553,18 @@ export default function ProjectDetails() {
         {/* 🔹 Rollout Method Section */}
         <section className="mt-24 pb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">
-            {isArabic ? "طريقة التنفيذ (3 شهور)" : "Rollout Method (3 Months)"}
+            {t("rolloutMethod.title")}
           </h2>
 
           {/* خطوات التنفيذ */}
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {[
-              { step: "Design", color: "#00C1D4" },
-              { step: "Pilot", color: "#DF1783" },
-              { step: "Wave 1–N", color: "#F59E0B" },
-              { step: "Acceptance", color: "#10B981" },
-              { step: "Handover", color: "orange" },
-              { step: "Managed Ops", color: "#EC4899" },
+              { step: t("rolloutMethod.steps.design"), color: "#00C1D4" },
+              { step: t("rolloutMethod.steps.pilot"), color: "#DF1783" },
+              { step: t("rolloutMethod.steps.wave"), color: "#F59E0B" },
+              { step: t("rolloutMethod.steps.acceptance"), color: "#10B981" },
+              { step: t("rolloutMethod.steps.handover"), color: "orange" },
+              { step: t("rolloutMethod.steps.managedOps"), color: "#EC4899" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -604,43 +592,27 @@ export default function ProjectDetails() {
 
           {/* التفاصيل */}
           <ul className="mt-10 text-gray-700 dark:text-gray-300 leading-relaxed space-y-2 list-disc list-inside max-w-3xl mx-auto">
-            <li>Wave-based deployment across governorates.</li>
-            <li>Pilot phase (10–15 sites) before mass rollout.</li>
-            <li>Standardized configuration templates per site.</li>
-            <li>Acceptance tests for app reachability & QoS validation.</li>
+            <li>{t("rolloutMethod.details.point1")}</li>
+            <li>{t("rolloutMethod.details.point2")}</li>
+            <li>{t("rolloutMethod.details.point3")}</li>
+            <li>{t("rolloutMethod.details.point4")}</li>
           </ul>
         </section>
 
         {/* 🔹 Managed Service Section */}
         <section className="mt-24 text-center pb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-10">
-            {isArabic ? "الخدمة المدارة" : "Managed Service"}
+            {t("managedService.title")}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { icon: Headphones, text: "24×7 Monitoring", color: "#3B82F6" }, // Blue
-              {
-                icon: Clock,
-                text: "SLA Targets (P1 ≤15min, P2 ≤1hr)",
-                color: "#F59E0B",
-              }, // Amber
-              {
-                icon: Globe,
-                text: "Monthly Reports & Reviews",
-                color: "#10B981",
-              }, // Green
-              { icon: Cpu, text: "Change Management", color: "#6366F1" }, // Indigo
-              {
-                icon: Network,
-                text: "Capacity & Growth Planning",
-                color: "#EC4899",
-              }, // Pink
-              {
-                icon: Building2,
-                text: "Dedicated Account Manager",
-                color: "#00B5D8",
-              }, // Cyan
+              { icon: Headphones, key: "monitoring", color: "#3B82F6" },
+              { icon: Clock, key: "sla", color: "#F59E0B" },
+              { icon: Globe, key: "reports", color: "#10B981" },
+              { icon: Cpu, key: "change", color: "#6366F1" },
+              { icon: Network, key: "capacity", color: "#EC4899" },
+              { icon: Building2, key: "accountManager", color: "#00B5D8" },
             ].map((item, index) => {
               const Icon = item.icon;
               return (
@@ -659,7 +631,7 @@ export default function ProjectDetails() {
                     className="text-gray-700 dark:text-gray-200 font-semibold"
                     style={{ color: item.color }}
                   >
-                    {item.text}
+                    {t(`managedService.features.${item.key}`)}
                   </p>
                 </motion.div>
               );
@@ -667,7 +639,7 @@ export default function ProjectDetails() {
           </div>
         </section>
 
-        {/* 🔹 Testimonial Section - Responsive Fixed Version */}
+        {/* 🔹 Testimonial Section */}
         <section className="mt-24 max-w-4xl mx-auto px-4 sm:px-6 pb-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -689,10 +661,10 @@ export default function ProjectDetails() {
                   />
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-blue-800 dark:text-blue-300">
-                      El Ezaby Pharmacies
+                      {t("testimonial.companyName")}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                      450+ Branches Nationwide
+                      {t("testimonial.branches")}
                     </p>
                   </div>
                 </div>
@@ -711,7 +683,7 @@ export default function ProjectDetails() {
                     ))}
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    5.0 Rating
+                    {t("testimonial.rating")}
                   </p>
                 </div>
               </div>
@@ -745,7 +717,7 @@ export default function ProjectDetails() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
           >
-            {isArabic ? "الأثر التجاري" : "Business Impact"}
+            {t("businessImpact.title")}
           </motion.h2>
 
           <div
@@ -763,23 +735,17 @@ export default function ProjectDetails() {
               style={{ direction: isArabic ? "rtl" : "ltr" }}
             >
               <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
-                {isArabic ? "القيمة والأثر" : "Value & Impact"}
+                {t("businessImpact.valueImpact")}
               </h3>
               <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-200">
                 {[
-                  isArabic
-                    ? "توفر واستمرارية أعلى"
-                    : "Higher uptime & continuity",
-                  isArabic
-                    ? "تجربة تطبيقات متناسقة"
-                    : "Consistent application experience",
-                  isArabic ? "إطلاق أسرع للفروع" : "Faster branch launches",
-                  isArabic ? "تحسين التكاليف" : "Cost optimization",
-                  isArabic
-                    ? "دعم الأمان والامتثال"
-                    : "Security & compliance support",
-                  isArabic ? "رؤية قابلة للتنفيذ" : "Actionable visibility",
-                  isArabic ? "عمليات مضمونة" : "Assured operations",
+                  t("businessImpact.points.point1"),
+                  t("businessImpact.points.point2"),
+                  t("businessImpact.points.point3"),
+                  t("businessImpact.points.point4"),
+                  t("businessImpact.points.point5"),
+                  t("businessImpact.points.point6"),
+                  t("businessImpact.points.point7"),
                 ].map((point, index) => (
                   <motion.li
                     key={index}
@@ -810,12 +776,12 @@ export default function ProjectDetails() {
             >
               <img
                 src={project_1}
-                alt="Business Impact Image 1"
+                alt={t("businessImpact.imageAlt1")}
                 className="w-full h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform duration-500"
               />
               <img
                 src={project_2}
-                alt="Business Impact Image 2"
+                alt={t("businessImpact.imageAlt2")}
                 className="w-full h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform duration-500"
               />
             </motion.div>
@@ -831,21 +797,17 @@ export default function ProjectDetails() {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                {isArabic
-                  ? "مستعد لبدء مشروعك القادم؟"
-                  : "Ready to Start Your Next Project?"}
+                {t("cta.readyToStart")}
               </h3>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                {isArabic
-                  ? "لنحول أفكارك إلى واقع ملموس"
-                  : "Let's turn your ideas into reality"}
+                {t("cta.turnIdeasToReality")}
               </p>
               <Button
                 size="lg"
                 onClick={() => navigate("/contact")}
                 className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
               >
-                {isArabic ? "تحدث مع خبرائنا" : "Talk to our experts"}
+                {t("cta.talkToExperts")}
               </Button>
             </motion.div>
           </div>
