@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon, Globe, Settings, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon, Globe, ChevronDown } from "lucide-react";
+// import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
+// import { useAuth } from "@/contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import CustomTooltip from "../ui/CustomTooltip";
 import { serviceHubs } from "@/data/serviceHubs";
 import logo from "../../assets/images/stack-hubs-logo.png";
-import login from "../../assets/images/login.jpg";
+// import login from "../../assets/images/login.jpg";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
@@ -152,7 +153,7 @@ const Navbar: React.FC = () => {
           {/* 🌗 Theme, Language & Auth Buttons */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0 rtl:flex-row-reverse">
             {/* Auth Button */}
-            {isAuthenticated ? (
+            {/* {isAuthenticated ? (
               <CustomTooltip label={t("nav.settings")} side="bottom">
                 <Button
                   variant="outline"
@@ -178,7 +179,7 @@ const Navbar: React.FC = () => {
                   />
                 </Button>
               </CustomTooltip>
-            )}
+            )} */}
 
             {/* Theme Toggle */}
             <CustomTooltip

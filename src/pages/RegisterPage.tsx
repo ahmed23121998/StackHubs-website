@@ -1,334 +1,334 @@
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { useTranslation } from "react-i18next";
-import { toast } from "sonner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Eye, EyeOff } from "lucide-react";
-import React from "react";
-import { apiClient } from "@/Utils/api";
-export default function RegisterPage() {
-  const { t, i18n } = useTranslation();
-  const registerSchema = z
-    .object({
-      name: z.string().min(2, { message: t("errors.nameMin") }),
-      email: z.string().email({ message: t("errors.invalidEmail") }),
-      password: z.string().min(6, { message: t("errors.passwordMin") }),
-      confirmPassword: z.string(),
-      accountType: z
-        .enum(["individual", "organization"], {
-          errorMap: () => ({ message: t("errors.accountTypeRequired") }),
-        })
-        .default("individual"),
-      companyName: z.string().optional(),
-      taxId: z.string().optional(),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-      message: t("errors.passwordMismatch"),
-      path: ["confirmPassword"],
-    })
-    .superRefine((data, ctx) => {
-      if (data.accountType === "organization") {
-        if (!data.companyName || data.companyName.length < 2) {
-          ctx.addIssue({
-            path: ["companyName"],
-            code: "custom",
-            message: t("errors.companyNameRequired"),
-          });
-        }
-        if (!data.taxId || data.taxId.length < 2) {
-          ctx.addIssue({
-            path: ["taxId"],
-            code: "custom",
-            message: t("errors.taxIdRequired"),
-          });
-        }
-      }
-    });
+// import { useForm } from "react-hook-form";
+// import { z } from "zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import {
+//   Form,
+//   FormControl,
+//   FormField,
+//   FormItem,
+//   FormLabel,
+//   FormMessage,
+// } from "@/components/ui/form";
+// import { Input } from "@/components/ui/input";
+// import { Button } from "@/components/ui/button";
+// import { Link, useNavigate } from "react-router-dom";
+// import { useAuth } from "@/contexts/AuthContext";
+// import { useTranslation } from "react-i18next";
+// import { toast } from "sonner";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Eye, EyeOff } from "lucide-react";
+// import React from "react";
+// import { apiClient } from "@/Utils/api";
+// export default function RegisterPage() {
+//   const { t, i18n } = useTranslation();
+//   const registerSchema = z
+//     .object({
+//       name: z.string().min(2, { message: t("errors.nameMin") }),
+//       email: z.string().email({ message: t("errors.invalidEmail") }),
+//       password: z.string().min(6, { message: t("errors.passwordMin") }),
+//       confirmPassword: z.string(),
+//       accountType: z
+//         .enum(["individual", "organization"], {
+//           errorMap: () => ({ message: t("errors.accountTypeRequired") }),
+//         })
+//         .default("individual"),
+//       companyName: z.string().optional(),
+//       taxId: z.string().optional(),
+//     })
+//     .refine((data) => data.password === data.confirmPassword, {
+//       message: t("errors.passwordMismatch"),
+//       path: ["confirmPassword"],
+//     })
+//     .superRefine((data, ctx) => {
+//       if (data.accountType === "organization") {
+//         if (!data.companyName || data.companyName.length < 2) {
+//           ctx.addIssue({
+//             path: ["companyName"],
+//             code: "custom",
+//             message: t("errors.companyNameRequired"),
+//           });
+//         }
+//         if (!data.taxId || data.taxId.length < 2) {
+//           ctx.addIssue({
+//             path: ["taxId"],
+//             code: "custom",
+//             message: t("errors.taxIdRequired"),
+//           });
+//         }
+//       }
+//     });
 
-  type RegisterFormValues = z.infer<typeof registerSchema>;
+//   type RegisterFormValues = z.infer<typeof registerSchema>;
 
-  const form = useForm<RegisterFormValues>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      accountType: "individual",
-      companyName: "",
-      taxId: "",
-    },
-  });
+//   const form = useForm<RegisterFormValues>({
+//     resolver: zodResolver(registerSchema),
+//     defaultValues: {
+//       name: "",
+//       email: "",
+//       password: "",
+//       confirmPassword: "",
+//       accountType: "individual",
+//       companyName: "",
+//       taxId: "",
+//     },
+//   });
 
-  const { register, loading } = useAuth();
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    React.useState<boolean>(false);
+//   const { register, loading } = useAuth();
+//   const navigate = useNavigate();
+//   const [showPassword, setShowPassword] = React.useState<boolean>(false);
+//   const [showConfirmPassword, setShowConfirmPassword] =
+//     React.useState<boolean>(false);
 
-  async function onSubmit(values: RegisterFormValues) {
-    try{
-      const password_confirm	= values.confirmPassword;
-      values = {...values, password_confirm	};
+//   async function onSubmit(values: RegisterFormValues) {
+//     try{
+//       const password_confirm	= values.confirmPassword;
+//       values = {...values, password_confirm	};
 
-    const success = await apiClient.RegisterUser(values
-    );
+//     const success = await apiClient.RegisterUser(values
+//     );
   
-      toast.success(t("auth.registrationSuccess"));
-      navigate("/login");
-    } catch (error) {
-      toast.error(t("auth.registrationFailed"));
-    }
-  }
+//       toast.success(t("auth.registrationSuccess"));
+//       navigate("/login");
+//     } catch (error) {
+//       toast.error(t("auth.registrationFailed"));
+//     }
+//   }
 
-  return (
-    <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 dark:text-gray-100">
-      <Card className="w-full max-w-md shadow-xl rounded-2xl">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl font-bold">
-            {t("auth.createAccount")}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-              {/* Name */}
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("auth.name")}</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder={t("auth.enterName")}
-                        type="text"
-                        className="h-11"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+//   return (
+//     <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 dark:text-gray-100">
+//       <Card className="w-full max-w-md shadow-xl rounded-2xl">
+//         <CardHeader>
+//           <CardTitle className="text-center text-2xl font-bold">
+//             {t("auth.createAccount")}
+//           </CardTitle>
+//         </CardHeader>
+//         <CardContent>
+//           <Form {...form}>
+//             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+//               {/* Name */}
+//               <FormField
+//                 control={form.control}
+//                 name="name"
+//                 render={({ field }) => (
+//                   <FormItem>
+//                     <FormLabel>{t("auth.name")}</FormLabel>
+//                     <FormControl>
+//                       <Input
+//                         placeholder={t("auth.enterName")}
+//                         type="text"
+//                         className="h-11"
+//                         {...field}
+//                       />
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
 
-              {/* Email */}
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("auth.email")}</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder={t("auth.enterEmail")}
-                        type="email"
-                        className="h-11"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+//               {/* Email */}
+//               <FormField
+//                 control={form.control}
+//                 name="email"
+//                 render={({ field }) => (
+//                   <FormItem>
+//                     <FormLabel>{t("auth.email")}</FormLabel>
+//                     <FormControl>
+//                       <Input
+//                         placeholder={t("auth.enterEmail")}
+//                         type="email"
+//                         className="h-11"
+//                         {...field}
+//                       />
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
 
-              {/* Password */}
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("auth.password")}</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          placeholder="••••••••"
-                          type={showPassword ? "text" : "password"}
-                          className={`h-11 ${
-                            i18n.dir() === "rtl" ? "pl-10" : "pr-10"
-                          }`}
-                          {...field}
-                        />
-                        <button
-                          type="button"
-                          aria-label={
-                            showPassword
-                              ? t("password.hide")
-                              : t("password.show")
-                          }
-                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
-                            i18n.dir() === "rtl"
-                              ? "left-0 pl-3"
-                              : "right-0 pr-3"
-                          }`}
-                          onClick={() => setShowPassword((v) => !v)}
-                        >
-                          {showPassword ? (
-                            <EyeOff className="h-4 w-4" />
-                          ) : (
-                            <Eye className="h-4 w-4" />
-                          )}
-                        </button>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+//               {/* Password */}
+//               <FormField
+//                 control={form.control}
+//                 name="password"
+//                 render={({ field }) => (
+//                   <FormItem>
+//                     <FormLabel>{t("auth.password")}</FormLabel>
+//                     <FormControl>
+//                       <div className="relative">
+//                         <Input
+//                           placeholder="••••••••"
+//                           type={showPassword ? "text" : "password"}
+//                           className={`h-11 ${
+//                             i18n.dir() === "rtl" ? "pl-10" : "pr-10"
+//                           }`}
+//                           {...field}
+//                         />
+//                         <button
+//                           type="button"
+//                           aria-label={
+//                             showPassword
+//                               ? t("password.hide")
+//                               : t("password.show")
+//                           }
+//                           className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
+//                             i18n.dir() === "rtl"
+//                               ? "left-0 pl-3"
+//                               : "right-0 pr-3"
+//                           }`}
+//                           onClick={() => setShowPassword((v) => !v)}
+//                         >
+//                           {showPassword ? (
+//                             <EyeOff className="h-4 w-4" />
+//                           ) : (
+//                             <Eye className="h-4 w-4" />
+//                           )}
+//                         </button>
+//                       </div>
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
 
-              {/* Confirm Password */}
-              <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("auth.confirmPassword")}</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          placeholder="••••••••"
-                          type={showConfirmPassword ? "text" : "password"}
-                          className={`h-11 ${
-                            i18n.dir() === "rtl" ? "pl-10" : "pr-10"
-                          }`}
-                          {...field}
-                        />
-                        <button
-                          type="button"
-                          aria-label={
-                            showConfirmPassword
-                              ? t("password.hide")
-                              : t("password.show")
-                          }
-                          className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
-                            i18n.dir() === "rtl"
-                              ? "left-0 pl-3"
-                              : "right-0 pr-3"
-                          }`}
-                          onClick={() => setShowConfirmPassword((v) => !v)}
-                        >
-                          {showConfirmPassword ? (
-                            <EyeOff className="h-4 w-4" />
-                          ) : (
-                            <Eye className="h-4 w-4" />
-                          )}
-                        </button>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+//               {/* Confirm Password */}
+//               <FormField
+//                 control={form.control}
+//                 name="confirmPassword"
+//                 render={({ field }) => (
+//                   <FormItem>
+//                     <FormLabel>{t("auth.confirmPassword")}</FormLabel>
+//                     <FormControl>
+//                       <div className="relative">
+//                         <Input
+//                           placeholder="••••••••"
+//                           type={showConfirmPassword ? "text" : "password"}
+//                           className={`h-11 ${
+//                             i18n.dir() === "rtl" ? "pl-10" : "pr-10"
+//                           }`}
+//                           {...field}
+//                         />
+//                         <button
+//                           type="button"
+//                           aria-label={
+//                             showConfirmPassword
+//                               ? t("password.hide")
+//                               : t("password.show")
+//                           }
+//                           className={`absolute inset-y-0 flex items-center text-muted-foreground hover:text-foreground ${
+//                             i18n.dir() === "rtl"
+//                               ? "left-0 pl-3"
+//                               : "right-0 pr-3"
+//                           }`}
+//                           onClick={() => setShowConfirmPassword((v) => !v)}
+//                         >
+//                           {showConfirmPassword ? (
+//                             <EyeOff className="h-4 w-4" />
+//                           ) : (
+//                             <Eye className="h-4 w-4" />
+//                           )}
+//                         </button>
+//                       </div>
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
 
-              {/* Account Type */}
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">
-                  {t("auth.accountType")}
-                </label>
-                <div className="flex gap-6">
-                  {/* Individual */}
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="individual"
-                      {...form.register("accountType")}
-                      className="w-5 h-5 text-blue-500 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span className="font-normal">{t("auth.individual")}</span>
-                  </label>
+//               {/* Account Type */}
+//               <div className="mb-4">
+//                 <label className="block text-sm font-medium mb-2">
+//                   {t("auth.accountType")}
+//                 </label>
+//                 <div className="flex gap-6">
+//                   {/* Individual */}
+//                   <label className="flex items-center gap-2 cursor-pointer">
+//                     <input
+//                       type="radio"
+//                       value="individual"
+//                       {...form.register("accountType")}
+//                       className="w-5 h-5 text-blue-500 border-gray-300 focus:ring-blue-500"
+//                     />
+//                     <span className="font-normal">{t("auth.individual")}</span>
+//                   </label>
 
-                  {/* Organization */}
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      value="organization"
-                      {...form.register("accountType")}
-                      className="w-5 h-5 text-blue-500 border-gray-300 focus:ring-blue-500"
-                    />
-                    <span className="font-normal">
-                      {t("auth.organization")}
-                    </span>
-                  </label>
-                </div>
-              </div>
+//                   {/* Organization */}
+//                   <label className="flex items-center gap-2 cursor-pointer">
+//                     <input
+//                       type="radio"
+//                       value="organization"
+//                       {...form.register("accountType")}
+//                       className="w-5 h-5 text-blue-500 border-gray-300 focus:ring-blue-500"
+//                     />
+//                     <span className="font-normal">
+//                       {t("auth.organization")}
+//                     </span>
+//                   </label>
+//                 </div>
+//               </div>
 
-              {/* Conditional fields for organization */}
-              {form.watch("accountType") === "organization" && (
-                <>
-                  <FormField
-                    control={form.control}
-                    name="companyName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("auth.companyName")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("auth.enterCompanyName")}
-                            type="text"
-                            className="h-11"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+//               {/* Conditional fields for organization */}
+//               {form.watch("accountType") === "organization" && (
+//                 <>
+//                   <FormField
+//                     control={form.control}
+//                     name="companyName"
+//                     render={({ field }) => (
+//                       <FormItem>
+//                         <FormLabel>{t("auth.companyName")}</FormLabel>
+//                         <FormControl>
+//                           <Input
+//                             placeholder={t("auth.enterCompanyName")}
+//                             type="text"
+//                             className="h-11"
+//                             {...field}
+//                           />
+//                         </FormControl>
+//                         <FormMessage />
+//                       </FormItem>
+//                     )}
+//                   />
 
-                  <FormField
-                    control={form.control}
-                    name="taxId"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("auth.taxId")}</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder={t("auth.enterTaxId")}
-                            type="text"
-                            className="h-11"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </>
-              )}
+//                   <FormField
+//                     control={form.control}
+//                     name="taxId"
+//                     render={({ field }) => (
+//                       <FormItem>
+//                         <FormLabel>{t("auth.taxId")}</FormLabel>
+//                         <FormControl>
+//                           <Input
+//                             placeholder={t("auth.enterTaxId")}
+//                             type="text"
+//                             className="h-11"
+//                             {...field}
+//                           />
+//                         </FormControl>
+//                         <FormMessage />
+//                       </FormItem>
+//                     )}
+//                   />
+//                 </>
+//               )}
 
-              <Button
-                type="submit"
-                className="w-full h-11 text-base font-semibold"
-                disabled={loading}
-              >
-                {loading ? t("auth.creatingAccount") : t("auth.createAccount")}
-              </Button>
-            </form>
-          </Form>
+//               <Button
+//                 type="submit"
+//                 className="w-full h-11 text-base font-semibold"
+//                 disabled={loading}
+//               >
+//                 {loading ? t("auth.creatingAccount") : t("auth.createAccount")}
+//               </Button>
+//             </form>
+//           </Form>
 
-          <div className="mt-5 text-center text-sm text-muted-foreground">
-            {t("auth.alreadyHaveAccount")}{" "}
-            <Link
-              className="underline text-blue-600 hover:text-blue-800"
-              to="/login"
-            >
-              {t("auth.signInLink")}
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+//           <div className="mt-5 text-center text-sm text-muted-foreground">
+//             {t("auth.alreadyHaveAccount")}{" "}
+//             <Link
+//               className="underline text-blue-600 hover:text-blue-800"
+//               to="/login"
+//             >
+//               {t("auth.signInLink")}
+//             </Link>
+//           </div>
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }
