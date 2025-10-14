@@ -580,7 +580,7 @@ const HomePage: React.FC = () => {
                     <img
                       src={project.src}
                       alt={t(project.titleKey)}
-                      className="w-full h-56 object-cover rounded-2xl"
+                      className="w-full h-56 object-fill rounded-2xl"
                     />
                     <div className="p-2">
                       <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">

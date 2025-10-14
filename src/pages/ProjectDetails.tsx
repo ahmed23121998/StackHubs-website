@@ -6,6 +6,7 @@ import project_1 from "@/assets/images/project_7_1.jpg";
 import project_2 from "@/assets/images/project_7_2.jpg";
 import project_3 from "@/assets/images/project_7_3.jpg";
 import elezaby from "@/assets/images/elazaby.jpg";
+import elezabylogo from "@/assets/images/elazaby logo.jpg";
 import {
   Building2,
   Network,
@@ -344,7 +345,7 @@ export default function ProjectDetails() {
                     >
                       {/* Circle card - حجم أكبر جداً */}
                       <div
-                        className={`relative flex flex-col justify-center items-center w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-full bg-gradient-to-br ${gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 text-center px-6`}
+                        className={`relative flex flex-col justify-center items-center w-44 h-44 sm:w-30 sm:h-30 md:w-30 md:h-30 rounded-full bg-gradient-to-br ${gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 text-center px-6`}
                       >
                         {/* الأيقونة والاسم في نفس السطر */}
                         <div className="flex items-center justify-center gap-3 mb-3">
@@ -395,7 +396,7 @@ export default function ProjectDetails() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="flex-1 max-w-md"
             >
-              <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-orange-400 flex flex-col">
+              <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-gray-900 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-orange-400 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <svg
@@ -434,7 +435,7 @@ export default function ProjectDetails() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex-1 max-w-md"
             >
-              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-blue-400 flex flex-col">
+              <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-gray-900 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-blue-400 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <svg
@@ -473,7 +474,7 @@ export default function ProjectDetails() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex-1 max-w-md"
             >
-              <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-purple-400 flex flex-col">
+              <div className="bg-gradient-to-br from-purple-500 via-purple-600 to-gray-900 p-8 rounded-3xl text-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full border-2 border-purple-400 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <svg
@@ -524,7 +525,7 @@ export default function ProjectDetails() {
             {/* العمود الأول */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold text-primary mb-3">
+                <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
                   {isArabic ? "البنية الأساسية" : "Core Design"}
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
@@ -537,7 +538,7 @@ export default function ProjectDetails() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-brand mb-3">
+                <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
                   {isArabic ? "الخصائص الأساسية" : "Key Capabilities"}
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
@@ -567,15 +568,16 @@ export default function ProjectDetails() {
             {isArabic ? "طريقة التنفيذ (3 شهور)" : "Rollout Method (3 Months)"}
           </h2>
 
+          {/* خطوات التنفيذ */}
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {[
-              "Design",
-              "Pilot",
-              "Wave 1–N",
-              "Acceptance",
-              "Handover",
-              "Managed Ops",
-            ].map((step, index) => (
+              { step: "Design", color: "#00C1D4" },
+              { step: "Pilot", color: "#DF1783" },
+              { step: "Wave 1–N", color: "#F59E0B" },
+              { step: "Acceptance", color: "#10B981" },
+              { step: "Handover", color: "#3B82F6" },
+              { step: "Managed Ops", color: "#EC4899" },
+            ].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -584,11 +586,17 @@ export default function ProjectDetails() {
                 viewport={{ once: true }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-brand text-white flex items-center justify-center font-bold text-lg shadow-lg mb-3">
-                  {index + 1}
+                {/* الدائرة */}
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-brand flex items-center justify-center font-bold text-lg shadow-lg mb-3">
+                  <span style={{ color: item.color }}>{index + 1}</span>
                 </div>
-                <p className="text-gray-800 dark:text-gray-200 font-semibold">
-                  {step}
+
+                {/* الكلمة أسفل الدائرة */}
+                <p
+                  className="font-semibold text-lg"
+                  style={{ color: item.color }}
+                >
+                  {item.step}
                 </p>
               </motion.div>
             ))}
@@ -611,12 +619,28 @@ export default function ProjectDetails() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { icon: Headphones, text: "24×7 Monitoring" },
-              { icon: Clock, text: "SLA Targets (P1 ≤15min, P2 ≤1hr)" },
-              { icon: Globe, text: "Monthly Reports & Reviews" },
-              { icon: Cpu, text: "Change Management" },
-              { icon: Network, text: "Capacity & Growth Planning" },
-              { icon: Building2, text: "Dedicated Account Manager" },
+              { icon: Headphones, text: "24×7 Monitoring", color: "#3B82F6" }, // Blue
+              {
+                icon: Clock,
+                text: "SLA Targets (P1 ≤15min, P2 ≤1hr)",
+                color: "#F59E0B",
+              }, // Amber
+              {
+                icon: Globe,
+                text: "Monthly Reports & Reviews",
+                color: "#10B981",
+              }, // Green
+              { icon: Cpu, text: "Change Management", color: "#6366F1" }, // Indigo
+              {
+                icon: Network,
+                text: "Capacity & Growth Planning",
+                color: "#EC4899",
+              }, // Pink
+              {
+                icon: Building2,
+                text: "Dedicated Account Manager",
+                color: "#00B5D8",
+              }, // Cyan
             ].map((item, index) => {
               const Icon = item.icon;
               return (
@@ -625,10 +649,16 @@ export default function ProjectDetails() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-primary/10 to-brand/10 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-gradient-to-br from-primary/10 to-brand/10 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 >
-                  <Icon className="w-10 h-10 text-primary dark:text-brand mx-auto mb-3" />
-                  <p className="text-gray-700 dark:text-gray-200 font-semibold">
+                  <Icon
+                    className="w-10 h-10 mx-auto mb-3 transition-transform duration-300 group-hover:scale-110"
+                    style={{ color: item.color }}
+                  />
+                  <p
+                    className="text-gray-700 dark:text-gray-200 font-semibold"
+                    style={{ color: item.color }}
+                  >
                     {item.text}
                   </p>
                 </motion.div>
@@ -653,12 +683,12 @@ export default function ProjectDetails() {
                 {/* Logo + Info */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-center sm:text-left w-full sm:w-auto">
                   <img
-                    src={elezaby}
+                    src={elezabylogo}
                     alt="El Ezaby"
-                    className="w-20 h-20 object-cover rounded-full bg-white dark:bg-gray-800 p-2 shadow-md"
+                    className="w-20 h-20 object-fill rounded-full"
                   />
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-lg sm:text-xl font-bold text-blue-800 dark:text-blue-300">
                       El Ezaby Pharmacies
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
@@ -732,7 +762,7 @@ export default function ProjectDetails() {
               className={`space-y-5 ${isArabic ? "text-right" : "text-left"}`}
               style={{ direction: isArabic ? "rtl" : "ltr" }}
             >
-              <h3 className="text-2xl font-semibold text-brand dark:text-primary">
+              <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
                 {isArabic ? "القيمة والأثر" : "Value & Impact"}
               </h3>
               <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-200">
@@ -792,13 +822,6 @@ export default function ProjectDetails() {
           </div>
         </section>
 
-        {/* Testimonial */}
-        {/* <div className="bg-gray-100 dark:bg-gray-800 p-10 text-center rounded-3xl shadow-lg mt-16 max-w-3xl mx-auto">
-          <blockquote className="text-xl italic text-gray-800 dark:text-gray-100">
-            "{data.testimonial}"
-          </blockquote>
-        </div> */}
-
         {/* Call to Action */}
         <section className="py-16 bg-gray-50 dark:bg-gray-700 rounded-3xl">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -820,9 +843,9 @@ export default function ProjectDetails() {
               <Button
                 size="lg"
                 onClick={() => navigate("/contact")}
-                className="bg-gradient-to-r from-primary to-brand text-white text-lg px-8 py-4 rounded-full hover:scale-105 hover:shadow-2xl transition-all duration-300"
+                className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
               >
-                {isArabic ? "ابدأ مشروعك الآن" : "Start Your Project Now"}
+                {isArabic ? "تحدث مع خبرائنا" : "Talk to our experts"}
               </Button>
             </motion.div>
           </div>
