@@ -575,7 +575,7 @@ export default function ProjectDetails() {
               { step: "Pilot", color: "#DF1783" },
               { step: "Wave 1–N", color: "#F59E0B" },
               { step: "Acceptance", color: "#10B981" },
-              { step: "Handover", color: "#3B82F6" },
+              { step: "Handover", color: "orange" },
               { step: "Managed Ops", color: "#EC4899" },
             ].map((item, index) => (
               <motion.div
