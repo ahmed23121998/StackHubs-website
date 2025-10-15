@@ -2,11 +2,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import project_1 from "@/assets/images/project_7_1.jpg";
-import project_2 from "@/assets/images/project_7_2.jpg";
-import project_3 from "@/assets/images/project_7_3.jpg";
 import elezaby from "@/assets/images/elazaby.jpg";
+import ghazala from "@/assets/images/ghazala.jpg";
 import elezabylogo from "@/assets/images/elazaby logo.jpg";
+import ghazalalogo from "@/assets/images/ghazalaicon.png";
 import {
   Building2,
   Network,
@@ -20,12 +19,68 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-const projectMap: Record<string, { image: string; key: string }> = {
-  "data-analytics": { image: project_1, key: "dataAnalytics" },
-  "it-solution": { image: project_2, key: "itSolution" },
-  "cloud-security": { image: project_3, key: "cloudSecurity" },
-  elazaby: { image: elezaby, key: "elEzabyProject" },
+const projectMap: Record<
+  string,
+  { image: string; technicalImage?: string; key: string }
+> = {
+  elEzabyProject: {
+    image: elezaby,
+    technicalImage: elezabylogo,
+    key: "elEzabyProject",
+  },
+  ghazalaProject: {
+    image: ghazala,
+    technicalImage: ghazalalogo,
+    key: "ghazalaProject",
+  },
 };
+
+interface Testimonial {
+  companyName: string;
+  branches?: string;
+  rating: string;
+  quote: string;
+}
+interface TechnicalView {
+  title: string;
+  coreDesign: string;
+  coreDesignPoints: Record<string, string>;
+  keyCapabilities?: string;
+  keyCapabilitiesPoints?: Record<string, string>;
+  rfOptimization?: {
+    title: string;
+    points: Record<string, string>;
+  };
+  management?: {
+    title: string;
+    points: Record<string, string>;
+  };
+}
+
+interface RolloutMethod {
+  title: string;
+  steps: Record<string, string>;
+  details: Record<string, string>;
+}
+
+interface ManagedService {
+  title: string;
+  features: Record<string, string>;
+}
+
+interface BusinessImpact {
+  title: string;
+  valueImpact: string;
+  businessOutcomes?: {
+    title: string;
+    points: Record<string, string>;
+  };
+  keyMetrics?: {
+    title: string;
+    points: Record<string, string>;
+  };
+  points?: Record<string, string>;
+}
 
 interface ProjectDetail {
   title: string;
@@ -35,7 +90,11 @@ interface ProjectDetail {
   approach: string;
   outcome: string;
   highlights?: Record<string, string>;
-  testimonial: string;
+  technicalView?: TechnicalView;
+  rolloutMethod?: RolloutMethod;
+  managedService?: ManagedService;
+  businessImpact?: BusinessImpact;
+  testimonial: Testimonial;
 }
 
 // مكون Read More قابل لإعادة الاستخدام
@@ -127,12 +186,12 @@ const ReadMoreSection = ({
 };
 
 export default function ProjectDetails() {
-  const { id } = useParams<{ id: string }>();
+  const { key } = useParams<{ key: string }>();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const isArabic = i18n.language === "ar";
 
-  const project = projectMap[id ?? ""];
+  const project = projectMap[key ?? ""];
   if (!project) {
     return (
       <section className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-center px-6">
@@ -167,16 +226,6 @@ export default function ProjectDetails() {
   const data = t(`projectDetails.${project.key}`, {
     returnObjects: true,
   }) as unknown as ProjectDetail;
-
-  const colorMap: Record<string, string> = {
-    industry: "from-orange-500 to-amber-400",
-    scope: "from-blue-500 to-cyan-400",
-    technology: "from-purple-500 to-pink-500",
-    availability: "from-indigo-500 to-sky-400",
-    connectivity: "from-rose-500 to-red-400",
-    timeline: "from-teal-500 to-emerald-400",
-    service: "from-violet-500 to-purple-400",
-  };
 
   const iconMap: Record<string, React.ElementType> = {
     industry: Building2,
@@ -220,7 +269,7 @@ export default function ProjectDetails() {
 
         {/* محتوى المشروع أسفل الصورة */}
         <section className="relative z-10 -mt-16 pb-10">
-          <div className="max-w-5xl mx-auto rounded-3xl shadow-xl p-10 md:p-14 border border-white/10">
+          <div className="max-w-6xl mx-auto rounded-3xl shadow-xl p-10 md:p-14 border border-white/10">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -299,14 +348,41 @@ export default function ProjectDetails() {
         {/* Highlights Section */}
         <div className="text-center pb-10">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">
-            {t("projectHighlights.title")}
+            {t(`projectDetails.${project.key}.highlights.title`)}
           </h2>
 
           {/* تقسيم العناصر إلى صفين */}
           {(() => {
             const highlights = Object.entries(data.highlights || {});
-            const firstRow = highlights.slice(0, 4);
-            const secondRow = highlights.slice(4);
+            // إزالة حقل "title" من الـ highlights
+            const filteredHighlights = highlights.filter(
+              ([k]) => k !== "title"
+            );
+            const firstRow = filteredHighlights.slice(0, 4);
+            const secondRow = filteredHighlights.slice(4);
+
+            // ألوان متنوعة للدوائر
+            const colorGradients = [
+              "from-blue-500 to-purple-600",
+              "from-green-500 to-teal-600",
+              "from-orange-500 to-red-600",
+              "from-purple-500 to-pink-600",
+              "from-teal-500 to-cyan-600",
+              "from-rose-500 to-pink-600",
+              "from-indigo-500 to-blue-600",
+              "from-amber-500 to-orange-600",
+            ];
+
+            const textColors = [
+              "text-blue-100",
+              "text-green-100",
+              "text-orange-100",
+              "text-purple-100",
+              "text-teal-100",
+              "text-rose-100",
+              "text-indigo-100",
+              "text-amber-100",
+            ];
 
             const renderRow = (
               rowItems: [string, string][],
@@ -314,42 +390,53 @@ export default function ProjectDetails() {
             ) => (
               <div
                 key={rowIndex}
-                className="flex flex-wrap justify-center gap-8 mb-8 last:mb-0"
+                className="flex flex-wrap justify-center gap-6 mb-8 last:mb-0"
               >
-                {rowItems.map(([k, v], index) => {
+                {rowItems.map(([k], index) => {
                   const Icon = iconMap[k] || Globe;
-                  const gradient = colorMap[k] || "from-gray-300 to-gray-500";
+                  const colorIndex =
+                    (rowIndex * 4 + index) % colorGradients.length;
+                  const gradient = colorGradients[colorIndex];
+                  const textColor = textColors[colorIndex];
 
                   return (
                     <motion.div
                       key={k}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
                       viewport={{ once: true }}
                       className="relative group"
                     >
                       {/* Circle card */}
                       <div
-                        className={`relative flex flex-col justify-center items-center w-44 h-44 rounded-full bg-gradient-to-br ${gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white/20 text-center px-6`}
+                        className={`relative flex flex-col justify-center items-center w-48 h-48 rounded-full bg-gradient-to-br ${gradient} ${textColor} shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-500 border-2 border-white/30 text-center pb-4 pr-2 pl-2 backdrop-blur-sm`}
                       >
-                        {/* الأيقونة والاسم في نفس السطر */}
-                        <div
-                          className={`flex items-center justify-center gap-3 mb-3 ${
-                            isArabic ? "flex-row-reverse" : ""
-                          }`}
-                        >
-                          <Icon className="w-8 h-8 flex-shrink-0" />
-                          <p className="text-sm font-bold tracking-wide leading-tight">
-                            {t(`projectHighlights.${k}`)}
-                          </p>
+                        {/* الأيقونة */}
+                        <div className="mb-2 transform group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="w-10 h-10 opacity-90" />
                         </div>
 
-                        {/* الوصف */}
-                        <p className="text-sm font-semibold leading-relaxed">
-                          {v}
+                        {/* الاسم - الترجمة هنا */}
+                        <p className="text-sm font-bold tracking-wide leading-tight mb-2 opacity-95">
+                          {t(`projectDetails.${project.key}.projectHighlights.${k}`)}
+                        </p>
+
+                        {/* الوصف - الترجمة هنا */}
+                        <p className="text-xs font-medium leading-snug opacity-90 line-clamp-3">
+                          {t(`projectDetails.${project.key}.highlights.${k}`)}
                         </p>
                       </div>
+
+                      {/* تأثير glow على hover */}
+                      <div
+                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10`}
+                      ></div>
                     </motion.div>
                   );
                 })}
@@ -374,7 +461,7 @@ export default function ProjectDetails() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white"
           >
-            {t("projectStory.title")}
+            {t("projectDetails.project_story")}
           </motion.h2>
 
           <div className="flex flex-col lg:flex-row gap-8 justify-center items-stretch">
@@ -403,9 +490,7 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">
-                    {t("projectStory.challenge")}
-                  </h3>
+                  <h3 className="text-2xl font-bold">{t("projectDetails.challenge")}</h3>
                 </div>
 
                 <ReadMoreSection
@@ -442,9 +527,7 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">
-                    {t("projectStory.approach")}
-                  </h3>
+                  <h3 className="text-2xl font-bold">{t("projectDetails.approach")}</h3>
                 </div>
 
                 <ReadMoreSection
@@ -481,9 +564,7 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">
-                    {t("projectStory.outcome")}
-                  </h3>
+                  <h3 className="text-2xl font-bold">{t("projectDetails.outcome")}</h3>
                 </div>
 
                 <ReadMoreSection
@@ -498,146 +579,248 @@ export default function ProjectDetails() {
         </div>
 
         {/* 🔹 Technical View Section */}
-        <section className="mt-20 pb-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10"
-          >
-            {t("technicalView.title")}
-          </motion.h2>
+        {data.technicalView && (
+          <section className="mt-20 pb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10"
+            >
+              {data.technicalView.title}
+            </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* العمود الأول */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                  {t("technicalView.coreDesign")}
-                </h3>
-                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                  <li>{t("technicalView.coreDesignPoints.point1")}</li>
-                  <li>{t("technicalView.coreDesignPoints.point2")}</li>
-                  <li>{t("technicalView.coreDesignPoints.point3")}</li>
-                  <li>{t("technicalView.coreDesignPoints.point4")}</li>
-                  <li>{t("technicalView.coreDesignPoints.point5")}</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                  {t("technicalView.keyCapabilities")}
-                </h3>
-                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                  <li>{t("technicalView.keyCapabilitiesPoints.point1")}</li>
-                  <li>{t("technicalView.keyCapabilitiesPoints.point2")}</li>
-                  <li>{t("technicalView.keyCapabilitiesPoints.point3")}</li>
-                  <li>{t("technicalView.keyCapabilitiesPoints.point4")}</li>
-                  <li>{t("technicalView.keyCapabilitiesPoints.point5")}</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* العمود الثاني */}
-            <div className="flex justify-center">
-              <img
-                src={elezaby}
-                alt={t("technicalView.architectureAlt")}
-                className="rounded-2xl shadow-xl border border-white/10 max-h-[500px] object-fill"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* 🔹 Rollout Method Section */}
-        <section className="mt-24 pb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">
-            {t("rolloutMethod.title")}
-          </h2>
-
-          {/* خطوات التنفيذ */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-            {[
-              { step: t("rolloutMethod.steps.design"), color: "#00C1D4" },
-              { step: t("rolloutMethod.steps.pilot"), color: "#DF1783" },
-              { step: t("rolloutMethod.steps.wave"), color: "#F59E0B" },
-              { step: t("rolloutMethod.steps.acceptance"), color: "#10B981" },
-              { step: t("rolloutMethod.steps.handover"), color: "orange" },
-              { step: t("rolloutMethod.steps.managedOps"), color: "#EC4899" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center"
-              >
-                {/* الدائرة */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-brand flex items-center justify-center font-bold text-lg shadow-lg mb-3">
-                  <span style={{ color: item.color }}>{index + 1}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* العمود الأول - Core Design & Key Capabilities */}
+              <div className="space-y-8">
+                {/* Core Design */}
+                <div>
+                  <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                    {data.technicalView.coreDesign}
+                  </h3>
+                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                    {Object.values(data.technicalView.coreDesignPoints).map(
+                      (point, index) => (
+                        <li key={index}>{point}</li>
+                      )
+                    )}
+                  </ul>
                 </div>
 
-                {/* الكلمة أسفل الدائرة */}
-                <p
-                  className="font-semibold text-lg"
-                  style={{ color: item.color }}
-                >
-                  {item.step}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                {/* Key Capabilities (إذا موجود) */}
+                {data.technicalView.keyCapabilities &&
+                  data.technicalView.keyCapabilitiesPoints && (
+                    <div>
+                      <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                        {data.technicalView.keyCapabilities}
+                      </h3>
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                        {Object.values(
+                          data.technicalView.keyCapabilitiesPoints
+                        ).map((point, index) => (
+                          <li key={index}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-          {/* التفاصيل */}
-          <ul className="mt-10 text-gray-700 dark:text-gray-300 leading-relaxed space-y-2 list-disc list-inside max-w-3xl mx-auto">
-            <li>{t("rolloutMethod.details.point1")}</li>
-            <li>{t("rolloutMethod.details.point2")}</li>
-            <li>{t("rolloutMethod.details.point3")}</li>
-            <li>{t("rolloutMethod.details.point4")}</li>
-          </ul>
-        </section>
+                {/* RF Optimization (إذا موجود) */}
+                {data.technicalView.rfOptimization && (
+                  <div>
+                    <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                      {data.technicalView.rfOptimization.title}
+                    </h3>
+                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                      {Object.values(
+                        data.technicalView.rfOptimization.points
+                      ).map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Management (إذا موجود) */}
+                {data.technicalView.management && (
+                  <div>
+                    <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                      {data.technicalView.management.title}
+                    </h3>
+                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                      {Object.values(data.technicalView.management.points).map(
+                        (point, index) => (
+                          <li key={index}>{point}</li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* العمود الثاني - الصورة */}
+              <div className="flex justify-center relative h-full">
+                <img
+                  src={project.image}
+                  alt="Technical Architecture"
+                  className="rounded-2xl shadow-xl border border-white/10 w-full h-full object-fill"
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 🔹 Rollout Method Section */}
+        {data.rolloutMethod && (
+          <section className="mt-24 pb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">
+              {data.rolloutMethod.title}
+            </h2>
+
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              {Object.values(data.rolloutMethod.steps).map((step, index) => {
+                // ألوان متنوعة لكل خطوة
+                const stepColors = [
+                  {
+                    bg: "from-blue-500 to-blue-600",
+                    text: "text-blue-600 dark:text-blue-400",
+                  },
+                  {
+                    bg: "from-green-500 to-green-600",
+                    text: "text-green-600 dark:text-green-400",
+                  },
+                  {
+                    bg: "from-purple-500 to-purple-600",
+                    text: "text-purple-600 dark:text-purple-400",
+                  },
+                  {
+                    bg: "from-orange-500 to-orange-600",
+                    text: "text-orange-600 dark:text-orange-400",
+                  },
+                  {
+                    bg: "from-pink-500 to-pink-600",
+                    text: "text-pink-600 dark:text-pink-400",
+                  },
+                  {
+                    bg: "from-teal-500 to-teal-600",
+                    text: "text-teal-600 dark:text-teal-400",
+                  },
+                ];
+
+                const color = stepColors[index % stepColors.length];
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center text-center"
+                  >
+                    {/* الدائرة */}
+                    <div
+                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${color.bg} flex items-center justify-center font-bold text-lg text-white shadow-lg mb-3`}
+                    >
+                      {index + 1}
+                    </div>
+
+                    {/* الكلمة بنفس اللون */}
+                    <p className={`font-semibold text-lg ${color.text}`}>
+                      {step}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <ul className="mt-10 text-gray-700 dark:text-gray-300 leading-relaxed space-y-2 list-disc list-inside max-w-4xl mx-auto">
+              {Object.values(data.rolloutMethod.details).map(
+                (detail, index) => (
+                  <li key={index}>{detail}</li>
+                )
+              )}
+            </ul>
+          </section>
+        )}
 
         {/* 🔹 Managed Service Section */}
-        <section className="mt-24 text-center pb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-10">
-            {t("managedService.title")}
-          </h2>
+        {data.managedService &&
+          (() => {
+            // استخرج features في متغير منفصل
+            const features = data.managedService.features;
+            const featuresCount = Object.keys(features).length;
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              { icon: Headphones, key: "monitoring", color: "#3B82F6" },
-              { icon: Clock, key: "sla", color: "#F59E0B" },
-              { icon: Globe, key: "reports", color: "#10B981" },
-              { icon: Cpu, key: "change", color: "#6366F1" },
-              { icon: Network, key: "capacity", color: "#EC4899" },
-              { icon: Building2, key: "accountManager", color: "#00B5D8" },
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-primary/10 to-brand/10 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                >
-                  <Icon
-                    className="w-10 h-10 mx-auto mb-3 transition-transform duration-300 group-hover:scale-110"
-                    style={{ color: item.color }}
-                  />
-                  <p
-                    className="text-gray-700 dark:text-gray-200 font-semibold"
-                    style={{ color: item.color }}
-                  >
-                    {t(`managedService.features.${item.key}`)}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
+            return (
+              <section className="mt-24 text-center pb-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-10">
+                  {data.managedService.title}
+                </h2>
+
+                <div className="flex flex-wrap justify-center gap-6">
+                  {Object.entries(features).map(([key, value], index) => {
+                    const iconMap: Record<string, React.ElementType> = {
+                      monitoring: Headphones,
+                      sla: Clock,
+                      reports: Globe,
+                      change: Cpu,
+                      capacity: Network,
+                      accountManager: Building2,
+                    };
+
+                    const colorMap: Record<string, string> = {
+                      monitoring: "#3B82F6",
+                      sla: "#F59E0B",
+                      reports: "#10B981",
+                      change: "#6366F1",
+                      capacity: "#EC4899",
+                      accountManager: "#00B5D8",
+                    };
+
+                    const Icon = iconMap[key] || Globe;
+                    const color = colorMap[key] || "#3B82F6";
+
+                    let widthClass =
+                      "w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]";
+
+                    if (featuresCount === 1) {
+                      widthClass = "w-full max-w-md";
+                    } else if (featuresCount === 2 || featuresCount === 4) {
+                      widthClass = "w-full sm:w-[calc(50%-12px)]";
+                    } else if (
+                      featuresCount === 3 ||
+                      featuresCount === 5 ||
+                      featuresCount === 6
+                    ) {
+                      widthClass =
+                        "w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)]";
+                    }
+
+                    return (
+                      <motion.div
+                        key={key}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className={`${widthClass} bg-gradient-to-br from-primary/10 to-brand/10 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300`}
+                      >
+                        <Icon
+                          className="w-10 h-10 mx-auto mb-3 transition-transform duration-300 hover:scale-110"
+                          style={{ color }}
+                        />
+                        <p
+                          className="text-gray-700 dark:text-gray-200 font-semibold"
+                          style={{ color }}
+                        >
+                          {value}
+                        </p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })()}
 
         {/* 🔹 Testimonial Section */}
         <section className="mt-24 max-w-4xl mx-auto px-4 sm:px-6 pb-10">
@@ -653,19 +836,21 @@ export default function ProjectDetails() {
               {/* Header */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-4 mb-8">
                 {/* Logo + Info */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-center sm:text-left w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4">
                   <img
-                    src={elezabylogo}
-                    alt="El Ezaby"
+                    src={project.technicalImage}
+                    alt={data.testimonial.companyName}
                     className="w-20 h-20 object-fill rounded-full"
                   />
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold text-blue-800 dark:text-blue-300">
-                      {t("testimonial.companyName")}
+                      {data.testimonial.companyName}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                      {t("testimonial.branches")}
-                    </p>
+                    {data.testimonial.branches && (
+                      <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                        {data.testimonial.branches}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -683,7 +868,7 @@ export default function ProjectDetails() {
                     ))}
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {t("testimonial.rating")}
+                    {data.testimonial.rating}
                   </p>
                 </div>
               </div>
@@ -701,7 +886,8 @@ export default function ProjectDetails() {
                 </div>
 
                 <blockquote className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-medium pl-6 sm:pl-10 mt-4 sm:mt-0">
-                  {data.testimonial}
+                  {data.testimonial.quote}{" "}
+                  {/* ✅ استخدام quote وليس testimonial كله */}
                 </blockquote>
               </div>
             </div>
@@ -709,84 +895,134 @@ export default function ProjectDetails() {
         </section>
 
         {/* Business Impact Section */}
-        <section className="mt-20 pb-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
-          >
-            {t("businessImpact.title")}
-          </motion.h2>
-
-          <div
-            className={`grid md:grid-cols-2 gap-12 items-center ${
-              isArabic ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            {/* النص */}
-            <motion.div
-              initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+        {data.businessImpact && (
+          <section className="mt-20 pb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={`space-y-5 ${isArabic ? "text-right" : "text-left"}`}
-              style={{ direction: isArabic ? "rtl" : "ltr" }}
+              className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
             >
-              <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
-                {t("businessImpact.valueImpact")}
-              </h3>
-              <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-200">
-                {[
-                  t("businessImpact.points.point1"),
-                  t("businessImpact.points.point2"),
-                  t("businessImpact.points.point3"),
-                  t("businessImpact.points.point4"),
-                  t("businessImpact.points.point5"),
-                  t("businessImpact.points.point6"),
-                  t("businessImpact.points.point7"),
-                ].map((point, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle
-                      className={`w-6 h-6 text-green-500 flex-shrink-0 mt-1 ${
-                        isArabic ? "ml-2" : "mr-2"
-                      }`}
-                    />
-                    <span>{point}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+              {data.businessImpact.title}
+            </motion.h2>
 
-            {/* الصور */}
-            <motion.div
-              initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col gap-6"
+            <div
+              className={`grid md:grid-cols-2 gap-12 items-center ${
+                isArabic ? "md:flex-row-reverse" : ""
+              }`}
             >
-              <img
-                src={project_1}
-                alt={t("businessImpact.imageAlt1")}
-                className="w-full h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform duration-500"
-              />
-              <img
-                src={project_2}
-                alt={t("businessImpact.imageAlt2")}
-                className="w-full h-64 object-cover rounded-3xl shadow-lg hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
-        </section>
+              {/* النص */}
+              <motion.div
+                initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`space-y-8 ${isArabic ? "text-right" : "text-left"}`}
+                style={{ direction: isArabic ? "rtl" : "ltr" }}
+              >
+                {/* Business Outcomes (إذا موجود) */}
+                {data.businessImpact.businessOutcomes && (
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                      {data.businessImpact.businessOutcomes.title}
+                    </h4>
+                    <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-200">
+                      {Object.values(
+                        data.businessImpact.businessOutcomes.points
+                      ).map((point, index) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.1 }}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle
+                            className={`w-6 h-6 text-green-500 flex-shrink-0 mt-1 ${
+                              isArabic ? "ml-2" : "mr-2"
+                            }`}
+                          />
+                          <span>{point}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Key Metrics (إذا موجود) */}
+                {data.businessImpact.keyMetrics && (
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                      {data.businessImpact.keyMetrics.title}
+                    </h4>
+                    <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-200">
+                      {Object.values(data.businessImpact.keyMetrics.points).map(
+                        (point, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className="flex items-start gap-3"
+                          >
+                            <CheckCircle
+                              className={`w-6 h-6 text-green-500 flex-shrink-0 mt-1 ${
+                                isArabic ? "ml-2" : "mr-2"
+                              }`}
+                            />
+                            <span>{point}</span>
+                          </motion.li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                )}
+
+                {/* النقاط الأساسية (إذا موجود) */}
+                {data.businessImpact.points && (
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                      Key Benefits
+                    </h4>
+                    <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-200">
+                      {Object.values(data.businessImpact.points).map(
+                        (point, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className="flex items-start gap-3"
+                          >
+                            <CheckCircle
+                              className={`w-6 h-6 text-blue-500 flex-shrink-0 mt-1 ${
+                                isArabic ? "ml-2" : "mr-2"
+                              }`}
+                            />
+                            <span>{point}</span>
+                          </motion.li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* العمود الثاني - يمكن تضيف صورة أو مخطط بياني */}
+              <div className="flex justify-center relative h-full">
+                <img
+                  src={project.image}
+                  alt="Technical Architecture"
+                  className="rounded-2xl shadow-xl border border-white/10 w-full h-full object-fill"
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Call to Action */}
         <section className="py-16 bg-gray-50 dark:bg-gray-700 rounded-3xl">
@@ -797,17 +1033,20 @@ export default function ProjectDetails() {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                {t("cta.readyToStart")}
+                {t("cta.readyToStart", "Ready to Start Your Project?")}
               </h3>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                {t("cta.turnIdeasToReality")}
+                {t(
+                  "cta.turnIdeasToReality",
+                  "Let's turn your ideas into reality"
+                )}
               </p>
               <Button
                 size="lg"
                 onClick={() => navigate("/contact")}
                 className="bg-[#DF1783] text-white text-lg px-10 py-5 rounded-full hover:scale-105 hover:shadow-2xl hover:bg-pink-500 transition-all duration-300"
               >
-                {t("cta.talkToExperts")}
+                {t("cta.talkToExperts", "Talk to Our Experts")}
               </Button>
             </motion.div>
           </div>

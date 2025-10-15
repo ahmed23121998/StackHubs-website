@@ -12,23 +12,12 @@ import { useNavigate } from "react-router-dom";
 import video1 from "@/assets/video/who we are.mp4";
 import video2 from "@/assets/video/who we are 2.mp4";
 import video3 from "@/assets/video/who we are 3.mp4";
-// import about_11_1 from "@/assets/images/about_11_1.jpg";
-// import about_11_2 from "@/assets/images/about_11_2.jpg";
-// import about_11_3 from "@/assets/images/about_11_3.jpg";
 import regional_footprint from "@/assets/images/regional_footprint.png";
 import happy_customers from "@/assets/images/happy_customers.jpg";
 import partners from "@/assets/images/partners.jpg";
 import solution from "@/assets/images/solution.jpg";
-// import brand_6_2 from "@/assets/images/brand_6_2.png";
-// import brand_6_3 from "@/assets/images/brand_6_3.png";
-// import brand_6_4 from "@/assets/images/brand_6_4.png";
-// import brand_6_5 from "@/assets/images/brand_6_5.png";
-// import cat_1 from "@/assets/images/cta-1.jpg";
-// import cat_2 from "@/assets/images/cta-2.jpg";
-import project_7_1 from "@/assets/images/project_7_1.jpg";
-import project_7_2 from "@/assets/images/project_7_2.jpg";
-import project_7_3 from "@/assets/images/project_7_3.jpg";
 import elazaby from "@/assets/images/elazaby.jpg";
+import ghazala from "@/assets/images/ghazala.jpg";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
@@ -542,28 +531,12 @@ const HomePage: React.FC = () => {
             {Array(6)
               .fill([
                 {
-                  src: project_7_1,
-                  tagKey: "projects.dataAnalytics.tag",
-                  titleKey: "projects.dataAnalytics.title",
-                  id: "data-analytics",
-                },
-                {
-                  src: project_7_2,
-                  tagKey: "projects.itSolution.tag",
-                  titleKey: "projects.itSolution.title",
-                  id: "it-solution",
-                },
-                {
-                  src: project_7_3,
-                  tagKey: "projects.cloudSecurity.tag",
-                  titleKey: "projects.cloudSecurity.title",
-                  id: "cloud-security",
-                },
-                {
                   src: elazaby,
-                  tagKey: "projects.elEzabyProject.tag",
-                  titleKey: "projects.elEzabyProject.title",
-                  id: "elazaby",
+                  id: "elEzabyProject",
+                },
+                {
+                  src: ghazala,
+                  id: "ghazalaProject",
                 },
               ])
               .flat()
@@ -579,15 +552,15 @@ const HomePage: React.FC = () => {
                   >
                     <img
                       src={project.src}
-                      alt={t(project.titleKey)}
-                      className="w-full h-56 object-fill rounded-2xl"
+                      alt={t(`projectDetails.${project.id}.title`)}
+                      className="w-full h-56 object-fill rounded-xl"
                     />
                     <div className="p-2">
                       <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
-                        {t(project.tagKey)}
+                        {t(`projectDetails.${project.id}.tag`)}
                       </p>
                       <h3 className="text-lg font-semibold">
-                        {t(project.titleKey)}
+                        {t(`projectDetails.${project.id}.title`)}
                       </h3>
                     </div>
                   </motion.div>

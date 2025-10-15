@@ -856,30 +856,6 @@
     "projectNotFound": "Oops! Project Not Found",
     "projectNotFoundDesc": "It seems you tried to access a project that doesn't exist or has been removed."
   },
-  "projects": {
-    "title": "Our Projects",
-    "subtitle": "Discover our latest works and solutions.",
-    "dataAnalytics": {
-      "title": "Data Analytics System",
-      "tag": "Networking",
-      "desc": "Detailed description about Data Analytics System project."
-    },
-    "itSolution": {
-      "title": "IT Solution & Consultancy",
-      "tag": "Solution",
-      "desc": "Detailed description about IT Solution & Consultancy project."
-    },
-    "cloudSecurity": {
-      "title": "Cloud Security Service",
-      "tag": "Networking",
-      "desc": "Detailed description about Cloud Security Service project."
-    },
-    "elEzabyProject": {
-      "title": "Nationwide SD-WAN for El Ezaby Pharmacies",
-      "tag": "Networking",
-      "desc": "El Ezaby – Egypt’s #1 pharmacy network – partnered with Stackhubs to modernize connectivity across 450+ branches nationwide."
-    }
-  },
   "store": {
     "title": "Tech Store",
     "subtitle": "Browse the latest IT and digital solutions.",
@@ -953,156 +929,226 @@
     "total": "Total",
     "backToStore": "Back to Store"
   },
-  "projectHighlights": {
-    "title": "Project at a Glance",
-    "industry": "Industry",
-    "scope": "Scope",
-    "technology": "Technology",
-    "availability": "Availability",
-    "connectivity": "Connectivity",
-    "timeline": "Timeline",
-    "service": "Service"
-  },
-  "technicalView": {
-    "title": "Technical View (Architecture & Features)",
-    "coreDesign": "Core Design",
-    "keyCapabilities": "Key Capabilities",
-    "architectureAlt": "Network Architecture",
-    "coreDesignPoints": {
-      "point1": "VeloCloud Edges (HA) at Data Center and HQ",
-      "point2": "One Edge per branch (~450 sites)",
-      "point3": "Tiered access with Platinum/Gold/Silver models",
-      "point4": "Centralized Orchestrator for zero-touch provisioning",
-      "point5": "Cloud Gateways for optimized SaaS access"
-    },
-    "keyCapabilitiesPoints": {
-      "point1": "High Availability with dual devices and auto failover",
-      "point2": "Dynamic Multi-Path Optimization (DMPO)",
-      "point3": "Application-aware routing & QoS",
-      "point4": "Segmentation for PCI/PHI compliance",
-      "point5": "Integrated security and real-time telemetry"
-    }
-  },
-  "rolloutMethod": {
-    "title": "Rollout Method (3 Months)",
-    "steps": {
-      "design": "Design",
-      "pilot": "Pilot",
-      "wave": "Wave 1–N",
-      "acceptance": "Acceptance",
-      "handover": "Handover",
-      "managedOps": "Managed Ops"
-    },
-    "details": {
-      "point1": "Wave-based deployment across governorates",
-      "point2": "Pilot phase (10–15 sites) before mass rollout",
-      "point3": "Standardized configuration templates per site",
-      "point4": "Acceptance tests for app reachability & QoS validation"
-    }
-  },
-  "managedService": {
-    "title": "Managed Service",
-    "features": {
-      "monitoring": "24×7 Monitoring",
-      "sla": "SLA Targets (P1 ≤15min, P2 ≤1hr)",
-      "reports": "Monthly Reports & Reviews",
-      "change": "Change Management",
-      "capacity": "Capacity & Growth Planning",
-      "accountManager": "Dedicated Account Manager"
-    }
-  },
-  "projectStory": {
-    "title": "The Story Behind",
-    "challenge": "Challenge",
-    "approach": "Approach",
-    "outcome": "Outcome"
-  },
-  "businessImpact": {
-    "title": "Business Impact",
-    "valueImpact": "Value & Impact",
-    "imageAlt1": "Business Impact Image 1",
-    "imageAlt2": "Business Impact Image 2",
-    "points": {
-      "point1": "Higher uptime & continuity",
-      "point2": "Consistent application experience",
-      "point3": "Faster branch launches",
-      "point4": "Cost optimization",
-      "point5": "Security & compliance support",
-      "point6": "Actionable visibility",
-      "point7": "Assured operations"
-    }
-  },
-  "testimonial": {
-    "companyName": "El Ezaby Pharmacies",
-    "branches": "450+ Branches Nationwide",
-    "rating": "5.0 Rating"
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Discover our latest works and solutions."
   },
   "projectDetails": {
-    "dataAnalytics": {
-      "title": "Data Analytics System",
-      "summary": "Enabling smarter insights through advanced analytics solutions.",
-      "hero": "Empowering data-driven decisions with cutting-edge analytics.",
-      "challenge": "The client needed real-time visibility and predictive insights to support decision-making...",
-      "approach": "Stackhubs implemented a scalable data analytics architecture connecting multiple sources...",
-      "outcome": "Achieved faster decision-making, better forecasting, and optimized resource utilization.",
-      "highlights": {
-        "industry": "Finance / Retail / Operations",
-        "scope": "Enterprise-wide analytics platform",
-        "technology": "Power BI, Azure Data Factory, SQL Server",
-        "timeline": "2 months",
-        "service": "Continuous DataOps & Support"
-      },
-      "testimonial": "Stackhubs transformed our data into strategic insight."
-    },
-    "itSolution": {
-      "title": "IT Solution & Consultancy",
-      "summary": "Delivering tailored IT strategies that enhance agility and efficiency.",
-      "hero": "Transforming IT infrastructure with scalable and secure solutions.",
-      "challenge": "Legacy systems caused operational delays and integration issues between systems...",
-      "approach": "Stackhubs conducted a comprehensive infrastructure assessment and migrated systems to a modern environment...",
-      "outcome": "Improved performance, enhanced security, and ensured business continuity.",
-      "highlights": {
-        "industry": "Corporate / SMB",
-        "scope": "Full infrastructure modernization",
-        "technology": "VMware, Microsoft 365, Azure",
-        "timeline": "3 months",
-        "service": "Managed IT Services"
-      },
-      "testimonial": "Their consulting approach turned our IT from reactive to proactive."
-    },
-    "cloudSecurity": {
-      "title": "Cloud Security Service",
-      "summary": "Ensuring robust protection across cloud workloads.",
-      "hero": "Secure, compliant, and resilient cloud infrastructure.",
-      "challenge": "Customer needed unified visibility and compliance management across different cloud environments...",
-      "approach": "Stackhubs deployed cloud-native security solutions with zero-trust access model...",
-      "outcome": "Achieved continuous compliance and real-time threat detection.",
-      "highlights": {
-        "industry": "Cloud / Cybersecurity",
-        "scope": "Multi-cloud environments",
-        "technology": "Azure Defender, Prisma Cloud",
-        "timeline": "6 weeks",
-        "service": "Security Monitoring & Incident Response"
-      },
-      "testimonial": "We now have confidence in every layer of our cloud stack."
-    },
+    "project_story": "Project Story",
+    "challenge": "Challenge",
+    "approach": "Approach",
+    "outcome": "Outcome",
     "elEzabyProject": {
       "title": "Nationwide SD-WAN for El Ezaby Pharmacies",
-      "summary": "El Ezaby - Egypt's #1 pharmacy network - partnered with Stackhubs to modernize connectivity across 450+ branches in all governorates. We designed and delivered a nationwide SD-WAN (VMware VeloCloud) with high availability at the Data Center and HQ, then rolled out one edge per branch with tiered Internet redundancy (Platinum/Gold/Silver). The entire deployment was completed in 3 months, and Stackhubs now operates the platform as a 3-year managed service, ensuring performance, security, and 24/7 support.",
+      "tag": "Networking",
+      "desc": "El Ezaby – Egypt’s #1 pharmacy network – partnered with Stackhubs to modernize connectivity across 450+ branches nationwide.",
+      "summary": "El Ezaby - Egypt’s #1 pharmacy network - partnered with Stackhubs to modernize connectivity across 450+ branches in all governorates. We designed and delivered a nationwide SD-WAN (VMware VeloCloud) with high availability at the Data Center and HQ, then rolled out one edge per branch with tiered Internet redundancy (Platinum/Gold/Silver). The entire deployment was completed in 3 months, and Stackhubs now operates the platform as a 3-year managed service, ensuring performance, security, and 24/7 support.",
       "hero": "Modernizing pharmacy connectivity across Egypt with VMware SD-WAN.",
       "challenge": "El Ezaby needed a resilient, secure, and centrally managed network to support critical healthcare and retail applications (ERP, e-prescriptions, POS, inventory sync, and digital services) across hundreds of locations. The legacy model made branch turn-ups slow, visibility limited, and uptime dependent on single links in many sites.",
       "approach": "Stackhubs designed an SD-WAN architecture using VMware VeloCloud, delivering HA at the core (DC & HQ) and a standardized single-box footprint per branch. We introduced a tiered connectivity model(Platinum/Gold/Silver) so high-traffic or mission-critical locations receive more ISP diversity. Rollout followed a factory-style playbook: zero-touch provisioning, parallel site waves, and nightly cutovers — allowing the entire program to complete in three months.",
       "outcome": "The network gained intelligent path selection, application-aware QoS, and centralized policy control. Branches now enjoy higher uptime and consistent app performance; the operations team gained real-time visibility and faster troubleshooting. Stackhubs continues to run the solution as a managed service with proactive monitoring, SLAs, and continuous optimization.",
       "highlights": {
+        "title": "Project at a Glance",
         "industry": "Retail Pharmacy / Healthcare",
         "scope": "DC + HQ + 450 branches (all Egyptian governorates)",
         "technology": "VMware VeloCloud SD-WAN",
         "availability": "DC (2 devices), HQ (2 devices), 1 edge per branch",
-        "connectivity": "Platinum / Gold / Silver (2–3 ISPs per site)",
+        "connectivity tiers": "Platinum / Gold / Silver (2–3 ISPs per site based on tier)",
         "timeline": "3 months (nationwide rollout)",
-        "service": "36-month Managed Service by Stackhubs"
+        "service model": "Managed Service (36 months) by Stackhubs"
       },
-      "testimonial": "Stackhubs delivered the entire SD-WAN across our branches in record time and now keep it running smoothly. Our stores stay online, and our teams can focus on patients and customers."
+      "projectHighlights": {
+        "industry": "Industry",
+        "scope": "Scope",
+        "technology": "Technology",
+        "availability": "Availability",
+        "connectivity": "Connectivity",
+        "timeline": "Timeline",
+        "service": "Service"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "VeloCloud Edges (HA) at Data Center (2 devices) and HQ (2 devices).",
+          "point2": "One VeloCloud Edge per branch (≈450 sites).",
+          "point3": "Tiered access with Platinum/Gold/Silver models",
+          "point4": "Centralized VeloCloud Orchestrator for policy, templates, and zero-touch provisioning.",
+          "point5": "VeloCloud Gateways for optimized access to cloud/SaaS and dynamic multi-path optimization (DMPO)."
+        },
+        "keyCapabilities": "Key Capabilities",
+        "keyCapabilitiesPoints": {
+          "point1": "High Availability: dual devices at DC/HQ; automatic failover and state sync.",
+          "point2": "Dynamic Multi-Path Optimization (DMPO): continuous monitoring of link loss/latency/jitter; per-packet steering & remediation (FEC, jitter buffer).",
+          "point3": "Application-aware routing & QoS: prioritizes POS, ERP, pharmacy apps; throttles background traffic.",
+          "point4": "Segmentation: business-critical vs guest/IoT networks; PCI/PHI-friendly zoning patterns.",
+          "point5": "Zero-Touch Provisioning (ZTP): branch edges ship pre-profiled; plug-and-play onboarding.",
+          "point6": "Security posture: integrated stateful firewall on edges; policy-based access; optional service-insertion for cloud security.",
+          "point7": "Visibility & telemetry: real-time link analytics, app performance, per-site health, historical reporting.",
+          "point8": "Underlay agnostic: MPLS/Internet/4G/5G/FTTH supported; easy ISP substitution per tier."
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (3 Months)",
+        "steps": {
+          "design": "Design",
+          "pilot": "Pilot",
+          "wave": "Wave 1–N",
+          "acceptance": "Acceptance",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Wave-based deployment: batch scheduling by governorate/priority.",
+          "point2": "Site templates: per-tier templates to standardize config & speed QA.",
+          "point3": "Pilot → mass rollout: validate 10–15 sites, then parallelize waves (daily cutovers).",
+          "point4": "Readiness checklist: power/space/ISP ready, LAN tagging, contact windows.",
+          "point5": "Acceptance tests: app reachability, failover, QoS marking, telemetry checks."
+        }
+      },
+      "managedService": {
+        "title": "Managed Service",
+        "features": {
+          "monitoring": "24×7 Monitoring",
+          "sla": "SLA Targets (P1 ≤15min, P2 ≤1hr)",
+          "reports": "Monthly Performance Reports and Reviews",
+          "change": "Change Management",
+          "capacity": "Capacity & Growth Planning"
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "points": {
+          "point1": "Higher uptime & continuity: multi-link branches + HA core minimize outages that disrupt prescriptions and sales.",
+          "point2": "Consistent application experience: POS and ERP traffic gets priority; customer wait-time reduced.",
+          "point3": "Faster branch launches: ZTP and templated configs cut new-site activation from weeks to days/hours.",
+          "point4": "Cost optimization: leverage broadband/4G as alternatives/backup to MPLS; right-size per tier (Platinum/Gold/Silver).",
+          "point5": "Security & compliance support: traffic segmentation and centralized policy reduce risk exposure.",
+          "point6": "Actionable visibility: management dashboards shorten troubleshooting and improve planning.",
+          "point7": "Assured operations: 3-year managed service shifts run burden to Stackhubs with clear SLAs."
+        }
+      },
+      "testimonial": {
+        "companyName": "El Ezaby Pharmacies",
+        "branches": "450+ Branches Nationwide",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs delivered the entire SD-WAN across our branches in record time and now keep it running smoothly. Our stores stay online, and our teams can focus on patients and customers."
+      }
+    },
+    "ghazalaProject": {
+      "title": "Wi-Fi and Network Modernization for Ghazala Bay Hotel",
+      "tag": "Hospitality",
+      "desc": "Ghazala Bay Hotel partnered with Stackhubs to modernize its entire wireless infrastructure using Aruba Wi-Fi 6 technology.",
+      "summary": "Ghazala Bay Hotel, a luxury resort on Egypt’s North Coast, partnered with Stackhubs to modernize its entire wireless network using Aruba Wi-Fi 6 technology. The engagement replaced an aging system with a new, high-performance wireless infrastructure covering 400+ guest rooms, public areas, and outdoor zones. The project included complete RF surveys, heatmaps, and design validation with Ekahau, LAN switch upgrades, and secure segmentation for guest and staff networks. Stackhubs completed the rollout within 2 months and now provides managed wireless service and monitoring to ensure consistent connectivity for guests and operations.",
+      "hero": "Transforming guest experience through a modern Aruba Wi-Fi 6 infrastructure.",
+      "challenge": "Ghazala Bay Hotel’s legacy Wi-Fi infrastructure suffered from coverage gaps, unstable performance during peak guest load, and limited visibility for IT operations. The resort wanted to deliver a five-star digital guest experience with seamless connectivity across rooms, pools, restaurants, and outdoor areas, while also isolating staff and operational traffic for security and performance.",
+      "approach": "Stackhubs performed comprehensive on-site surveys and RF analysis using Ekahau Pro, generating precise heatmaps and channel plans for both indoor and outdoor zones. The new architecture was designed around Aruba Wi-Fi 6 access points connected to Aruba LAN switches, providing high-density coverage and central visibility through Aruba Central. VLANs and policies ensured complete segregation between guest and staff networks.Implementation was completed in 2 months, following a phased rollout that minimized downtime for guests. Each stage included post-deployment validation and signal optimization.",
+      "outcome": "Guests now experience reliable high-speed Wi-Fi in every room and public area. Staff benefit from dedicated, secure wireless access for internal systems and handheld devices. IT management gained centralized control, analytics, and alerts via Aruba Central. The new infrastructure is now operated as a managed service by Stackhubs, ensuring continuous monitoring, rapid troubleshooting, and quarterly optimization reviews.",
+      "highlights": {
+        "title": "Project at a Glance",
+        "industry": "Hospitality (Luxury Resort)",
+        "Location": "Ghazala Bay Hotel – North Coast, Egypt",
+        "technology": "Aruba Wi-Fi 6 + Aruba LAN Switches",
+        "scope": "Indoor & Outdoor coverage, 400+ rooms, public areas, staff zones",
+        "Services delivered": "Site surveys, RF planning, design (Ekahau), deployment, testing, and managed service",
+        "timeline": "2 months",
+        "Support model": "Managed Service – ongoing monitoring & optimization"
+      },
+      "projectHighlights": {
+        "industry": "Industry",
+        "Location": "Location",
+        "technology": "Technology",
+        "scope": "Scope",
+        "Services delivered": "Services Delivered",
+        "timeline": "Timeline",
+        "Support model": "Support Model"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "Aruba Wi-Fi 6 Access Points (indoor/outdoor mix) deployed across 400+ rooms and resort areas.",
+          "point2": "Aruba 2930F/6000 Series LAN Switches for edge connectivity and PoE power.",
+          "point3": "Centralized controller and Aruba Central cloud for configuration, monitoring, and analytics.",
+          "point4": "Dual SSID architecture: Guest (open captive portal) & Staff (secured 802.1X).",
+          "point5": "VLAN segmentation and QoS profiles to isolate traffic and prioritize internal applications.",
+          "point6": "Redundant uplinks and intelligent channel/airtime management."
+        },
+        "rfOptimization": {
+          "title": "RF & Performance Optimization",
+          "points": {
+            "point1": "Site surveys with Ekahau Pro for pre- and post-deployment validation.",
+            "point2": "Heatmaps and spectrum analysis to eliminate interference.",
+            "point3": "Power & channel tuning for density zones (lobby, restaurants, pool areas).",
+            "point4": "Outdoor APs with weatherproof enclosures for garden and beach coverage."
+          }
+        },
+        "management": {
+          "title": "Management & Operations",
+          "points": {
+            "point1": "Continuous monitoring through Aruba Central dashboards.",
+            "point2": "Alerting and trend reports for utilization, client experience, and interference events.",
+            "point3": "Scheduled firmware updates and proactive troubleshooting.",
+            "point4": "Monthly service reports and coverage audits under Stackhubs Managed Services."
+          }
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (2 Months)",
+        "steps": {
+          "design": "Design",
+          "survey": "Survey",
+          "pilot": "Pilot",
+          "wave": "Wave 1–N",
+          "validation": "Validation",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Wave-based deployment: Executed per building cluster or floor, starting with high-priority guest areas before guest rooms.",
+          "point2": "Standardized templates: Unified Aruba SSIDs, VLANs, and QoS policies applied through predefined configuration templates.",
+          "point3": "Pilot to mass rollout: A small pilot verified coverage and experience before scaling to parallel daily deployment waves.",
+          "point4": "Readiness checklist: Each zone confirmed for power, PoE, VLAN tagging, ISP link, and installation readiness before cutover.",
+          "point5": "Validation & acceptance: Signal strength, portal access, roaming, and telemetry were tested against design heatmaps.",
+          "point6": "Handover & managed ops: After acceptance, the network moved to Stackhubs’ 24×7 managed service for monitoring and optimization."
+        }
+      },
+      "managedService": {
+        "title": "Handover & Managed Operations",
+        "features": {
+          "monitoring": "24×7 monitoring and alerting",
+          "sla": "Monthly performance dashboards",
+          "reports": "Quarterly optimization and firmware updates",
+          "change": "Dedicated support portal for incident tracking"
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "businessOutcomes": {
+          "title": "Business Outcomes",
+          "points": {
+            "point1": "Seamless guest experience: uninterrupted Wi-Fi throughout the resort, enabling smart TV streaming, VoIP calls, and remote work.",
+            "point2": "Operational efficiency: staff handheld systems (POS, housekeeping, maintenance apps) run smoothly over a stable network.",
+            "point3": "Brand reputation uplift: improved guest satisfaction scores related to Wi-Fi reliability.",
+            "point4": "IT simplicity: centralized management reduced local troubleshooting effort by >60%.",
+            "point5": "Long-term partnership: ongoing managed service ensures the hotel's network stays optimized and secure."
+          }
+        },
+        "keyMetrics": {
+          "title": "Key Metrics",
+          "points": {
+            "point1": "Coverage reliability: >99% across all surveyed areas",
+            "point2": "Concurrent users supported: 2,500+",
+            "point3": "Incident response time: <15 minutes (managed service SLA)",
+            "point4": "Guest satisfaction (Wi-Fi rating): ↑ 40% improvement post-deployment"
+          }
+        }
+      },
+      "testimonial": {
+        "companyName": "Ghazala Bay Hotel",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs transformed our wireless network across the entire resort, delivering fast, seamless Wi-Fi for guests and staff alike. Connectivity is no longer a concern—our visitors stay connected, and our team can focus on creating an exceptional hospitality experience."
+      }
     }
   }
 }

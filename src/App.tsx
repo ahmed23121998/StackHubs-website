@@ -98,7 +98,7 @@ function AppRoutes() {
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/projects/:key" element={<ProjectDetails />} />
         <Route path="/about" element={<AboutPage />} />
         {/* <Route path="/store" element={<StorePage />} /> */}
         {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
