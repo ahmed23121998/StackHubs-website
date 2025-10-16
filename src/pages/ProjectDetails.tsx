@@ -1043,11 +1043,11 @@ export default function ProjectDetails() {
               </motion.div>
 
               {/* العمود الثاني - يمكن تضيف صورة أو مخطط بياني */}
-              <div className="flex justify-center relative h-full">
+              <div className="flex justify-center items-center">
                 <img
                   src={project.image}
                   alt="Technical Architecture"
-                  className="rounded-2xl shadow-xl border border-white/10 w-full h-full object-fill"
+                  className="rounded-xl w-full h-[300px] object-fill"
                 />
               </div>
             </div>
