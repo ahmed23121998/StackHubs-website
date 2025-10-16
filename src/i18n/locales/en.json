@@ -962,9 +962,9 @@
         "scope": "Scope",
         "technology": "Technology",
         "availability": "Availability",
-        "connectivity": "Connectivity",
+        "connectivity tiers": "Connectivity",
         "timeline": "Timeline",
-        "service": "Service"
+        "service model": "Service"
       },
       "technicalView": {
         "title": "Technical View (Architecture & Features)",

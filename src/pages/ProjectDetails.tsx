@@ -287,7 +287,7 @@ export default function ProjectDetails() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className={`text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium tracking-wide max-w-3xl space-y-4 ${
+                className={`text-xl font-semibold text-gray-700 dark:text-gray-200 tracking-wide max-w-3xl space-y-4 ${
                   isArabic ? "text-right" : "text-left"
                 }`}
                 style={{ direction: isArabic ? "rtl" : "ltr" }}
@@ -424,7 +424,9 @@ export default function ProjectDetails() {
 
                         {/* الاسم - الترجمة هنا */}
                         <p className="text-sm font-bold tracking-wide leading-tight mb-2 opacity-95">
-                          {t(`projectDetails.${project.key}.projectHighlights.${k}`)}
+                          {t(
+                            `projectDetails.${project.key}.projectHighlights.${k}`
+                          )}
                         </p>
 
                         {/* الوصف - الترجمة هنا */}
@@ -490,7 +492,9 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">{t("projectDetails.challenge")}</h3>
+                  <h3 className="text-2xl font-bold">
+                    {t("projectDetails.challenge")}
+                  </h3>
                 </div>
 
                 <ReadMoreSection
@@ -527,7 +531,9 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">{t("projectDetails.approach")}</h3>
+                  <h3 className="text-2xl font-bold">
+                    {t("projectDetails.approach")}
+                  </h3>
                 </div>
 
                 <ReadMoreSection
@@ -564,7 +570,9 @@ export default function ProjectDetails() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">{t("projectDetails.outcome")}</h3>
+                  <h3 className="text-2xl font-bold">
+                    {t("projectDetails.outcome")}
+                  </h3>
                 </div>
 
                 <ReadMoreSection
@@ -591,8 +599,8 @@ export default function ProjectDetails() {
               {data.technicalView.title}
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* العمود الأول - Core Design & Key Capabilities */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {/* العمود الأول - Core Design و Key Capabilities */}
               <div className="space-y-8">
                 {/* Core Design */}
                 <div>
@@ -608,64 +616,86 @@ export default function ProjectDetails() {
                   </ul>
                 </div>
 
-                {/* Key Capabilities (إذا موجود) */}
-                {data.technicalView.keyCapabilities &&
+                {/* Key Capabilities - الجزء الأول */}
+                {project.key === "elEzabyProject" &&
+                  data.technicalView.keyCapabilities &&
                   data.technicalView.keyCapabilitiesPoints && (
                     <div>
                       <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
                         {data.technicalView.keyCapabilities}
                       </h3>
                       <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                        {Object.values(
-                          data.technicalView.keyCapabilitiesPoints
-                        ).map((point, index) => (
-                          <li key={index}>{point}</li>
-                        ))}
+                        {Object.values(data.technicalView.keyCapabilitiesPoints)
+                          .slice(0, 4) // أول 4 نقاط
+                          .map((point, index) => (
+                            <li key={index}>{point}</li>
+                          ))}
                       </ul>
                     </div>
                   )}
+              </div>
 
-                {/* RF Optimization (إذا موجود) */}
-                {data.technicalView.rfOptimization && (
-                  <div>
-                    <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                      {data.technicalView.rfOptimization.title}
-                    </h3>
-                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                      {Object.values(
-                        data.technicalView.rfOptimization.points
-                      ).map((point, index) => (
+              {/* العمود الثاني - الصورة و Key Capabilities الجزء الثاني */}
+              <div className="space-y-8">
+                {/* الصورة */}
+                <div className="flex justify-center items-center">
+                  <img
+                    src={project.image}
+                    alt="Technical Architecture"
+                    className="rounded-xl w-full h-[300px] object-fill"
+                  />
+                </div>
+
+                {/* Key Capabilities - الجزء الثاني */}
+                {project.key === "elEzabyProject" &&
+                  data.technicalView.keyCapabilities &&
+                  data.technicalView.keyCapabilitiesPoints && (
+                    <div className="mt-4">
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                        {Object.values(data.technicalView.keyCapabilitiesPoints)
+                          .slice(4) // باقي النقاط
+                          .map((point, index) => (
+                            <li key={index + 4}>{point}</li>
+                          ))}
+                      </ul>
+                    </div>
+                  )}
+              </div>
+            </div>
+
+            {/* الصف الثاني - RF Optimization و Management بدون بوكسين */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+              {/* RF Optimization */}
+              {data.technicalView.rfOptimization && (
+                <div>
+                  <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                    {data.technicalView.rfOptimization.title}
+                  </h3>
+                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                    {Object.values(
+                      data.technicalView.rfOptimization.points
+                    ).map((point, index) => (
+                      <li key={index}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Management */}
+              {data.technicalView.management && (
+                <div>
+                  <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
+                    {data.technicalView.management.title}
+                  </h3>
+                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
+                    {Object.values(data.technicalView.management.points).map(
+                      (point, index) => (
                         <li key={index}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Management (إذا موجود) */}
-                {data.technicalView.management && (
-                  <div>
-                    <h3 className="text-2xl font-semibold text-blue-500 dark:text-blue-400 mb-3">
-                      {data.technicalView.management.title}
-                    </h3>
-                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
-                      {Object.values(data.technicalView.management.points).map(
-                        (point, index) => (
-                          <li key={index}>{point}</li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* العمود الثاني - الصورة */}
-              <div className="flex justify-center relative h-full">
-                <img
-                  src={project.image}
-                  alt="Technical Architecture"
-                  className="rounded-2xl shadow-xl border border-white/10 w-full h-full object-fill"
-                />
-              </div>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
             </div>
           </section>
         )}
