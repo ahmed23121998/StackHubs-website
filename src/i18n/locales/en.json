@@ -1149,6 +1149,103 @@
         "rating": "5.0 Rating",
         "quote": "Stackhubs transformed our wireless network across the entire resort, delivering fast, seamless Wi-Fi for guests and staff alike. Connectivity is no longer a concern—our visitors stay connected, and our team can focus on creating an exceptional hospitality experience."
       }
+    },
+    "habibProject": {
+      "title": "Zero Trust Transformation for Habib El Mulla Law Firm",
+      "tag": "Banking & Finance",
+      "desc": "Habib Bank AG Zurich partnered with Stackhubs to drive its digital transformation journey, enhancing customer experience and operational efficiency.",
+      "summary": "Habib El Mula, a prominent law firm based in Dubai, partnered with Stackhubs to enhance the security of its remote operations through Fortinet’s FortiSASE and Zero Trust Network Access (ZTNA) solution. The firm required a secure, compliant, and seamless way for lawyers and staff to access sensitive case files, email systems, and internal resources from anywhere.Stackhubs designed and implemented a cloud-delivered secure access platform that enforces identity-based authentication, device posture validation, and granular access policies — ensuring confidential data remains protected while enabling productivity across all remote and branch users.",
+      "hero": "Empowering banking excellence through digital innovation.",
+      "challenge": "With a growing number of lawyers and paralegals working remotely or appearing in courts across the UAE, Habib El Mula needed a secure and compliant access model to protect client data and case documents. Traditional VPNs lacked the visibility and control required for confidential legal workflows, and the firm needed a solution aligned with modern cybersecurity and privacy regulations.",
+      "approach": "Stackhubs deployed Fortinet FortiSASE with Zero Trust Network Access (ZTNA) to establish secure, identity-based connectivity for all remote users. The design replaced legacy VPNs with per-user, per-application access policies, ensuring every connection was verified through multi-factor authentication and device compliance checks. The Stackhubs team integrated FortiClient, FortiGate, and FortiSASE Cloud to deliver encrypted access to the firm’s document management systems, email, and cloud drives — without exposing the network perimeter.",
+      "outcome": "The firm’s workforce can now securely connect to internal systems and legal databases from any location, whether in court, at home, or abroad. All access is verified, encrypted, and logged for compliance, ensuring client confidentiality and adherence to data protection standards. Stackhubs continues to operate and monitor the solution as a managed security service, providing threat detection, reporting, and policy tuning to keep access frictionless and secure.",
+      "testimonial": {
+        "companyName": "Habib El Mula – Dubai",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs secured our remote operations with FortiSASE and Zero Trust, giving our lawyers instant yet controlled access to sensitive systems. We can now work confidently from anywhere without compromising client confidentiality.”"
+      },
+      "highlights": {
+        "title": "Project at a Glance",
+        "industry": "Legal Services",
+        "Location": "Dubai, UAE",
+        "technology": "Fortinet FortiSASE + ZTNA",
+        "scope": "Secure remote access for lawyers, staff, and consultants",
+        "timeline": "1 month (design, pilot, rollout)",
+        "Support model": "Managed Security & Access"
+      },
+      "projectHighlights": {
+        "industry": "Industry",
+        "Location": "Location",
+        "technology": "Technology",
+        "scope": "Scope",
+        "timeline": "Timeline",
+        "Support model": "Support Model"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "FortiSASE Cloud for secure, cloud-delivered access enforcement.",
+          "point2": "FortiGate for hybrid connectivity and internal app protection.",
+          "point3": "ZTNA Policies for granular access per user and per application.",
+          "point4": "FortiClient EMS for endpoint posture, MFA, and identity verification.",
+          "point5": "FortiAnalyzer for centralized logs, compliance, and audit trails."
+        },
+        "keyCapabilities": "Key Security Features",
+        "keyCapabilitiesPoints": {
+          "point1": "Zero Trust enforcement: verify user, device, and session before granting access.",
+          "point2": "Multi-factor authentication (MFA): mandatory for all remote logins.",
+          "point3": "Encrypted session tunneling: full protection for confidential case data.",
+          "point4": "Granular access control: only authorized users can reach specific resources.",
+          "point5": "Visibility and analytics: real-time monitoring through FortiAnalyzer dashboards."
+        },
+        "UserExperience": {
+          "title": "User Experience",
+          "points": {
+            "point1": "Seamless sign-in with FortiClient SASE Agent, automatically routing users to the nearest FortiSASE edge.",
+            "point2": "Consistent, low-latency connections for lawyers traveling across the country.",
+            "point3": "Simple one-click access to corporate apps without complex VPN reconfigurations."
+          }
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (2 Months)",
+        "steps": {
+          "design": "Design",
+          "pilot": "Pilot",
+          "rollout": "Rollout",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Design: Zero Trust architecture and access policies mapped to legal user roles.",
+          "point2": "Pilot: Initial deployment to key partners and remote staff for validation.",
+          "point3": "Rollout: Phased onboarding of all firm users via FortiClient and FortiSASE cloud.",
+          "point4": "Handover: Documentation, access profiles, and IT team enablement sessions.",
+          "point5": "Managed Ops: Continuous monitoring, reporting, and security updates by Stackhubs SOC."
+        }
+      },
+      "managedService": {
+        "title": "Handover & Managed Operations",
+        "features": {
+          "monitoring": "24×7 Monitoring & Alerting – Real-time visibility and automated incident response.",
+          "sla": "Performance Dashboards – Monthly reports on uptime, usage, and trends.",
+          "reports": "Optimization & Updates – Quarterly firmware and policy enhancements."
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "businessOutcomes": {
+          "title": "Business Outcomes",
+          "points": {
+            "point1": "Confidential remote access: sensitive legal data protected by Zero Trust policies.",
+            "point2": "Regulatory compliance: secure framework aligned with UAE and GDPR privacy standards.",
+            "point3": "Operational efficiency: reduced login friction while enhancing audit control.",
+            "point4": "Simplified IT management: single cloud console for policy and access visibility.",
+            "point5": "Client trust: demonstrable commitment to data protection and legal confidentiality."
+          }
+        }
+      }
     }
   }
 }

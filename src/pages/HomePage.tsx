@@ -18,6 +18,9 @@ import partners from "@/assets/images/partners.jpg";
 import solution from "@/assets/images/solution.jpg";
 import elazaby from "@/assets/images/elazaby.jpg";
 import ghazala from "@/assets/images/ghazala.jpg";
+import habib from "@/assets/images/habib.jpg";
+import Egypt from "@/assets/images/Egypt.png";
+import Emarat from "@/assets/images/Emarat.png";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
@@ -533,10 +536,23 @@ const HomePage: React.FC = () => {
                 {
                   src: elazaby,
                   id: "elEzabyProject",
+                  country: "Egypt",
+                  flag: Egypt,
+                  field: "Pharma",
                 },
                 {
                   src: ghazala,
                   id: "ghazalaProject",
+                  country: "Egypt",
+                  flag: Egypt,
+                  field: "Hospitality",
+                },
+                {
+                  src: habib,
+                  id: "habibProject",
+                  country: "UAE",
+                  flag: Emarat,
+                  field: "Legal Services",
                 },
               ])
               .flat()
@@ -555,10 +571,29 @@ const HomePage: React.FC = () => {
                       alt={t(`projectDetails.${project.id}.title`)}
                       className="w-full h-56 object-fill rounded-xl"
                     />
-                    <div className="p-2">
-                      <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
-                        {t(`projectDetails.${project.id}.tag`)}
-                      </p>
+
+                    <div className="p-3">
+                      {/* ✅ صف يحتوي على الدولة والمجال */}
+                      <div className="flex items-center justify-between mb-2">
+                        {/* اليسار: علم + اسم الدولة */}
+                        <div className="flex items-center gap-2">
+                          <img
+                            src={project.flag}
+                            alt={`${project.country} flag`}
+                            className="w-6 h-4 object-cover rounded-sm"
+                          />
+                          <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+                            {project.country}
+                          </span>
+                        </div>
+
+                        {/* اليمين: المجال */}
+                        <span className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
+                          {project.field}
+                        </span>
+                      </div>
+
+                      {/* العنوان الرئيسي */}
                       <h3 className="text-lg font-semibold">
                         {t(`projectDetails.${project.id}.title`)}
                       </h3>
@@ -580,9 +615,9 @@ const HomePage: React.FC = () => {
               size="lg"
               variant="secondary"
               className="group relative inline-flex items-center gap-2 px-10 py-6 rounded-full text-lg font-semibold text-white 
-                   bg-gradient-to-r from-primary via-brand to-primary 
-                   bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
-                   transition-all duration-500 animate-gradient-pulse"
+             bg-gradient-to-r from-primary via-brand to-primary 
+             bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
+             transition-all duration-500 animate-gradient-pulse"
               onClick={() => navigate("/projects")}
             >
               {t("caseStudies.button")}

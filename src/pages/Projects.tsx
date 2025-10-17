@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import elazaby from "@/assets/images/elazaby.jpg";
 import ghazala from "@/assets/images/ghazala.jpg";
-
+import habib from "@/assets/images/habib.jpg";
 const projects = [
   {
     id: 1,
@@ -15,6 +15,11 @@ const projects = [
     key: "ghazalaProject",
     image: ghazala,
   },
+  {
+    id: 3,
+    key: "habibProject",
+    image: habib,
+  }
 ];
 
 export default function Projects() {
@@ -45,7 +50,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
