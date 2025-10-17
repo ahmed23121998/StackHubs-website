@@ -108,102 +108,113 @@ interface ProjectDetail {
   businessImpact?: BusinessImpact;
   testimonial: Testimonial;
 }
-
-// مكون Read More قابل لإعادة الاستخدام
-const ReadMoreSection = ({
-  content,
-  isArabic,
-  color = "blue",
-  icon: Icon,
-}: {
-  content: string;
-  isArabic: boolean;
-  color?: string;
-  icon: React.ElementType;
-}) => {
-  const [showAll, setShowAll] = useState(false);
-  const points = content.split(".").filter((point) => point.trim().length > 0);
-  const visiblePoints = showAll ? points : points.slice(0, 1);
-  const hasMore = points.length > 1;
-  const { t } = useTranslation();
-  const colorClasses = {
-    orange: {
-      bg: "from-orange-500 to-orange-600",
-      border: "border-orange-400",
-      text: "text-orange-200",
-      icon: "text-orange-200",
-    },
-    blue: {
-      bg: "from-blue-500 to-indigo-600",
-      border: "border-blue-400",
-      text: "text-blue-200",
-      icon: "text-blue-200",
-    },
-    purple: {
-      bg: "from-purple-500 to-pink-600",
-      border: "border-purple-400",
-      text: "text-purple-200",
-      icon: "text-purple-200",
-    },
-  };
-
-  const currentColor =
-    colorClasses[color as keyof typeof colorClasses] || colorClasses.blue;
-
-  return (
-    <div className="flex-1 flex flex-col">
-      <motion.ul className="space-y-4 flex-1">
-        {visiblePoints.map((point: string, index: number) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="flex items-start gap-3"
-          >
-            <Icon
-              className={`w-5 h-5 ${currentColor.icon} flex-shrink-0 mt-1 ${
-                isArabic ? "ml-2" : "mr-2"
-              }`}
-            />
-            <span className={`${currentColor.text} leading-relaxed flex-1`}>
-              {point.trim()}.
-            </span>
-          </motion.li>
-        ))}
-      </motion.ul>
-
-      {/* زر Read More */}
-      {hasMore && (
-        <div className={`mt-4 pt-4 border-t ${currentColor.border}/30`}>
-          <div
-            onClick={() => setShowAll(!showAll)}
-            className={`flex items-center gap-2 cursor-pointer select-none ${
-              currentColor.text
-            } hover:text-white font-semibold transition-all duration-300 justify-center ${
-              isArabic ? "flex-row-reverse" : ""
-            }`}
-          >
-            <span>{showAll ? t("common.showLess") : t("common.readMore")}</span>
-            <ArrowRight
-              className={`w-4 h-4 transform transition-transform duration-300 ${
-                showAll ? "-rotate-90" : "rotate-90"
-              }`}
-            />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
 export default function ProjectDetails() {
+  const [showAllSections, setShowAllSections] = useState(false);
+  const ReadMoreSection = ({
+    content,
+    isArabic,
+    color = "blue",
+    icon: Icon,
+    showAll,
+    onToggle,
+  }: {
+    content: string;
+    isArabic: boolean;
+    color?: string;
+    icon: React.ElementType;
+    showAll: boolean;
+    onToggle: () => void;
+  }) => {
+    const points = content
+      .split(".")
+      .filter((point) => point.trim().length > 0);
+    const visiblePoints = showAll ? points : points.slice(0, 1);
+    const hasMore = points.length > 1;
+    const { t } = useTranslation();
+
+    const colorClasses = {
+      orange: {
+        bg: "from-orange-500 to-orange-600",
+        border: "border-orange-400",
+        text: "text-orange-200",
+        icon: "text-orange-200",
+      },
+      blue: {
+        bg: "from-blue-500 to-indigo-600",
+        border: "border-blue-400",
+        text: "text-blue-200",
+        icon: "text-blue-200",
+      },
+      purple: {
+        bg: "from-purple-500 to-pink-600",
+        border: "border-purple-400",
+        text: "text-purple-200",
+        icon: "text-purple-200",
+      },
+    };
+
+    const currentColor =
+      colorClasses[color as keyof typeof colorClasses] || colorClasses.blue;
+
+    return (
+      <div className="flex-1 flex flex-col">
+        <motion.ul className="space-y-4 flex-1">
+          {visiblePoints.map((point: string, index: number) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="flex items-start gap-3"
+            >
+              <Icon
+                className={`w-5 h-5 ${currentColor.icon} flex-shrink-0 mt-1 ${
+                  isArabic ? "ml-2" : "mr-2"
+                }`}
+              />
+              <span className={`${currentColor.text} leading-relaxed flex-1`}>
+                {point.trim()}.
+              </span>
+            </motion.li>
+          ))}
+        </motion.ul>
+
+        {/* زر Read More - مشترك لجميع البوكسات */}
+        {hasMore && (
+          <div className={`mt-4 pt-4 border-t ${currentColor.border}/30`}>
+            <div
+              onClick={onToggle}
+              className={`flex items-center gap-2 cursor-pointer select-none ${
+                currentColor.text
+              } hover:text-white font-semibold transition-all duration-300 justify-center ${
+                isArabic ? "flex-row-reverse" : ""
+              }`}
+            >
+              <span>
+                {showAll ? t("common.showLess") : t("common.readMore")}
+              </span>
+              <ArrowRight
+                className={`w-4 h-4 transform transition-transform duration-300 ${
+                  showAll
+                    ? isArabic
+                      ? "rotate-90"
+                      : "-rotate-90"
+                    : isArabic
+                    ? "-rotate-90"
+                    : "rotate-90"
+                }`}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
   const { key } = useParams<{ key: string }>();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const isArabic = i18n.language === "ar";
-
   const project = projectMap[key ?? ""];
   if (!project) {
     return (
@@ -505,6 +516,8 @@ export default function ProjectDetails() {
                   isArabic={isArabic}
                   color="orange"
                   icon={CheckCircle}
+                  showAll={showAllSections}
+                  onToggle={() => setShowAllSections(!showAllSections)}
                 />
               </div>
             </motion.div>
@@ -543,6 +556,8 @@ export default function ProjectDetails() {
                   isArabic={isArabic}
                   color="blue"
                   icon={CheckCircle}
+                  showAll={showAllSections}
+                  onToggle={() => setShowAllSections(!showAllSections)}
                 />
               </div>
             </motion.div>
@@ -581,6 +596,8 @@ export default function ProjectDetails() {
                   isArabic={isArabic}
                   color="purple"
                   icon={CheckCircle}
+                  showAll={showAllSections}
+                  onToggle={() => setShowAllSections(!showAllSections)}
                 />
               </div>
             </motion.div>
