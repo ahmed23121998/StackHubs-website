@@ -24,7 +24,7 @@ import Emarat from "@/assets/images/Emarat.png";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
-import parttner1 from "@/assets/images/parttner/Picture1.png";
+import parttner1 from "@/assets/images/Parttner/Picture1.png";
 import parttner2 from "@/assets/images/parttner/Picture2.png";
 import parttner3 from "@/assets/images/parttner/Picture3.png";
 import parttner4 from "@/assets/images/parttner/Picture4.png";
