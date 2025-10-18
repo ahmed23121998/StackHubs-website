@@ -24,12 +24,47 @@ import Emarat from "@/assets/images/Emarat.png";
 import choose_2 from "@/assets/images/choose_2.jpg";
 import { Check } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
+import parttner1 from "@/assets/images/parttner/Picture1.png";
+import parttner2 from "@/assets/images/parttner/Picture2.png";
+import parttner3 from "@/assets/images/parttner/Picture3.png";
+import parttner4 from "@/assets/images/parttner/Picture4.png";
+import parttner5 from "@/assets/images/parttner/Picture5.png";
+import parttner6 from "@/assets/images/parttner/Picture6.png";
+import parttner7 from "@/assets/images/parttner/Picture7.png";
+import parttner8 from "@/assets/images/parttner/Picture8.png";
+import parttner9 from "@/assets/images/parttner/Picture9.png";
+import parttner10 from "@/assets/images/parttner/Picture10.png";
+import parttner11 from "@/assets/images/parttner/Picture11.png";
+import parttner12 from "@/assets/images/parttner/Picture12.png";
+import parttner13 from "@/assets/images/parttner/Picture13.png";
+import parttner14 from "@/assets/images/parttner/Picture14.png";
+import parttner15 from "@/assets/images/parttner/Picture15.png";
 
 const HomePage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const swiperRef = useRef<any>(null);
   const hubs = useMemo(() => serviceHubs(t), [i18n.language, t]);
+
+  // تعريف مصفوفة الـ partners هنا في المستوى الصحيح
+  const parttners = [
+    parttner1,
+    parttner2,
+    parttner3,
+    parttner4,
+    parttner5,
+    parttner6,
+    parttner7,
+    parttner8,
+    parttner9,
+    parttner10,
+    parttner11,
+    parttner12,
+    parttner13,
+    parttner14,
+    parttner15,
+  ];
+
   type AnimatedCounterProps = {
     value: number;
     suffix?: string;
@@ -142,7 +177,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* 🌟 Services Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+      <section className="py-20  bg-gray-50 dark:bg-gray-900 dark:from-gray-950 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 🔹 Section Title */}
           <motion.h2
@@ -323,8 +358,135 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section className="py-20 dark:bg-gray-900">
+        <div className="max-w-5xl mx-auto px-8">
+          {/* Section Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold">
+              {t("caseStudies.title")}
+            </h2>
+          </motion.div>
+
+          {/* Swiper Slider */}
+          <Swiper
+            key={i18n.language}
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            speed={2000}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="mb-12"
+          >
+            {Array(6)
+              .fill([
+                {
+                  src: elazaby,
+                  id: "elEzabyProject",
+                  country: "Egypt",
+                  flag: Egypt,
+                  field: "Pharma",
+                },
+                {
+                  src: ghazala,
+                  id: "ghazalaProject",
+                  country: "Egypt",
+                  flag: Egypt,
+                  field: "Hospitality",
+                },
+                {
+                  src: habib,
+                  id: "habibProject",
+                  country: "UAE",
+                  flag: Emarat,
+                  field: "Legal Services",
+                },
+              ])
+              .flat()
+              .map((project, i) => (
+                <SwiperSlide key={`${project.id}-${i}`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.6, delay: (i % 3) * 0.2 }}
+                    className="transition transform cursor-pointer"
+                    onClick={() => navigate(`/projects/${project.id}`)}
+                  >
+                    <img
+                      src={project.src}
+                      alt={t(`projectDetails.${project.id}.title`)}
+                      className="w-full h-56 object-fill rounded-xl"
+                    />
+
+                    <div className="p-3">
+                      {/* ✅ صف يحتوي على الدولة والمجال */}
+                      <div className="flex items-center justify-between mb-2">
+                        {/* اليسار: علم + اسم الدولة */}
+                        <div className="flex items-center gap-2">
+                          <img
+                            src={project.flag}
+                            alt={`${project.country} flag`}
+                            className="w-6 h-4 object-cover rounded-sm"
+                          />
+                          <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+                            {project.country}
+                          </span>
+                        </div>
+
+                        {/* اليمين: المجال */}
+                        <span className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
+                          {project.field}
+                        </span>
+                      </div>
+
+                      {/* العنوان الرئيسي */}
+                      <h3 className="text-lg font-semibold">
+                        {t(`projectDetails.${project.id}.title`)}
+                      </h3>
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+
+          {/* Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center"
+          >
+            <Button
+              size="lg"
+              variant="secondary"
+              className="group relative inline-flex items-center gap-2 px-10 py-6 rounded-full text-lg font-semibold text-white 
+             bg-gradient-to-r from-primary via-brand to-primary 
+             bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
+             transition-all duration-500 animate-gradient-pulse"
+              onClick={() => navigate("/projects")}
+            >
+              {t("caseStudies.button")}
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* About Us Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* الشبكة (النص + الفيديوهات) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -499,210 +661,97 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="py-20 dark:bg-gray-800">
-        <div className="max-w-5xl mx-auto px-8">
-          {/* Section Title */}
+      {/* 🌟 Our Partners Section */}
+      <section className="relative py-24 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* العنوان */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-14"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold">
-              {t("caseStudies.title")}
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+              {t("partners.ourPartners") || "Our Partners"}
             </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              {t("partners.subtitle") ||
+                "Trusted by industry leaders worldwide"}
+            </p>
           </motion.div>
 
-          {/* Swiper Slider */}
-          <Swiper
-            key={i18n.language}
-            modules={[Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            speed={2000}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="mb-12"
+          {/* السلايدر */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            {Array(6)
-              .fill([
-                {
-                  src: elazaby,
-                  id: "elEzabyProject",
-                  country: "Egypt",
-                  flag: Egypt,
-                  field: "Pharma",
-                },
-                {
-                  src: ghazala,
-                  id: "ghazalaProject",
-                  country: "Egypt",
-                  flag: Egypt,
-                  field: "Hospitality",
-                },
-                {
-                  src: habib,
-                  id: "habibProject",
-                  country: "UAE",
-                  flag: Emarat,
-                  field: "Legal Services",
-                },
-              ])
-              .flat()
-              .map((project, i) => (
-                <SwiperSlide key={`${project.id}-${i}`}>
+            <Swiper
+              key={i18n.language}
+              modules={[Autoplay]}
+              spaceBetween={40}
+              slidesPerView={2}
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              speed={1200}
+              breakpoints={{
+                480: { slidesPerView: 2, spaceBetween: 20 },
+                640: { slidesPerView: 3, spaceBetween: 30 },
+                768: { slidesPerView: 4, spaceBetween: 35 },
+                1024: { slidesPerView: 5, spaceBetween: 40 },
+                1280: { slidesPerView: 5, spaceBetween: 50 },
+              }}
+              className="partners-swiper"
+            >
+              {parttners.map((partner, index) => (
+                <SwiperSlide key={index}>
                   <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.6, delay: (i % 3) * 0.2 }}
-                    className="transition transform cursor-pointer"
-                    onClick={() => navigate(`/projects/${project.id}`)}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className="flex items-center justify-center group"
                   >
-                    <img
-                      src={project.src}
-                      alt={t(`projectDetails.${project.id}.title`)}
-                      className="w-full h-56 object-fill rounded-xl"
-                    />
-
-                    <div className="p-3">
-                      {/* ✅ صف يحتوي على الدولة والمجال */}
-                      <div className="flex items-center justify-between mb-2">
-                        {/* اليسار: علم + اسم الدولة */}
-                        <div className="flex items-center gap-2">
-                          <img
-                            src={project.flag}
-                            alt={`${project.country} flag`}
-                            className="w-6 h-4 object-cover rounded-sm"
-                          />
-                          <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
-                            {project.country}
-                          </span>
-                        </div>
-
-                        {/* اليمين: المجال */}
-                        <span className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
-                          {project.field}
-                        </span>
-                      </div>
-
-                      {/* العنوان الرئيسي */}
-                      <h3 className="text-lg font-semibold">
-                        {t(`projectDetails.${project.id}.title`)}
-                      </h3>
+                    <div className="relative w-40 h-24 md:w-96 md:h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-400 rounded-xl shadow-md border border-gray-200/50 dark:border-gray-700/40 hover:shadow-2xl hover:scale-110 transition-all duration-500 backdrop-blur-sm">
+                      <img
+                        src={partner}
+                        alt={`Partner ${index + 1}`}
+                        className="max-w-[90%] max-h-[90%] object-fill transition-all duration-500 opacity-80 hover:opacity-100"
+                      />
+                      {/* توهج خفيف عند المرور */}
+                      <div className="absolute inse t-0 rounded-2xl bg-gradient-to-r from-primary/10 to-brand/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
                     </div>
                   </motion.div>
                 </SwiperSlide>
               ))}
-          </Swiper>
+            </Swiper>
+          </motion.div>
 
-          {/* Button */}
+          {/* النص التوضيحي أسفل السلايدر */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-14"
           >
-            <Button
-              size="lg"
-              variant="secondary"
-              className="group relative inline-flex items-center gap-2 px-10 py-6 rounded-full text-lg font-semibold text-white 
-             bg-gradient-to-r from-primary via-brand to-primary 
-             bg-[length:200%_200%] shadow-lg hover:shadow-2xl hover:scale-105 
-             transition-all duration-500 animate-gradient-pulse"
-              onClick={() => navigate("/projects")}
-            >
-              {t("caseStudies.button")}
-            </Button>
+            <p className="text-gray-800 dark:text-gray-400 text-sm md:text-base max-w-3xl mx-auto">
+              {t("partners.description") ||
+                "We collaborate with global brands to create meaningful partnerships that drive innovation and success."}
+            </p>
           </motion.div>
         </div>
+
+        {/* خلفية زخرفية بسيطة */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-brand/5 opacity-40 pointer-events-none" />
       </section>
-
-      {/* Partners / CTA Section */}
-      {/* <section className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-lg py-16 px-8 relative overflow-hidden">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-              <div className="w-60 h-48 overflow-hidden rounded-lg shadow-md [clip-path:polygon(0%_0,80%_0,100%_100%,0%_100%)]">
-                <img
-                  src={cat_1}
-                  alt="Team Left"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1 text-center px-4">
-                <p className="text-brand font-semibold mb-3 uppercase tracking-wide">
-                  {t("partners.subtitle")}
-                </p>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                  {t("partners.title")}
-                </h2>
-                <div className="flex items-center justify-center gap-6 flex-wrap">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="text-lg px-8 py-4 bg-[#DF1783] text-white hover:bg-primary/70 m-8 rounded-full"
-                    onClick={() => navigate("/contact")}
-                  >
-                    {t("partners.cta")}
-                  </Button>
-
-                  <a
-                    href="tel:01149958181"
-                    className="flex items-center gap-4 bg-primary hover:bg-primary/70 dark:bg-primary px-5 py-4 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 dark:hover:bg-gray-700 transition cursor-pointer"
-                  >
-                    <span className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 text-2xl">
-                      📞
-                    </span>
-
-                    <div className="flex flex-col leading-tight">
-                      <span className="text-lg font-bold text-white dark:text-white">
-                        01149958181
-                      </span>
-                      <span className="text-sm text-gray-400 dark:text-gray-400">
-                        {t("partners.phoneNote")}
-                      </span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div className="w-60 h-48 overflow-hidden rounded-lg shadow-md [clip-path:polygon(20%_0,100%_0,100%_100%,0_100%)]">
-                <img
-                  src={cat_2}
-                  alt="Team Right"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="relative z-10 -mt-10 flex justify-center">
-            <div className="bg-primary dark:bg-primary rounded-3xl py-12 px-10 shadow-lg max-w-5xl w-full">
-              <div className="flex flex-wrap items-center justify-center gap-12">
-                {[brand_6_2, brand_6_3, brand_6_4, brand_6_5].map((logo, i) => (
-                  <motion.img
-                    key={i}
-                    src={logo}
-                    alt={`Brand ${i + 1}`}
-                    className="h-10 brightness-200 opacity-80 hover:opacity-100 transition"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: i * 0.2 }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };

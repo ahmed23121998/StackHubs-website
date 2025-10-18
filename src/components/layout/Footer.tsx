@@ -151,7 +151,7 @@ const Footer: React.FC = () => {
                   className="group"
                 >
                   <div
-                    className={`w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${social.hover}`}
+                    className={`w-12 h-12 bg-primary rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${social.hover}`}
                   >
                     <social.icon className="w-6 h-6 text-white" />
                   </div>

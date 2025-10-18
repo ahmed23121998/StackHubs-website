@@ -502,11 +502,9 @@
   },
 
   "partners": {
-    "badge": "Our Partners",
-    "title": "We Make Awesome IT Services For Your Newly Business",
-    "subtitle": "Work With Us",
-    "phoneNote": "For any questions",
-    "cta": "Contact Us"
+    "ourPartners": "Our Partners",
+    "subtitle": "Trusted by industry leaders worldwide",
+    "description": "We collaborate with leading companies to deliver exceptional solutions that meet the highest quality standards"
   },
 
   "caseStudies": {
@@ -597,6 +595,7 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our experts",
+    "followUs": "Follow Us",
     "info": {
       "email": "info@stackhubs.com",
       "phone": "+201149958181",
