@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { key: "home", label: t("nav.home") },
-    { key: "about", label: t("nav.about") },
+    // { key: "about", label: t("nav.about") },
     { key: "services", label: t("nav.services") },
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
   const handleNavigation = (page: string) => {
     const pathMap: Record<string, string> = {
       home: "/",
-      about: "/about",
+      // about: "/about",
       services: "/services",
       loyal: "/loyal",
       partner: "/partner",

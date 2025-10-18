@@ -10,7 +10,7 @@ import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
 import LoyalProgramPage from "@/pages/LoyalProgramPage";
 import PartnerProgramPage from "@/pages/PartnerProgramPage";
-import AboutPage from "@/pages/AboutPage";
+// import AboutPage from "@/pages/AboutPage";
 import { Toaster } from "@/components/ui/sonner";
 // import StorePage from "./pages/StorePage";
 // import CheckoutPage from "@/pages/CheckoutPage";
@@ -99,7 +99,7 @@ function AppRoutes() {
         <Route path="/partner" element={<PartnerProgramPage />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:key" element={<ProjectDetails />} />
-        <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="/about" element={<AboutPage />} /> */}
         {/* <Route path="/store" element={<StorePage />} /> */}
         {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
         {/* <Route path="/orders" element={<OrdersPage />} /> */}

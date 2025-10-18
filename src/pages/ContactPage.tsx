@@ -7,7 +7,7 @@ import contact from "@/assets/images/contact_us.jpg";
 import background from "@/assets/images/backgrond_contact.png";
 import facebook from "@/assets/images/facebook.png";
 import instagram from "@/assets/images/instagram.jpeg";
-import twitter from "@/assets/images/twitter.png";
+import twitter from "@/assets/images/twitter.jpeg";
 import linkedin from "@/assets/images/linkedin.png";
 
 const ContactPage: React.FC = () => {
@@ -42,15 +42,25 @@ const ContactPage: React.FC = () => {
         </div>
 
         {/* ====== Row 1: Form + Image ====== */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
-          <ContactForm />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-2 mb-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-end w-full"
+          >
+            <div className="w-full lg:w-[95%] xl:w-[100%]">
+              <ContactForm />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center"
+            className="flex justify-start"
           >
-            <div className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl border border-white/20 dark:border-gray-700">
+            <div className="relative w-full max-w-lg rounded-xl overflow-hidden shadow-2xl border border-white/20 dark:border-gray-700">
               <img
                 src={contact}
                 alt="Contact Illustration"
