@@ -46,7 +46,6 @@ const HomePage: React.FC = () => {
   const swiperRef = useRef<any>(null);
   const hubs = useMemo(() => serviceHubs(t), [i18n.language, t]);
 
-  // تعريف مصفوفة الـ partners هنا في المستوى الصحيح
   const parttners = [
     parttner1,
     parttner2,
