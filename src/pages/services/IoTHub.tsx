@@ -30,6 +30,9 @@ const IoTHub: React.FC = () => {
     .split(".")
     .filter((point: string) => point.trim().length > 0);
   const visiblePoints = showAll ? introPoints : introPoints.slice(0, 3);
+  const [allExpanded, setAllExpanded] = useState(false);
+  const toggleAllCards = () => setAllExpanded((prev) => !prev);
+
   return (
     <div
       className={`bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-hidden transition-all duration-700 ${
@@ -187,7 +190,9 @@ const IoTHub: React.FC = () => {
                         {section.title}
                       </h3>
                     </div>
-                    <div className="flex-1 overflow-auto">
+
+                    {/* النص ياخد المساحة المتبقية */}
+                    <div className="flex-1 overflow-auto mb-4">
                       <ul
                         className={`text-gray-700 dark:text-gray-300 leading-relaxed text-sm list-none space-y-2 ${
                           isArabic ? "text-right" : "text-left"
@@ -197,12 +202,9 @@ const IoTHub: React.FC = () => {
                         {section.desc
                           .split(".")
                           .filter((point: string) => point.trim().length > 0)
+                          .slice(0, allExpanded ? undefined : 2)
                           .map((point: string, index: number) => (
-                            <li
-                              key={index}
-                              className={"flex items-start gap-2"}
-                              style={{ direction: isArabic ? "rtl" : "ltr" }}
-                            >
+                            <li key={index} className="flex items-start gap-2">
                               <ArrowRight
                                 className={`w-4 h-4 text-brand mt-1 flex-shrink-0 transform ${
                                   isArabic ? "rotate-180 ml-2" : "mr-2"
@@ -213,6 +215,38 @@ const IoTHub: React.FC = () => {
                           ))}
                       </ul>
                     </div>
+
+                    {/* الزر في أسفل الكارت دايمًا */}
+                    {section.desc.split(".").length > 2 && (
+                      <div
+                        onClick={toggleAllCards}
+                        className="mt-auto pt-3 flex items-center gap-2 text-pink-600 hover:text-pink-700 font-semibold text-sm transition-all duration-300 cursor-pointer justify-center border-t border-gray-200 dark:border-gray-600"
+                      >
+                        {isArabic && (
+                          <ArrowRight
+                            className={`w-3 h-3 transform transition-transform duration-300 ${
+                              allExpanded ? "-rotate-90" : "rotate-90"
+                            }`}
+                          />
+                        )}
+                        <span>
+                          {allExpanded
+                            ? isArabic
+                              ? "عرض أقل"
+                              : "Show less"
+                            : isArabic
+                            ? "عرض المزيد"
+                            : "Read more"}
+                        </span>
+                        {!isArabic && (
+                          <ArrowRight
+                            className={`w-3 h-3 transform transition-transform duration-300 ${
+                              allExpanded ? "-rotate-90" : "rotate-90"
+                            }`}
+                          />
+                        )}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               )
