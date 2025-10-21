@@ -158,7 +158,7 @@ const ContactPage: React.FC = () => {
           className="flex justify-center mb-12"
         >
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Stackhubs%20Global"
+            href="https://maps.app.goo.gl/hABHwYM8DMqsGaH1A?g_st=iw"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 p-6 rounded-2xl bg-white/70 dark:bg-gray-800/60 border border-gray-300/40 dark:border-gray-700/40 shadow-lg backdrop-blur-sm hover:shadow-xl transition"
@@ -177,15 +177,17 @@ const ContactPage: React.FC = () => {
           </a>
         </motion.div>
 
-        {/* ====== Row 5: Map Preview ====== */}
+        {/* ====== Row 5: Map Section ====== */}
         <div className="flex justify-center">
           <iframe
             title="Stackhubs Location"
-            src="https://www.google.com/maps?q=30.0444,31.2357&hl=ar&z=14&output=embed"
-            className="w-full md:w-3/4 h-80 rounded-2xl border-4 border-white/30 shadow-xl"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3453.771143427304!2d31.331794484884995!3d30.04342288188274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17.5!3m2!1m1!2zMzDCsDAyJzM2LjMiTiAzMcKwMTknNDYuNiJF!5e0!3m2!1sar!2seg!4v1761018823483!5m2!1sar!2seg"
+            className="w-full md:w-3/4 h-[450px] rounded-2xl border-4 border-white/30 shadow-xl"
+            style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
-          ></iframe>
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </div>
