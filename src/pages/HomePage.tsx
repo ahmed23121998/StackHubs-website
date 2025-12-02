@@ -554,7 +554,7 @@ const HomePage: React.FC = () => {
           </div>
 
           {/* ✅ الزرار المتحرك في المنتصف تحت العمودين */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <motion.button
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -571,7 +571,7 @@ const HomePage: React.FC = () => {
                 →
               </span>
             </motion.button>
-          </div>
+          </div> */}
         </div>
       </section>
 
