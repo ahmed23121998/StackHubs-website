@@ -730,7 +730,11 @@
     "projects": "Projects",
     "contact": "Contact Us",
     "followUs": "Follow Us",
-    "copyright": "© 2025 StackHubs. All rights reserved."
+    "copyright": "© 2025 StackHubs. All rights reserved.",
+    "mekhotek" : "Design and Developed by",
+    "company name" : "Mekhotek Company"
+    
+    
   },
 
   "navbar": {

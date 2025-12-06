@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -22,7 +22,7 @@ import habib from "@/assets/images/habib.jpg";
 import Egypt from "@/assets/images/Egypt.png";
 import Emarat from "@/assets/images/Emarat.png";
 import choose_2 from "@/assets/images/choose_2.jpg";
-import { Check } from "lucide-react";
+import { Check, ArrowUp } from "lucide-react";
 import AutoPlayVideo from "@/components/ui/AutoPlayVideo";
 import parttner1 from "@/assets/images/Parttner/Picture1.png";
 import parttner2 from "@/assets/images/Parttner/Picture2.png";
@@ -45,6 +45,16 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const swiperRef = useRef<any>(null);
   const hubs = useMemo(() => serviceHubs(t), [i18n.language, t]);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const parttners = [
     parttner1,
@@ -751,6 +761,23 @@ const HomePage: React.FC = () => {
         {/* خلفية زخرفية بسيطة */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-brand/5 opacity-40 pointer-events-none" />
       </section>
+
+      {/* زر الرجوع للأعلى */}
+      <AnimatePresence>
+        {showScrollButton && (
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-8 right-4 p-3 rounded-full bg-[#44B3E1] hover:bg-[#215C98]/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
