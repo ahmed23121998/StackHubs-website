@@ -8,7 +8,7 @@
     "projects": "Projects",
     "projectDetails": "Project Details",
     "about": "About",
-    "store": "Store",
+    "store": "Go to Store",
     "order": "My Orders",
     "dashboard": "Dashboard",
     "settings": "Settings",
@@ -17,13 +17,11 @@
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode"
   },
-
   "hero": {
     "title": "Your Partner in IT Innovation",
     "subtitle": "Explore the hubs below and discover solutions tailored to your business needs.",
     "cta": "Explore Our Services"
   },
-
   "hubs": {
     "ai": "AI Hub",
     "network": "Network Hub",
@@ -428,12 +426,10 @@
       }
     }
   },
-
   "hubDetails": {
     "notFound": "Hub not found",
     "backToServices": "Back to Services"
   },
-
   "stats": {
     "roiTitle": "Happy Customers",
     "roiDesc": "Achieve 80+ ROI with happy customers",
@@ -470,7 +466,6 @@
     "experience": "Years of experience in startup building",
     "numofyears": "25"
   },
-
   "cta": {
     "badge": "Get Started",
     "title": "Ready to Start Your Project?",
@@ -482,7 +477,6 @@
     "turnIdeasToReality": "Let's turn your ideas into reality",
     "talkToExperts": "Talk to our experts"
   },
-
   "whyChooseUs": {
     "badge": "Why Choose Us",
     "title": "The Role Of An IT Company In Adaptation And Growth",
@@ -500,18 +494,15 @@
       }
     ]
   },
-
   "partners": {
     "ourPartners": "Our Partners",
     "subtitle": "Trusted by industry leaders worldwide",
     "description": "We collaborate with leading companies to deliver exceptional solutions that meet the highest quality standards"
   },
-
   "caseStudies": {
     "title": "Discover Our Latest Projects",
     "button": "View All Projects"
   },
-
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "Trusted by businesses across industries",
@@ -528,7 +519,6 @@
       }
     ]
   },
-
   "pricing": {
     "title": "Pricing Plans",
     "subtitle": "Flexible plans tailored to your business needs",
@@ -566,13 +556,11 @@
       }
     }
   },
-
   "blog": {
     "title": "Latest Insights",
     "subtitle": "Stay updated with the latest trends in IT and digital transformation.",
     "readMore": "Read More"
   },
-
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to the most common questions",
@@ -591,7 +579,6 @@
       }
     ]
   },
-
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our experts",
@@ -615,7 +602,6 @@
       "success": "Your message has been sent successfully!"
     }
   },
-
   "loyal": {
     "subtitle": "Join the loyalty program and unlock exclusive benefits designed to accelerate your technical success.",
     "benefits": {
@@ -716,7 +702,6 @@
     "ctaDescription": "Join our global ecosystem of technology, solution, and channel partners. Grow with us.",
     "ctaButton": "Apply Now"
   },
-
   "footer": {
     "company": "Company",
     "about": "About",
@@ -731,12 +716,9 @@
     "contact": "Contact Us",
     "followUs": "Follow Us",
     "copyright": "© 2025 StackHubs. All rights reserved.",
-    "mekhotek" : "Design and Developed by",
-    "company name" : "Ahmed Khaled"
-    
-    
+    "mekhotek": "Design and Developed by",
+    "company name": "Mekhotek Company"
   },
-
   "navbar": {
     "theme": {
       "light": "Light Mode",
@@ -747,7 +729,6 @@
       "arabic": "العربية"
     }
   },
-
   "about": {
     "heroTitle": "Building Secure, Scalable Networks for the Digital Age",
     "heroSubtitle": "At Stackhubs, we design, deploy, and defend robust technology stacks that empower businesses to innovate fearlessly.",
@@ -795,7 +776,6 @@
       "cta": "Visit Our Website"
     }
   },
-
   "auth": {
     "name": "Name",
     "enterName": "Enter your name",
@@ -831,7 +811,6 @@
     "createAccountError": "Failed to create account",
     "welcome": "Welcome"
   },
-
   "settings": {
     "title": "Settings",
     "editProfile": "Edit Profile",
@@ -841,7 +820,6 @@
     "cancel": "Cancel",
     "profileImage": "Profile Image"
   },
-
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",

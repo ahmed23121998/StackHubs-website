@@ -165,7 +165,7 @@ const Footer: React.FC = () => {
             <p className="text-sm text-muted-foreground ">
               {t("footer.mekhotek")}{" "}
               <a
-                href="https://ahmedkhaled.store/"
+                href="https://mokhotek.store/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors duration-300"

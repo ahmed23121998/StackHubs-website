@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
     { key: "projects", label: t("nav.projects") },
+    { key: "store", label: t("nav.store") },
     { key: "contact", label: t("nav.contact") },
   ];
 
@@ -39,13 +40,26 @@ const Navbar: React.FC = () => {
   const handleNavigation = (page: string) => {
     const pathMap: Record<string, string> = {
       home: "/",
-      // about: "/about",
       services: "/services",
       loyal: "/loyal",
       partner: "/partner",
       projects: "/projects",
       contact: "/contact",
+      store: "http://store.stackhubs.com/", 
     };
+
+    if (page === "store") {
+      setIsMenuOpen(false);
+      setIsServicesOpen(false);
+
+      if (window.innerWidth < 768) {
+        window.location.href = pathMap[page];
+      } else {
+        window.open(pathMap[page], "_blank");
+      }
+      return;
+    }
+
     navigate(pathMap[page] || "/");
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
@@ -80,7 +94,6 @@ const Navbar: React.FC = () => {
                   {item.label}
                 </Button>
               ) : item.key === "services" ? (
-                // 🌐 Services Dropdown with arrow indicator
                 <div key={item.key} className="relative">
                   <div
                     onClick={() => setIsServicesOpen((prev) => !prev)}

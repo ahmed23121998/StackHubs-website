@@ -8,7 +8,7 @@
     "projects": "المشاريع",
     "projectDetails": "تفاصيل المشاريع",
     "about": "من نحن",
-    "store": "متجر",
+    "store": "الذهاب الي المتجر",
     "order": "طلباتي",
     "dashboard": "لوحة التحكم",
     "settings": "الاعدادات",
@@ -630,7 +630,7 @@
     "followUs": "تابعنا",
     "copyright": "© 2025 StackHubs. جميع الحقوق محفوظة.",
     "mekhotek" : " تصميم وتطوير بواسطة",
-    "company name" : "أحمد خالد"
+    "company name" : "شركة ميخوتك"
   },
   "common": {
     "loading": "جاري التحميل...",
