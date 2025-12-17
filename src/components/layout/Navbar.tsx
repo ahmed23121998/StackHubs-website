@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
           {/* 🖥️ Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) =>
-              item.key === "contact" ? (
+              item.key === "contact" || item.key === "store" ? (
                 <Button
                   key={item.key}
                   onClick={() => handleNavigation(item.key)}
@@ -285,7 +285,7 @@ const Navbar: React.FC = () => {
                       </button>
                     ))}
                   </div>
-                ) : item.key === "contact" ? (
+                ) : item.key === "contact" || item.key === "store" ? (
                   <Button
                     key={item.key}
                     onClick={() => handleNavigation(item.key)}
