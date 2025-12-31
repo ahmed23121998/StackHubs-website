@@ -1,0 +1,35 @@
+ERP Hub
+========
+
+
+Intro
+======
+The ERP Hub unifies finance, supply chain, sales, projects, and operations on a governed data model with clear roles, approvals, and auditability.
+Every engagement starts with a Gap Analysis & Process Discovery phase: we map current processes, controls, and data quality, then define a target operating model with measurable KPIs.
+Implementation follows a fit-for-purpose approach—minimal customization, strong master-data standards, and integration patterns that keep the core clean.
+We connect ERP with CRM, ecommerce, WMS/TMS, IoT/SCADA, and analytics platforms so decisions are driven by real-time data.
+As part of your digital transformation journey, we align technology, organization, and change management to deliver adoption, not just go-live.
+Cutover is rehearsed with playbooks and automated tests; after go-live, support models (hypercare, enhancement packs, managed services) keep the platform stable and evolving with the business.
+
+
+What We Deliver
+===============
+
+SAP (S/4HANA & Ecosystem)
+=========================
+We implement S/4HANA using a fit-to-standard method across Finance (FI/CO), Procure-to-Pay (MM/Ariba), Order-to-Cash (SD), Production (PP), EWM, and project accounting.
+The program begins with Gap Analysis to baseline processes, controls, and reporting, then moves through blueprinting, data governance, and phased releases.
+User experience is modernized with Fiori; extensions run on BTP, so custom logic is API-driven and upgrade-safe.
+Data migration is industrialized—cleansing, reconciliation, and rehearsal runs—so balances, open items, and stock land correctly.
+Controls and SoD are embedded in roles and workflows; MENA compliance (e-invoicing/tax packs) is supported.
+Post go-live, our Run & Evolve services cover release management, regression testing, automation/RPA for closing and matching, and value dashboards tied to business KPIs—backed by tiered support models (hypercare to managed application services).
+
+
+Odoo (Community, Online, and Odoo.sh)
+======================================
+We deliver Odoo across all editions—Community, Odoo Online, and Odoo.sh—selecting the model that fits governance, cost, and extensibility.
+A formal Gap Analysis precedes configuration: senior Odoo functional consultants, implementation leads, and Odoo developers map core processes (Accounting, Sales, Purchase, Inventory/WMS, MRP, Projects, HR/Payroll, Field Service) and define a clean target design.
+We prioritize configuration with Studio, server-side rules, and approvals to avoid unnecessary custom code; when extensions add value, we build them as modular Python apps with disciplined versioning and CI/CD (especially on Odoo.sh with staging and automated tests).
+Integrations connect Odoo to e-commerce, payments, shipping, POS, external BI, and legacy ERP via secure APIs/webhooks; data migration uses validated templates and automated reconciliation to reduce rework.
+Leadership gains real-time insight into cash, margin, inventory turns, aging, and fulfillment through curated dashboards and alerts that drive action.
+After go-live, we provide support models—hypercare, enhancement sprints, and managed Odoo services—so the platform scales smoothly as teams and volumes grow, fully aligned with your digital transformation roadmap.

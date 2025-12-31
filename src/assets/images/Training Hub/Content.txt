@@ -1,0 +1,51 @@
+Training Hub
+=============
+
+Intro
+=====
+
+The Training Hub equips teams with hands-on, expert-led programs that translate directly into performance on the job.
+We design curricula around roles and outcomes—from network engineers and security analysts to project leaders and service teams—so learning time maps to business impact.
+Delivery is flexible (remote, onsite, or blended) with live instructors, guided labs, and practical assignments that simulate real environments.
+Every course is measurable: pre-assessment, practice labs, checkpoints, and post-training action plans aligned to your KPIs.
+Where certifications matter, we structure official exam prep and coach learners through the path; where customization is needed, we build modules around your stack and processes.
+The result is a workforce that is skilled, certified, and future-ready—with knowledge that sticks because it is practiced, not just presented.
+
+
+What We Deliver
+===============
+
+1) Program Portfolio: IT & Soft-Skills
+======================================
+Our catalogue spans core IT disciplines (Networking, Security, Cloud, Automation/DevOps, Data/AI, ERP, and many more) and soft-skills (Leadership, Communication, Stakeholder Management, Agile/PM, and many more).
+Tracks are role-based—Engineer, Admin, Analyst, Architect, Manager—so each learner sees relevant scenarios and tools.
+Vendor-aligned content (e.g., Cisco, Palo Alto, Microsoft/Azure, AWS, Fortinet, VMware, Odoo, SAP) is available alongside vendor-neutral foundations.
+Soft-skills modules are integrated with technical labs through case studies and simulations that mirror real projects.
+Outcome: teams improve both technical depth and the human skills needed to deliver change effectively.
+
+2) Delivery Models: Remote, Onsite & Blended
+============================================
+Choose live remote classes for distributed teams, onsite bootcamps for accelerated outcomes, or blended programs that mix both.
+Cohorts follow a clear cadence (kickoff → live sessions → labs → review) with recordings and materials for later reference.
+Time-zoned schedules and micro-sessions reduce disruption to operations while maintaining momentum.
+Manager briefs and progress reports keep stakeholders informed and enable coaching between sessions.
+Outcome: minimal downtime, maximum retention, and a format that fits how your teams work.
+
+3) Hands-On Labs & Skill Verification
+=====================================
+Whenever available/required, courses include guided labs, sandboxes, and virtual racks that replicate production scenarios.
+Learners practice configurations, troubleshooting, and change workflows safely—then validate skills with challenges and graded tasks.
+Lab access can extend beyond class hours; proctored quizzes and capstone exercises measure capability, not just attendance.
+Where appropriate, we integrate scenario-based assessments tied to your environment and tooling.
+Outcome: skills are demonstrated and verifiable, not theoretical.
+
+4) Product Tracks & Custom Curriculum
+======================================
+We run product/solution-specific tracks (e.g., Cisco SDA/SD-WAN, ACI, Palo Alto NGFW, Microsoft 365, AWS, Azure, VMware, Odoo, SAP) with official exam mapping.
+For unique requirements, we build custom modules: your network, security policies, cloud patterns, and operational runbooks—all anonymized and safe.
+Programs can include readiness checks, labs on your configs, and post-training coaching clinics to embed new practices.
+We document learning paths per role and provide certification roadmaps with milestones and practice tests.
+Outcome: training that aligns with your stack, controls, and KPIs, accelerating time-to-competence and certification success.
+
+
+

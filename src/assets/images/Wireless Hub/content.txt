@@ -1,0 +1,90 @@
+Wireless Hub
+============
+
+Intro
+-----
+
+Wireless is no longer an add-on; it’s the primary access layer for users, devices, and IoT.
+Our Wireless Hub delivers end-to-end Wi-Fi architectures that combine RF design, security, and automation to achieve a consistent optimum experience at scale.
+We design for single strength, coverage, capacity, and engineering high-density environments with Wi-Fi 6/6E and ready for 7 using OFDMA and optimized channel plans in 2.4/5/6 GHz.
+Assurance is built in: active & predictive surveys, spectrum analysis, heatmaps, and continuous KPIs for latency, throughput, and roaming.
+Access is identity-driven with WPA3-Enterprise, 802.1X/EAP-TLS, NAC/Zero-Trust policy, and clean separation of production vs. guest traffic.
+We integrate wireless with the wider campus fabric (wired/SD-Access), deliver cloud-managed or controller-based operations, and support indoor, outdoor, and industrial sites.
+The outcome: fast, reliable, and cost-effective wireless that empowers mobility, VoIP/real-time apps, and large-scale IoT—anywhere.
+
+
+
+What We Deliver
+===============
+
+1) RF Strategy, Predictive Design & On-Site Validation
+-------------------------------------------------------
+We capture use-cases, device mix, concurrency, and SLAs, then translate them into an RF model (materials, AP placement, antenna patterns, channel widths, Tx power, data-rate thresholds).
+We use world-class tools like Ekahau to do our predictive design, produce heatmaps for coverage (RSSI/SNR), capacity, CCI/ACI, and 6-GHz viability, so deployment starts from a known-good baseline.
+We verify in the field with active/passive surveys, measuring real throughput, loss, jitter, roaming times, DHCP/DNS success, and retry rates.
+Spectrum analysis identifies non-Wi-Fi interferers (BLE, microwave, cameras, IoT), and we prescribe mitigations: clean channels, directional antennas, shielding, or relocation.
+Turn-up tuning covers cell size, power/channel plans, client steering, and sticky-client handling to hit target KPIs.
+Deliverables include updated heatmaps, survey files, spectrum captures, and an acceptance report mapped to your SLAs.
+
+2) High-Density Performance Engineering (Wi-Fi 6/6E/7-ready)
+--------------------------------------------------------------
+We design for crowded venues with OFDMA scheduling, MU-MIMO, BSS coloring, and precise cell sizing to maximize airtime efficiency.
+Client-steering and band-balancing policies keep the load even across 2.4/5/6 GHz while honoring device capabilities.
+End-to-end QoS ensures that voice, video, and real-time applications receive deterministic latency and jitter.
+Roaming is optimized using 802.11r/k/v, fast BSS transition, and minimized re-authentication penalties.
+We harden DHCP/DNS paths, prune broadcast/multicast traffic, and tune retry/CTS thresholds for enhanced reliability.
+Performance baselines and stress tests validate throughput per client profile under peak concurrency.
+
+3) Secure Access & Segmentation (Prod / Guest)
+-----------------------------------------------------------
+Identity-driven access with WPA3-Enterprise, 802.1X/EAP-TLS, and granular NAC policies enforces least-privilege by user/device posture.
+We implement per-user VLANs or group tags for micro-segmentation without SSID sprawl.
+Guest and contractor flows are isolated end-to-end with rate limits, time bounds, and audit trails.
+Certificate lifecycle (enrollment/renewal/revocation) integrates with MDM/Intune/JAMF for zero-touch onboarding.
+Rogue AP/WIPS policies detect and contain unauthorized radios safely.
+The wireless team also engages with the network team to ensure Network Policy sets are mirrored into the wired campus fabric for consistent enforcement.
+
+4) IoT & Location Services
+---------------------------
+Our wireless team integrates with the IoT hub team to build IoT profiles for scanners, sensors, cameras, AGVs—right power, rates, and security for low-power and high-density fleets.
+Onboarding options include DPSK, certificates, or MAC-based exceptions with tight network scopes.
+We deploy BLE/ULP grids and calibrate RTLS to accuracy targets for wayfinding and asset tracking.
+Northbound APIs stream location/events to CMMS/ERP/EMS platforms.
+IoT traffic is isolated with rate limits and anomaly alerts to protect business apps.
+Operational runbooks define lifecycle tasks: adds/moves, firmware, and security rotation.
+
+5) Controllers, Cloud-Managed Ops & Automation
+-----------------------------------------------
+Choose controller-based or cloud-managed WLAN; both deliver RRM, policy, and zero-touch provisioning.
+We standardize configs with templates and expose change workflows via APIs/GitOps for auditability.
+Automations cover adds/moves/changes, bulk firmware, and config drift detection with guardrails.
+Health telemetry streams to your NOC/SOC for correlation with wired, DHCP/DNS, and app layers.
+Role-based access and approval flows keep operations safe and fast.
+Scheduled maintenance windows use staged rollouts and rollback plans to minimize impact.
+
+6) Assurance, KPIs & Continuous Optimization
+---------------------------------------------
+We operate to explicit targets: ≥95% coverage, ≥98% roaming success, <30 ms latency for critical apps, and throughput per persona.
+Dashboards track SNR, retries, MCS distribution, roaming times, DHCP/DNS success, and client experience.
+Synthetic tests validate paths to key apps and detect degradations before users do.
+Quarterly reviews compare trends, incidents, and changes against KPIs and propose tuning actions.
+Event correlation ties RF changes to ticket volumes and user satisfaction.
+Reports are executive-friendly with technical appendices for engineering follow-up.
+
+7) Guest Access & Captive Portal Experience
+-------------------------------------------
+Branded portals with voucher/SMS/social/SSO and granular T&Cs.
+Walled-garden and bandwidth caps protect core services while keeping UX smooth.
+Full segmentation from production, with logging and abuse controls.
+Short-lived credentials, device limits, and sponsored guest workflows.
+Marketing/analytics hooks (optional) for visit patterns and dwell time.
+Operational playbooks define sponsor approval and exception handling.
+
+8) Documentation, Handover & Support Models
+-------------------------------------------
+You receive as-built diagrams, RF plans, finals of heatmaps/surveys, inventory, and runbooks.
+Admin training covers troubleshooting flows, KPIs, and safe-change practices.
+We provide warranty/firmware matrices and lifecycle roadmaps.
+Support tiers: design-assist, escalation-only, or fully managed Wi-Fi with SLAs.
+Proactive reviews keep configs aligned with device trends and regulations.
+A single contact window coordinates vendors, carriers, and campus integrations.
