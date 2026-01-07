@@ -3,22 +3,22 @@ import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { useAuth } from "@/contexts/AuthContext";
+// import { useAuth } from "@/contexts/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import HomePage from "@/pages/HomePage";
 import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
 import LoyalProgramPage from "@/pages/LoyalProgramPage";
 import PartnerProgramPage from "@/pages/PartnerProgramPage";
-import AboutPage from "@/pages/AboutPage";
+// import AboutPage from "@/pages/AboutPage";
 import { Toaster } from "@/components/ui/sonner";
 // import StorePage from "./pages/StorePage";
-import CheckoutPage from "@/pages/CheckoutPage";
-import OrdersPage from "./pages/OrdersPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import FavoritesPage from "./pages/FavoritesPage";
-import SettingsPage from "./pages/SettingsPage";
+// import CheckoutPage from "@/pages/CheckoutPage";
+// import OrdersPage from "./pages/OrdersPage";
+// import LoginPage from "./pages/LoginPage";
+// import RegisterPage from "./pages/RegisterPage";
+// import FavoritesPage from "./pages/FavoritesPage";
+// import SettingsPage from "./pages/SettingsPage";
 import "./i18n/i18n";
 import HubDetails from "./pages/HubDetails";
 // import { serviceHubs } from "@/data/serviceHubs";
@@ -37,7 +37,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 function AppRoutes() {
   const { i18n, t } = useTranslation();
   const location = useLocation();
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const path = location.pathname;
@@ -64,8 +64,8 @@ function AppRoutes() {
         "/loyal": "Loyal Program - StackHubs",
         "/partner": "Partner Program - StackHubs",
         "/about": "About Us - StackHubs",
-        "/login": "Login - StackHubs",
-        "/register": "Register - StackHubs",
+        // "/login": "Login - StackHubs",
+        // "/register": "Register - StackHubs",
         "/favorites": "Favorites - StackHubs",
         // "/store": "Store - StackHubs",
         "/checkout": "Checkout - StackHubs",
@@ -98,18 +98,18 @@ function AppRoutes() {
         <Route path="/loyal" element={<LoyalProgramPage />} />
         <Route path="/partner" element={<PartnerProgramPage />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects/:key" element={<ProjectDetails />} />
+        {/* <Route path="/about" element={<AboutPage />} /> */}
         {/* <Route path="/store" element={<StorePage />} /> */}
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route
+        {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
+        {/* <Route path="/orders" element={<OrdersPage />} /> */}
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+        {/* <Route path="/register" element={<RegisterPage />} /> */}
+        {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+        {/* <Route
           path="/settings"
           element={isAuthenticated ? <SettingsPage /> : <LoginPage />}
-        />
+        /> */}
       </Route>
     </Routes>
   );

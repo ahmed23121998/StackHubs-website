@@ -2,15 +2,12 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import {  Mail } from "lucide-react";
 import logo from "../../assets/images/stack-hubs-logo.png";
+import facebook from "@/assets/images/facebook.png";
+import instagram from "@/assets/images/instagram.jpeg";
+import twitter from "@/assets/images/twitter.jpeg";
+import linkedin from "@/assets/images/linkedin.png";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -23,7 +20,7 @@ const Footer: React.FC = () => {
 
   const companyLinks = [
     { label: t("footer.home"), href: "/" },
-    { label: t("footer.about"), href: "/about" },
+    // { label: t("footer.about"), href: "/about" },
     { label: t("footer.services"), href: "/services" },
     { label: t("footer.loyal"), href: "/loyal" },
     { label: t("footer.partner"), href: "/partner" },
@@ -33,25 +30,25 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     {
-      icon: Facebook,
+      icon: facebook,
       href: "https://www.facebook.com/share/14HeWajLPGG/?mibextid=wwXIfr",
       label: "Facebook",
       hover: "hover:bg-blue-600",
     },
     {
-      icon: Twitter,
+      icon: twitter,
       href: "https://x.com/Stackhubs_Globa",
       label: "Twitter",
       hover: "hover:bg-sky-500",
     },
     {
-      icon: Instagram,
+      icon: instagram,
       href: "https://www.instagram.com/stackhubs_global?igsh=MXE3MG16cTVtYTMyeA==&utm_source=ig_contact_invite",
       label: "Instagram",
       hover: "hover:bg-pink-600",
     },
     {
-      icon: Linkedin,
+      icon: linkedin,
       href: "https://www.linkedin.com/company/stackhubs-global/?viewAsMember=true",
       label: "LinkedIn",
       hover: "hover:bg-blue-700",
@@ -120,14 +117,14 @@ const Footer: React.FC = () => {
                 <Mail className="w-5 h-5 text-blue-500" />
                 <span>{t("contact.info.email")}</span>
               </a>
-              {/* Phone */}
+              {/* Phone
               <a
                 href="tel:+201149958181"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-green-600"
               >
                 <Phone className="w-5 h-5 text-green-500" />
                 <span>{t("contact.info.phone")}</span>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -148,13 +145,12 @@ const Footer: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="group"
+                  className="group w-10 h-10 rounded-full overflow-hidden bg-white shadow-lg border border-white/30 hover:scale-110 hover:shadow-2xl transition-transform duration-300"
                 >
-                  <div
-                    className={`w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${social.hover}`}
-                  >
-                    <social.icon className="w-6 h-6 text-white" />
-                  </div>
+                  <img
+                    src={social.icon}
+                    className="w-full h-full object-fill"
+                  />
                 </motion.a>
               ))}
             </div>
@@ -165,6 +161,17 @@ const Footer: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
               {t("footer.copyright")}
+            </p>
+            <p className="text-sm text-muted-foreground ">
+              {t("footer.mekhotek")}{" "}
+              <a
+                href="https://mokhotek.store/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold transition-colors duration-300"
+              >
+                {t("footer.company name")}
+              </a>
             </p>
           </div>
         </div>

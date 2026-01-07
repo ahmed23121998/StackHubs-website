@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon, Globe, Settings, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon, Globe, ChevronDown } from "lucide-react";
+// import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
+// import { useAuth } from "@/contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import CustomTooltip from "../ui/CustomTooltip";
 import { serviceHubs } from "@/data/serviceHubs";
 import logo from "../../assets/images/stack-hubs-logo.png";
-import login from "../../assets/images/login.jpg";
+// import login from "../../assets/images/login.jpg";
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
@@ -22,11 +23,12 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { key: "home", label: t("nav.home") },
-    { key: "about", label: t("nav.about") },
+    // { key: "about", label: t("nav.about") },
     { key: "services", label: t("nav.services") },
     { key: "loyal", label: t("nav.loyal") },
     { key: "partner", label: t("nav.partner") },
     { key: "projects", label: t("nav.projects") },
+    { key: "store", label: t("nav.store") },
     { key: "contact", label: t("nav.contact") },
   ];
 
@@ -38,13 +40,26 @@ const Navbar: React.FC = () => {
   const handleNavigation = (page: string) => {
     const pathMap: Record<string, string> = {
       home: "/",
-      about: "/about",
       services: "/services",
       loyal: "/loyal",
       partner: "/partner",
       projects: "/projects",
       contact: "/contact",
+      store: "http://store.stackhubs.com/", 
     };
+
+    if (page === "store") {
+      setIsMenuOpen(false);
+      setIsServicesOpen(false);
+
+      if (window.innerWidth < 768) {
+        window.location.href = pathMap[page];
+      } else {
+        window.open(pathMap[page], "_blank");
+      }
+      return;
+    }
+
     navigate(pathMap[page] || "/");
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMenuOpen(false);
@@ -70,7 +85,7 @@ const Navbar: React.FC = () => {
           {/* 🖥️ Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) =>
-              item.key === "contact" ? (
+              item.key === "contact" || item.key === "store" ? (
                 <Button
                   key={item.key}
                   onClick={() => handleNavigation(item.key)}
@@ -79,7 +94,6 @@ const Navbar: React.FC = () => {
                   {item.label}
                 </Button>
               ) : item.key === "services" ? (
-                // 🌐 Services Dropdown with arrow indicator
                 <div key={item.key} className="relative">
                   <div
                     onClick={() => setIsServicesOpen((prev) => !prev)}
@@ -152,7 +166,7 @@ const Navbar: React.FC = () => {
           {/* 🌗 Theme, Language & Auth Buttons */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0 rtl:flex-row-reverse">
             {/* Auth Button */}
-            {isAuthenticated ? (
+            {/* {isAuthenticated ? (
               <CustomTooltip label={t("nav.settings")} side="bottom">
                 <Button
                   variant="outline"
@@ -178,7 +192,7 @@ const Navbar: React.FC = () => {
                   />
                 </Button>
               </CustomTooltip>
-            )}
+            )} */}
 
             {/* Theme Toggle */}
             <CustomTooltip
@@ -271,7 +285,7 @@ const Navbar: React.FC = () => {
                       </button>
                     ))}
                   </div>
-                ) : item.key === "contact" ? (
+                ) : item.key === "contact" || item.key === "store" ? (
                   <Button
                     key={item.key}
                     onClick={() => handleNavigation(item.key)}

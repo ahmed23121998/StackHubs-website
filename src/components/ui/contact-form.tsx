@@ -34,18 +34,31 @@ const ContactForm: React.FC = () => {
 
     // تحقق من الحقول المطلوبة
     if (!name || !email || !phone || !company || !message) {
-      toast.error(t("contact.form.requiredFields")); // استخدم الترجمة
+      toast.error(t("contact.form.requiredFields"));
       return;
     }
 
     setIsLoading(true);
-
+    try {
+     fetch("https://store.stackhubs.com/api/auth/contactus/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, phone, company, message }),
+    })
     // محاكاة إرسال البيانات
-    setTimeout(() => {
-      toast.success(t("contact.form.success")); // استخدم الترجمة
+  
+    
+    
+      toast.success(t("contact.form.success"));
       setIsLoading(false);
       form.reset();
-    }, 1000);
+    
+    } catch (error) {
+      toast.error(t("contact.form.error"));
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -54,28 +67,41 @@ const ContactForm: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      className="w-full"
     >
-      <Card className="w-full max-w-2xl mx-auto">
-        <CardContent>
-          <form onSubmit={handleSubmit} className="m-4">
+      <Card className="w-full max-w-2xl mx-auto shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 min-h-[500px] h-full">
+        <CardContent className="h-full p-6">
+          <form onSubmit={handleSubmit} className="h-full flex flex-col">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4">
               <div>
                 <label
                   htmlFor="name"
-                  className="text-sm font-medium mb-2 block"
+                  className="text-sm font-medium mb-2 block text-gray-700 dark:text-gray-300"
                 >
                   {t("contact.form.name")}
                 </label>
-                <Input id="name" name="name" type="text" required />
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-primary focus:border-primary"
+                />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium mb-2 block"
+                  className="text-sm font-medium mb-2 block text-gray-700 dark:text-gray-300"
                 >
                   {t("contact.form.email")}
                 </label>
-                <Input id="email" name="email" type="email" required />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-primary focus:border-primary"
+                />
               </div>
             </div>
 
@@ -83,39 +109,55 @@ const ContactForm: React.FC = () => {
               <div>
                 <label
                   htmlFor="phone"
-                  className="text-sm font-medium mb-2 block"
+                  className="text-sm font-medium mb-2 block text-gray-700 dark:text-gray-300"
                 >
                   {t("contact.form.phone")}
                 </label>
-                <Input id="phone" name="phone" type="tel" />
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-primary focus:border-primary"
+                />
               </div>
               <div>
                 <label
                   htmlFor="company"
-                  className="text-sm font-medium mb-2 block"
+                  className="text-sm font-medium mb-2 block text-gray-700 dark:text-gray-300"
                 >
                   {t("contact.form.company")}
                 </label>
-                <Input id="company" name="company" type="text" />
+                <Input
+                  id="company"
+                  name="company"
+                  type="text"
+                  className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-primary focus:border-primary"
+                />
               </div>
             </div>
 
-            <div>
+            <div className="flex-1">
               <label
                 htmlFor="message"
-                className="text-sm font-medium mb-2 block"
+                className="text-sm font-medium mb-2 block text-gray-700 dark:text-gray-300"
               >
                 {t("contact.form.message")}
               </label>
-              <Textarea id="message" name="message" rows={5} required />
+              <Textarea
+                id="message"
+                name="message"
+                rows={8}
+                required
+                className="h-full min-h-[150px] resize-none bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-primary focus:border-primary"
+              />
             </div>
 
             <Button
               type="submit"
-              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full mt-4"
+              className="text-lg px-10 py-5 bg-gradient-to-r from-primary to-brand text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full mt-6 hover:from-primary/90 hover:to-brand/90 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
             >
-              {isLoading ? "جاري الإرسال..." : t("contact.form.submit")}
+              {isLoading ? t("contact.form.sending") : t("contact.form.submit")}
             </Button>
           </form>
         </CardContent>

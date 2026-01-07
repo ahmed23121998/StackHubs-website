@@ -8,7 +8,7 @@
     "projects": "Projects",
     "projectDetails": "Project Details",
     "about": "About",
-    "store": "Store",
+    "store": "Go to Store",
     "order": "My Orders",
     "dashboard": "Dashboard",
     "settings": "Settings",
@@ -17,13 +17,11 @@
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode"
   },
-
   "hero": {
     "title": "Your Partner in IT Innovation",
     "subtitle": "Explore the hubs below and discover solutions tailored to your business needs.",
     "cta": "Explore Our Services"
   },
-
   "hubs": {
     "ai": "AI Hub",
     "network": "Network Hub",
@@ -251,7 +249,7 @@
       },
       {
         "title": "Odoo (Community, Online, and Odoo.sh)",
-        "desc": "We deliver Odoo across all editions—Community, Odoo Online, and Odoo.sh—selecting the model that fits governance, cost, and extensibility.A formal Gap Analysis precedes configuration: senior Odoo functional consultants, implementation leads, and Odoo developers map core processes (Accounting, Sales, Purchase, Inventory/WMS, MRP, Projects, HR/Payroll, Field Service) and define a clean target design.We prioritize configuration with Studio, server-side rules, and approvals to avoid unnecessary custom code; when extensions add value, we build them as modular Python apps with disciplined versioning and CI/CD (especially on Odoo.sh with staging and automated tests).Integrations connect Odoo to e-commerce, payments, shipping, POS, external BI, and legacy ERP via secure APIs/webhooks; data migration uses validated templates and automated reconciliation to reduce rework.Leadership gains real-time insight into cash, margin, inventory turns, aging, and fulfillment through curated dashboards and alerts that drive action.After go-live, we provide support models—hypercare, enhancement sprints, and managed Odoo services—so the platform scales smoothly as teams and volumes grow, fully aligned with your digital transformation roadmap."
+        "desc": "We deliver Odoo across all editions—Community, Odoo Online, and Odoo.selecting the model that fits governance, cost, and extensibility.A formal Gap Analysis precedes configuration: senior Odoo functional consultants, implementation leads, and Odoo developers map core processes (Accounting, Sales, Purchase, Inventory/WMS, MRP, Projects, HR/Payroll, Field Service) and define a clean target design.We prioritize configuration with Studio, server-side rules, and approvals to avoid unnecessary custom code; when extensions add value, we build them as modular Python apps with disciplined versioning and CI/CD (especially on Odoo.sh with staging and automated tests).Integrations connect Odoo to e-commerce, payments, shipping, POS, external BI, and legacy ERP via secure APIs/webhooks; data migration uses validated templates and automated reconciliation to reduce rework.Leadership gains real-time insight into cash, margin, inventory turns, aging, and fulfillment through curated dashboards and alerts that drive action.After go-live, we provide support models—hypercare, enhancement sprints, and managed Odoo services—so the platform scales smoothly as teams and volumes grow, fully aligned with your digital transformation roadmap."
       }
     ],
     "ctaTitle": "Ready to Transform Your Enterprise?",
@@ -279,7 +277,7 @@
       },
       {
         "title": "Product Tracks & Custom Curriculum",
-        "desc": "We run product/solution-specific tracks (e.g., Cisco SDA/SD-WAN, ACI, Palo Alto NGFW, Microsoft 365, AWS, Azure, VMware, Odoo, SAP) with official exam mapping.For unique requirements, we build custom modules: your network, security policies, cloud patterns, and operational runbooks—all anonymized and safe.Programs can include readiness checks, labs on your configs, and post-training coaching clinics to embed new practices.We document learning paths per role and provide certification roadmaps with milestones and practice tests.Outcome: training that aligns with your stack, controls, and KPIs, accelerating time-to-competence and certification success."
+        "desc": "We run product/solution-specific tracks (Cisco SDA/SD-WAN, ACI, Palo Alto NGFW, Microsoft 365, AWS, Azure, VMware, Odoo, SAP) with official exam mapping.For unique requirements, we build custom modules: your network, security policies, cloud patterns, and operational runbooks—all anonymized and safe.Programs can include readiness checks, labs on your configs, and post-training coaching clinics to embed new practices.We document learning paths per role and provide certification roadmaps with milestones and practice tests.Outcome: training that aligns with your stack, controls, and KPIs, accelerating time-to-competence and certification success."
       }
     ],
     "ctaTitle": "Ready to Upskill Your Teams?",
@@ -428,12 +426,10 @@
       }
     }
   },
-
   "hubDetails": {
     "notFound": "Hub not found",
     "backToServices": "Back to Services"
   },
-
   "stats": {
     "roiTitle": "Happy Customers",
     "roiDesc": "Achieve 80+ ROI with happy customers",
@@ -470,16 +466,17 @@
     "experience": "Years of experience in startup building",
     "numofyears": "25"
   },
-
   "cta": {
     "badge": "Get Started",
     "title": "Ready to Start Your Project?",
     "desc": "Contact us today to discuss your business needs and let’s build something amazing together.",
     "button": "Start A Project",
     "subText": "Available 24/7",
-    "phone": "Call Us: +20 123 456 789"
+    "phone": "Call Us: +20 123 456 789",
+    "readyToStart": "Ready to Start Your Next Project?",
+    "turnIdeasToReality": "Let's turn your ideas into reality",
+    "talkToExperts": "Talk to our experts"
   },
-
   "whyChooseUs": {
     "badge": "Why Choose Us",
     "title": "The Role Of An IT Company In Adaptation And Growth",
@@ -497,20 +494,15 @@
       }
     ]
   },
-
   "partners": {
-    "badge": "Our Partners",
-    "title": "We Make Awesome IT Services For Your Newly Business",
-    "subtitle": "Work With Us",
-    "phoneNote": "For any questions",
-    "cta": "Contact Us"
+    "ourPartners": "Our Partners",
+    "subtitle": "Trusted by industry leaders worldwide",
+    "description": "We collaborate with leading companies to deliver exceptional solutions that meet the highest quality standards"
   },
-
   "caseStudies": {
     "title": "Discover Our Latest Projects",
     "button": "View All Projects"
   },
-
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "Trusted by businesses across industries",
@@ -527,7 +519,6 @@
       }
     ]
   },
-
   "pricing": {
     "title": "Pricing Plans",
     "subtitle": "Flexible plans tailored to your business needs",
@@ -565,13 +556,11 @@
       }
     }
   },
-
   "blog": {
     "title": "Latest Insights",
     "subtitle": "Stay updated with the latest trends in IT and digital transformation.",
     "readMore": "Read More"
   },
-
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to the most common questions",
@@ -590,10 +579,10 @@
       }
     ]
   },
-
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our experts",
+    "followUs": "Follow Us",
     "info": {
       "email": "info@stackhubs.com",
       "phone": "+201149958181",
@@ -610,10 +599,10 @@
       "sending": "Sending...",
       "required": "is required!",
       "requiredFields": "Please fill in all required fields!",
-      "success": "Your message has been sent successfully!"
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred while sending your message. Please try again ."  
     }
   },
-
   "loyal": {
     "subtitle": "Join the loyalty program and unlock exclusive benefits designed to accelerate your technical success.",
     "benefits": {
@@ -714,7 +703,6 @@
     "ctaDescription": "Join our global ecosystem of technology, solution, and channel partners. Grow with us.",
     "ctaButton": "Apply Now"
   },
-
   "footer": {
     "company": "Company",
     "about": "About",
@@ -728,9 +716,10 @@
     "projects": "Projects",
     "contact": "Contact Us",
     "followUs": "Follow Us",
-    "copyright": "© 2025 StackHubs. All rights reserved."
+    "copyright": "© 2025 StackHubs. All rights reserved.",
+    "mekhotek": "Design and Developed by",
+    "company name": "Mekhotek Company"
   },
-
   "navbar": {
     "theme": {
       "light": "Light Mode",
@@ -741,7 +730,6 @@
       "arabic": "العربية"
     }
   },
-
   "about": {
     "heroTitle": "Building Secure, Scalable Networks for the Digital Age",
     "heroSubtitle": "At Stackhubs, we design, deploy, and defend robust technology stacks that empower businesses to innovate fearlessly.",
@@ -789,7 +777,6 @@
       "cta": "Visit Our Website"
     }
   },
-
   "auth": {
     "name": "Name",
     "enterName": "Enter your name",
@@ -825,7 +812,6 @@
     "createAccountError": "Failed to create account",
     "welcome": "Welcome"
   },
-
   "settings": {
     "title": "Settings",
     "editProfile": "Edit Profile",
@@ -835,7 +821,6 @@
     "cancel": "Cancel",
     "profileImage": "Profile Image"
   },
-
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
@@ -843,26 +828,15 @@
     "cancel": "Cancel",
     "edit": "Edit",
     "delete": "Delete",
-    "currency": "EGP"
-  },
-  "projects": {
-    "title": "Our Projects",
-    "subtitle": "Discover our latest works and solutions.",
-    "dataAnalytics": {
-      "title": "Data Analytics System",
-      "tag": "Networking",
-      "desc": "Detailed description about Data Analytics System project."
-    },
-    "itSolution": {
-      "title": "IT Solution & Consultancy",
-      "tag": "Solution",
-      "desc": "Detailed description about IT Solution & Consultancy project."
-    },
-    "cloudSecurity": {
-      "title": "Cloud Security Service",
-      "tag": "Networking",
-      "desc": "Detailed description about Cloud Security Service project."
-    }
+    "currency": "EGP",
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "backToProjects": "Back to Projects",
+    "talkToExperts": "Talk to our experts",
+    "readyToStart": "Ready to Start Your Next Project?",
+    "turnIdeasToReality": "Let's turn your ideas into reality",
+    "projectNotFound": "Oops! Project Not Found",
+    "projectNotFoundDesc": "It seems you tried to access a project that doesn't exist or has been removed."
   },
   "store": {
     "title": "Tech Store",
@@ -936,5 +910,324 @@
     "items": "Items",
     "total": "Total",
     "backToStore": "Back to Store"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Discover our latest works and solutions."
+  },
+  "projectDetails": {
+    "project_story": "Project Story",
+    "challenge": "Challenge",
+    "approach": "Approach",
+    "outcome": "Outcome",
+    "elEzabyProject": {
+      "title": "Nationwide SD-WAN for El Ezaby Pharmacies",
+      "tag": "Networking",
+      "desc": "El Ezaby – Egypt’s #1 pharmacy network – partnered with Stackhubs to modernize connectivity across 450+ branches nationwide.",
+      "summary": "El Ezaby - Egypt’s #1 pharmacy network - partnered with Stackhubs to modernize connectivity across 450+ branches in all governorates. We designed and delivered a nationwide SD-WAN (VMware VeloCloud) with high availability at the Data Center and HQ, then rolled out one edge per branch with tiered Internet redundancy (Platinum/Gold/Silver). The entire deployment was completed in 3 months, and Stackhubs now operates the platform as a 3-year managed service, ensuring performance, security, and 24/7 support.",
+      "hero": "Modernizing pharmacy connectivity across Egypt with VMware SD-WAN.",
+      "challenge": "El Ezaby needed a resilient, secure, and centrally managed network to support critical healthcare and retail applications (ERP, e-prescriptions, POS, inventory sync, and digital services) across hundreds of locations. The legacy model made branch turn-ups slow, visibility limited, and uptime dependent on single links in many sites.",
+      "approach": "Stackhubs designed an SD-WAN architecture using VMware VeloCloud, delivering HA at the core (DC & HQ) and a standardized single-box footprint per branch. We introduced a tiered connectivity model(Platinum/Gold/Silver) so high-traffic or mission-critical locations receive more ISP diversity. Rollout followed a factory-style playbook: zero-touch provisioning, parallel site waves, and nightly cutovers — allowing the entire program to complete in three months.",
+      "outcome": "The network gained intelligent path selection, application-aware QoS, and centralized policy control. Branches now enjoy higher uptime and consistent app performance; the operations team gained real-time visibility and faster troubleshooting. Stackhubs continues to run the solution as a managed service with proactive monitoring, SLAs, and continuous optimization.",
+      "highlights": {
+        "title": "Project at a Glance",
+        "industry": "Retail Pharmacy / Healthcare",
+        "scope": "DC + HQ + 450 branches (all Egyptian governorates)",
+        "technology": "VMware VeloCloud SD-WAN",
+        "availability": "DC (2 devices), HQ (2 devices), 1 edge per branch",
+        "connectivity tiers": "Platinum / Gold / Silver (2–3 ISPs per site based on tier)",
+        "timeline": "3 months (nationwide rollout)",
+        "service model": "Managed Service (36 months) by Stackhubs"
+      },
+      "projectHighlights": {
+        "industry": "Industry",
+        "scope": "Scope",
+        "technology": "Technology",
+        "availability": "Availability",
+        "connectivity tiers": "Connectivity",
+        "timeline": "Timeline",
+        "service model": "Service"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "VeloCloud Edges (HA) at Data Center (2 devices) and HQ (2 devices).",
+          "point2": "One VeloCloud Edge per branch (≈450 sites).",
+          "point3": "Tiered access with Platinum/Gold/Silver models",
+          "point4": "Centralized VeloCloud Orchestrator for policy, templates, and zero-touch provisioning.",
+          "point5": "VeloCloud Gateways for optimized access to cloud/SaaS and dynamic multi-path optimization (DMPO)."
+        },
+        "keyCapabilities": "Key Capabilities",
+        "keyCapabilitiesPoints": {
+          "point1": "High Availability: dual devices at DC/HQ; automatic failover and state sync.",
+          "point2": "Dynamic Multi-Path Optimization (DMPO): continuous monitoring of link loss/latency/jitter; per-packet steering & remediation (FEC, jitter buffer).",
+          "point3": "Application-aware routing & QoS: prioritizes POS, ERP, pharmacy apps; throttles background traffic.",
+          "point4": "Segmentation: business-critical vs guest/IoT networks; PCI/PHI-friendly zoning patterns.",
+          "point5": "Zero-Touch Provisioning (ZTP): branch edges ship pre-profiled; plug-and-play onboarding.",
+          "point6": "Security posture: integrated stateful firewall on edges; policy-based access; optional service-insertion for cloud security.",
+          "point7": "Visibility & telemetry: real-time link analytics, app performance, per-site health, historical reporting.",
+          "point8": "Underlay agnostic: MPLS/Internet/4G/5G/FTTH supported; easy ISP substitution per tier."
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (3 Months)",
+        "steps": {
+          "design": "Design",
+          "pilot": "Pilot",
+          "wave": "Wave 1–N",
+          "acceptance": "Acceptance",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Wave-based deployment: batch scheduling by governorate/priority.",
+          "point2": "Site templates: per-tier templates to standardize config & speed QA.",
+          "point3": "Pilot → mass rollout: validate 10–15 sites, then parallelize waves (daily cutovers).",
+          "point4": "Readiness checklist: power/space/ISP ready, LAN tagging, contact windows.",
+          "point5": "Acceptance tests: app reachability, failover, QoS marking, telemetry checks."
+        }
+      },
+      "managedService": {
+        "title": "Managed Service",
+        "features": {
+          "monitoring": "24×7 Monitoring",
+          "sla": "SLA Targets (P1 ≤15min, P2 ≤1hr)",
+          "reports": "Monthly Performance Reports and Reviews",
+          "change": "Change Management",
+          "capacity": "Capacity & Growth Planning"
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "points": {
+          "point1": "Higher uptime & continuity: multi-link branches + HA core minimize outages that disrupt prescriptions and sales.",
+          "point2": "Consistent application experience: POS and ERP traffic gets priority; customer wait-time reduced.",
+          "point3": "Faster branch launches: ZTP and templated configs cut new-site activation from weeks to days/hours.",
+          "point4": "Cost optimization: leverage broadband/4G as alternatives/backup to MPLS; right-size per tier (Platinum/Gold/Silver).",
+          "point5": "Security & compliance support: traffic segmentation and centralized policy reduce risk exposure.",
+          "point6": "Actionable visibility: management dashboards shorten troubleshooting and improve planning.",
+          "point7": "Assured operations: 3-year managed service shifts run burden to Stackhubs with clear SLAs."
+        }
+      },
+      "testimonial": {
+        "companyName": "El Ezaby Pharmacies",
+        "branches": "450+ Branches Nationwide",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs delivered the entire SD-WAN across our branches in record time and now keep it running smoothly. Our stores stay online, and our teams can focus on patients and customers."
+      }
+    },
+    "ghazalaProject": {
+      "title": "Wi-Fi and Network Modernization for Ghazala Bay Hotel",
+      "tag": "Hospitality",
+      "desc": "Ghazala Bay Hotel partnered with Stackhubs to modernize its entire wireless infrastructure using Aruba Wi-Fi 6 technology.",
+      "summary": "Ghazala Bay Hotel, a luxury resort on Egypt’s North Coast, partnered with Stackhubs to modernize its entire wireless network using Aruba Wi-Fi 6 technology. The engagement replaced an aging system with a new, high-performance wireless infrastructure covering 400+ guest rooms, public areas, and outdoor zones. The project included complete RF surveys, heatmaps, and design validation with Ekahau, LAN switch upgrades, and secure segmentation for guest and staff networks. Stackhubs completed the rollout within 2 months and now provides managed wireless service and monitoring to ensure consistent connectivity for guests and operations.",
+      "hero": "Transforming guest experience through a modern Aruba Wi-Fi 6 infrastructure.",
+      "challenge": "Ghazala Bay Hotel’s legacy Wi-Fi infrastructure suffered from coverage gaps, unstable performance during peak guest load, and limited visibility for IT operations. The resort wanted to deliver a five-star digital guest experience with seamless connectivity across rooms, pools, restaurants, and outdoor areas, while also isolating staff and operational traffic for security and performance.",
+      "approach": "Stackhubs performed comprehensive on-site surveys and RF analysis using Ekahau Pro, generating precise heatmaps and channel plans for both indoor and outdoor zones. The new architecture was designed around Aruba Wi-Fi 6 access points connected to Aruba LAN switches, providing high-density coverage and central visibility through Aruba Central. VLANs and policies ensured complete segregation between guest and staff networks.Implementation was completed in 2 months, following a phased rollout that minimized downtime for guests. Each stage included post-deployment validation and signal optimization.",
+      "outcome": "Guests now experience reliable high-speed Wi-Fi in every room and public area. Staff benefit from dedicated, secure wireless access for internal systems and handheld devices. IT management gained centralized control, analytics, and alerts via Aruba Central. The new infrastructure is now operated as a managed service by Stackhubs, ensuring continuous monitoring, rapid troubleshooting, and quarterly optimization reviews.",
+      "highlights": {
+        "title": "Project at a Glance",
+        "industry": "Hospitality (Luxury Resort)",
+        "Location": "Ghazala Bay Hotel – North Coast, Egypt",
+        "technology": "Aruba Wi-Fi 6 + Aruba LAN Switches",
+        "scope": "Indoor & Outdoor coverage, 400+ rooms, public areas, staff zones",
+        "Services delivered": "Site surveys, RF planning, design (Ekahau), deployment, testing, and managed service",
+        "timeline": "2 months",
+        "Support model": "Managed Service – ongoing monitoring & optimization"
+      },
+      "projectHighlights": {
+        "industry": "Industry",
+        "Location": "Location",
+        "technology": "Technology",
+        "scope": "Scope",
+        "Services delivered": "Services Delivered",
+        "timeline": "Timeline",
+        "Support model": "Support Model"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "Aruba Wi-Fi 6 Access Points (indoor/outdoor mix) deployed across 400+ rooms and resort areas.",
+          "point2": "Aruba 2930F/6000 Series LAN Switches for edge connectivity and PoE power.",
+          "point3": "Centralized controller and Aruba Central cloud for configuration, monitoring, and analytics.",
+          "point4": "Dual SSID architecture: Guest (open captive portal) & Staff (secured 802.1X).",
+          "point5": "VLAN segmentation and QoS profiles to isolate traffic and prioritize internal applications.",
+          "point6": "Redundant uplinks and intelligent channel/airtime management."
+        },
+        "rfOptimization": {
+          "title": "RF & Performance Optimization",
+          "points": {
+            "point1": "Site surveys with Ekahau Pro for pre- and post-deployment validation.",
+            "point2": "Heatmaps and spectrum analysis to eliminate interference.",
+            "point3": "Power & channel tuning for density zones (lobby, restaurants, pool areas).",
+            "point4": "Outdoor APs with weatherproof enclosures for garden and beach coverage."
+          }
+        },
+        "management": {
+          "title": "Management & Operations",
+          "points": {
+            "point1": "Continuous monitoring through Aruba Central dashboards.",
+            "point2": "Alerting and trend reports for utilization, client experience, and interference events.",
+            "point3": "Scheduled firmware updates and proactive troubleshooting.",
+            "point4": "Monthly service reports and coverage audits under Stackhubs Managed Services."
+          }
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (2 Months)",
+        "steps": {
+          "design": "Design",
+          "survey": "Survey",
+          "pilot": "Pilot",
+          "wave": "Wave 1–N",
+          "validation": "Validation",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Wave-based deployment: Executed per building cluster or floor, starting with high-priority guest areas before guest rooms.",
+          "point2": "Standardized templates: Unified Aruba SSIDs, VLANs, and QoS policies applied through predefined configuration templates.",
+          "point3": "Pilot to mass rollout: A small pilot verified coverage and experience before scaling to parallel daily deployment waves.",
+          "point4": "Readiness checklist: Each zone confirmed for power, PoE, VLAN tagging, ISP link, and installation readiness before cutover.",
+          "point5": "Validation & acceptance: Signal strength, portal access, roaming, and telemetry were tested against design heatmaps.",
+          "point6": "Handover & managed ops: After acceptance, the network moved to Stackhubs’ 24×7 managed service for monitoring and optimization."
+        }
+      },
+      "managedService": {
+        "title": "Handover & Managed Operations",
+        "features": {
+          "monitoring": "24×7 monitoring and alerting",
+          "sla": "Monthly performance dashboards",
+          "reports": "Quarterly optimization and firmware updates",
+          "change": "Dedicated support portal for incident tracking"
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "businessOutcomes": {
+          "title": "Business Outcomes",
+          "points": {
+            "point1": "Seamless guest experience: uninterrupted Wi-Fi throughout the resort, enabling smart TV streaming, VoIP calls, and remote work.",
+            "point2": "Operational efficiency: staff handheld systems (POS, housekeeping, maintenance apps) run smoothly over a stable network.",
+            "point3": "Brand reputation uplift: improved guest satisfaction scores related to Wi-Fi reliability.",
+            "point4": "IT simplicity: centralized management reduced local troubleshooting effort by >60%.",
+            "point5": "Long-term partnership: ongoing managed service ensures the hotel's network stays optimized and secure."
+          }
+        },
+        "keyMetrics": {
+          "title": "Key Metrics",
+          "points": {
+            "point1": "Coverage reliability: >99% across all surveyed areas",
+            "point2": "Concurrent users supported: 2,500+",
+            "point3": "Incident response time: <15 minutes (managed service SLA)",
+            "point4": "Guest satisfaction (Wi-Fi rating): ↑ 40% improvement post-deployment"
+          }
+        }
+      },
+      "testimonial": {
+        "companyName": "Ghazala Bay Hotel",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs transformed our wireless network across the entire resort, delivering fast, seamless Wi-Fi for guests and staff alike. Connectivity is no longer a concern—our visitors stay connected, and our team can focus on creating an exceptional hospitality experience."
+      }
+    },
+    "habibProject": {
+      "title": "Zero Trust Transformation for Habib El Mulla Law Firm",
+      "tag": "Banking & Finance",
+      "desc": "Habib Bank AG Zurich partnered with Stackhubs to drive its digital transformation journey, enhancing customer experience and operational efficiency.",
+      "summary": "Habib El Mula, a prominent law firm based in Dubai, partnered with Stackhubs to enhance the security of its remote operations through Fortinet’s FortiSASE and Zero Trust Network Access (ZTNA) solution. The firm required a secure, compliant, and seamless way for lawyers and staff to access sensitive case files, email systems, and internal resources from anywhere.Stackhubs designed and implemented a cloud-delivered secure access platform that enforces identity-based authentication, device posture validation, and granular access policies — ensuring confidential data remains protected while enabling productivity across all remote and branch users.",
+      "hero": "Empowering banking excellence through digital innovation.",
+      "challenge": "With a growing number of lawyers and paralegals working remotely or appearing in courts across the UAE, Habib El Mula needed a secure and compliant access model to protect client data and case documents. Traditional VPNs lacked the visibility and control required for confidential legal workflows, and the firm needed a solution aligned with modern cybersecurity and privacy regulations.",
+      "approach": "Stackhubs deployed Fortinet FortiSASE with Zero Trust Network Access (ZTNA) to establish secure, identity-based connectivity for all remote users. The design replaced legacy VPNs with per-user, per-application access policies, ensuring every connection was verified through multi-factor authentication and device compliance checks. The Stackhubs team integrated FortiClient, FortiGate, and FortiSASE Cloud to deliver encrypted access to the firm’s document management systems, email, and cloud drives — without exposing the network perimeter.",
+      "outcome": "The firm’s workforce can now securely connect to internal systems and legal databases from any location, whether in court, at home, or abroad. All access is verified, encrypted, and logged for compliance, ensuring client confidentiality and adherence to data protection standards. Stackhubs continues to operate and monitor the solution as a managed security service, providing threat detection, reporting, and policy tuning to keep access frictionless and secure.",
+      "testimonial": {
+        "companyName": "Habib El Mula – Dubai",
+        "rating": "5.0 Rating",
+        "quote": "Stackhubs secured our remote operations with FortiSASE and Zero Trust, giving our lawyers instant yet controlled access to sensitive systems. We can now work confidently from anywhere without compromising client confidentiality.”"
+      },
+      "highlights": {
+        "title": "Project at a Glance",
+        "industry": "Legal Services",
+        "Location": "Dubai, UAE",
+        "technology": "Fortinet FortiSASE + ZTNA",
+        "scope": "Secure remote access for lawyers, staff, and consultants",
+        "timeline": "1 month (design, pilot, rollout)",
+        "Support model": "Managed Security & Access"
+      },
+      "projectHighlights": {
+        "industry": "Industry",
+        "Location": "Location",
+        "technology": "Technology",
+        "scope": "Scope",
+        "timeline": "Timeline",
+        "Support model": "Support Model"
+      },
+      "technicalView": {
+        "title": "Technical View (Architecture & Features)",
+        "coreDesign": "Core Design",
+        "coreDesignPoints": {
+          "point1": "FortiSASE Cloud for secure, cloud-delivered access enforcement.",
+          "point2": "FortiGate for hybrid connectivity and internal app protection.",
+          "point3": "ZTNA Policies for granular access per user and per application.",
+          "point4": "FortiClient EMS for endpoint posture, MFA, and identity verification.",
+          "point5": "FortiAnalyzer for centralized logs, compliance, and audit trails."
+        },
+        "keyCapabilities": "Key Security Features",
+        "keyCapabilitiesPoints": {
+          "point1": "Zero Trust enforcement: verify user, device, and session before granting access.",
+          "point2": "Multi-factor authentication (MFA): mandatory for all remote logins.",
+          "point3": "Encrypted session tunneling: full protection for confidential case data.",
+          "point4": "Granular access control: only authorized users can reach specific resources.",
+          "point5": "Visibility and analytics: real-time monitoring through FortiAnalyzer dashboards."
+        },
+        "UserExperience": {
+          "title": "User Experience",
+          "points": {
+            "point1": "Seamless sign-in with FortiClient SASE Agent, automatically routing users to the nearest FortiSASE edge.",
+            "point2": "Consistent, low-latency connections for lawyers traveling across the country.",
+            "point3": "Simple one-click access to corporate apps without complex VPN reconfigurations."
+          }
+        }
+      },
+      "rolloutMethod": {
+        "title": "Rollout Method (2 Months)",
+        "steps": {
+          "design": "Design",
+          "pilot": "Pilot",
+          "rollout": "Rollout",
+          "handover": "Handover",
+          "managedOps": "Managed Ops"
+        },
+        "details": {
+          "point1": "Design: Zero Trust architecture and access policies mapped to legal user roles.",
+          "point2": "Pilot: Initial deployment to key partners and remote staff for validation.",
+          "point3": "Rollout: Phased onboarding of all firm users via FortiClient and FortiSASE cloud.",
+          "point4": "Handover: Documentation, access profiles, and IT team enablement sessions.",
+          "point5": "Managed Ops: Continuous monitoring, reporting, and security updates by Stackhubs SOC."
+        }
+      },
+      "managedService": {
+        "title": "Handover & Managed Operations",
+        "features": {
+          "monitoring": "24×7 Monitoring & Alerting – Real-time visibility and automated incident response.",
+          "sla": "Performance Dashboards – Monthly reports on uptime, usage, and trends.",
+          "reports": "Optimization & Updates – Quarterly firmware and policy enhancements."
+        }
+      },
+      "businessImpact": {
+        "title": "Business Impact",
+        "businessOutcomes": {
+          "title": "Business Outcomes",
+          "points": {
+            "point1": "Confidential remote access: sensitive legal data protected by Zero Trust policies.",
+            "point2": "Regulatory compliance: secure framework aligned with UAE and GDPR privacy standards.",
+            "point3": "Operational efficiency: reduced login friction while enhancing audit control.",
+            "point4": "Simplified IT management: single cloud console for policy and access visibility.",
+            "point5": "Client trust: demonstrable commitment to data protection and legal confidentiality."
+          }
+        }
+      }
+    }
   }
 }

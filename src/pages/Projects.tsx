@@ -1,42 +1,33 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-// استورد الصور
-import project_7_1 from "@/assets/images/project_7_1.jpg";
-import project_7_2 from "@/assets/images/project_7_2.jpg";
-import project_7_3 from "@/assets/images/project_7_3.jpg";
-
+import elazaby from "@/assets/images/elazaby.jpg";
+import ghazala from "@/assets/images/ghazala.jpg";
+import habib from "@/assets/images/habib.jpg";
 const projects = [
   {
     id: 1,
-    image: project_7_1,
-    titleKey: "projects.dataAnalytics.title",
-    tagKey: "projects.dataAnalytics.tag",
-    descKey: "projects.dataAnalytics.desc",
+    key: "elEzabyProject",
+    image: elazaby,
   },
   {
     id: 2,
-    image: project_7_2,
-    titleKey: "projects.itSolution.title",
-    tagKey: "projects.itSolution.tag",
-    descKey: "projects.itSolution.desc",
+    key: "ghazalaProject",
+    image: ghazala,
   },
   {
     id: 3,
-    image: project_7_3,
-    titleKey: "projects.cloudSecurity.title",
-    tagKey: "projects.cloudSecurity.tag",
-    descKey: "projects.cloudSecurity.desc",
-  },
+    key: "habibProject",
+    image: habib,
+  }
 ];
 
 export default function Projects() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const handleProjectClick = (id: number) => {
-    navigate(`/projects/${id}`);
+  const handleProjectClick = (key: string) => {
+    navigate(`/projects/${key}`);
   };
 
   return (
@@ -68,20 +59,22 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-700 rounded-2xl shadow-md cursor-pointer overflow-hidden"
-              onClick={() => handleProjectClick(project.id)}
+              onClick={() => handleProjectClick(project.key)}
             >
               <img
                 src={project.image}
-                alt={t(project.titleKey)}
-                className="w-full h-56 object-cover"
+                alt={t(`projects.${project.key}.title`)}
+                className="w-full h-56 object-fill"
               />
               <div className="p-4">
                 <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
-                  {t(project.tagKey)}
+                  {t(`projectDetails.${project.key}.tag`)}
                 </p>
-                <h3 className="text-lg font-semibold">{t(project.titleKey)}</h3>
+                <h3 className="text-lg font-semibold">
+                  {t(`projectDetails.${project.key}.title`)} 
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                  {t(project.descKey)}
+                  {t(`projectDetails.${project.key}.desc`)}
                 </p>
               </div>
             </motion.div>
